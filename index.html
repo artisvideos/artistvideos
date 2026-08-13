@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-      content="Videos musicales de artistas">
-
+<meta name="description" content="Videos musicales de artistas">
 <title>ARTISTVIDEOS | Videos de Artistas</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -27,28 +23,19 @@ body{
     color:#fff;
 }
 
-
-/* ==================================================
-   HEADER
-================================================== */
+/* ================= HEADER ================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-
     min-height:72px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:15px 6%;
-
     background:rgba(7,7,7,.97);
-
     backdrop-filter:blur(15px);
-
     border-bottom:1px solid #222;
 }
 
@@ -70,10 +57,8 @@ nav{
 nav a{
     color:#fff;
     text-decoration:none;
-
     font-size:14px;
     font-weight:bold;
-
     transition:.3s;
 }
 
@@ -81,31 +66,21 @@ nav a:hover{
     color:#e50914;
 }
 
-
-/* ==================================================
-   HERO
-================================================== */
+/* ================= HERO ================= */
 
 .hero{
-
     min-height:520px;
-
     display:flex;
     align-items:center;
-
     padding:70px 6%;
-
     background:
-
         linear-gradient(
             90deg,
             #070707 8%,
             rgba(7,7,7,.84) 43%,
             rgba(7,7,7,.2)
         ),
-
         url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-
         center/cover no-repeat;
 }
 
@@ -115,834 +90,532 @@ nav a:hover{
 
 .hero-label{
     color:#e50914;
-
     font-size:13px;
     font-weight:bold;
-
     letter-spacing:4px;
 }
 
 .hero h1{
-
     font-size:clamp(45px,7vw,85px);
-
     line-height:.95;
-
     margin:18px 0;
 }
 
 .hero p{
-
     max-width:550px;
-
     color:#ccc;
-
     font-size:17px;
-
     line-height:1.7;
 }
 
 .hero-button{
-
     display:inline-block;
-
     margin-top:28px;
-
     padding:15px 25px;
-
     background:#e50914;
-
     color:#fff;
-
     text-decoration:none;
-
     font-weight:bold;
-
     border-radius:7px;
-
     transition:.3s;
 }
 
 .hero-button:hover{
-
     background:#ff202b;
-
     transform:translateY(-2px);
 }
 
-
-/* ==================================================
-   CONTENEDOR
-================================================== */
+/* ================= CONTENEDOR ================= */
 
 .container{
-
     width:88%;
-
     max-width:1400px;
-
     margin:auto;
 }
 
 .section{
-
     padding:50px 0;
 }
 
 .section-title{
-
     font-size:30px;
-
     margin-bottom:28px;
 }
 
 .section-title span{
-
     color:#e50914;
 }
 
-
-/* ==================================================
-   VIDEO DESTACADO
-================================================== */
+/* ================= VIDEO DESTACADO ================= */
 
 .featured{
-
     display:grid;
-
     grid-template-columns:1.6fr 1fr;
-
     gap:30px;
-
     align-items:center;
 }
 
 .featured-cover{
-
     position:relative;
-
     width:100%;
-
     aspect-ratio:16/9;
-
     overflow:hidden;
-
     border-radius:16px;
-
     background:#111;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.6);
-
+    box-shadow:0 15px 50px rgba(0,0,0,.6);
     cursor:pointer;
 }
 
 .featured-cover img{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:transform .5s;
 }
 
 .featured-cover:hover img{
-
     transform:scale(1.04);
 }
 
 .featured-overlay{
-
     position:absolute;
-
     inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.75),
-            rgba(0,0,0,.05)
-        );
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.05)
+    );
 }
 
 .featured-play{
-
     position:absolute;
-
     left:50%;
     top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    transform:translate(-50%,-50%);
     width:78px;
     height:78px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     color:#fff;
-
     border-radius:50%;
-
     font-size:28px;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.6);
-
+    box-shadow:0 8px 30px rgba(0,0,0,.6);
     transition:.3s;
 }
 
-.featured-cover:hover
-.featured-play{
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.1);
+.featured-cover:hover .featured-play{
+    transform:translate(-50%,-50%) scale(1.1);
 }
 
 .cover-title{
-
     position:absolute;
-
     left:25px;
     bottom:20px;
     right:25px;
-
     font-size:22px;
-
     font-weight:bold;
 }
 
 .featured-info{
-
     padding:10px;
 }
 
 .featured-tag{
-
     display:inline-block;
-
     padding:7px 13px;
-
     background:#e50914;
-
     border-radius:20px;
-
     font-size:11px;
-
     font-weight:bold;
-
     margin-bottom:15px;
 }
 
 .featured-info h2{
-
     font-size:35px;
-
     margin-bottom:15px;
 }
 
 .featured-info p{
-
     color:#aaa;
-
     line-height:1.7;
 }
 
 .youtube-button{
-
     display:inline-block;
-
     margin-top:22px;
-
     padding:13px 20px;
-
     background:#fff;
-
     color:#000;
-
     border-radius:7px;
-
     text-decoration:none;
-
     font-weight:bold;
-
     transition:.3s;
 }
 
 .youtube-button:hover{
-
     background:#e50914;
-
     color:#fff;
 }
 
-
-/* ==================================================
-   CONTROLES
-================================================== */
+/* ================= CONTROLES ================= */
 
 .slider-controls{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     margin-top:25px;
 }
 
 .slider-btn{
-
     width:44px;
     height:44px;
-
     border:1px solid #333;
-
     border-radius:50%;
-
     background:#151515;
-
     color:#fff;
-
     font-size:20px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .slider-btn:hover{
-
     background:#e50914;
-
     border-color:#e50914;
 }
 
 .slider-dots{
-
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     margin-left:5px;
-
     flex-wrap:wrap;
 }
 
 .slider-dot{
-
     width:8px;
     height:8px;
-
     background:#444;
-
     border-radius:50%;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .slider-dot.active{
-
     width:24px;
-
     border-radius:10px;
-
     background:#e50914;
 }
 
-
-/* ==================================================
-   BUSCADOR
-================================================== */
+/* ================= BUSCADOR ================= */
 
 .search-box{
-
     margin-bottom:30px;
 }
 
 .search-box input{
-
     width:100%;
-
     padding:17px 20px;
-
     border-radius:10px;
-
     border:1px solid #292929;
-
     outline:none;
-
     background:#141414;
-
     color:#fff;
-
     font-size:15px;
 }
 
 .search-box input:focus{
-
     border-color:#e50914;
 }
 
-
-/* ==================================================
-   VIDEOS
-================================================== */
+/* ================= VIDEOS ================= */
 
 .video-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
 .video-card{
-
     background:#121212;
-
     border-radius:13px;
-
     overflow:hidden;
-
     border:1px solid #202020;
-
     transition:.3s;
 }
 
 .video-card:hover{
-
     transform:translateY(-6px);
-
     border-color:#e50914;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.35);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .thumbnail{
-
     position:relative;
-
     width:100%;
-
     aspect-ratio:16/9;
-
     overflow:hidden;
-
     cursor:pointer;
-
     background:#181818;
 }
 
 .thumbnail img{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     transition:.4s;
 }
 
-.video-card:hover
-.thumbnail img{
-
+.video-card:hover .thumbnail img{
     transform:scale(1.07);
 }
 
 .play-button{
-
     position:absolute;
-
     left:50%;
     top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    transform:translate(-50%,-50%);
     width:60px;
     height:60px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     border-radius:50%;
-
     font-size:22px;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.5);
+    box-shadow:0 5px 20px rgba(0,0,0,.5);
 }
 
 .video-info{
-
     padding:17px;
 }
 
 .video-info h3{
-
     font-size:17px;
-
     margin-bottom:8px;
 }
 
 .video-info p{
-
     color:#888;
-
     font-size:13px;
 }
 
 .watch-button{
-
     display:inline-block;
-
     margin-top:13px;
-
     color:#e50914;
-
     font-size:13px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
-
-/* ==================================================
-   ARTISTAS
-================================================== */
+/* ================= ARTISTAS ================= */
 
 .artists-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(6,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:25px;
 }
 
 .artist{
-
     text-align:center;
-
     cursor:pointer;
 }
 
 .artist-image-box{
-
     position:relative;
-
     width:100%;
-
     aspect-ratio:1/1;
-
     overflow:hidden;
-
     border-radius:50%;
-
     border:3px solid #222;
-
     background:#151515;
-
     transition:.3s;
 }
 
 .artist-image{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     transition:.4s;
 }
 
-.artist:hover
-.artist-image-box{
-
+.artist:hover .artist-image-box{
     border-color:#e50914;
-
     transform:scale(1.04);
 }
 
-.artist:hover
-.artist-image{
-
+.artist:hover .artist-image{
     transform:scale(1.08);
 }
 
 .artist-play{
-
     position:absolute;
-
     left:50%;
     top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    transform:translate(-50%,-50%);
     width:48px;
     height:48px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     border-radius:50%;
-
     opacity:0;
-
     transition:.3s;
 }
 
-.artist:hover
-.artist-play{
-
+.artist:hover .artist-play{
     opacity:1;
 }
 
 .artist h3{
-
     margin-top:13px;
-
     font-size:15px;
 }
 
 .artist p{
-
     color:#777;
-
     font-size:12px;
-
     margin-top:5px;
 }
 
-
-/* ==================================================
-   MODAL
-================================================== */
+/* ================= MODAL ================= */
 
 .modal{
-
     position:fixed;
-
     inset:0;
-
     z-index:3000;
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
-
     background:rgba(0,0,0,.95);
 }
 
 .modal.active{
-
     display:flex;
 }
 
 .modal-content{
-
     position:relative;
-
     width:min(1000px,95vw);
-
     aspect-ratio:16/9;
-
     background:#000;
-
     border-radius:12px;
-
     overflow:hidden;
 }
 
 .modal iframe{
-
     width:100%;
     height:100%;
-
     border:0;
 }
 
 .close-modal{
-
     position:absolute;
-
     right:10px;
     top:10px;
-
     z-index:10;
-
     width:42px;
     height:42px;
-
     border:0;
-
     border-radius:50%;
-
     background:#e50914;
-
     color:#fff;
-
     font-size:25px;
-
     cursor:pointer;
 }
 
-
-/* ==================================================
-   FOOTER
-================================================== */
+/* ================= FOOTER ================= */
 
 footer{
-
     margin-top:50px;
-
     padding:40px 6%;
-
     text-align:center;
-
     border-top:1px solid #222;
-
     color:#777;
 }
 
 footer strong{
-
     color:#fff;
 }
 
-
-/* ==================================================
-   RESPONSIVE
-================================================== */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1100px){
 
     .featured{
-
         grid-template-columns:1fr;
     }
 
     .video-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .artists-grid{
-
-        grid-template-columns:
-            repeat(4,1fr);
+        grid-template-columns:repeat(4,1fr);
     }
 }
-
 
 @media(max-width:650px){
 
     header{
-
         padding:18px 5%;
-
         flex-direction:column;
-
         gap:15px;
     }
 
     nav{
-
         gap:15px;
     }
 
     nav a{
-
         font-size:12px;
     }
 
     .hero{
-
         min-height:470px;
-
         padding:55px 5%;
     }
 
     .hero h1{
-
         font-size:48px;
     }
 
     .hero p{
-
         font-size:15px;
     }
 
     .container{
-
         width:92%;
     }
 
     .video-grid{
-
         grid-template-columns:1fr;
     }
 
     .artists-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         gap:22px 15px;
     }
 
     .featured-info h2{
-
         font-size:28px;
     }
 
     .featured-play{
-
         width:65px;
         height:65px;
     }
 
     .cover-title{
-
         font-size:17px;
     }
 
     .section{
-
         padding:40px 0;
     }
 }
@@ -950,84 +623,44 @@ footer strong{
 </style>
 </head>
 
-
 <body>
-
-
-<!-- ==================================================
-     HEADER
-================================================== -->
 
 <header>
 
     <div class="logo">
-
         ARTIST<span>VIDEOS</span>
-
     </div>
 
-
     <nav>
-
-        <a href="#inicio">
-            Inicio
-        </a>
-
-        <a href="#videos">
-            Videos
-        </a>
-
-        <a href="#artistas">
-            Artistas
-        </a>
-
+        <a href="#inicio">Inicio</a>
+        <a href="#videos">Videos</a>
+        <a href="#artistas">Artistas</a>
     </nav>
 
 </header>
 
 
-
-<!-- ==================================================
-     HERO
-================================================== -->
-
-<section
-    class="hero"
-    id="inicio">
+<section class="hero" id="inicio">
 
     <div class="hero-content">
 
         <div class="hero-label">
-
             PLATAFORMA MUSICAL
-
         </div>
 
-
         <h1>
-
             VIDEOS DE<br>
             ARTISTAS
-
         </h1>
 
-
         <p>
-
-            Disfruta de videos musicales,
-            estrenos, presentaciones y
-            contenido de tus artistas
+            Disfruta de videos musicales, estrenos,
+            presentaciones y contenido de tus artistas
             favoritos en un solo lugar.
-
         </p>
 
-
-        <a
-            href="#videos"
-            class="hero-button">
-
+        <a href="#videos" class="hero-button">
             ▶ VER VIDEOS
-
         </a>
 
     </div>
@@ -1035,54 +668,35 @@ footer strong{
 </section>
 
 
-
 <main class="container">
 
 
-<!-- ==================================================
-     VIDEO DESTACADO
-================================================== -->
+<!-- ================= VIDEO DESTACADO ================= -->
 
 <section class="section">
 
     <h2 class="section-title">
-
         VIDEO <span>DESTACADO</span>
-
     </h2>
-
 
     <div class="featured">
 
-
         <div>
-
 
             <div
                 class="featured-cover"
                 onclick="playFeatured()">
 
-
                 <img
                     id="featuredImage"
-
                     src="https://img.youtube.com/vi/5lwsVDeK_Tc/hqdefault.jpg"
-
                     alt="DELIA HUANCA">
 
+                <div class="featured-overlay"></div>
 
-                <div
-                    class="featured-overlay">
-                </div>
-
-
-                <div
-                    class="featured-play">
-
+                <div class="featured-play">
                     ▶
-
                 </div>
-
 
                 <div
                     class="cover-title"
@@ -1092,14 +706,10 @@ footer strong{
 
                 </div>
 
-
             </div>
 
 
-
-            <div
-                class="slider-controls">
-
+            <div class="slider-controls">
 
                 <button
                     class="slider-btn"
@@ -1110,7 +720,6 @@ footer strong{
 
                 </button>
 
-
                 <button
                     class="slider-btn"
                     onclick="nextFeatured()"
@@ -1120,110 +729,69 @@ footer strong{
 
                 </button>
 
-
                 <div
                     class="slider-dots"
                     id="sliderDots">
-
                 </div>
 
-
             </div>
-
 
         </div>
 
 
+        <div class="featured-info">
 
-        <div
-            class="featured-info">
-
-
-            <span
-                class="featured-tag">
-
+            <span class="featured-tag">
                 VIDEO DESTACADO
-
             </span>
 
-
-            <h2
-                id="featuredTitle">
-
+            <h2 id="featuredTitle">
                 DELIA HUANCA
-
             </h2>
 
-
             <p>
-
                 Disfruta de videos musicales
-                directamente desde nuestra
-                plataforma.
-
+                directamente desde nuestra plataforma.
             </p>
-
 
             <a
                 id="youtubeLink"
-
                 href="https://youtu.be/5lwsVDeK_Tc"
-
                 target="_blank"
-
                 rel="noopener noreferrer"
-
                 class="youtube-button">
 
                 ▶ ABRIR EN YOUTUBE
 
             </a>
 
-
         </div>
-
 
     </div>
 
 </section>
 
 
+<!-- ================= VIDEOS ================= -->
 
-<!-- ==================================================
-     VIDEOS
-================================================== -->
-
-<section
-    class="section"
-    id="videos">
-
+<section class="section" id="videos">
 
     <h2 class="section-title">
-
         ÚLTIMOS <span>VIDEOS</span>
-
     </h2>
 
-
-    <div
-        class="search-box">
-
+    <div class="search-box">
 
         <input
             type="search"
-
             id="searchInput"
-
             placeholder="🔎 Buscar artista..."
-
             autocomplete="off">
 
     </div>
 
 
-
-    <div
-        class="video-grid">
+    <div class="video-grid">
 
 
         <!-- 01 DELIA HUANCA -->
@@ -1232,41 +800,26 @@ footer strong{
             class="video-card"
             data-search="delia huanca">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('5lwsVDeK_Tc')">
 
-
                 <img
                     src="https://img.youtube.com/vi/5lwsVDeK_Tc/hqdefault.jpg"
-
                     alt="DELIA HUANCA"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>DELIA HUANCA</h3>
 
-                <h3>
-                    DELIA HUANCA
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1281,48 +834,32 @@ footer strong{
         </article>
 
 
-
         <!-- 02 SOL LUCERO -->
 
         <article
             class="video-card"
             data-search="sol lucero">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('P77ADWWaHUQ')">
 
-
                 <img
                     src="https://img.youtube.com/vi/P77ADWWaHUQ/hqdefault.jpg"
-
                     alt="SOL LUCERO"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>SOL LUCERO</h3>
 
-                <h3>
-                    SOL LUCERO
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1337,48 +874,32 @@ footer strong{
         </article>
 
 
-
         <!-- 03 PURA OSADÍA -->
 
         <article
             class="video-card"
             data-search="pura osadia">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('OQ0OskwzKYA')">
 
-
                 <img
                     src="https://img.youtube.com/vi/OQ0OskwzKYA/hqdefault.jpg"
-
                     alt="PURA OSADÍA"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>PURA OSADÍA</h3>
 
-                <h3>
-                    PURA OSADÍA
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1393,48 +914,32 @@ footer strong{
         </article>
 
 
-
         <!-- 04 TU DULCE YARITA -->
 
         <article
             class="video-card"
             data-search="tu dulce yarita">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('bs2XZ3JKb3k')">
 
-
                 <img
                     src="https://img.youtube.com/vi/bs2XZ3JKb3k/hqdefault.jpg"
-
                     alt="TU DULCE YARITA"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>TU DULCE YARITA</h3>
 
-                <h3>
-                    TU DULCE YARITA
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1449,48 +954,32 @@ footer strong{
         </article>
 
 
-
         <!-- 05 CHAROSSY ROSSY -->
 
         <article
             class="video-card"
             data-search="charossy rossy">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('JfHUiui8z9Y')">
 
-
                 <img
                     src="https://img.youtube.com/vi/JfHUiui8z9Y/hqdefault.jpg"
-
                     alt="CHAROSSY ROSSY"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>CHAROSSY ROSSY</h3>
 
-                <h3>
-                    CHAROSSY ROSSY
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1505,48 +994,32 @@ footer strong{
         </article>
 
 
-
         <!-- 06 ROXY ABRIL -->
 
         <article
             class="video-card"
             data-search="roxy abril">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('AbpPXeY7pZI')">
 
-
                 <img
                     src="https://img.youtube.com/vi/AbpPXeY7pZI/hqdefault.jpg"
-
                     alt="ROXY ABRIL"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>ROXY ABRIL</h3>
 
-                <h3>
-                    ROXY ABRIL
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1561,48 +1034,32 @@ footer strong{
         </article>
 
 
-
         <!-- 07 AGRUPACIÓN YARIMAR -->
 
         <article
             class="video-card"
             data-search="agrupacion yarimar">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('lLIDov2jKmk')">
 
-
                 <img
                     src="https://img.youtube.com/vi/lLIDov2jKmk/hqdefault.jpg"
-
                     alt="AGRUPACIÓN YARIMAR"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>AGRUPACIÓN YARIMAR</h3>
 
-                <h3>
-                    AGRUPACIÓN YARIMAR
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1617,48 +1074,32 @@ footer strong{
         </article>
 
 
-
         <!-- 08 MUÑEQUITA LEYDY -->
 
         <article
             class="video-card"
             data-search="muñequita leydy">
 
-
             <div
                 class="thumbnail"
                 onclick="openVideo('Y1TSFflYa3k')">
 
-
                 <img
                     src="https://img.youtube.com/vi/Y1TSFflYa3k/hqdefault.jpg"
-
                     alt="MUÑEQUITA LEYDY"
-
                     loading="lazy">
 
-
-                <div
-                    class="play-button">
-
+                <div class="play-button">
                     ▶
-
                 </div>
-
 
             </div>
 
+            <div class="video-info">
 
-            <div
-                class="video-info">
+                <h3>MUÑEQUITA LEYDY</h3>
 
-                <h3>
-                    MUÑEQUITA LEYDY
-                </h3>
-
-                <p>
-                    Video musical
-                </p>
+                <p>Video musical</p>
 
                 <span
                     class="watch-button"
@@ -1673,342 +1114,302 @@ footer strong{
         </article>
 
 
+        <!-- 09 MIRTHA RAMOS -->
+
+        <article
+            class="video-card"
+            data-search="mirtha ramos">
+
+            <div
+                class="thumbnail"
+                onclick="openVideo('Zz2jmu33IAk')">
+
+                <img
+                    src="https://img.youtube.com/vi/Zz2jmu33IAk/hqdefault.jpg"
+                    alt="MIRTHA RAMOS"
+                    loading="lazy">
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <h3>MIRTHA RAMOS</h3>
+
+                <p>Video musical</p>
+
+                <span
+                    class="watch-button"
+                    onclick="openVideo('Zz2jmu33IAk')">
+
+                    ▶ REPRODUCIR
+
+                </span>
+
+            </div>
+
+        </article>
+
     </div>
 
 </section>
 
 
+<!-- ================= NUESTROS ARTISTAS ================= -->
 
-<!-- ==================================================
-     NUESTROS ARTISTAS
-================================================== -->
-
-<section
-    class="section"
-    id="artistas">
-
+<section class="section" id="artistas">
 
     <h2 class="section-title">
-
         NUESTROS <span>ARTISTAS</span>
-
     </h2>
 
-
-    <div
-        class="artists-grid">
+    <div class="artists-grid">
 
 
-        <!-- DELIA -->
+        <!-- 01 DELIA -->
 
         <div
             class="artist"
             onclick="openVideo('5lwsVDeK_Tc')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/5lwsVDeK_Tc/hqdefault.jpg"
-
                     alt="DELIA HUANCA"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                DELIA HUANCA
-            </h3>
+            <h3>DELIA HUANCA</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- SOL -->
+        <!-- 02 SOL -->
 
         <div
             class="artist"
             onclick="openVideo('P77ADWWaHUQ')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/P77ADWWaHUQ/hqdefault.jpg"
-
                     alt="SOL LUCERO"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                SOL LUCERO
-            </h3>
+            <h3>SOL LUCERO</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- PURA -->
+        <!-- 03 PURA -->
 
         <div
             class="artist"
             onclick="openVideo('OQ0OskwzKYA')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/OQ0OskwzKYA/hqdefault.jpg"
-
                     alt="PURA OSADÍA"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                PURA OSADÍA
-            </h3>
+            <h3>PURA OSADÍA</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- YARITA -->
+        <!-- 04 YARITA -->
 
         <div
             class="artist"
             onclick="openVideo('bs2XZ3JKb3k')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/bs2XZ3JKb3k/hqdefault.jpg"
-
                     alt="TU DULCE YARITA"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                TU DULCE YARITA
-            </h3>
+            <h3>TU DULCE YARITA</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- CHAROSSY -->
+        <!-- 05 CHAROSSY -->
 
         <div
             class="artist"
             onclick="openVideo('JfHUiui8z9Y')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/JfHUiui8z9Y/hqdefault.jpg"
-
                     alt="CHAROSSY ROSSY"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                CHAROSSY ROSSY
-            </h3>
+            <h3>CHAROSSY ROSSY</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- ROXY -->
+        <!-- 06 ROXY -->
 
         <div
             class="artist"
             onclick="openVideo('AbpPXeY7pZI')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/AbpPXeY7pZI/hqdefault.jpg"
-
                     alt="ROXY ABRIL"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                ROXY ABRIL
-            </h3>
+            <h3>ROXY ABRIL</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- YARIMAR -->
+        <!-- 07 YARIMAR -->
 
         <div
             class="artist"
             onclick="openVideo('lLIDov2jKmk')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/lLIDov2jKmk/hqdefault.jpg"
-
                     alt="AGRUPACIÓN YARIMAR"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                AGRUPACIÓN YARIMAR
-            </h3>
+            <h3>AGRUPACIÓN YARIMAR</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
 
-
-        <!-- MUÑEQUITA LEYDY -->
+        <!-- 08 MUÑEQUITA -->
 
         <div
             class="artist"
             onclick="openVideo('Y1TSFflYa3k')">
 
-            <div
-                class="artist-image-box">
+            <div class="artist-image-box">
 
                 <img
                     class="artist-image"
-
                     src="https://img.youtube.com/vi/Y1TSFflYa3k/hqdefault.jpg"
-
                     alt="MUÑEQUITA LEYDY"
-
                     loading="lazy">
 
-                <div
-                    class="artist-play">
-
+                <div class="artist-play">
                     ▶
-
                 </div>
 
             </div>
 
-            <h3>
-                MUÑEQUITA LEYDY
-            </h3>
+            <h3>MUÑEQUITA LEYDY</h3>
 
-            <p>
-                Ver video
-            </p>
+            <p>Ver video</p>
 
         </div>
 
+
+        <!-- 09 MIRTHA -->
+
+        <div
+            class="artist"
+            onclick="openVideo('Zz2jmu33IAk')">
+
+            <div class="artist-image-box">
+
+                <img
+                    class="artist-image"
+                    src="https://img.youtube.com/vi/Zz2jmu33IAk/hqdefault.jpg"
+                    alt="MIRTHA RAMOS"
+                    loading="lazy">
+
+                <div class="artist-play">
+                    ▶
+                </div>
+
+            </div>
+
+            <h3>MIRTHA RAMOS</h3>
+
+            <p>Ver video</p>
+
+        </div>
 
     </div>
 
@@ -2017,20 +1418,14 @@ footer strong{
 </main>
 
 
-
-<!-- ==================================================
-     MODAL
-================================================== -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
     id="videoModal"
     onclick="closeOutside(event)">
 
-
-    <div
-        class="modal-content">
-
+    <div class="modal-content">
 
         <button
             class="close-modal"
@@ -2041,103 +1436,83 @@ footer strong{
 
         </button>
 
-
         <iframe
             id="modalVideo"
-
             src=""
-
             title="Reproductor de video"
-
-            allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share
-            "
-
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
-
         </iframe>
-
 
     </div>
 
 </div>
 
 
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <p>
-
         © 2026
-
-        <strong>
-            ARTISTVIDEOS
-        </strong>
-
+        <strong>ARTISTVIDEOS</strong>
         · Todos los derechos reservados.
-
     </p>
 
 </footer>
 
 
-
 <script>
 
 /* ==================================================
-   VIDEOS
+   LISTA DE LOS 9 VIDEOS
 ================================================== */
 
 const featuredVideos = [
 
     {
-        id:"5lwsVDeK_Tc",
-        title:"DELIA HUANCA"
+        id: "5lwsVDeK_Tc",
+        title: "DELIA HUANCA"
     },
 
     {
-        id:"P77ADWWaHUQ",
-        title:"SOL LUCERO"
+        id: "P77ADWWaHUQ",
+        title: "SOL LUCERO"
     },
 
     {
-        id:"OQ0OskwzKYA",
-        title:"PURA OSADÍA"
+        id: "OQ0OskwzKYA",
+        title: "PURA OSADÍA"
     },
 
     {
-        id:"bs2XZ3JKb3k",
-        title:"TU DULCE YARITA"
+        id: "bs2XZ3JKb3k",
+        title: "TU DULCE YARITA"
     },
 
     {
-        id:"JfHUiui8z9Y",
-        title:"CHAROSSY ROSSY"
+        id: "JfHUiui8z9Y",
+        title: "CHAROSSY ROSSY"
     },
 
     {
-        id:"AbpPXeY7pZI",
-        title:"ROXY ABRIL"
+        id: "AbpPXeY7pZI",
+        title: "ROXY ABRIL"
     },
 
     {
-        id:"lLIDov2jKmk",
-        title:"AGRUPACIÓN YARIMAR"
+        id: "lLIDov2jKmk",
+        title: "AGRUPACIÓN YARIMAR"
     },
 
     {
-        id:"Y1TSFflYa3k",
-        title:"MUÑEQUITA LEYDY"
+        id: "Y1TSFflYa3k",
+        title: "MUÑEQUITA LEYDY"
+    },
+
+    {
+        id: "Zz2jmu33IAk",
+        title: "MIRTHA RAMOS"
     }
 
 ];
@@ -2146,69 +1521,55 @@ const featuredVideos = [
 let featuredIndex = 0;
 
 
-
 /* ==================================================
    ELEMENTOS
 ================================================== */
 
 const featuredImage =
-    document.getElementById(
-        "featuredImage"
-    );
+    document.getElementById("featuredImage");
 
 const coverTitle =
-    document.getElementById(
-        "coverTitle"
-    );
+    document.getElementById("coverTitle");
 
 const featuredTitle =
-    document.getElementById(
-        "featuredTitle"
-    );
+    document.getElementById("featuredTitle");
 
 const youtubeLink =
-    document.getElementById(
-        "youtubeLink"
-    );
+    document.getElementById("youtubeLink");
 
 const sliderDots =
-    document.getElementById(
-        "sliderDots"
-    );
-
+    document.getElementById("sliderDots");
 
 
 /* ==================================================
-   CREAR PUNTOS
+   CREAR INDICADORES
 ================================================== */
 
-featuredVideos.forEach(
-    function(video,index){
+featuredVideos.forEach(function(video,index){
 
-        const dot =
-            document.createElement(
-                "div"
-            );
+    const dot =
+        document.createElement("div");
 
-        dot.className =
-            "slider-dot";
+    dot.className = "slider-dot";
 
-        dot.onclick =
-            function(){
+    dot.setAttribute(
+        "aria-label",
+        "Mostrar " + video.title
+    );
 
-                showFeatured(index);
+    dot.onclick = function(){
 
-            };
+        showFeatured(index);
 
-        sliderDots.appendChild(dot);
+    };
 
-    }
-);
+    sliderDots.appendChild(dot);
 
+});
 
 
 /* ==================================================
-   MOSTRAR DESTACADO
+   MOSTRAR VIDEO DESTACADO
 ================================================== */
 
 function showFeatured(index){
@@ -2216,14 +1577,12 @@ function showFeatured(index){
     featuredIndex = index;
 
     const video =
-        featuredVideos[
-            featuredIndex
-        ];
+        featuredVideos[featuredIndex];
 
 
     featuredImage.src =
-        "https://img.youtube.com/vi/"
-        + video.id +
+        "https://img.youtube.com/vi/" +
+        video.id +
         "/hqdefault.jpg";
 
 
@@ -2240,29 +1599,24 @@ function showFeatured(index){
 
 
     youtubeLink.href =
-        "https://youtu.be/"
-        + video.id;
+        "https://youtu.be/" +
+        video.id;
 
 
     const dots =
-        document.querySelectorAll(
-            ".slider-dot"
+        document.querySelectorAll(".slider-dot");
+
+
+    dots.forEach(function(dot,i){
+
+        dot.classList.toggle(
+            "active",
+            i === featuredIndex
         );
 
-
-    dots.forEach(
-        function(dot,i){
-
-            dot.classList.toggle(
-                "active",
-                i === featuredIndex
-            );
-
-        }
-    );
+    });
 
 }
-
 
 
 /* ==================================================
@@ -2273,7 +1627,6 @@ function nextFeatured(){
 
     featuredIndex++;
 
-
     if(
         featuredIndex >=
         featuredVideos.length
@@ -2283,13 +1636,9 @@ function nextFeatured(){
 
     }
 
-
-    showFeatured(
-        featuredIndex
-    );
+    showFeatured(featuredIndex);
 
 }
-
 
 
 /* ==================================================
@@ -2300,38 +1649,27 @@ function previousFeatured(){
 
     featuredIndex--;
 
-
-    if(
-        featuredIndex < 0
-    ){
+    if(featuredIndex < 0){
 
         featuredIndex =
             featuredVideos.length - 1;
 
     }
 
-
-    showFeatured(
-        featuredIndex
-    );
+    showFeatured(featuredIndex);
 
 }
 
 
-
 /* ==================================================
-   CAMBIO AUTOMÁTICO
+   CAMBIO AUTOMÁTICO CADA 7 SEGUNDOS
 ================================================== */
 
-setInterval(
-    function(){
+setInterval(function(){
 
-        nextFeatured();
+    nextFeatured();
 
-    },
-    7000
-);
-
+},7000);
 
 
 /* ==================================================
@@ -2341,16 +1679,11 @@ setInterval(
 function playFeatured(){
 
     const video =
-        featuredVideos[
-            featuredIndex
-        ];
+        featuredVideos[featuredIndex];
 
-    openVideo(
-        video.id
-    );
+    openVideo(video.id);
 
 }
-
 
 
 /* ==================================================
@@ -2360,32 +1693,24 @@ function playFeatured(){
 function openVideo(videoId){
 
     const modal =
-        document.getElementById(
-            "videoModal"
-        );
+        document.getElementById("videoModal");
 
     const player =
-        document.getElementById(
-            "modalVideo"
-        );
+        document.getElementById("modalVideo");
 
 
     player.src =
-        "https://www.youtube.com/embed/"
-        + videoId +
+        "https://www.youtube.com/embed/" +
+        videoId +
         "?autoplay=1&rel=0";
 
 
-    modal.classList.add(
-        "active"
-    );
-
+    modal.classList.add("active");
 
     document.body.style.overflow =
         "hidden";
 
 }
-
 
 
 /* ==================================================
@@ -2395,22 +1720,16 @@ function openVideo(videoId){
 function closeVideo(){
 
     const modal =
-        document.getElementById(
-            "videoModal"
-        );
+        document.getElementById("videoModal");
 
     const player =
-        document.getElementById(
-            "modalVideo"
-        );
+        document.getElementById("modalVideo");
 
 
     player.src = "";
 
 
-    modal.classList.remove(
-        "active"
-    );
+    modal.classList.remove("active");
 
 
     document.body.style.overflow =
@@ -2419,9 +1738,8 @@ function closeVideo(){
 }
 
 
-
 /* ==================================================
-   CERRAR AL TOCAR AFUERA
+   CERRAR TOCANDO FUERA
 ================================================== */
 
 function closeOutside(event){
@@ -2438,9 +1756,8 @@ function closeOutside(event){
 }
 
 
-
 /* ==================================================
-   ESC
+   CERRAR CON ESC
 ================================================== */
 
 document.addEventListener(
@@ -2459,20 +1776,15 @@ document.addEventListener(
 );
 
 
-
 /* ==================================================
    BUSCADOR
 ================================================== */
 
 const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
+    document.getElementById("searchInput");
 
 const videoCards =
-    document.querySelectorAll(
-        ".video-card"
-    );
+    document.querySelectorAll(".video-card");
 
 
 searchInput.addEventListener(
@@ -2485,41 +1797,34 @@ searchInput.addEventListener(
             .trim();
 
 
-        videoCards.forEach(
-            function(card){
+        videoCards.forEach(function(card){
 
-                const text =
-                    card
-                    .getAttribute(
-                        "data-search"
-                    )
-                    .toLowerCase();
+            const text =
+                card
+                .getAttribute("data-search")
+                .toLowerCase();
 
 
-                if(
-                    text.includes(search)
-                ){
+            if(
+                text.includes(search)
+            ){
 
-                    card.style.display =
-                        "";
+                card.style.display = "";
 
-                }else{
+            }else{
 
-                    card.style.display =
-                        "none";
-
-                }
+                card.style.display = "none";
 
             }
-        );
+
+        });
 
     }
 );
 
 
-
 /* ==================================================
-   INICIAR
+   INICIAR PÁGINA
 ================================================== */
 
 showFeatured(0);
