@@ -5,15 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ARTISTVIDEOS - Videos de artistas">
 <meta name="theme-color" content="#070707">
-
 <title>ARTISTVIDEOS | Videos de Artistas</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -31,33 +25,23 @@ body{
     overflow-x:hidden;
 }
 
-button,
-input{
+button,input{
     font-family:inherit;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-
     min-height:72px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:15px 6%;
-
-    background:rgba(7,7,7,.96);
-
+    background:rgba(7,7,7,.97);
     backdrop-filter:blur(15px);
-
     border-bottom:1px solid #222;
 }
 
@@ -89,24 +73,18 @@ nav a:hover{
     color:#e50914;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HERO ================= */
 
 .hero{
     min-height:530px;
-
     display:flex;
     align-items:center;
-
     padding:70px 6%;
-
     background:
         linear-gradient(
             90deg,
             #070707 5%,
-            rgba(7,7,7,.85) 42%,
+            rgba(7,7,7,.86) 42%,
             rgba(7,7,7,.20)
         ),
         url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
@@ -139,18 +117,13 @@ nav a:hover{
 
 .hero-button{
     display:inline-block;
-
     margin-top:28px;
     padding:15px 25px;
-
     background:#e50914;
     color:#fff;
-
     text-decoration:none;
     font-weight:bold;
-
     border-radius:8px;
-
     transition:.3s;
 }
 
@@ -159,10 +132,7 @@ nav a:hover{
     transform:translateY(-2px);
 }
 
-
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* ================= CONTENEDOR ================= */
 
 .container{
     width:88%;
@@ -183,10 +153,7 @@ nav a:hover{
     color:#e50914;
 }
 
-
-/* =========================================================
-   VIDEO DESTACADO
-========================================================= */
+/* ================= DESTACADO ================= */
 
 .featured{
     display:grid;
@@ -197,29 +164,20 @@ nav a:hover{
 
 .featured-cover{
     position:relative;
-
     width:100%;
     aspect-ratio:16/9;
-
     overflow:hidden;
-
     border-radius:16px;
-
     background:#111;
-
     box-shadow:0 15px 50px rgba(0,0,0,.6);
-
     cursor:pointer;
 }
 
 .featured-cover img{
     width:100%;
     height:100%;
-
     display:block;
-
     object-fit:cover;
-
     transition:.5s;
 }
 
@@ -230,38 +188,27 @@ nav a:hover{
 .featured-overlay{
     position:absolute;
     inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.85),
-            transparent 65%
-        );
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.88),
+        transparent 65%
+    );
 }
 
 .featured-play{
     position:absolute;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     width:80px;
     height:80px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     border-radius:50%;
-
     font-size:28px;
-
     box-shadow:0 8px 30px rgba(0,0,0,.6);
-
     transition:.3s;
 }
 
@@ -271,11 +218,9 @@ nav a:hover{
 
 .cover-title{
     position:absolute;
-
     left:25px;
     right:25px;
     bottom:20px;
-
     font-size:23px;
     font-weight:bold;
 }
@@ -286,16 +231,11 @@ nav a:hover{
 
 .featured-tag{
     display:inline-block;
-
     padding:7px 13px;
-
     background:#e50914;
-
     border-radius:20px;
-
     font-size:11px;
     font-weight:bold;
-
     margin-bottom:15px;
 }
 
@@ -311,18 +251,13 @@ nav a:hover{
 
 .youtube-button{
     display:inline-block;
-
     margin-top:22px;
     padding:13px 20px;
-
     background:#fff;
     color:#000;
-
     border-radius:7px;
-
     text-decoration:none;
     font-weight:bold;
-
     transition:.3s;
 }
 
@@ -331,35 +266,24 @@ nav a:hover{
     color:#fff;
 }
 
-
-/* =========================================================
-   CONTROLES DESTACADO
-========================================================= */
+/* ================= CONTROLES ================= */
 
 .slider-controls{
     display:flex;
     align-items:center;
-
     gap:10px;
-
     margin-top:20px;
 }
 
 .slider-btn{
     width:44px;
     height:44px;
-
     border:1px solid #333;
-
     border-radius:50%;
-
     background:#151515;
     color:#fff;
-
     font-size:22px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -371,28 +295,19 @@ nav a:hover{
 .slider-dots{
     display:flex;
     align-items:center;
-
     gap:7px;
-
     margin-left:5px;
-
     flex-wrap:wrap;
 }
 
 .slider-dot{
     width:8px;
     height:8px;
-
     padding:0;
-
     border:0;
-
     background:#444;
-
     border-radius:10px;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -401,10 +316,7 @@ nav a:hover{
     background:#e50914;
 }
 
-
-/* =========================================================
-   BUSCADOR
-========================================================= */
+/* ================= BUSCADOR ================= */
 
 .search-box{
     margin-bottom:30px;
@@ -412,19 +324,13 @@ nav a:hover{
 
 .search-box input{
     width:100%;
-
     padding:17px 20px;
-
     border:1px solid #292929;
     border-radius:10px;
-
     outline:none;
-
     background:#141414;
     color:#fff;
-
     font-size:15px;
-
     transition:.3s;
 }
 
@@ -432,62 +338,42 @@ nav a:hover{
     border-color:#e50914;
 }
 
-
-/* =========================================================
-   GRID VIDEOS
-========================================================= */
+/* ================= VIDEOS ================= */
 
 .video-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
 .video-card{
     background:#121212;
-
     border:1px solid #202020;
-
     border-radius:13px;
-
     overflow:hidden;
-
     transition:.3s;
 }
 
 .video-card:hover{
     transform:translateY(-6px);
-
     border-color:#e50914;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.35);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .thumbnail{
     position:relative;
-
     width:100%;
     aspect-ratio:16/9;
-
     overflow:hidden;
-
     background:#181818;
-
     cursor:pointer;
 }
 
 .thumbnail img{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:.4s;
 }
 
@@ -497,25 +383,17 @@ nav a:hover{
 
 .play-button{
     position:absolute;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     width:60px;
     height:60px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     border-radius:50%;
-
     font-size:21px;
-
     box-shadow:0 5px 20px rgba(0,0,0,.55);
 }
 
@@ -535,28 +413,18 @@ nav a:hover{
 
 .watch-button{
     display:inline-block;
-
     margin-top:13px;
-
     color:#e50914;
-
     font-size:13px;
     font-weight:bold;
-
     cursor:pointer;
 }
 
-
-/* =========================================================
-   NUESTROS ARTISTAS
-========================================================= */
+/* ================= ARTISTAS ================= */
 
 .artists-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(6,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:28px 22px;
 }
 
@@ -567,29 +435,20 @@ nav a:hover{
 
 .artist-image-box{
     position:relative;
-
     width:100%;
     aspect-ratio:1/1;
-
     overflow:hidden;
-
     border-radius:50%;
-
     border:3px solid #222;
-
     background:#151515;
-
     transition:.3s;
 }
 
 .artist-image{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:.4s;
 }
 
@@ -604,25 +463,17 @@ nav a:hover{
 
 .artist-play{
     position:absolute;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     width:50px;
     height:50px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:#e50914;
-
     border-radius:50%;
-
     opacity:0;
-
     transition:.3s;
 }
 
@@ -632,39 +483,26 @@ nav a:hover{
 
 .artist h3{
     margin-top:13px;
-
     font-size:15px;
-
     line-height:1.3;
 }
 
 .artist p{
     color:#777;
-
     font-size:12px;
-
     margin-top:5px;
 }
 
-
-/* =========================================================
-   MODAL
-========================================================= */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
-
     inset:0;
-
     z-index:3000;
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
     padding:20px;
-
     background:rgba(0,0,0,.95);
 }
 
@@ -674,62 +512,41 @@ nav a:hover{
 
 .modal-content{
     position:relative;
-
     width:min(1000px,95vw);
-
     aspect-ratio:16/9;
-
     background:#000;
-
     border-radius:12px;
-
     overflow:hidden;
 }
 
 .modal iframe{
     width:100%;
     height:100%;
-
     border:0;
 }
 
 .close-modal{
     position:absolute;
-
     top:10px;
     right:10px;
-
     z-index:10;
-
     width:42px;
     height:42px;
-
     border:0;
-
     border-radius:50%;
-
     background:#e50914;
     color:#fff;
-
     font-size:25px;
-
     cursor:pointer;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
     margin-top:50px;
-
     padding:40px 6%;
-
     text-align:center;
-
     border-top:1px solid #222;
-
     color:#777;
 }
 
@@ -737,10 +554,7 @@ footer strong{
     color:#fff;
 }
 
-
-/* =========================================================
-   TABLET
-========================================================= */
+/* ================= TABLET ================= */
 
 @media(max-width:1100px){
 
@@ -749,28 +563,21 @@ footer strong{
     }
 
     .video-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .artists-grid{
-        grid-template-columns:
-            repeat(4,1fr);
+        grid-template-columns:repeat(4,1fr);
     }
 }
 
-
-/* =========================================================
-   CELULAR
-========================================================= */
+/* ================= CELULAR ================= */
 
 @media(max-width:650px){
 
     header{
         padding:18px 5%;
-
         flex-direction:column;
-
         gap:15px;
     }
 
@@ -784,7 +591,6 @@ footer strong{
 
     .hero{
         min-height:470px;
-
         padding:55px 5%;
     }
 
@@ -805,9 +611,7 @@ footer strong{
     }
 
     .artists-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         gap:24px 15px;
     }
 
@@ -833,11 +637,6 @@ footer strong{
     }
 }
 
-
-/* =========================================================
-   CELULAR PEQUEÑO
-========================================================= */
-
 @media(max-width:380px){
 
     .artists-grid{
@@ -852,17 +651,12 @@ footer strong{
         font-size:42px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -871,27 +665,15 @@ footer strong{
     </div>
 
     <nav>
-
-        <a href="#inicio">
-            Inicio
-        </a>
-
-        <a href="#videos">
-            Videos
-        </a>
-
-        <a href="#artistas">
-            Artistas
-        </a>
-
+        <a href="#inicio">Inicio</a>
+        <a href="#videos">Videos</a>
+        <a href="#artistas">Artistas</a>
     </nav>
 
 </header>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="inicio">
 
@@ -913,12 +695,8 @@ footer strong{
             en un solo lugar.
         </p>
 
-        <a
-            href="#videos"
-            class="hero-button">
-
+        <a href="#videos" class="hero-button">
             ▶ VER VIDEOS
-
         </a>
 
     </div>
@@ -928,22 +706,15 @@ footer strong{
 
 <main class="container">
 
-
-<!-- =====================================================
-     VIDEO DESTACADO
-===================================================== -->
+<!-- ================= VIDEO DESTACADO ================= -->
 
 <section class="section">
 
     <h2 class="section-title">
-
         VIDEO <span>DESTACADO</span>
-
     </h2>
 
-
     <div class="featured">
-
 
         <div>
 
@@ -969,7 +740,6 @@ footer strong{
 
             </div>
 
-
             <div class="slider-controls">
 
                 <button
@@ -977,22 +747,16 @@ footer strong{
                     type="button"
                     onclick="previousFeatured()"
                     aria-label="Video anterior">
-
                     ‹
-
                 </button>
-
 
                 <button
                     class="slider-btn"
                     type="button"
                     onclick="nextFeatured()"
                     aria-label="Siguiente video">
-
                     ›
-
                 </button>
-
 
                 <div
                     class="slider-dots"
@@ -1003,15 +767,13 @@ footer strong{
 
         </div>
 
-
         <div class="featured-info">
 
             <span class="featured-tag">
                 VIDEO DESTACADO
             </span>
 
-            <h2 id="featuredTitle">
-            </h2>
+            <h2 id="featuredTitle"></h2>
 
             <p>
                 Disfruta de videos musicales
@@ -1036,20 +798,13 @@ footer strong{
 </section>
 
 
-<!-- =====================================================
-     ÚLTIMOS VIDEOS
-===================================================== -->
+<!-- ================= ÚLTIMOS VIDEOS ================= -->
 
-<section
-    class="section"
-    id="videos">
+<section class="section" id="videos">
 
     <h2 class="section-title">
-
         ÚLTIMOS <span>VIDEOS</span>
-
     </h2>
-
 
     <div class="search-box">
 
@@ -1061,7 +816,6 @@ footer strong{
 
     </div>
 
-
     <div
         class="video-grid"
         id="videoGrid">
@@ -1070,20 +824,13 @@ footer strong{
 </section>
 
 
-<!-- =====================================================
-     NUESTROS ARTISTAS
-===================================================== -->
+<!-- ================= ARTISTAS ================= -->
 
-<section
-    class="section"
-    id="artistas">
+<section class="section" id="artistas">
 
     <h2 class="section-title">
-
         NUESTROS <span>ARTISTAS</span>
-
     </h2>
-
 
     <div
         class="artists-grid"
@@ -1092,22 +839,17 @@ footer strong{
 
 </section>
 
-
 </main>
 
 
-<!-- =====================================================
-     MODAL VIDEO
-===================================================== -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
     id="videoModal"
     onclick="closeOutside(event)">
 
-
     <div class="modal-content">
-
 
         <button
             class="close-modal"
@@ -1119,7 +861,6 @@ footer strong{
 
         </button>
 
-
         <iframe
             id="modalVideo"
             src=""
@@ -1128,28 +869,19 @@ footer strong{
             allowfullscreen>
         </iframe>
 
-
     </div>
 
 </div>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <p>
-
         © 2026
-
-        <strong>
-            ARTISTVIDEOS
-        </strong>
-
+        <strong>ARTISTVIDEOS</strong>
         · Todos los derechos reservados.
-
     </p>
 
 </footer>
@@ -1158,7 +890,7 @@ footer strong{
 <script>
 
 /* =========================================================
-   LISTA DE LOS 20 ARTISTAS
+   LOS 21 ARTISTAS
 ========================================================= */
 
 const artists = [
@@ -1261,6 +993,11 @@ const artists = [
     {
         name:"MAYTE SANCHEZ",
         id:"aaX6K44ffhM"
+    },
+
+    {
+        name:"AYDE MELINA",
+        id:"sRypE-tErIE"
     }
 
 ];
@@ -1294,17 +1031,31 @@ const youtubeLink =
 const sliderDots =
     document.getElementById("sliderDots");
 
+const modal =
+    document.getElementById("videoModal");
+
+const modalVideo =
+    document.getElementById("modalVideo");
+
+
+/* =========================================================
+   MINIATURA CON RESPALDO
+========================================================= */
+
+function getThumbnail(videoId){
+
+    return "https://i.ytimg.com/vi/" +
+           videoId +
+           "/hqdefault.jpg";
+
+}
+
 
 /* =========================================================
    VIDEO DESTACADO
 ========================================================= */
 
 let featuredIndex = 0;
-
-
-/* =========================================================
-   CREAR VIDEO DESTACADO
-========================================================= */
 
 function showFeatured(index){
 
@@ -1321,12 +1072,8 @@ function showFeatured(index){
     const artist =
         artists[featuredIndex];
 
-    const imageURL =
-        "https://img.youtube.com/vi/" +
-        artist.id +
-        "/hqdefault.jpg";
-
-    featuredImage.src = imageURL;
+    featuredImage.src =
+        getThumbnail(artist.id);
 
     featuredImage.alt =
         artist.name;
@@ -1341,10 +1088,8 @@ function showFeatured(index){
         "https://youtu.be/" +
         artist.id;
 
-
     const dots =
         document.querySelectorAll(".slider-dot");
-
 
     dots.forEach(function(dot,i){
 
@@ -1359,7 +1104,7 @@ function showFeatured(index){
 
 
 /* =========================================================
-   SIGUIENTE VIDEO
+   SIGUIENTE
 ========================================================= */
 
 function nextFeatured(){
@@ -1372,7 +1117,7 @@ function nextFeatured(){
 
 
 /* =========================================================
-   VIDEO ANTERIOR
+   ANTERIOR
 ========================================================= */
 
 function previousFeatured(){
@@ -1399,7 +1144,7 @@ function playFeatured(){
 
 
 /* =========================================================
-   CREAR INDICADORES
+   INDICADORES
 ========================================================= */
 
 artists.forEach(function(artist,index){
@@ -1432,12 +1177,29 @@ artists.forEach(function(artist,index){
 
 
 /* =========================================================
-   CREAR TARJETAS DE VIDEOS
+   TARJETAS DE VIDEOS
 ========================================================= */
 
 function renderVideos(list){
 
     videoGrid.innerHTML = "";
+
+    if(list.length === 0){
+
+        videoGrid.innerHTML = `
+            <p style="
+                grid-column:1/-1;
+                color:#888;
+                padding:30px 0;
+                text-align:center;
+            ">
+                No se encontraron artistas.
+            </p>
+        `;
+
+        return;
+    }
+
 
     list.forEach(function(artist){
 
@@ -1455,9 +1217,10 @@ function renderVideos(list){
                 onclick="openVideo('${artist.id}')">
 
                 <img
-                    src="https://img.youtube.com/vi/${artist.id}/hqdefault.jpg"
+                    src="${getThumbnail(artist.id)}"
                     alt="${artist.name}"
-                    loading="lazy">
+                    loading="lazy"
+                    onerror="this.src='https://img.youtube.com/vi/${artist.id}/hqdefault.jpg'">
 
                 <div class="play-button">
                     ▶
@@ -1495,12 +1258,28 @@ function renderVideos(list){
 
 
 /* =========================================================
-   CREAR NUESTROS ARTISTAS
+   NUESTROS ARTISTAS
 ========================================================= */
 
 function renderArtists(list){
 
     artistsGrid.innerHTML = "";
+
+    if(list.length === 0){
+
+        artistsGrid.innerHTML = `
+            <p style="
+                grid-column:1/-1;
+                color:#888;
+                text-align:center;
+            ">
+                No se encontraron artistas.
+            </p>
+        `;
+
+        return;
+    }
+
 
     list.forEach(function(artist){
 
@@ -1525,9 +1304,10 @@ function renderArtists(list){
 
                 <img
                     class="artist-image"
-                    src="https://img.youtube.com/vi/${artist.id}/hqdefault.jpg"
+                    src="${getThumbnail(artist.id)}"
                     alt="${artist.name}"
-                    loading="lazy">
+                    loading="lazy"
+                    onerror="this.src='https://img.youtube.com/vi/${artist.id}/hqdefault.jpg'">
 
                 <div class="artist-play">
                     ▶
@@ -1598,14 +1378,7 @@ searchInput.addEventListener(
 
 function openVideo(videoId){
 
-    const modal =
-        document.getElementById("videoModal");
-
-    const player =
-        document.getElementById("modalVideo");
-
-
-    player.src =
+    modalVideo.src =
         "https://www.youtube.com/embed/" +
         videoId +
         "?autoplay=1&rel=0";
@@ -1625,15 +1398,7 @@ function openVideo(videoId){
 
 function closeVideo(){
 
-    const modal =
-        document.getElementById("videoModal");
-
-    const player =
-        document.getElementById("modalVideo");
-
-
-    player.src = "";
-
+    modalVideo.src = "";
 
     modal.classList.remove("active");
 
@@ -1649,10 +1414,7 @@ function closeVideo(){
 
 function closeOutside(event){
 
-    if(
-        event.target.id ===
-        "videoModal"
-    ){
+    if(event.target === modal){
 
         closeVideo();
 
@@ -1662,7 +1424,7 @@ function closeOutside(event){
 
 
 /* =========================================================
-   CERRAR CON ESC
+   TECLADO
 ========================================================= */
 
 document.addEventListener(
@@ -1675,13 +1437,19 @@ document.addEventListener(
 
         }
 
-        if(event.key === "ArrowRight"){
+        if(
+            event.key === "ArrowRight" &&
+            !modal.classList.contains("active")
+        ){
 
             nextFeatured();
 
         }
 
-        if(event.key === "ArrowLeft"){
+        if(
+            event.key === "ArrowLeft" &&
+            !modal.classList.contains("active")
+        ){
 
             previousFeatured();
 
@@ -1692,18 +1460,21 @@ document.addEventListener(
 
 
 /* =========================================================
-   CAMBIO AUTOMÁTICO DEL DESTACADO
+   CAMBIO AUTOMÁTICO
 ========================================================= */
 
-setInterval(function(){
+setInterval(
+    function(){
 
-    nextFeatured();
+        nextFeatured();
 
-},7000);
+    },
+    7000
+);
 
 
 /* =========================================================
-   INICIAR PÁGINA
+   INICIAR
 ========================================================= */
 
 renderVideos(artists);
