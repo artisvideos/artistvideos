@@ -6,10 +6,13 @@
 
   <title>Mantenimiento | ARTISTVIDEOS</title>
 
-  <meta name="description"
-        content="ARTISTVIDEOS se encuentra temporalmente en mantenimiento.">
+  <meta
+    name="description"
+    content="ARTISTVIDEOS se encuentra temporalmente en mantenimiento."
+  >
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -49,14 +52,17 @@
       overflow: hidden;
     }
 
-    /* =========================================
+
+    /* =====================================
        FONDO ANIMADO
-    ========================================= */
+    ===================================== */
 
     .stars,
     .stars::before,
     .stars::after {
+
       position: fixed;
+
       inset: 0;
 
       content: "";
@@ -64,26 +70,31 @@
       pointer-events: none;
 
       background-image:
+
         radial-gradient(
           2px 2px at 20% 30%,
           rgba(255,255,255,.85),
           transparent
         ),
+
         radial-gradient(
           1px 1px at 70% 20%,
           rgba(255,255,255,.75),
           transparent
         ),
+
         radial-gradient(
           1px 1px at 40% 80%,
           rgba(255,255,255,.65),
           transparent
         ),
+
         radial-gradient(
           2px 2px at 85% 55%,
           rgba(255,0,0,.85),
           transparent
         ),
+
         radial-gradient(
           1px 1px at 10% 75%,
           rgba(255,255,255,.7),
@@ -92,20 +103,29 @@
 
       background-size: 280px 280px;
 
-      animation: estrellas 18s linear infinite;
+      animation:
+        estrellas 18s linear infinite;
     }
 
+
     .stars::before {
+
       animation-duration: 28s;
+
       opacity: .45;
     }
 
+
     .stars::after {
+
       animation-duration: 38s;
+
       opacity: .25;
     }
 
+
     @keyframes estrellas {
+
       from {
         transform: translateY(0);
       }
@@ -113,13 +133,16 @@
       to {
         transform: translateY(-280px);
       }
+
     }
 
-    /* =========================================
-       TARJETA
-    ========================================= */
+
+    /* =====================================
+       TARJETA PRINCIPAL
+    ===================================== */
 
     .card {
+
       width: min(92%, 720px);
 
       padding: 55px 30px;
@@ -132,100 +155,136 @@
 
       border-radius: 28px;
 
-      border: 1px solid rgba(255,255,255,.15);
+      border: 1px solid
+        rgba(255,255,255,.15);
 
-      background: rgba(12,12,12,.90);
+      background:
+        rgba(12,12,12,.90);
 
       box-shadow:
-        0 25px 80px rgba(0,0,0,.75),
-        0 0 60px rgba(255,0,0,.13),
-        inset 0 1px 0 rgba(255,255,255,.08);
+
+        0 25px 80px
+        rgba(0,0,0,.75),
+
+        0 0 60px
+        rgba(255,0,0,.13),
+
+        inset 0 1px 0
+        rgba(255,255,255,.08);
 
       backdrop-filter: blur(18px);
+
       -webkit-backdrop-filter: blur(18px);
     }
 
-    /* =========================================
+
+    /* =====================================
        LOGO
-    ========================================= */
+    ===================================== */
 
     .logo {
+
       width: 88px;
+
       height: 88px;
 
-      margin: 0 auto 25px;
+      margin:
+        0 auto 25px;
 
       border-radius: 24px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       font-size: 30px;
+
       font-weight: 900;
 
       color: #ffffff;
 
-      background: linear-gradient(
-        135deg,
-        #ff0000,
-        #a50000
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #ff0000,
+          #a50000
+        );
 
       box-shadow:
-        0 0 45px rgba(255,0,0,.45);
+        0 0 45px
+        rgba(255,0,0,.45);
 
-      animation: pulso 2s infinite;
+      animation:
+        pulso 2s infinite;
     }
 
+
     @keyframes pulso {
+
       0%,
       100% {
+
         transform: scale(1);
 
         box-shadow:
-          0 0 25px rgba(255,0,0,.35);
+          0 0 25px
+          rgba(255,0,0,.35);
       }
 
       50% {
+
         transform: scale(1.04);
 
         box-shadow:
-          0 0 55px rgba(255,0,0,.75);
+          0 0 55px
+          rgba(255,0,0,.75);
       }
+
     }
 
-    /* =========================================
-       BADGE
-    ========================================= */
+
+    /* =====================================
+       ETIQUETA
+    ===================================== */
 
     .badge {
+
       display: inline-block;
 
-      padding: 9px 18px;
+      padding:
+        9px 18px;
 
       border-radius: 999px;
 
       font-size: 12px;
+
       font-weight: 800;
 
       letter-spacing: 2px;
 
       color: #ffffff;
 
-      background: rgba(255,0,0,.12);
+      background:
+        rgba(255,0,0,.12);
 
-      border: 1px solid rgba(255,0,0,.5);
+      border:
+        1px solid
+        rgba(255,0,0,.5);
 
       margin-bottom: 22px;
     }
 
-    /* =========================================
+
+    /* =====================================
        TITULO
-    ========================================= */
+    ===================================== */
 
     h1 {
-      font-size: clamp(34px, 8vw, 65px);
+
+      font-size:
+        clamp(34px, 8vw, 65px);
 
       letter-spacing: 2px;
 
@@ -234,15 +293,19 @@
       color: #ffffff;
     }
 
+
     h1 span {
+
       color: #ff1111;
     }
 
-    /* =========================================
-       TEXTO
-    ========================================= */
+
+    /* =====================================
+       DESCRIPCIÓN
+    ===================================== */
 
     .description {
+
       color: #d0d0d0;
 
       font-size: 16px;
@@ -251,284 +314,242 @@
 
       max-width: 550px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
     }
 
-    /* =========================================
-       FECHAS
-    ========================================= */
 
-    .dates {
-      margin-top: 25px;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      gap: 12px;
-
-      flex-wrap: wrap;
-
-      font-size: 14px;
-
-      color: #999999;
-    }
-
-    .date {
-      padding: 9px 14px;
-
-      border-radius: 10px;
-
-      background: rgba(255,255,255,.05);
-
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .date strong {
-      color: #ffffff;
-    }
-
-    .arrow {
-      color: #ff0000;
-
-      font-size: 20px;
-
-      font-weight: bold;
-    }
-
-    /* =========================================
-       BARRA DE PROGRESO
-    ========================================= */
+    /* =====================================
+       CONTENEDOR DE LA BARRA
+    ===================================== */
 
     .progress-container {
-      width: min(440px, 88%);
 
-      height: 13px;
+      width:
+        min(440px, 88%);
 
-      margin: 32px auto 12px;
+      height: 14px;
 
-      background: #202020;
+      margin:
+        35px auto 0;
 
-      border: 1px solid #444444;
+      padding: 2px;
+
+      background:
+        #1d1d1d;
+
+      border:
+        1px solid #444444;
 
       border-radius: 50px;
 
       overflow: hidden;
 
       box-shadow:
-        0 0 18px rgba(255,0,0,.15);
+
+        0 0 18px
+        rgba(255,0,0,.18);
     }
 
+
+    /* =====================================
+       BARRA
+    ===================================== */
+
     .progress-bar {
+
       width: 0%;
 
       height: 100%;
 
       border-radius: 50px;
 
-      background: linear-gradient(
-        90deg,
-        #ff0000,
-        #ffffff,
-        #ff0000
-      );
+      background:
+
+        linear-gradient(
+          90deg,
+          #ff0000,
+          #ffffff,
+          #ff0000
+        );
 
       box-shadow:
-        0 0 18px rgba(255,0,0,.8);
+
+        0 0 18px
+        rgba(255,0,0,.85);
 
       transition:
-        width 1s ease;
+        width 1s linear;
     }
 
-    /* =========================================
+
+    /* =====================================
        PORCENTAJE
-    ========================================= */
+    ===================================== */
 
     .percentage {
-      font-size: 15px;
 
-      color: #999999;
+      margin-top: 12px;
 
-      margin-top: 10px;
-    }
-
-    .percentage strong {
       color: #ff0000;
 
-      font-size: 24px;
+      font-size: 22px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-shadow:
+
+        0 0 12px
+        rgba(255,0,0,.45);
     }
 
-    /* =========================================
-       INFORMACIÓN DE DÍAS
-    ========================================= */
 
-    .info {
-      margin-top: 15px;
+    /* =====================================
+       MENSAJE
+    ===================================== */
 
-      display: flex;
+    .small {
 
-      justify-content: center;
+      margin-top: 20px;
 
-      gap: 25px;
-
-      flex-wrap: wrap;
+      font-size: 13px;
 
       color: #888888;
-
-      font-size: 13px;
-    }
-
-    .info strong {
-      color: #ffffff;
-    }
-
-    /* =========================================
-       MENSAJE
-    ========================================= */
-
-    .message {
-      margin-top: 24px;
-
-      color: #999999;
-
-      font-size: 13px;
 
       line-height: 1.6;
     }
 
-    /* =========================================
+
+    /* =====================================
        FOOTER
-    ========================================= */
+    ===================================== */
 
     footer {
+
       margin-top: 28px;
 
-      color: #666666;
+      color: #555555;
 
       font-size: 12px;
     }
 
+
     footer strong {
+
       color: #ff0000;
     }
 
-    /* =========================================
-       CELULARES
-    ========================================= */
+
+    /* =====================================
+       RESPONSIVE
+    ===================================== */
 
     @media (max-width: 480px) {
 
       .card {
+
         width: 92%;
 
-        padding: 40px 18px;
+        padding:
+          42px 20px;
 
         border-radius: 22px;
       }
 
+
       .logo {
+
         width: 72px;
+
         height: 72px;
 
         font-size: 25px;
       }
 
+
       h1 {
+
         font-size: 38px;
       }
 
+
       .description {
+
         font-size: 15px;
       }
 
-      .dates {
-        gap: 8px;
-      }
-
-      .arrow {
-        font-size: 17px;
-      }
 
       .progress-container {
+
         width: 90%;
       }
 
-      .info {
-        gap: 12px;
-      }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================================
+
+  <!-- =====================================
        FONDO
-  ========================================= -->
+  ===================================== -->
 
   <div class="stars"></div>
 
 
-  <!-- =========================================
+  <!-- =====================================
        CONTENIDO
-  ========================================= -->
+  ===================================== -->
 
   <main class="card">
+
 
     <!-- LOGO -->
 
     <div class="logo">
+
       AV
+
     </div>
 
 
     <!-- ESTADO -->
 
     <div class="badge">
+
       MANTENIMIENTO
+
     </div>
 
 
-    <!-- TITULO -->
+    <!-- NOMBRE -->
 
     <h1>
+
       ARTIST<span>VIDEOS</span>
+
     </h1>
 
 
-    <!-- DESCRIPCIÓN -->
+    <!-- MENSAJE -->
 
     <p class="description">
-      Estamos realizando mejoras importantes
+
+      Estamos realizando algunas mejoras
       en nuestra plataforma para ofrecerte
       una experiencia más rápida, moderna y segura.
+
     </p>
 
 
-    <!-- FECHAS -->
-
-    <div class="dates">
-
-      <div class="date">
-        Inicio:
-        <strong>24 AGOSTO 2026</strong>
-      </div>
-
-      <div class="arrow">
-        →
-      </div>
-
-      <div class="date">
-        Final:
-        <strong>24 SEPTIEMBRE 2026</strong>
-      </div>
-
-    </div>
-
-
-    <!-- BARRA -->
+    <!-- =====================================
+         BARRA DE PROGRESO
+    ===================================== -->
 
     <div class="progress-container">
 
@@ -542,40 +563,21 @@
 
     <!-- PORCENTAJE -->
 
-    <div class="percentage">
+    <div
+      class="percentage"
+      id="progressText">
 
-      Progreso:
-      <strong id="progressText">0%</strong>
-
-    </div>
-
-
-    <!-- INFORMACIÓN -->
-
-    <div class="info">
-
-      <div>
-        Día:
-        <strong id="dayText">1</strong>
-        / 32
-      </div>
-
-      <div>
-        Faltan:
-        <strong id="remainingText">32</strong>
-        días
-      </div>
+      0%
 
     </div>
 
 
-    <!-- MENSAJE -->
+    <!-- MENSAJE INFERIOR -->
 
-    <div class="message">
+    <div class="small">
 
-      ARTISTVIDEOS volverá muy pronto.<br>
-
-      Gracias por tu paciencia y por seguir con nosotros.
+      Volveremos muy pronto.
+      Gracias por tu paciencia.
 
     </div>
 
@@ -590,205 +592,189 @@
 
     </footer>
 
+
   </main>
 
 
-  <!-- =========================================
+  <!-- =====================================
        JAVASCRIPT
-       24 AGOSTO → 24 SEPTIEMBRE
-  ========================================= -->
+       PROGRESO DEL 24/08/2026
+       AL 24/09/2026
+  ===================================== -->
 
   <script>
 
     /*
-      ==========================================
-      FECHAS DEL MANTENIMIENTO
-      ==========================================
+      FECHA DE INICIO
 
-      Inicio:
       24 de agosto de 2026
-
-      Final:
-      24 de septiembre de 2026
     */
 
-
-    const FECHA_INICIO =
-      new Date(2026, 7, 24, 0, 0, 0);
-
-
-    const FECHA_FINAL =
-      new Date(2026, 8, 24, 0, 0, 0);
-
-
-    /*
-      ==========================================
-      FECHA ACTUAL
-      ==========================================
-    */
-
-    const ahora = new Date();
-
-
-    /*
-      ==========================================
-      DURACIÓN TOTAL
-      ==========================================
-    */
-
-    const MILISEGUNDOS_DIA =
-      1000 * 60 * 60 * 24;
-
-
-    const duracionTotal =
-      FECHA_FINAL.getTime() -
-      FECHA_INICIO.getTime();
-
-
-    /*
-      ==========================================
-      CALCULAR PROGRESO
-      ==========================================
-    */
-
-    let progreso;
-
-
-    if (ahora <= FECHA_INICIO) {
-
-      progreso = 0;
-
-    }
-
-    else if (ahora >= FECHA_FINAL) {
-
-      progreso = 100;
-
-    }
-
-    else {
-
-      const transcurrido =
-        ahora.getTime() -
-        FECHA_INICIO.getTime();
-
-
-      progreso =
-        (transcurrido / duracionTotal) * 100;
-
-    }
-
-
-    /*
-      Redondear
-    */
-
-    progreso =
-      Math.floor(progreso * 100) / 100;
-
-
-    /*
-      ==========================================
-      DÍAS TRANSCURRIDOS
-      ==========================================
-    */
-
-    let diasTranscurridos;
-
-
-    if (ahora <= FECHA_INICIO) {
-
-      diasTranscurridos = 0;
-
-    }
-
-    else {
-
-      diasTranscurridos =
-        Math.floor(
-          (
-            ahora.getTime() -
-            FECHA_INICIO.getTime()
-          ) / MILISEGUNDOS_DIA
-        );
-
-    }
-
-
-    /*
-      ==========================================
-      DÍAS RESTANTES
-      ==========================================
-    */
-
-    let diasRestantes;
-
-
-    if (ahora >= FECHA_FINAL) {
-
-      diasRestantes = 0;
-
-    }
-
-    else {
-
-      diasRestantes =
-        Math.ceil(
-          (
-            FECHA_FINAL.getTime() -
-            ahora.getTime()
-          ) / MILISEGUNDOS_DIA
-        );
-
-    }
-
-
-    /*
-      ==========================================
-      MOSTRAR INFORMACIÓN
-      ==========================================
-    */
-
-    document.getElementById(
-      "progressBar"
-    ).style.width =
-      progreso + "%";
-
-
-    document.getElementById(
-      "progressText"
-    ).textContent =
-      Math.floor(progreso) + "%";
-
-
-    document.getElementById(
-      "dayText"
-    ).textContent =
-      Math.min(
-        diasTranscurridos + 1,
-        32
+    const fechaInicio =
+      new Date(
+        2026,
+        7,
+        24,
+        0,
+        0,
+        0
       );
 
 
-    document.getElementById(
-      "remainingText"
-    ).textContent =
-      diasRestantes;
+    /*
+      FECHA FINAL
+
+      24 de septiembre de 2026
+    */
+
+    const fechaFinal =
+      new Date(
+        2026,
+        8,
+        24,
+        0,
+        0,
+        0
+      );
 
 
     /*
-      ==========================================
-      ACTUALIZAR CADA MINUTO
-      ==========================================
+      FUNCIÓN PARA ACTUALIZAR
+      EL PROGRESO
     */
 
-    setInterval(function() {
+    function actualizarProgreso() {
 
-      location.reload();
+      const ahora =
+        new Date();
 
-    }, 60000);
+
+      let progreso = 0;
+
+
+      /*
+        Antes de comenzar
+      */
+
+      if (
+        ahora.getTime() <=
+        fechaInicio.getTime()
+      ) {
+
+        progreso = 0;
+
+      }
+
+
+      /*
+        Cuando termine
+      */
+
+      else if (
+        ahora.getTime() >=
+        fechaFinal.getTime()
+      ) {
+
+        progreso = 100;
+
+      }
+
+
+      /*
+        Durante el mantenimiento
+      */
+
+      else {
+
+        const tiempoTotal =
+          fechaFinal.getTime() -
+          fechaInicio.getTime();
+
+
+        const tiempoTranscurrido =
+          ahora.getTime() -
+          fechaInicio.getTime();
+
+
+        progreso =
+          (
+            tiempoTranscurrido /
+            tiempoTotal
+          ) * 100;
+
+      }
+
+
+      /*
+        Limitar entre 0 y 100
+      */
+
+      progreso =
+        Math.max(
+          0,
+          Math.min(
+            100,
+            progreso
+          )
+        );
+
+
+      /*
+        Porcentaje entero
+      */
+
+      const porcentaje =
+        Math.floor(progreso);
+
+
+      /*
+        Actualizar barra
+      */
+
+      const barra =
+        document.getElementById(
+          "progressBar"
+        );
+
+
+      barra.style.width =
+        progreso + "%";
+
+
+      /*
+        Actualizar texto
+      */
+
+      const texto =
+        document.getElementById(
+          "progressText"
+        );
+
+
+      texto.textContent =
+        porcentaje + "%";
+
+    }
+
+
+    /*
+      Ejecutar inmediatamente
+    */
+
+    actualizarProgreso();
+
+
+    /*
+      Actualizar cada minuto
+    */
+
+    setInterval(
+      actualizarProgreso,
+      60000
+    );
 
   </script>
+
 
 </body>
 </html>
