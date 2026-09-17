@@ -1,780 +1,2811 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Mantenimiento | ARTISTVIDEOS</title>
-
-  <meta
-    name="description"
-    content="ARTISTVIDEOS se encuentra temporalmente en mantenimiento."
-  >
-
-  <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-    }
-
-    body {
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: Arial, Helvetica, sans-serif;
-
-      color: #ffffff;
-
-      background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(255, 0, 0, 0.25),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 85% 80%,
-          rgba(255, 255, 255, 0.08),
-          transparent 35%
-        ),
-        #080808;
-
-      overflow: hidden;
-    }
-
-
-    /* =====================================
-       FONDO ANIMADO
-    ===================================== */
-
-    .stars,
-    .stars::before,
-    .stars::after {
-
-      position: fixed;
-
-      inset: 0;
-
-      content: "";
-
-      pointer-events: none;
-
-      background-image:
-
-        radial-gradient(
-          2px 2px at 20% 30%,
-          rgba(255,255,255,.85),
-          transparent
-        ),
-
-        radial-gradient(
-          1px 1px at 70% 20%,
-          rgba(255,255,255,.75),
-          transparent
-        ),
-
-        radial-gradient(
-          1px 1px at 40% 80%,
-          rgba(255,255,255,.65),
-          transparent
-        ),
-
-        radial-gradient(
-          2px 2px at 85% 55%,
-          rgba(255,0,0,.85),
-          transparent
-        ),
-
-        radial-gradient(
-          1px 1px at 10% 75%,
-          rgba(255,255,255,.7),
-          transparent
-        );
-
-      background-size: 280px 280px;
-
-      animation:
-        estrellas 18s linear infinite;
-    }
-
-
-    .stars::before {
-
-      animation-duration: 28s;
-
-      opacity: .45;
-    }
-
-
-    .stars::after {
-
-      animation-duration: 38s;
-
-      opacity: .25;
-    }
-
-
-    @keyframes estrellas {
-
-      from {
-        transform: translateY(0);
-      }
-
-      to {
-        transform: translateY(-280px);
-      }
-
-    }
-
-
-    /* =====================================
-       TARJETA PRINCIPAL
-    ===================================== */
-
-    .card {
-
-      width: min(92%, 720px);
-
-      padding: 55px 30px;
-
-      text-align: center;
-
-      position: relative;
-
-      z-index: 2;
-
-      border-radius: 28px;
-
-      border: 1px solid
-        rgba(255,255,255,.15);
-
-      background:
-        rgba(12,12,12,.90);
-
-      box-shadow:
-
-        0 25px 80px
-        rgba(0,0,0,.75),
-
-        0 0 60px
-        rgba(255,0,0,.13),
-
-        inset 0 1px 0
-        rgba(255,255,255,.08);
-
-      backdrop-filter: blur(18px);
-
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-
-    /* =====================================
-       LOGO
-    ===================================== */
-
-    .logo {
-
-      width: 88px;
-
-      height: 88px;
-
-      margin:
-        0 auto 25px;
-
-      border-radius: 24px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 30px;
-
-      font-weight: 900;
-
-      color: #ffffff;
-
-      background:
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="ARTISTVIDEOS - Plataforma musical de videos de artistas">
+<title>ARTISTVIDEOS</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+:root{
+    --red:#e50914;
+    --red-dark:#b20710;
+    --black:#080808;
+    --dark:#101010;
+    --dark2:#171717;
+    --border:#292929;
+    --text:#ffffff;
+    --muted:#999999;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+body.no-scroll{
+    overflow:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:68px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+
+    background:rgba(5,5,5,.95);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--red);
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+.nav a{
+    color:#ddd;
+    font-size:14px;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.nav a:hover{
+    color:var(--red);
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:29px;
+}
+
+/* =====================================================
+   MENÚ MÓVIL
+===================================================== */
+
+.mobile-nav{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    width:100%;
+
+    background:#0d0d0d;
+    border-bottom:1px solid #222;
+
+    padding:10px 5%;
+}
+
+.mobile-nav.open{
+    display:block;
+}
+
+.mobile-nav a{
+    display:block;
+    padding:15px 0;
+    border-bottom:1px solid #222;
+
+    color:#ddd;
+    font-weight:bold;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:680px;
+
+    display:flex;
+    align-items:center;
+
+    padding:140px 6% 90px;
+
+    position:relative;
+
+    background:
         linear-gradient(
-          135deg,
-          #ff0000,
-          #a50000
-        );
-
-      box-shadow:
-        0 0 45px
-        rgba(255,0,0,.45);
-
-      animation:
-        pulso 2s infinite;
-    }
-
-
-    @keyframes pulso {
-
-      0%,
-      100% {
-
-        transform: scale(1);
-
-        box-shadow:
-          0 0 25px
-          rgba(255,0,0,.35);
-      }
-
-      50% {
-
-        transform: scale(1.04);
-
-        box-shadow:
-          0 0 55px
-          rgba(255,0,0,.75);
-      }
-
-    }
-
-
-    /* =====================================
-       ETIQUETA
-    ===================================== */
-
-    .badge {
-
-      display: inline-block;
-
-      padding:
-        9px 18px;
-
-      border-radius: 999px;
-
-      font-size: 12px;
-
-      font-weight: 800;
-
-      letter-spacing: 2px;
-
-      color: #ffffff;
-
-      background:
-        rgba(255,0,0,.12);
-
-      border:
-        1px solid
-        rgba(255,0,0,.5);
-
-      margin-bottom: 22px;
-    }
-
-
-    /* =====================================
-       TITULO
-    ===================================== */
-
-    h1 {
-
-      font-size:
-        clamp(34px, 8vw, 65px);
-
-      letter-spacing: 2px;
-
-      margin-bottom: 15px;
-
-      color: #ffffff;
-    }
-
-
-    h1 span {
-
-      color: #ff1111;
-    }
-
-
-    /* =====================================
-       DESCRIPCIÓN
-    ===================================== */
-
-    .description {
-
-      color: #d0d0d0;
-
-      font-size: 16px;
-
-      line-height: 1.7;
-
-      max-width: 550px;
-
-      margin:
-        0 auto;
-    }
-
-
-    /* =====================================
-       CONTENEDOR DE LA BARRA
-    ===================================== */
-
-    .progress-container {
-
-      width:
-        min(440px, 88%);
-
-      height: 14px;
-
-      margin:
-        35px auto 0;
-
-      padding: 2px;
-
-      background:
-        #1d1d1d;
-
-      border:
-        1px solid #444444;
-
-      border-radius: 50px;
-
-      overflow: hidden;
-
-      box-shadow:
-
-        0 0 18px
-        rgba(255,0,0,.18);
-    }
-
-
-    /* =====================================
-       BARRA
-    ===================================== */
-
-    .progress-bar {
-
-      width: 0%;
-
-      height: 100%;
-
-      border-radius: 50px;
-
-      background:
-
+            90deg,
+            #080808 3%,
+            rgba(8,8,8,.90) 35%,
+            rgba(8,8,8,.35) 75%,
+            rgba(8,8,8,.10)
+        ),
         linear-gradient(
-          90deg,
-          #ff0000,
-          #ffffff,
-          #ff0000
+            0deg,
+            #080808 0%,
+            transparent 45%
+        ),
+        url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.hero-tag{
+    display:inline-block;
+
+    background:var(--red);
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,85px);
+
+    line-height:.93;
+
+    font-weight:900;
+
+    margin-bottom:23px;
+}
+
+.hero h1 span{
+    color:var(--red);
+}
+
+.hero p{
+    max-width:620px;
+
+    color:#ccc;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+
+    border-radius:7px;
+
+    padding:14px 22px;
+
+    font-weight:800;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn-primary:hover{
+    background:var(--red);
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:rgba(60,60,60,.85);
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    background:#444;
+}
+
+/* =====================================================
+   BUSCADOR
+===================================================== */
+
+.search-area{
+    padding:25px 5%;
+}
+
+.search-box{
+    max-width:900px;
+    margin:auto;
+
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    height:55px;
+
+    padding:0 55px 0 20px;
+
+    border:1px solid var(--border);
+    border-radius:30px;
+
+    outline:none;
+
+    background:#151515;
+    color:#fff;
+
+    font-size:15px;
+
+    transition:.25s;
+}
+
+.search-box input:focus{
+    border-color:var(--red);
+
+    box-shadow:
+        0 0 0 2px rgba(229,9,20,.12);
+}
+
+.search-icon{
+    position:absolute;
+
+    right:20px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#aaa;
+
+    font-size:18px;
+}
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.section{
+    padding:35px 5%;
+}
+
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:25px;
+    font-weight:900;
+}
+
+.section-title::before{
+    content:"";
+
+    display:inline-block;
+
+    width:5px;
+    height:24px;
+
+    margin-right:10px;
+
+    vertical-align:-3px;
+
+    border-radius:5px;
+
+    background:var(--red);
+}
+
+/* =====================================================
+   DESTACADO
+===================================================== */
+
+.featured{
+    padding:35px 5%;
+}
+
+.featured-card{
+    position:relative;
+
+    min-height:460px;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    background:#111;
+}
+
+.featured-bg{
+    position:absolute;
+    inset:0;
+}
+
+.featured-bg img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.featured-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 4%,
+            rgba(5,5,5,.86) 35%,
+            rgba(5,5,5,.20) 75%
+        ),
+        linear-gradient(
+            0deg,
+            #050505 0%,
+            transparent 50%
         );
+}
 
-      box-shadow:
+.featured-content{
+    position:relative;
 
-        0 0 18px
-        rgba(255,0,0,.85);
+    z-index:2;
 
-      transition:
-        width 1s linear;
+    min-height:460px;
+
+    padding:55px;
+
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+
+    max-width:700px;
+}
+
+.featured-small{
+    color:var(--red);
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+.featured-content h2{
+    font-size:clamp(35px,5vw,65px);
+
+    line-height:1;
+
+    margin-bottom:15px;
+}
+
+.featured-content p{
+    color:#ccc;
+
+    line-height:1.6;
+
+    margin-bottom:23px;
+}
+
+.featured-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.slider-buttons{
+    position:absolute;
+
+    z-index:5;
+
+    right:25px;
+    bottom:25px;
+
+    display:flex;
+    gap:8px;
+}
+
+.slider-buttons button{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid #555;
+
+    background:rgba(0,0,0,.65);
+
+    color:#fff;
+
+    font-size:23px;
+}
+
+.slider-buttons button:hover{
+    background:var(--red);
+
+    border-color:var(--red);
+}
+
+.slider-dots{
+    position:absolute;
+
+    z-index:5;
+
+    left:55px;
+    bottom:32px;
+
+    display:flex;
+
+    gap:6px;
+}
+
+.slider-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#777;
+
+    transition:.25s;
+}
+
+.slider-dot.active{
+    width:25px;
+
+    border-radius:10px;
+
+    background:var(--red);
+}
+
+/* =====================================================
+   GRID DE VIDEOS
+===================================================== */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:17px;
+}
+
+.card{
+    min-width:0;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:#111;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45);
+}
+
+.card-thumb{
+    position:relative;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    background:#161616;
+
+    cursor:pointer;
+}
+
+.card-thumb img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.35s;
+}
+
+.card:hover .card-thumb img{
+    transform:scale(1.06);
+}
+
+.play-circle{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.30);
+
+    opacity:0;
+
+    transition:.25s;
+}
+
+.card:hover .play-circle{
+    opacity:1;
+}
+
+.play-circle span{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--red);
+
+    font-size:20px;
+}
+
+.card-info{
+    padding:12px 12px 7px;
+}
+
+.card-info h3{
+    font-size:14px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.card-info p{
+    color:#777;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+.card-actions{
+    display:flex;
+
+    gap:6px;
+
+    padding:0 12px 12px;
+}
+
+.card-actions button{
+    flex:1;
+
+    border:1px solid var(--border);
+
+    border-radius:5px;
+
+    padding:7px 4px;
+
+    background:#181818;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    transition:.2s;
+}
+
+.card-actions button:hover,
+.card-actions button.active{
+    background:#2a1010;
+
+    color:#fff;
+
+    border-color:var(--red);
+}
+
+/* =====================================================
+   SIN RESULTADOS
+===================================================== */
+
+.no-results{
+    display:none;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+    color:#888;
+}
+
+.no-results strong{
+    display:block;
+
+    color:#fff;
+
+    font-size:20px;
+
+    margin-bottom:7px;
+}
+
+/* =====================================================
+   NOSOTROS
+===================================================== */
+
+.about{
+    padding:70px 5%;
+}
+
+.about-box{
+    max-width:950px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:45px 25px;
+
+    border:1px solid #222;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #0d0d0d
+        );
+}
+
+.about-box h2{
+    font-size:32px;
+
+    margin-bottom:15px;
+}
+
+.about-box h2 span{
+    color:var(--red);
+}
+
+.about-box p{
+    max-width:750px;
+
+    margin:auto;
+
+    color:#aaa;
+
+    line-height:1.8;
+}
+
+/* =====================================================
+   REDES SOCIALES
+===================================================== */
+
+.social{
+    padding:45px 5%;
+
+    text-align:center;
+}
+
+.social h2{
+    margin-bottom:25px;
+
+    font-size:23px;
+}
+
+.social-links{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.social-links a{
+    min-width:145px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:12px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    background:#111;
+
+    color:#ddd;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:var(--red);
+
+    border-color:var(--red);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+}
+
+.social-links svg{
+    width:22px;
+    height:22px;
+
+    fill:currentColor;
+}
+
+.social-links .instagram svg{
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    border-top:1px solid #222;
+
+    padding:30px 5%;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+footer strong{
+    color:#fff;
+}
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:58px;
+    height:58px;
+
+    z-index:900;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:#fff;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.45);
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+.whatsapp svg{
+    width:31px;
+    height:31px;
+
+    fill:currentColor;
+}
+
+/* =====================================================
+   MODAL YOUTUBE
+===================================================== */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.92);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    position:relative;
+
+    width:min(1000px,100%);
+
+    background:#111;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.7);
+}
+
+.video-wrapper{
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    background:#000;
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:100%;
+
+    border:0;
+}
+
+.close-modal{
+    position:absolute;
+
+    right:12px;
+    top:12px;
+
+    z-index:5;
+
+    width:40px;
+    height:40px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.85);
+
+    color:#fff;
+
+    font-size:23px;
+}
+
+.close-modal:hover{
+    background:var(--red);
+}
+
+.modal-title{
+    padding:15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .grid{
+        grid-template-columns:repeat(4,1fr);
     }
 
+}
 
-    /* =====================================
-       PORCENTAJE
-    ===================================== */
+@media(max-width:800px){
 
-    .percentage {
-
-      margin-top: 12px;
-
-      color: #ff0000;
-
-      font-size: 22px;
-
-      font-weight: 800;
-
-      letter-spacing: 1px;
-
-      text-shadow:
-
-        0 0 12px
-        rgba(255,0,0,.45);
+    .nav{
+        display:none;
     }
 
-
-    /* =====================================
-       MENSAJE
-    ===================================== */
-
-    .small {
-
-      margin-top: 20px;
-
-      font-size: 13px;
-
-      color: #888888;
-
-      line-height: 1.6;
+    .menu-btn{
+        display:block;
     }
 
-
-    /* =====================================
-       FOOTER
-    ===================================== */
-
-    footer {
-
-      margin-top: 28px;
-
-      color: #555555;
-
-      font-size: 12px;
+    .grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
+}
 
-    footer strong {
+@media(max-width:600px){
 
-      color: #ff0000;
+    .header{
+        padding:0 18px;
     }
 
-
-    /* =====================================
-       RESPONSIVE
-    ===================================== */
-
-    @media (max-width: 480px) {
-
-      .card {
-
-        width: 92%;
-
-        padding:
-          42px 20px;
-
-        border-radius: 22px;
-      }
-
-
-      .logo {
-
-        width: 72px;
-
-        height: 72px;
-
-        font-size: 25px;
-      }
-
-
-      h1 {
-
-        font-size: 38px;
-      }
-
-
-      .description {
-
-        font-size: 15px;
-      }
-
-
-      .progress-container {
-
-        width: 90%;
-      }
-
+    .logo{
+        font-size:21px;
     }
 
-  </style>
+    .hero{
+        min-height:620px;
+
+        padding:125px 20px 70px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #080808 0%,
+                rgba(8,8,8,.72)
+            ),
+            linear-gradient(
+                0deg,
+                #080808 0%,
+                transparent 50%
+            ),
+            url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80")
+            center/cover no-repeat;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section,
+    .featured,
+    .search-area,
+    .about,
+    .social{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:11px;
+    }
+
+    .card-info{
+        padding:9px 9px 5px;
+    }
+
+    .card-info h3{
+        font-size:12px;
+    }
+
+    .card-actions{
+        padding:0 9px 9px;
+    }
+
+    .card-actions button{
+        font-size:9px;
+        padding:6px 2px;
+    }
+
+    .featured-card{
+        min-height:500px;
+    }
+
+    .featured-content{
+        min-height:500px;
+
+        padding:30px 25px 75px;
+    }
+
+    .featured-content h2{
+        font-size:40px;
+    }
+
+    .slider-dots{
+        left:25px;
+
+        bottom:28px;
+    }
+
+    .slider-buttons{
+        right:18px;
+
+        bottom:18px;
+    }
+
+    .section-title{
+        font-size:20px;
+    }
+
+    .social-links{
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:10px;
+    }
+
+    .social-links a{
+        min-width:0;
+
+        padding:12px 8px;
+    }
+
+    .whatsapp{
+        width:54px;
+        height:54px;
+
+        right:16px;
+        bottom:16px;
+    }
+
+}
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .btn{
+        width:100%;
+
+        justify-content:center;
+    }
+
+    .grid{
+        gap:8px;
+    }
+
+}
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero-content{
+    animation:fadeUp .8s ease both;
+}
+
+</style>
 </head>
-
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- =====================================
-       FONDO
-  ===================================== -->
+<header class="header">
 
-  <div class="stars"></div>
+    <a href="#inicio" class="logo">
+        ARTIST<span>VIDEOS</span>
+    </a>
 
+    <nav class="nav">
 
-  <!-- =====================================
-       CONTENIDO
-  ===================================== -->
+        <a href="#inicio">Inicio</a>
 
-  <main class="card">
+        <a href="#artistas">Artistas</a>
 
+        <a href="#generos">Géneros</a>
 
-    <!-- LOGO -->
+        <a href="#exclusivos">Exclusivos</a>
 
-    <div class="logo">
+        <a href="#nosotros">Nosotros</a>
 
-      AV
+    </nav>
 
-    </div>
-
-
-    <!-- ESTADO -->
-
-    <div class="badge">
-
-      MANTENIMIENTO
-
-    </div>
-
-
-    <!-- NOMBRE -->
-
-    <h1>
-
-      ARTIST<span>VIDEOS</span>
-
-    </h1>
-
-
-    <!-- MENSAJE -->
-
-    <p class="description">
-
-      Estamos realizando algunas mejoras
-      en nuestra plataforma para ofrecerte
-      una experiencia más rápida, moderna y segura.
-
-    </p>
-
-
-    <!-- =====================================
-         BARRA DE PROGRESO
-    ===================================== -->
-
-    <div class="progress-container">
-
-      <div
-        class="progress-bar"
-        id="progressBar">
-      </div>
-
-    </div>
-
-
-    <!-- PORCENTAJE -->
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Abrir menú"
+    >
+        ☰
+    </button>
 
     <div
-      class="percentage"
-      id="progressText">
+        class="mobile-nav"
+        id="mobileNav"
+    >
 
-      0%
+        <a href="#inicio">Inicio</a>
+
+        <a href="#artistas">Artistas</a>
+
+        <a href="#generos">Géneros</a>
+
+        <a href="#exclusivos">Exclusivos</a>
+
+        <a href="#nosotros">Nosotros</a>
 
     </div>
 
+</header>
 
-    <!-- MENSAJE INFERIOR -->
 
-    <div class="small">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-      Volveremos muy pronto.
-      Gracias por tu paciencia.
+<main id="inicio">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            PLATAFORMA MUSICAL
+        </div>
+
+        <h1>
+            VIDEOS DE<br>
+            <span>ARTISTAS</span>
+        </h1>
+
+        <p>
+            Descubre música, artistas y videos de todo el Perú
+            en un solo lugar. Bienvenido a ARTISTVIDEOS.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="scrollToArtists()"
+            >
+                ▶ VER VIDEOS
+            </button>
+
+            <button
+                class="btn btn-secondary"
+                onclick="document.getElementById('generos').scrollIntoView()"
+            >
+                EXPLORAR
+            </button>
+
+        </div>
 
     </div>
 
-
-    <!-- FOOTER -->
-
-    <footer>
-
-      © 2026
-      <strong>ARTISTVIDEOS</strong>
-      · Todos los derechos reservados
-
-    </footer>
+</section>
 
 
-  </main>
+<!-- =====================================================
+     BUSCADOR
+===================================================== -->
+
+<div class="search-area">
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔎 Buscar artista..."
+            autocomplete="off"
+        >
+
+    </div>
+
+</div>
 
 
-  <!-- =====================================
-       JAVASCRIPT
-       PROGRESO DEL 24/08/2026
-       AL 24/09/2026
-  ===================================== -->
+<!-- =====================================================
+     ARTISTA DESTACADO
+===================================================== -->
 
-  <script>
+<section class="featured">
 
-    /*
-      FECHA DE INICIO
+    <div class="featured-card">
 
-      24 de agosto de 2026
-    */
+        <div class="featured-bg">
 
-    const fechaInicio =
-      new Date(
-        2026,
-        7,
-        24,
-        0,
-        0,
-        0
-      );
+            <img
+                id="featuredImage"
+                src=""
+                alt="Artista destacado"
+            >
 
+        </div>
 
-    /*
-      FECHA FINAL
+        <div class="featured-overlay"></div>
 
-      24 de septiembre de 2026
-    */
+        <div class="featured-content">
 
-    const fechaFinal =
-      new Date(
-        2026,
-        8,
-        24,
-        0,
-        0,
-        0
-      );
+            <div class="featured-small">
+                ARTISTA DESTACADO
+            </div>
 
+            <h2 id="featuredTitle">
+                ARTISTVIDEOS
+            </h2>
 
-    /*
-      FUNCIÓN PARA ACTUALIZAR
-      EL PROGRESO
-    */
+            <p>
+                Disfruta los mejores videos de nuestros artistas
+                directamente desde ARTISTVIDEOS.
+            </p>
 
-    function actualizarProgreso() {
+            <div class="featured-actions">
 
-      const ahora =
-        new Date();
+                <button
+                    class="btn btn-primary"
+                    id="featuredPlay"
+                >
+                    ▶ REPRODUCIR
+                </button>
 
+                <button
+                    class="btn btn-secondary"
+                    id="featuredShare"
+                >
+                    ↗ COMPARTIR
+                </button>
 
-      let progreso = 0;
+            </div>
 
+        </div>
 
-      /*
-        Antes de comenzar
-      */
+        <div
+            class="slider-dots"
+            id="sliderDots"
+        ></div>
 
-      if (
-        ahora.getTime() <=
-        fechaInicio.getTime()
-      ) {
+        <div class="slider-buttons">
 
-        progreso = 0;
+            <button
+                id="prevBtn"
+                aria-label="Anterior"
+            >
+                ‹
+            </button>
 
-      }
+            <button
+                id="nextBtn"
+                aria-label="Siguiente"
+            >
+                ›
+            </button>
 
+        </div>
 
-      /*
-        Cuando termine
-      */
+    </div>
 
-      else if (
-        ahora.getTime() >=
-        fechaFinal.getTime()
-      ) {
-
-        progreso = 100;
-
-      }
-
-
-      /*
-        Durante el mantenimiento
-      */
-
-      else {
-
-        const tiempoTotal =
-          fechaFinal.getTime() -
-          fechaInicio.getTime();
+</section>
 
 
-        const tiempoTranscurrido =
-          ahora.getTime() -
-          fechaInicio.getTime();
+<!-- =====================================================
+     NUESTROS ARTISTAS
+===================================================== -->
+
+<section
+    class="section"
+    id="artistas"
+>
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            NUESTROS ARTISTAS
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="artistGrid"
+    ></div>
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        <strong>
+            No encontramos artistas
+        </strong>
+
+        Prueba con otro nombre.
+
+    </div>
+
+</section>
 
 
-        progreso =
-          (
-            tiempoTranscurrido /
-            tiempoTotal
-          ) * 100;
+<!-- =====================================================
+     GENEROS
+===================================================== -->
 
-      }
+<div id="generos">
 
 
-      /*
-        Limitar entre 0 y 100
-      */
+<!-- HUAYNO -->
 
-      progreso =
-        Math.max(
-          0,
-          Math.min(
-            100,
-            progreso
-          )
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            HUAYNO SUREÑO
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="huaynoGrid"
+    ></div>
+
+</section>
+
+
+<!-- CUMBIA -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            CUMBIA SUREÑA
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="cumbiaGrid"
+    ></div>
+
+</section>
+
+
+<!-- REQUINTO -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            REQUINTO PERUANO
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="requintoGrid"
+    ></div>
+
+</section>
+
+
+<!-- SALAY -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            SALAY MUNDIAL
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="salayGrid"
+    ></div>
+
+</section>
+
+
+<!-- FLORELISA -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            FLORELISA
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="florelisaGrid"
+    ></div>
+
+</section>
+
+</div>
+
+
+<!-- =====================================================
+     POPULARES
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            VIDEOS POPULARES
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="popularGrid"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     NUEVOS ESTRENOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            NUEVOS ESTRENOS
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="newGrid"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     EXCLUSIVOS
+===================================================== -->
+
+<section
+    class="section"
+    id="exclusivos"
+>
+
+    <div class="section-head">
+
+        <h2 class="section-title">
+            ARTISTAS EXCLUSIVOS 2026
+        </h2>
+
+    </div>
+
+    <div
+        class="grid"
+        id="exclusiveGrid"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     NOSOTROS
+===================================================== -->
+
+<section
+    class="about"
+    id="nosotros"
+>
+
+    <div class="about-box">
+
+        <h2>
+            Sobre
+            <span>ARTISTVIDEOS</span>
+        </h2>
+
+        <p>
+            ARTISTVIDEOS es una plataforma musical creada para
+            descubrir y disfrutar videos de artistas.
+            Nuestro objetivo es brindar un espacio moderno para
+            la música peruana y sus diferentes géneros.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REDES SOCIALES
+===================================================== -->
+
+<section class="social">
+
+    <h2>
+        SÍGUENOS EN NUESTRAS REDES
+    </h2>
+
+    <div class="social-links">
+
+        <!-- FACEBOOK -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11 10.13 11.93v-8.43H7.08v-3.5h3.05V9.41c0-3.04 1.79-4.72 4.57-4.72 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.28h3.35l-.54 3.5h-2.81V24C19.61 23.07 24 18.09 24 12.07z"/>
+
+            </svg>
+
+            <span>Facebook</span>
+
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            aria-label="YouTube"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M23.5 6.2a3.01 3.01 0 0 0-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3.01 3.01 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3.01 3.01 0 0 0 2.12 2.13c1.88.57 9.38.57 9.38.57s7.5 0 9.38-.57a3.01 3.01 0 0 0 2.12-2.13A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8z"/>
+
+                <polygon
+                    points="9.75,15.5 9.75,8.5 16,12"
+                    fill="#080808"
+                />
+
+            </svg>
+
+            <span>YouTube</span>
+
+        </a>
+
+
+        <!-- TIKTOK -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.16V2h-3.93v13.67a2.89 2.89 0 1 1-2-2.74V8.91a6.82 6.82 0 1 0 5.9 6.76V8.14a8.72 8.72 0 0 0 5.1 1.64V5.87a4.84 4.84 0 0 1-1.3-.18z"/>
+
+            </svg>
+
+            <span>TikTok</span>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="instagram"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <rect
+                    x="2.5"
+                    y="2.5"
+                    width="19"
+                    height="19"
+                    rx="5"
+                />
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4.2"
+                />
+
+                <circle
+                    cx="17.7"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                />
+
+            </svg>
+
+            <span>Instagram</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026
+        <strong>ARTISTVIDEOS</strong>.
+        Todos los derechos reservados.
+    </p>
+
+    <p style="margin-top:7px;">
+        Plataforma musical de videos de artistas.
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/51956461177"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp"
+>
+
+    <svg viewBox="0 0 24 24">
+
+        <path d="M20.52 3.48A11.87 11.87 0 0 0 12.06 0C5.5 0 .17 5.33.17 11.89c0 2.1.55 4.15 1.6 5.96L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.88-5.33 11.88-11.89 0-3.17-1.23-6.15-3.42-8.43zM12.06 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.23-.37a9.87 9.87 0 0 1-1.52-5.28C2.16 6.43 6.6 2 12.06 2c2.65 0 5.14 1.03 7.01 2.91a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.89-9.91 9.89zm5.43-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.52.07-.8.37-.28.3-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.35z"/>
+
+    </svg>
+
+</a>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="videoModal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            id="closeModal"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+        <div class="video-wrapper">
+
+            <iframe
+                id="youtubeFrame"
+                src=""
+                title="Video ARTISTVIDEOS"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        <div
+            class="modal-title"
+            id="modalTitle"
+        >
+            ARTISTVIDEOS
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   ARTISTAS PRINCIPALES
+===================================================== */
+
+const artists = [
+
+    {name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
+    {name:"SOL LUCERO",id:"P77ADWWaHUQ"},
+    {name:"PURA OSADÍA",id:"OQ0OskwzKYA"},
+    {name:"TU DULCE YARITA",id:"bs2XZ3JKb3k"},
+    {name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
+    {name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
+    {name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
+    {name:"MUÑEQUITA LEYDY",id:"Y1TSFflYa3k"},
+    {name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
+    {name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
+    {name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
+    {name:"ISABEL VELA",id:"u6vHqUwYh2g"},
+    {name:"PILAR YUCRA",id:"z3xTrQJ05Sc"},
+    {name:"LUZ MERY CRUZ",id:"kvN0fxr-FE0"},
+    {name:"SENAYDA BUSTINZA",id:"hoG2N6usbUU"},
+    {name:"ROSALI SILES",id:"tGmiQndb98Q"},
+    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
+    {name:"YANDEL HERRERA",id:"drSB_Bfgrzo"},
+    {name:"ELY MONRROY",id:"arim2IkbFzU"},
+    {name:"MAYTE SANCHEZ",id:"aaX6K44ffhM"},
+    {name:"AYDE MELINA",id:"sRypE-tErIE"},
+    {name:"ANITA LIZBETH",id:"X_Ia4kMQSjI"},
+    {name:"ABRIL ISABEL",id:"jNVEQ8dmay4"},
+    {name:"LEILA SUCATICONA",id:"ij82q1rxX2c"},
+    {name:"ANYI SULLCA",id:"OSXjqIUhR40"},
+    {name:"FIORELA ARROYO",id:"Fi38qAEez_E"},
+    {name:"DULCE BEATRIZ",id:"z9b6nNiHZqY"},
+    {name:"RUTH CURO",id:"pl83mx0OaeI"},
+    {name:"NICKOL RAMOS",id:"Q7XJtz9RXcU"},
+    {name:"XIOMARA CALIZAYA",id:"m7pFEbhrV1o"},
+    {name:"MIRIAM MOLINA",id:"mpGGEEdO-V0"},
+    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"},
+    {name:"DIANITA POMA",id:"uZNmfInVmB0"},
+    {name:"ALEX EUSEBIO",id:"f1Avnbh0P5k"},
+    {name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
+    {name:"DULCE RUBELI",id:"MMeemsf7PNc"},
+    {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"}
+
+];
+
+
+/* =====================================================
+   CATEGORÍAS
+===================================================== */
+
+const huaynoArtists = artists.slice(0,10);
+
+const cumbiaArtists = [
+
+    {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
+    {name:"EDSON MORALES",id:"MzjC097tc4E"},
+    {name:"GRUPO CORALI",id:"cobAXEUP_NI"}
+
+];
+
+const requintoArtists = [
+
+    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
+    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
+    {name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
+    {name:"RUTH CURO",id:"MfFB4r7a9T4"}
+
+];
+
+const salayArtists = [
+
+    {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
+    {name:"NICKOL RAMOS",id:"_8381AySMnk"},
+    {name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
+    {name:"WILI ROJAS",id:"9514-4Sa3KU"},
+    {name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
+
+];
+
+const florelisaArtists = [
+
+    {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
+    {name:"DELY CORAZON",id:"eDC3Tswc_PE"},
+    {name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
+    {name:"SOL LUCERO",id:"yndd0Rx4UFI"},
+    {name:"MARIELIZ",id:"LpLDIOdpS_4"}
+
+];
+
+const popularArtists = [
+
+    {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
+    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
+    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
+
+];
+
+const newArtists = [
+
+    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
+    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
+    {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
+
+];
+
+const exclusiveArtists = [
+
+    {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
+    {name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
+    {name:"DELIA HUANCA",id:"tefROgLlZIo"}
+
+];
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const artistGrid =
+    document.getElementById("artistGrid");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const noResults =
+    document.getElementById("noResults");
+
+const videoModal =
+    document.getElementById("videoModal");
+
+const youtubeFrame =
+    document.getElementById("youtubeFrame");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const featuredImage =
+    document.getElementById("featuredImage");
+
+const featuredTitle =
+    document.getElementById("featuredTitle");
+
+const featuredPlay =
+    document.getElementById("featuredPlay");
+
+const featuredShare =
+    document.getElementById("featuredShare");
+
+const sliderDots =
+    document.getElementById("sliderDots");
+
+let featuredIndex = 0;
+
+
+/* =====================================================
+   MINIATURA
+===================================================== */
+
+function thumbnail(id){
+
+    return "https://i.ytimg.com/vi/" +
+           id +
+           "/hqdefault.jpg";
+
+}
+
+
+/* =====================================================
+   ESCAPAR TEXTO
+===================================================== */
+
+function escapeHtml(text){
+
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================================
+   CREAR TARJETA
+===================================================== */
+
+function createCard(item){
+
+    const card =
+        document.createElement("article");
+
+    card.className = "card";
+
+    card.innerHTML = `
+
+        <div
+            class="card-thumb"
+            data-video="${item.id}"
+            data-name="${escapeHtml(item.name)}"
+        >
+
+            <img
+                src="${thumbnail(item.id)}"
+                alt="${escapeHtml(item.name)}"
+                loading="lazy"
+            >
+
+            <div class="play-circle">
+                <span>▶</span>
+            </div>
+
+        </div>
+
+        <div class="card-info">
+
+            <h3>
+                ${escapeHtml(item.name)}
+            </h3>
+
+            <p>
+                ARTISTVIDEOS
+            </p>
+
+        </div>
+
+        <div class="card-actions">
+
+            <button
+                class="favorite-btn"
+                data-id="${item.id}"
+                data-name="${escapeHtml(item.name)}"
+            >
+                ♡ Guardar
+            </button>
+
+            <button
+                class="share-btn"
+                data-id="${item.id}"
+                data-name="${escapeHtml(item.name)}"
+            >
+                ↗ Compartir
+            </button>
+
+        </div>
+
+    `;
+
+    return card;
+
+}
+
+
+/* =====================================================
+   RENDERIZAR CATEGORÍA
+===================================================== */
+
+function renderGrid(elementId,data){
+
+    const element =
+        document.getElementById(elementId);
+
+    if(!element) return;
+
+    element.innerHTML = "";
+
+    data.forEach(item=>{
+
+        element.appendChild(
+            createCard(item)
         );
 
+    });
 
-      /*
-        Porcentaje entero
-      */
+    updateFavoriteButtons();
 
-      const porcentaje =
-        Math.floor(progreso);
+}
 
 
-      /*
-        Actualizar barra
-      */
+/* =====================================================
+   RENDERIZAR CATEGORÍAS
+===================================================== */
 
-      const barra =
-        document.getElementById(
-          "progressBar"
+renderGrid(
+    "huaynoGrid",
+    huaynoArtists
+);
+
+renderGrid(
+    "cumbiaGrid",
+    cumbiaArtists
+);
+
+renderGrid(
+    "requintoGrid",
+    requintoArtists
+);
+
+renderGrid(
+    "salayGrid",
+    salayArtists
+);
+
+renderGrid(
+    "florelisaGrid",
+    florelisaArtists
+);
+
+renderGrid(
+    "popularGrid",
+    popularArtists
+);
+
+renderGrid(
+    "newGrid",
+    newArtists
+);
+
+renderGrid(
+    "exclusiveGrid",
+    exclusiveArtists
+);
+
+
+/* =====================================================
+   ARTISTAS PRINCIPALES
+===================================================== */
+
+function renderArtists(data){
+
+    artistGrid.innerHTML = "";
+
+    if(data.length === 0){
+
+        noResults.style.display =
+            "block";
+
+        return;
+    }
+
+    noResults.style.display =
+        "none";
+
+    data.forEach(item=>{
+
+        artistGrid.appendChild(
+            createCard(item)
         );
 
+    });
 
-      barra.style.width =
-        progreso + "%";
+    updateFavoriteButtons();
+
+}
+
+renderArtists(artists);
 
 
-      /*
-        Actualizar texto
-      */
+/* =====================================================
+   BUSCADOR
+===================================================== */
 
-      const texto =
-        document.getElementById(
-          "progressText"
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value
+            .trim()
+            .toLowerCase();
+
+        if(!value){
+
+            renderArtists(artists);
+
+            return;
+
+        }
+
+        const filtered =
+            artists.filter(item=>
+                item.name
+                .toLowerCase()
+                .includes(value)
+            );
+
+        renderArtists(filtered);
+
+    }
+);
+
+
+/* =====================================================
+   ABRIR VIDEO
+===================================================== */
+
+function openVideo(id,name){
+
+    if(!id) return;
+
+    youtubeFrame.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(id) +
+        "?autoplay=1&rel=0&playsinline=1";
+
+    modalTitle.textContent =
+        name || "ARTISTVIDEOS";
+
+    videoModal.classList.add("show");
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+}
+
+
+/* =====================================================
+   CERRAR VIDEO
+===================================================== */
+
+function closeVideo(){
+
+    youtubeFrame.src = "";
+
+    videoModal.classList.remove(
+        "show"
+    );
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+}
+
+closeModal.addEventListener(
+    "click",
+    closeVideo
+);
+
+videoModal.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === videoModal){
+
+            closeVideo();
+
+        }
+
+    }
+);
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeVideo();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLICS DE TARJETAS
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const thumb =
+            event.target.closest(
+                ".card-thumb"
+            );
+
+        if(thumb){
+
+            openVideo(
+                thumb.dataset.video,
+                thumb.dataset.name
+            );
+
+            return;
+
+        }
+
+
+        const favorite =
+            event.target.closest(
+                ".favorite-btn"
+            );
+
+        if(favorite){
+
+            toggleFavorite(
+                favorite.dataset.id,
+                favorite.dataset.name
+            );
+
+            return;
+
+        }
+
+
+        const share =
+            event.target.closest(
+                ".share-btn"
+            );
+
+        if(share){
+
+            shareVideo(
+                share.dataset.id,
+                share.dataset.name
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FAVORITOS
+===================================================== */
+
+function getFavorites(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "artistvideos_favorites"
+            ) || "[]"
         );
 
+    }catch(error){
 
-      texto.textContent =
-        porcentaje + "%";
+        return [];
 
     }
 
+}
 
-    /*
-      Ejecutar inmediatamente
-    */
+function saveFavorites(data){
 
-    actualizarProgreso();
+    try{
+
+        localStorage.setItem(
+            "artistvideos_favorites",
+            JSON.stringify(data)
+        );
+
+    }catch(error){
+
+        console.log(
+            "No se pudo guardar favoritos."
+        );
+
+    }
+
+}
+
+function toggleFavorite(id,name){
+
+    let favorites =
+        getFavorites();
+
+    const exists =
+        favorites.some(
+            item=>item.id === id
+        );
+
+    if(exists){
+
+        favorites =
+            favorites.filter(
+                item=>item.id !== id
+            );
+
+    }else{
+
+        favorites.push({
+            id:id,
+            name:name
+        });
+
+    }
+
+    saveFavorites(favorites);
+
+    updateFavoriteButtons();
+
+}
+
+function updateFavoriteButtons(){
+
+    const favorites =
+        getFavorites();
+
+    document
+        .querySelectorAll(
+            ".favorite-btn"
+        )
+        .forEach(button=>{
+
+            const exists =
+                favorites.some(
+                    item=>
+                        item.id ===
+                        button.dataset.id
+                );
+
+            if(exists){
+
+                button.classList.add(
+                    "active"
+                );
+
+                button.innerHTML =
+                    "♥ Guardado";
+
+            }else{
+
+                button.classList.remove(
+                    "active"
+                );
+
+                button.innerHTML =
+                    "♡ Guardar";
+
+            }
+
+        });
+
+}
 
 
-    /*
-      Actualizar cada minuto
-    */
+/* =====================================================
+   COMPARTIR
+===================================================== */
 
-    setInterval(
-      actualizarProgreso,
-      60000
+async function shareVideo(id,name){
+
+    const url =
+        window.location.origin +
+        window.location.pathname +
+        "?video=" +
+        encodeURIComponent(id);
+
+    try{
+
+        if(navigator.share){
+
+            await navigator.share({
+
+                title:
+                    name +
+                    " | ARTISTVIDEOS",
+
+                text:
+                    "Mira este video en ARTISTVIDEOS",
+
+                url:url
+
+            });
+
+        }else{
+
+            await navigator.clipboard.writeText(
+                url
+            );
+
+            alert(
+                "Enlace copiado."
+            );
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "Compartir cancelado."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SLIDER
+===================================================== */
+
+function renderFeaturedDots(){
+
+    sliderDots.innerHTML = "";
+
+    artists
+        .slice(0,8)
+        .forEach(
+            (item,index)=>{
+
+                const dot =
+                    document.createElement(
+                        "span"
+                    );
+
+                dot.className =
+                    "slider-dot" +
+                    (
+                        index === featuredIndex
+                        ? " active"
+                        : ""
+                    );
+
+                dot.addEventListener(
+                    "click",
+                    function(){
+
+                        featuredIndex =
+                            index;
+
+                        showFeatured();
+
+                    }
+                );
+
+                sliderDots.appendChild(
+                    dot
+                );
+
+            }
+        );
+
+}
+
+function showFeatured(){
+
+    const list =
+        artists.slice(0,8);
+
+    const item =
+        list[featuredIndex];
+
+    if(!item) return;
+
+    featuredImage.src =
+        thumbnail(item.id);
+
+    featuredImage.alt =
+        item.name;
+
+    featuredTitle.textContent =
+        item.name;
+
+    featuredPlay.onclick =
+        function(){
+
+            openVideo(
+                item.id,
+                item.name
+            );
+
+        };
+
+    featuredShare.onclick =
+        function(){
+
+            shareVideo(
+                item.id,
+                item.name
+            );
+
+        };
+
+    renderFeaturedDots();
+
+}
+
+document
+    .getElementById("prevBtn")
+    .addEventListener(
+        "click",
+        function(){
+
+            const total =
+                Math.min(
+                    artists.length,
+                    8
+                );
+
+            featuredIndex =
+                (
+                    featuredIndex -
+                    1 +
+                    total
+                ) % total;
+
+            showFeatured();
+
+        }
     );
 
-  </script>
+document
+    .getElementById("nextBtn")
+    .addEventListener(
+        "click",
+        function(){
 
+            const total =
+                Math.min(
+                    artists.length,
+                    8
+                );
+
+            featuredIndex =
+                (
+                    featuredIndex +
+                    1
+                ) % total;
+
+            showFeatured();
+
+        }
+    );
+
+
+/* Cambio automático */
+
+setInterval(
+    function(){
+
+        const total =
+            Math.min(
+                artists.length,
+                8
+            );
+
+        featuredIndex =
+            (
+                featuredIndex +
+                1
+            ) % total;
+
+        showFeatured();
+
+    },
+    7000
+);
+
+showFeatured();
+
+
+/* =====================================================
+   MENÚ MÓVIL
+===================================================== */
+
+const menuBtn =
+    document.getElementById(
+        "menuBtn"
+    );
+
+const mobileNav =
+    document.getElementById(
+        "mobileNav"
+    );
+
+menuBtn.addEventListener(
+    "click",
+    function(){
+
+        mobileNav.classList.toggle(
+            "open"
+        );
+
+        menuBtn.textContent =
+            mobileNav.classList.contains(
+                "open"
+            )
+            ? "×"
+            : "☰";
+
+    }
+);
+
+document
+    .querySelectorAll(
+        ".mobile-nav a"
+    )
+    .forEach(link=>{
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                mobileNav.classList.remove(
+                    "open"
+                );
+
+                menuBtn.textContent =
+                    "☰";
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   BOTÓN VER VIDEOS
+===================================================== */
+
+function scrollToArtists(){
+
+    document
+        .getElementById("artistas")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =====================================================
+   ABRIR VIDEO DESDE URL
+===================================================== */
+
+function checkUrlVideo(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const video =
+        params.get("video");
+
+    if(!video) return;
+
+    const item =
+        artists.find(
+            artist =>
+                artist.id === video
+        );
+
+    if(item){
+
+        setTimeout(
+            function(){
+
+                openVideo(
+                    item.id,
+                    item.name
+                );
+
+            },
+            500
+        );
+
+    }
+
+}
+
+checkUrlVideo();
+
+</script>
 
 </body>
 </html>
