@@ -8,33 +8,50 @@
 <title>ARTISTVIDEOS</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
+
+section[id]{scroll-margin-top:90px}
 
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#070707;
     color:#fff;
-    overflow-x:hidden;
+    overflow-x:hidden
 }
 
-button,input{
-    font-family:inherit;
-}
+button,input{font-family:inherit}
 
 :root{
-    --pink:#ff2d8d;
-    --pink-light:#ff5cab;
+    --pink:#9c27b0;
+    --pink-light:#c44bd3;
     --card:#121212;
-    --border:#252525;
-    --muted:#888;
+    --surface:#151515;
+    --text-muted:#aaa;
+    --focus-ring:0 0 0 3px rgba(255,45,141,.35)
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+    outline:2px solid var(--pink-light);
+    outline-offset:3px;
+    box-shadow:var(--focus-ring)
+}
+
+::selection{
+    background:var(--pink);
+    color:#fff
+}
+
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important
+    }
 }
 
 /* HEADER */
@@ -49,23 +66,21 @@ header{
     padding:15px 6%;
     background:rgba(7,7,7,.97);
     backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #252525
 }
 
 .logo{
     font-size:25px;
     font-weight:900;
-    letter-spacing:2px;
+    letter-spacing:2px
 }
 
-.logo span{
-    color:var(--pink);
-}
+.logo span{color:var(--pink)}
 
 nav{
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:20px
 }
 
 nav a{
@@ -73,12 +88,10 @@ nav a{
     text-decoration:none;
     font-size:12px;
     font-weight:bold;
-    transition:.3s;
+    transition:.3s
 }
 
-nav a:hover{
-    color:var(--pink);
-}
+nav a:hover{color:var(--pink)}
 
 .menu-toggle{
     display:none;
@@ -92,7 +105,7 @@ nav a:hover{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:5px;
+    gap:5px
 }
 
 .menu-toggle span{
@@ -100,19 +113,17 @@ nav a:hover{
     height:3px;
     background:#fff;
     border-radius:3px;
-    transition:.3s;
+    transition:.3s
 }
 
 .menu-toggle.active span:nth-child(1){
-    transform:translateY(8px) rotate(45deg);
+    transform:translateY(8px) rotate(45deg)
 }
 
-.menu-toggle.active span:nth-child(2){
-    opacity:0;
-}
+.menu-toggle.active span:nth-child(2){opacity:0}
 
 .menu-toggle.active span:nth-child(3){
-    transform:translateY(-8px) rotate(-45deg);
+    transform:translateY(-8px) rotate(-45deg)
 }
 
 /* HERO */
@@ -129,35 +140,31 @@ nav a:hover{
             rgba(7,7,7,.20)
         ),
         url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-        center/cover no-repeat;
+        center/cover no-repeat
 }
 
-.hero-content{
-    max-width:700px;
-}
+.hero-content{max-width:700px}
 
 .hero-label{
     color:var(--pink);
     font-size:13px;
     font-weight:bold;
-    letter-spacing:4px;
+    letter-spacing:4px
 }
 
 .hero h1{
     font-size:clamp(48px,7vw,88px);
     line-height:.92;
-    margin:18px 0;
+    margin:18px 0
 }
 
-.hero h1 span{
-    color:var(--pink);
-}
+.hero h1 span{color:var(--pink)}
 
 .hero p{
     max-width:580px;
     color:#ccc;
     font-size:17px;
-    line-height:1.7;
+    line-height:1.7
 }
 
 .hero-button{
@@ -169,29 +176,27 @@ nav a:hover{
     text-decoration:none;
     font-weight:bold;
     border-radius:8px;
-    transition:.3s;
+    transition:.3s
 }
 
 .hero-button:hover{
     background:var(--pink-light);
     transform:translateY(-2px);
-    box-shadow:0 8px 25px rgba(255,45,141,.3);
+    box-shadow:0 8px 25px rgba(255,45,141,.3)
 }
 
 /* GENERAL */
 .container{
     width:88%;
     max-width:1400px;
-    margin:auto;
+    margin:auto
 }
 
-.section{
-    padding:55px 0;
-}
+.section{padding:55px 0}
 
 .section-title{
     font-size:30px;
-    margin-bottom:28px;
+    margin-bottom:28px
 }
 
 .section-title span,
@@ -201,7 +206,7 @@ nav a:hover{
 .florelisa-title span,
 .special-title span,
 .exclusive-title span{
-    color:var(--pink);
+    color:var(--pink)
 }
 
 /* FEATURED */
@@ -209,7 +214,7 @@ nav a:hover{
     display:grid;
     grid-template-columns:1.6fr 1fr;
     gap:30px;
-    align-items:center;
+    align-items:center
 }
 
 .featured-cover{
@@ -220,7 +225,7 @@ nav a:hover{
     border-radius:16px;
     background:#111;
     box-shadow:0 15px 50px rgba(0,0,0,.6);
-    cursor:pointer;
+    cursor:pointer
 }
 
 .featured-cover img{
@@ -228,17 +233,15 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.5s;
+    transition:.5s
 }
 
-.featured-cover:hover img{
-    transform:scale(1.05);
-}
+.featured-cover:hover img{transform:scale(1.05)}
 
 .featured-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%);
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
 }
 
 .featured-play{
@@ -255,11 +258,11 @@ nav a:hover{
     border-radius:50%;
     font-size:28px;
     box-shadow:0 8px 30px rgba(0,0,0,.6);
-    transition:.3s;
+    transition:.3s
 }
 
 .featured-cover:hover .featured-play{
-    transform:translate(-50%,-50%) scale(1.1);
+    transform:translate(-50%,-50%) scale(1.1)
 }
 
 .cover-title{
@@ -268,12 +271,10 @@ nav a:hover{
     right:25px;
     bottom:20px;
     font-size:23px;
-    font-weight:bold;
+    font-weight:bold
 }
 
-.featured-info{
-    padding:10px;
-}
+.featured-info{padding:10px}
 
 .featured-tag{
     display:inline-block;
@@ -282,17 +283,17 @@ nav a:hover{
     border-radius:20px;
     font-size:11px;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
 
 .featured-info h2{
     font-size:35px;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
 
 .featured-info p{
     color:#aaa;
-    line-height:1.7;
+    line-height:1.7
 }
 
 .youtube-button{
@@ -304,12 +305,12 @@ nav a:hover{
     border-radius:7px;
     text-decoration:none;
     font-weight:bold;
-    transition:.3s;
+    transition:.3s
 }
 
 .youtube-button:hover{
     background:var(--pink);
-    color:#fff;
+    color:#fff
 }
 
 /* SLIDER */
@@ -317,7 +318,7 @@ nav a:hover{
     display:flex;
     align-items:center;
     gap:10px;
-    margin-top:20px;
+    margin-top:20px
 }
 
 .slider-btn{
@@ -329,12 +330,12 @@ nav a:hover{
     color:#fff;
     font-size:22px;
     cursor:pointer;
-    transition:.3s;
+    transition:.3s
 }
 
 .slider-btn:hover{
     background:var(--pink);
-    border-color:var(--pink);
+    border-color:var(--pink)
 }
 
 .slider-dots{
@@ -342,7 +343,7 @@ nav a:hover{
     gap:7px;
     flex-wrap:wrap;
     margin-left:5px;
-    max-width:700px;
+    max-width:700px
 }
 
 .slider-dot{
@@ -353,18 +354,16 @@ nav a:hover{
     background:#444;
     border-radius:10px;
     cursor:pointer;
-    transition:.3s;
+    transition:.3s
 }
 
 .slider-dot.active{
     width:24px;
-    background:var(--pink);
+    background:var(--pink)
 }
 
-/* SEARCH */
-.search-box{
-    margin-bottom:30px;
-}
+/* BUSCADOR */
+.search-box{margin-bottom:30px}
 
 .search-box input{
     width:100%;
@@ -375,12 +374,10 @@ nav a:hover{
     background:#141414;
     color:#fff;
     font-size:15px;
-    transition:.3s;
+    transition:.3s
 }
 
-.search-box input:focus{
-    border-color:var(--pink);
-}
+.search-box input:focus{border-color:var(--pink)}
 
 /* GRIDS */
 .video-grid,
@@ -392,10 +389,10 @@ nav a:hover{
 .new-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:25px
 }
 
-/* CARDS */
+/* TARJETAS */
 .video-card,
 .cumbia-card,
 .requinto-card,
@@ -407,7 +404,7 @@ nav a:hover{
     border:1px solid #202020;
     border-radius:13px;
     overflow:hidden;
-    transition:.3s;
+    transition:.3s
 }
 
 .video-card:hover,
@@ -419,10 +416,10 @@ nav a:hover{
 .new-card:hover{
     transform:translateY(-6px);
     border-color:var(--pink);
-    box-shadow:0 10px 30px rgba(255,45,141,.12);
+    box-shadow:0 10px 30px rgba(255,45,141,.12)
 }
 
-/* THUMBNAILS */
+/* MINIATURAS */
 .thumbnail,
 .cumbia-thumbnail,
 .requinto-thumbnail,
@@ -435,7 +432,7 @@ nav a:hover{
     aspect-ratio:16/9;
     overflow:hidden;
     cursor:pointer;
-    background:#181818;
+    background:#181818
 }
 
 .thumbnail img,
@@ -449,7 +446,7 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.4s;
+    transition:.4s
 }
 
 .video-card:hover img,
@@ -459,7 +456,7 @@ nav a:hover{
 .florelisa-card:hover img,
 .popular-card:hover img,
 .new-card:hover img{
-    transform:scale(1.06);
+    transform:scale(1.06)
 }
 
 /* PLAY */
@@ -483,7 +480,7 @@ nav a:hover{
     color:#fff;
     border-radius:50%;
     font-size:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.55);
+    box-shadow:0 5px 20px rgba(0,0,0,.55)
 }
 
 /* INFO */
@@ -494,7 +491,7 @@ nav a:hover{
 .florelisa-info,
 .popular-info,
 .new-info{
-    padding:18px;
+    padding:18px
 }
 
 .video-info h3,
@@ -505,15 +502,15 @@ nav a:hover{
 .popular-info h3,
 .new-info h3{
     font-size:18px;
-    margin-bottom:7px;
+    margin-bottom:7px
 }
 
-/* SOCIAL */
+/* REDES */
 .social-icons{
     display:flex;
     align-items:center;
     gap:9px;
-    margin-top:10px;
+    margin-top:10px
 }
 
 .social-icons a{
@@ -526,21 +523,21 @@ nav a:hover{
     background:#1b1b1b;
     color:#fff;
     text-decoration:none;
-    transition:.3s;
+    transition:.3s
 }
 
 .social-icons a svg{
     width:18px;
     height:18px;
-    fill:currentColor;
+    fill:currentColor
 }
 
 .social-icons a:hover{
     background:var(--pink);
-    transform:translateY(-3px);
+    transform:translateY(-3px)
 }
 
-/* BUTTONS */
+/* BOTONES */
 .watch-button,
 .exclusive-button{
     display:inline-flex;
@@ -556,23 +553,23 @@ nav a:hover{
     font-size:13px;
     font-weight:800;
     cursor:pointer;
-    transition:.3s;
+    transition:.3s
 }
 
 .watch-button:hover,
 .exclusive-button:hover{
     background:var(--pink-light);
     transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(255,45,141,.3);
+    box-shadow:0 6px 18px rgba(255,45,141,.3)
 }
 
-/* CATEGORY SECTIONS */
+/* CATEGORÍAS */
 .cumbia-section,
 .requinto-section,
 .salay-section,
 .florelisa-section{
     padding:20px 0 55px;
-    border-top:1px solid #222;
+    border-top:1px solid #222
 }
 
 .cumbia-title,
@@ -580,7 +577,7 @@ nav a:hover{
 .salay-title,
 .florelisa-title{
     font-size:30px;
-    margin-bottom:28px;
+    margin-bottom:28px
 }
 
 /* BADGE */
@@ -594,19 +591,19 @@ nav a:hover{
     color:#fff;
     border-radius:20px;
     font-size:10px;
-    font-weight:900;
+    font-weight:900
 }
 
-/* ARTISTS */
+/* ARTISTAS */
 .artists-grid{
     display:grid;
     grid-template-columns:repeat(6,1fr);
-    gap:28px 22px;
+    gap:28px 22px
 }
 
 .artist{
     text-align:center;
-    cursor:pointer;
+    cursor:pointer
 }
 
 .artist-image-box{
@@ -617,7 +614,7 @@ nav a:hover{
     border-radius:50%;
     border:3px solid #222;
     background:#151515;
-    transition:.3s;
+    transition:.3s
 }
 
 .artist-image{
@@ -625,16 +622,16 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.4s;
+    transition:.4s
 }
 
 .artist:hover .artist-image-box{
     border-color:var(--pink);
-    transform:scale(1.04);
+    transform:scale(1.04)
 }
 
 .artist:hover .artist-image{
-    transform:scale(1.08);
+    transform:scale(1.08)
 }
 
 .artist-play{
@@ -650,30 +647,28 @@ nav a:hover{
     background:var(--pink);
     border-radius:50%;
     opacity:0;
-    transition:.3s;
+    transition:.3s
 }
 
-.artist:hover .artist-play{
-    opacity:1;
-}
+.artist:hover .artist-play{opacity:1}
 
 .artist h3{
     margin-top:13px;
     font-size:15px;
-    line-height:1.3;
+    line-height:1.3
 }
 
 .artist p{
     color:#777;
     font-size:12px;
-    margin-top:5px;
+    margin-top:5px
 }
 
-/* EXCLUSIVES */
+/* EXCLUSIVOS */
 .exclusive-section{
     margin-top:30px;
     padding:45px 0;
-    border-top:1px solid #222;
+    border-top:1px solid #222
 }
 
 .exclusive-title{
@@ -681,13 +676,13 @@ nav a:hover{
     align-items:center;
     gap:10px;
     margin-bottom:28px;
-    font-size:30px;
+    font-size:30px
 }
 
 .exclusive-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:25px
 }
 
 .exclusive-card{
@@ -696,13 +691,13 @@ nav a:hover{
     border:1px solid #292929;
     border-radius:15px;
     overflow:hidden;
-    transition:.3s;
+    transition:.3s
 }
 
 .exclusive-card:hover{
     transform:translateY(-7px);
     border-color:var(--pink);
-    box-shadow:0 12px 35px rgba(255,45,141,.15);
+    box-shadow:0 12px 35px rgba(255,45,141,.15)
 }
 
 .exclusive-image{
@@ -710,7 +705,7 @@ nav a:hover{
     width:100%;
     aspect-ratio:16/9;
     overflow:hidden;
-    cursor:pointer;
+    cursor:pointer
 }
 
 .exclusive-image img{
@@ -718,11 +713,11 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.4s;
+    transition:.4s
 }
 
 .exclusive-card:hover .exclusive-image img{
-    transform:scale(1.06);
+    transform:scale(1.06)
 }
 
 .exclusive-play{
@@ -738,32 +733,30 @@ nav a:hover{
     background:var(--pink);
     color:#fff;
     border-radius:50%;
-    font-size:22px;
+    font-size:22px
 }
 
-.exclusive-info{
-    padding:18px;
-}
+.exclusive-info{padding:18px}
 
 .exclusive-info h3{
     font-size:19px;
-    margin-bottom:7px;
+    margin-bottom:7px
 }
 
 .exclusive-info p{
     color:#888;
-    font-size:13px;
+    font-size:13px
 }
 
-/* SPECIAL */
+/* POPULARES / ESTRENOS */
 .special-section{
     padding:50px 0;
-    border-top:1px solid #222;
+    border-top:1px solid #222
 }
 
 .special-title{
     font-size:30px;
-    margin-bottom:28px;
+    margin-bottom:28px
 }
 
 /* WHATSAPP */
@@ -783,30 +776,24 @@ nav a:hover{
     text-decoration:none;
     box-shadow:0 6px 25px rgba(0,0,0,.45);
     transition:.3s;
-    animation:whatsappPulse 2s infinite;
+    animation:whatsappPulse 2s infinite
 }
 
 .whatsapp-button:hover{
     transform:scale(1.1);
-    background:#20bd5a;
+    background:#20bd5a
 }
 
 .whatsapp-button svg{
     width:32px;
     height:32px;
-    fill:currentColor;
+    fill:currentColor
 }
 
 @keyframes whatsappPulse{
-    0%{
-        box-shadow:0 0 0 0 rgba(37,211,102,.55);
-    }
-    70%{
-        box-shadow:0 0 0 14px rgba(37,211,102,0);
-    }
-    100%{
-        box-shadow:0 0 0 0 rgba(37,211,102,0);
-    }
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
 /* MODAL */
@@ -818,12 +805,10 @@ nav a:hover{
     align-items:center;
     justify-content:center;
     padding:20px;
-    background:rgba(0,0,0,.96);
+    background:rgba(0,0,0,.96)
 }
 
-.modal.active{
-    display:flex;
-}
+.modal.active{display:flex}
 
 .modal-content{
     position:relative;
@@ -831,13 +816,13 @@ nav a:hover{
     aspect-ratio:16/9;
     background:#000;
     border-radius:12px;
-    overflow:hidden;
+    overflow:hidden
 }
 
 .modal iframe{
     width:100%;
     height:100%;
-    border:0;
+    border:0
 }
 
 .close-modal{
@@ -852,7 +837,7 @@ nav a:hover{
     background:var(--pink);
     color:#fff;
     font-size:25px;
-    cursor:pointer;
+    cursor:pointer
 }
 
 /* FOOTER */
@@ -861,19 +846,15 @@ footer{
     padding:40px 6%;
     text-align:center;
     border-top:1px solid #222;
-    color:#777;
+    color:#777
 }
 
-footer strong{
-    color:var(--pink);
-}
+footer strong{color:var(--pink)}
 
 /* TABLET */
 @media(max-width:1100px){
 
-    .featured{
-        grid-template-columns:1fr;
-    }
+    .featured{grid-template-columns:1fr}
 
     .video-grid,
     .cumbia-grid,
@@ -882,39 +863,47 @@ footer strong{
     .florelisa-grid,
     .popular-grid,
     .new-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr)
     }
 
     .artists-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(4,1fr)
     }
 
     .exclusive-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr)
     }
 
-    nav{
-        gap:12px;
-    }
-
+    nav{gap:10px}
 }
 
-/* MOBILE */
+/* CELULAR */
 @media(max-width:650px){
 
+    .modal{padding:12px}
+
+    .modal-content{
+        width:100%;
+        aspect-ratio:16/10;
+        border-radius:9px
+    }
+
+    .close-modal{
+        top:7px;
+        right:7px;
+        width:38px;
+        height:38px;
+        font-size:22px
+    }
+
     header{
-        position:sticky;
         min-height:70px;
-        padding:12px 5%;
+        padding:12px 5%
     }
 
-    .logo{
-        font-size:21px;
-    }
+    .logo{font-size:21px}
 
-    .menu-toggle{
-        display:flex;
-    }
+    .menu-toggle{display:flex}
 
     nav{
         position:absolute;
@@ -929,46 +918,36 @@ footer strong{
         border-top:1px solid #222;
         border-bottom:1px solid #222;
         box-shadow:0 15px 30px rgba(0,0,0,.6);
-        padding:8px 0;
+        padding:8px 0
     }
 
-    nav.active{
-        display:flex;
-    }
+    nav.active{display:flex}
 
     nav a{
         display:block;
         width:100%;
         padding:16px 25px;
         font-size:13px;
-        border-bottom:1px solid #1c1c1c;
+        border-bottom:1px solid #1c1c1c
     }
 
-    nav a:last-child{
-        border-bottom:0;
-    }
+    nav a:last-child{border-bottom:0}
 
     nav a:hover{
         background:#151515;
-        color:var(--pink);
+        color:var(--pink)
     }
 
     .hero{
         min-height:470px;
-        padding:55px 5%;
+        padding:55px 5%
     }
 
-    .hero h1{
-        font-size:48px;
-    }
+    .hero h1{font-size:48px}
 
-    .hero p{
-        font-size:15px;
-    }
+    .hero p{font-size:15px}
 
-    .container{
-        width:92%;
-    }
+    .container{width:92%}
 
     .video-grid,
     .cumbia-grid,
@@ -977,34 +956,28 @@ footer strong{
     .florelisa-grid,
     .popular-grid,
     .new-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .artists-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:24px 15px;
+        gap:24px 15px
     }
 
     .exclusive-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
-    .featured-info h2{
-        font-size:28px;
-    }
+    .featured-info h2{font-size:28px}
 
     .featured-play{
         width:65px;
-        height:65px;
+        height:65px
     }
 
-    .cover-title{
-        font-size:17px;
-    }
+    .cover-title{font-size:17px}
 
-    .section{
-        padding:40px 0;
-    }
+    .section{padding:40px 0}
 
     .section-title,
     .cumbia-title,
@@ -1013,59 +986,48 @@ footer strong{
     .florelisa-title,
     .exclusive-title,
     .special-title{
-        font-size:26px;
+        font-size:26px
     }
 
     .social-icons a{
         width:32px;
-        height:32px;
+        height:32px
     }
 
     .watch-button{
         min-width:150px;
         padding:14px 20px;
-        font-size:14px;
+        font-size:14px
     }
 
     .whatsapp-button{
         width:54px;
         height:54px;
         right:16px;
-        bottom:16px;
+        bottom:16px
     }
 
     .whatsapp-button svg{
         width:29px;
-        height:29px;
+        height:29px
     }
-
 }
 
 @media(max-width:380px){
 
-    .artists-grid{
-        gap:20px 10px;
-    }
+    .artists-grid{gap:20px 10px}
 
-    .artist h3{
-        font-size:13px;
-    }
+    .artist h3{font-size:13px}
 
-    .hero h1{
-        font-size:42px;
-    }
+    .hero h1{font-size:42px}
 
-    .logo{
-        font-size:19px;
-    }
-
+    .logo{font-size:19px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 
 <div class="logo">
@@ -1102,30 +1064,29 @@ footer strong{
 
 </header>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
 
 <div class="hero-content">
 
-    <div class="hero-label">
-        PLATAFORMA MUSICAL
-    </div>
+<div class="hero-label">
+    PLATAFORMA MUSICAL
+</div>
 
-    <h1>
-        VIDEOS DE<br>
-        <span>ARTISTAS</span>
-    </h1>
+<h1>
+    VIDEOS DE<br>
+    <span>ARTISTAS</span>
+</h1>
 
-    <p>
-        Disfruta de videos musicales,
-        estrenos, presentaciones y
-        contenido de tus artistas favoritos
-        en un solo lugar.
-    </p>
+<p>
+    Disfruta de videos musicales,
+    estrenos, presentaciones y
+    contenido de tus artistas favoritos
+    en un solo lugar.
+</p>
 
-    <a href="#videos" class="hero-button">
-        ▶ VER VIDEOS
-    </a>
+<a href="#videos" class="hero-button">
+    ▶ VER VIDEOS
+</a>
 
 </div>
 
@@ -1133,10 +1094,9 @@ footer strong{
 
 <main class="container">
 
-<!-- VIDEO DESTACADO -->
-<section class="section">
+<section class="section" aria-labelledby="featured-heading">
 
-<h2 class="section-title">
+<h2 class="section-title" id="featured-heading">
     VIDEO <span>DESTACADO</span>
 </h2>
 
@@ -1145,46 +1105,53 @@ footer strong{
 <div>
 
 <div
-    class="featured-cover"
-    onclick="playFeatured()">
+class="featured-cover"
+role="button"
+tabindex="0"
+aria-label="Reproducir video destacado"
+onclick="playFeatured()"
+onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playFeatured()}">
 
-    <img
-        id="featuredImage"
-        src=""
-        alt="Video destacado">
+<img
+id="featuredImage"
+src=""
+alt="Video destacado"
+fetchpriority="high">
 
-    <div class="featured-overlay"></div>
+<div class="featured-overlay"></div>
 
-    <div class="featured-play">
-        ▶
-    </div>
+<div class="featured-play">
+    ▶
+</div>
 
-    <div
-        class="cover-title"
-        id="coverTitle">
-    </div>
+<div
+class="cover-title"
+id="coverTitle">
+</div>
 
 </div>
 
 <div class="slider-controls">
 
 <button
-    class="slider-btn"
-    type="button"
-    onclick="previousFeatured()">
+class="slider-btn"
+type="button"
+aria-label="Video destacado anterior"
+onclick="previousFeatured()">
     ‹
 </button>
 
 <button
-    class="slider-btn"
-    type="button"
-    onclick="nextFeatured()">
+class="slider-btn"
+type="button"
+aria-label="Siguiente video destacado"
+onclick="nextFeatured()">
     ›
 </button>
 
 <div
-    class="slider-dots"
-    id="sliderDots">
+class="slider-dots"
+id="sliderDots">
 </div>
 
 </div>
@@ -1205,11 +1172,11 @@ footer strong{
 </p>
 
 <a
-    id="youtubeLink"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="youtube-button">
+id="youtubeLink"
+href="#"
+target="_blank"
+rel="noopener noreferrer"
+class="youtube-button">
 
     ▶ ABRIR EN YOUTUBE
 
@@ -1221,31 +1188,30 @@ footer strong{
 
 </section>
 
-<!-- HUAYNO -->
 <section class="section" id="videos">
 
-<h2 class="section-title">
+<h2 class="section-title" id="videos-heading">
     HUAYNO <span>SUREÑO</span>
 </h2>
 
 <div class="search-box">
 
 <input
-    type="search"
-    id="searchInput"
-    placeholder="🔎 Buscar artista..."
-    autocomplete="off">
+ type="search"
+ id="searchInput"
+ aria-label="Buscar artistas de Huayno Sureño"
+placeholder="🔎 Buscar artista..."
+autocomplete="off">
 
 </div>
 
 <div
-    class="video-grid"
-    id="videoGrid">
+class="video-grid"
+id="videoGrid">
 </div>
 
 </section>
 
-<!-- CUMBIA -->
 <section class="cumbia-section" id="cumbia">
 
 <h2 class="cumbia-title">
@@ -1253,13 +1219,12 @@ footer strong{
 </h2>
 
 <div
-    class="cumbia-grid"
-    id="cumbiaGrid">
+class="cumbia-grid"
+id="cumbiaGrid">
 </div>
 
 </section>
 
-<!-- REQUINTO -->
 <section class="requinto-section" id="requinto">
 
 <h2 class="requinto-title">
@@ -1267,13 +1232,12 @@ footer strong{
 </h2>
 
 <div
-    class="requinto-grid"
-    id="requintoGrid">
+class="requinto-grid"
+id="requintoGrid">
 </div>
 
 </section>
 
-<!-- SALAY -->
 <section class="salay-section" id="salay">
 
 <h2 class="salay-title">
@@ -1281,13 +1245,12 @@ footer strong{
 </h2>
 
 <div
-    class="salay-grid"
-    id="salayGrid">
+class="salay-grid"
+id="salayGrid">
 </div>
 
 </section>
 
-<!-- FLORELISA -->
 <section class="florelisa-section" id="florelisa">
 
 <h2 class="florelisa-title">
@@ -1295,13 +1258,12 @@ footer strong{
 </h2>
 
 <div
-    class="florelisa-grid"
-    id="florelisaGrid">
+class="florelisa-grid"
+id="florelisaGrid">
 </div>
 
 </section>
 
-<!-- ARTISTAS -->
 <section class="section" id="artistas">
 
 <h2 class="section-title">
@@ -1309,13 +1271,12 @@ footer strong{
 </h2>
 
 <div
-    class="artists-grid"
-    id="artistsGrid">
+class="artists-grid"
+id="artistsGrid">
 </div>
 
 </section>
 
-<!-- POPULARES -->
 <section class="special-section" id="populares">
 
 <h2 class="special-title">
@@ -1323,13 +1284,12 @@ footer strong{
 </h2>
 
 <div
-    class="popular-grid"
-    id="popularGrid">
+class="popular-grid"
+id="popularGrid">
 </div>
 
 </section>
 
-<!-- ESTRENOS -->
 <section class="special-section" id="estrenos">
 
 <h2 class="special-title">
@@ -1337,13 +1297,12 @@ footer strong{
 </h2>
 
 <div
-    class="new-grid"
-    id="newGrid">
+class="new-grid"
+id="newGrid">
 </div>
 
 </section>
 
-<!-- EXCLUSIVOS -->
 <section class="exclusive-section" id="exclusivos">
 
 <h2 class="exclusive-title">
@@ -1352,15 +1311,14 @@ footer strong{
 </h2>
 
 <div
-    class="exclusive-grid"
-    id="exclusiveGrid">
+class="exclusive-grid"
+id="exclusiveGrid">
 </div>
 
 </section>
 
 </main>
 
-<!-- WHATSAPP -->
 <a
 class="whatsapp-button"
 href="https://wa.me/51956461177"
@@ -1375,48 +1333,54 @@ title="Contactar por WhatsApp">
 
 </a>
 
-<!-- MODAL -->
 <div
 class="modal"
 id="videoModal"
+role="dialog"
+aria-modal="true"
+aria-hidden="true"
+aria-label="Reproductor de video"
 onclick="closeOutside(event)">
 
 <div class="modal-content">
 
 <button
-    class="close-modal"
-    type="button"
-    onclick="closeVideo()">
-    ×
+class="close-modal"
+type="button"
+aria-label="Cerrar reproductor"
+onclick="closeVideo()">
+×
 </button>
 
 <iframe
-    id="modalVideo"
-    src=""
-    title="Reproductor de video"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
+id="modalVideo"
+src=""
+title="Reproductor de video"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
 </iframe>
 
 </div>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
 
 <p>
-    © 2026
-    <strong>ARTISTVIDEOS</strong>
-    · Todos los derechos reservados.
+© 2026
+<strong>ARTISTVIDEOS</strong>
+· Todos los derechos reservados.
 </p>
 
 </footer>
 
 <script>
 
+const prefersReducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lastFocusedElement=null;
+
 /* =====================================================
-   DATOS DE ARTISTAS
+   ARTISTAS
 ===================================================== */
 
 const artists = [
@@ -1428,7 +1392,10 @@ const artists = [
     {name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
     {name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
     {name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
+
+    /* VIDEO ACTUALIZADO */
     {name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
+
     {name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
     {name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
     {name:"ISABEL VELA",id:"u6vHqUwYh2g"},
@@ -1456,11 +1423,18 @@ const artists = [
     {name:"ALEX EUSEBIO",id:"f1Avnbh0P5k"},
     {name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
     {name:"DULCE RUBELI",id:"MMeemsf7PNc"},
-    {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"}
+    {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"},
+
+    /* VIDEOS DE WILFREDO */
+    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"YlF3XmazEXU"},
+    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"XfL4ryrZf54"}
 
 ];
 
-/* CUMBIA */
+/* =====================================================
+   CUMBIA
+===================================================== */
+
 const cumbiaArtists = [
 
     {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
@@ -1469,7 +1443,10 @@ const cumbiaArtists = [
 
 ];
 
-/* REQUINTO */
+/* =====================================================
+   REQUINTO
+===================================================== */
+
 const requintoArtists = [
 
     {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
@@ -1479,7 +1456,10 @@ const requintoArtists = [
 
 ];
 
-/* SALAY */
+/* =====================================================
+   SALAY
+===================================================== */
+
 const salayArtists = [
 
     {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
@@ -1490,7 +1470,10 @@ const salayArtists = [
 
 ];
 
-/* FLORELISA */
+/* =====================================================
+   FLORELISA
+===================================================== */
+
 const florelisaArtists = [
 
     {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
@@ -1501,7 +1484,10 @@ const florelisaArtists = [
 
 ];
 
-/* EXCLUSIVOS */
+/* =====================================================
+   EXCLUSIVOS
+===================================================== */
+
 const exclusiveArtists = [
 
     {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
@@ -1510,7 +1496,10 @@ const exclusiveArtists = [
 
 ];
 
-/* POPULARES */
+/* =====================================================
+   POPULARES
+===================================================== */
+
 const popularArtists = [
 
     {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
@@ -1519,7 +1508,10 @@ const popularArtists = [
 
 ];
 
-/* NUEVOS */
+/* =====================================================
+   NUEVOS ESTRENOS
+===================================================== */
+
 const newArtists = [
 
     {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
@@ -1590,12 +1582,12 @@ mainNav.querySelectorAll("a").forEach(function(link){
 });
 
 /* =====================================================
-   MINIATURAS CON RESPALDO
+   MINIATURA
 ===================================================== */
 
 function getThumbnail(id){
 
-    return "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+    return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
 
 }
 
@@ -1610,7 +1602,7 @@ function fallbackThumbnail(img,id){
         ? Number(img.dataset.fallbackIndex)
         : 0;
 
-    if(current < sources.length){
+    if(current<sources.length){
 
         img.dataset.fallbackIndex=current+1;
         img.src=sources[current];
@@ -1660,8 +1652,7 @@ onclick="event.stopPropagation();">
 
 </a>
 
-<a
-href="#"
+<a href="#"
 aria-label="Instagram"
 onclick="
 event.preventDefault();
@@ -1674,8 +1665,7 @@ event.stopPropagation();
 
 </a>
 
-<a
-href="#"
+<a href="#"
 aria-label="TikTok"
 onclick="
 event.preventDefault();
@@ -1695,7 +1685,7 @@ event.stopPropagation();
 }
 
 /* =====================================================
-   CREAR TARJETA
+   TARJETAS
 ===================================================== */
 
 function createCard(
@@ -1768,9 +1758,7 @@ text-align:center;
 color:#888;
 padding:30px;
 ">
-
 No se encontraron artistas.
-
 </p>
 
 `;
@@ -1795,7 +1783,7 @@ No se encontraron artistas.
 }
 
 /* =====================================================
-   RENDER CATEGORÍAS
+   CATEGORÍAS
 ===================================================== */
 
 function renderCategory(grid,list,card,thumb,play,info){
@@ -2101,9 +2089,7 @@ function showFeatured(index){
     featuredImage.src=getThumbnail(artist.id);
 
     featuredImage.onerror=function(){
-
         fallbackThumbnail(this,artist.id);
-
     };
 
     featuredImage.alt=artist.name;
@@ -2129,23 +2115,15 @@ function showFeatured(index){
 }
 
 function nextFeatured(){
-
     showFeatured(featuredIndex+1);
-
 }
 
 function previousFeatured(){
-
     showFeatured(featuredIndex-1);
-
 }
 
 function playFeatured(){
-
-    openVideo(
-        artists[featuredIndex].id
-    );
-
+    openVideo(artists[featuredIndex].id);
 }
 
 /* =====================================================
@@ -2182,9 +2160,9 @@ artists.forEach(function(artist,index){
 
 function openVideo(videoId){
 
-    if(!videoId){
-        return;
-    }
+    if(!videoId)return;
+
+    lastFocusedElement=document.activeElement;
 
     modalVideo.src=
         "https://www.youtube.com/embed/"+
@@ -2192,9 +2170,12 @@ function openVideo(videoId){
         "?autoplay=1&rel=0&playsinline=1";
 
     modal.classList.add("active");
-
+    modal.setAttribute("aria-hidden","false");
     document.body.style.overflow="hidden";
 
+    requestAnimationFrame(function(){
+        document.querySelector(".close-modal").focus();
+    });
 }
 
 /* =====================================================
@@ -2206,49 +2187,58 @@ function closeVideo(){
     modalVideo.src="";
 
     modal.classList.remove("active");
-
+    modal.setAttribute("aria-hidden","true");
     document.body.style.overflow="";
 
+    if(lastFocusedElement){
+        lastFocusedElement.focus();
+        lastFocusedElement=null;
+    }
 }
 
 function closeOutside(event){
 
     if(event.target===modal){
-
         closeVideo();
-
     }
 
 }
 
 /* =====================================================
-   TECLA ESCAPE
+   ESCAPE
 ===================================================== */
 
 document.addEventListener("keydown",function(event){
 
-    if(event.key==="Escape"){
-
+    if(event.key==="Escape" && modal.classList.contains("active")){
         closeVideo();
+        return;
+    }
 
+    if(event.key==="Tab" && modal.classList.contains("active")){
+        const closeButton=document.querySelector(".close-modal");
+        if(document.activeElement===closeButton && event.shiftKey){
+            event.preventDefault();
+            modalVideo.focus();
+        }
+    }
+
+    if(event.key==="Escape"){
+        closeVideo();
     }
 
     if(
         event.key==="ArrowRight" &&
         !modal.classList.contains("active")
     ){
-
         nextFeatured();
-
     }
 
     if(
         event.key==="ArrowLeft" &&
         !modal.classList.contains("active")
     ){
-
         previousFeatured();
-
     }
 
 });
@@ -2257,37 +2247,35 @@ document.addEventListener("keydown",function(event){
    CAMBIO AUTOMÁTICO
 ===================================================== */
 
-setInterval(function(){
+let featuredTimer;
 
-    nextFeatured();
+function startFeaturedRotation(){
 
-},7000);
+    clearInterval(featuredTimer);
+
+    featuredTimer=setInterval(function(){
+        nextFeatured();
+    },5000);
+
+}
 
 /* =====================================================
    INICIAR
 ===================================================== */
 
 renderVideos(artists);
-
 renderCumbia();
-
 renderRequinto();
-
 renderSalay();
-
 renderFlorelisa();
-
 renderArtists(artists);
-
 renderPopular();
-
 renderNew();
-
 renderExclusive();
-
 showFeatured(0);
+startFeaturedRotation();
 
 </script>
 
 </body>
-</html> 
+</html>
