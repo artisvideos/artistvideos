@@ -8,193 +8,174 @@
 <title>ARTISTVIDEOS</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:90px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#070707;
-color:#fff;
-overflow-x:hidden
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070707;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-button,input{font-family:inherit}
+button,
+input{
+    font-family:inherit;
+}
 
 :root{
---pink:#9c27b0;
---pink-light:#c44bd3;
---card:#121212;
---surface:#151515;
---text-muted:#aaa;
---focus-ring:0 0 0 3px rgba(156,39,176,.35)
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible{
-outline:2px solid var(--pink-light);
-outline-offset:3px;
-box-shadow:var(--focus-ring)
-}
-
-::selection{
-background:var(--pink);
-color:#fff
-}
-
-@media(prefers-reduced-motion:reduce){
-html{scroll-behavior:auto}
-*,*::before,*::after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
-transition-duration:.01ms!important
-}
+    --pink:#9c27b0;
+    --pink-light:#c44bd3;
+    --card:#121212;
+    --surface:#151515;
+    --text-muted:#aaa;
 }
 
 /* HEADER */
+
 header{
-position:sticky;
-top:0;
-z-index:1000;
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px 6%;
-background:rgba(7,7,7,.97);
-backdrop-filter:blur(15px);
-border-bottom:1px solid #252525
+    position:sticky;
+    top:0;
+    z-index:1000;
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 6%;
+    background:rgba(7,7,7,.97);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #252525;
 }
 
 .logo{
-font-size:25px;
-font-weight:900;
-letter-spacing:2px
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.logo span{color:var(--pink)}
+.logo span{
+    color:var(--pink);
+}
 
 nav{
-display:flex;
-align-items:center;
-gap:20px
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
 nav a{
-color:#fff;
-text-decoration:none;
-font-size:12px;
-font-weight:bold;
-transition:.3s
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-nav a:hover{color:var(--pink)}
+nav a:hover{
+    color:var(--pink);
+}
 
 .menu-toggle{
-display:none;
-width:45px;
-height:45px;
-border:1px solid #333;
-border-radius:8px;
-background:#151515;
-cursor:pointer;
-padding:9px;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:5px
+    display:none;
+    width:45px;
+    height:45px;
+    border:1px solid #333;
+    border-radius:8px;
+    background:#151515;
+    cursor:pointer;
+    padding:9px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
 }
 
 .menu-toggle span{
-width:25px;
-height:3px;
-background:#fff;
-border-radius:3px;
-transition:.3s
-}
-
-.menu-toggle.active span:nth-child(1){
-transform:translateY(8px) rotate(45deg)
-}
-
-.menu-toggle.active span:nth-child(2){opacity:0}
-
-.menu-toggle.active span:nth-child(3){
-transform:translateY(-8px) rotate(-45deg)
+    width:25px;
+    height:3px;
+    background:#fff;
+    border-radius:3px;
 }
 
 /* HERO */
+
 .hero{
-min-height:560px;
-display:flex;
-align-items:center;
-padding:70px 6%;
-background:
-linear-gradient(
-90deg,
-#070707 5%,
-rgba(7,7,7,.90) 40%,
-rgba(7,7,7,.20)
-),
-url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-center/cover no-repeat
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    padding:70px 6%;
+    background:
+    linear-gradient(
+        90deg,
+        #070707 5%,
+        rgba(7,7,7,.90) 40%,
+        rgba(7,7,7,.20)
+    ),
+    url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
+    center/cover no-repeat;
 }
 
-.hero-content{max-width:700px}
+.hero-content{
+    max-width:700px;
+}
 
 .hero-label{
-color:var(--pink);
-font-size:13px;
-font-weight:bold;
-letter-spacing:4px
+    color:var(--pink);
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:4px;
 }
 
 .hero h1{
-font-size:clamp(48px,7vw,88px);
-line-height:.92;
-margin:18px 0
+    font-size:clamp(48px,7vw,88px);
+    line-height:.92;
+    margin:18px 0;
 }
 
-.hero h1 span{color:var(--pink)}
+.hero h1 span{
+    color:var(--pink);
+}
 
 .hero p{
-max-width:580px;
-color:#ccc;
-font-size:17px;
-line-height:1.7
+    max-width:580px;
+    color:#ccc;
+    font-size:17px;
+    line-height:1.7;
 }
 
 .hero-button{
-display:inline-block;
-margin-top:28px;
-padding:15px 25px;
-background:var(--pink);
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-border-radius:8px;
-transition:.3s
-}
-
-.hero-button:hover{
-background:var(--pink-light);
-transform:translateY(-2px);
-box-shadow:0 8px 25px rgba(156,39,176,.3)
+    display:inline-block;
+    margin-top:28px;
+    padding:15px 25px;
+    background:var(--pink);
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:8px;
 }
 
 /* GENERAL */
+
 .container{
-width:88%;
-max-width:1400px;
-margin:auto
+    width:88%;
+    max-width:1400px;
+    margin:auto;
 }
 
-.section{padding:55px 0}
+.section{
+    padding:55px 0;
+}
 
 .section-title{
-font-size:30px;
-margin-bottom:28px
+    font-size:30px;
+    margin-bottom:28px;
 }
 
 .section-title span,
@@ -204,180 +185,169 @@ margin-bottom:28px
 .florelisa-title span,
 .special-title span,
 .exclusive-title span{
-color:var(--pink)
+    color:var(--pink);
 }
 
 /* FEATURED */
+
 .featured{
-display:grid;
-grid-template-columns:1.6fr 1fr;
-gap:30px;
-align-items:center
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:30px;
+    align-items:center;
 }
 
 .featured-cover{
-position:relative;
-width:100%;
-aspect-ratio:16/9;
-overflow:hidden;
-border-radius:16px;
-background:#111;
-box-shadow:0 15px 50px rgba(0,0,0,.6);
-cursor:pointer
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:16px;
+    background:#111;
+    cursor:pointer;
 }
 
 .featured-cover img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.5s
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
-.featured-cover:hover img{transform:scale(1.05)}
-
 .featured-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%);
 }
 
 .featured-play{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:80px;
-height:80px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--pink);
-border-radius:50%;
-font-size:28px;
-box-shadow:0 8px 30px rgba(0,0,0,.6);
-transition:.3s
-}
-
-.featured-cover:hover .featured-play{
-transform:translate(-50%,-50%) scale(1.1)
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:80px;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink);
+    border-radius:50%;
+    font-size:28px;
 }
 
 .cover-title{
-position:absolute;
-left:25px;
-right:25px;
-bottom:20px;
-font-size:23px;
-font-weight:bold
+    position:absolute;
+    left:25px;
+    right:25px;
+    bottom:20px;
+    font-size:23px;
+    font-weight:bold;
 }
 
-.featured-info{padding:10px}
+.featured-info{
+    padding:10px;
+}
 
 .featured-tag{
-display:inline-block;
-padding:7px 13px;
-background:var(--pink);
-border-radius:20px;
-font-size:11px;
-font-weight:bold;
-margin-bottom:15px
+    display:inline-block;
+    padding:7px 13px;
+    background:var(--pink);
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 .featured-info h2{
-font-size:35px;
-margin-bottom:15px
+    font-size:35px;
+    margin-bottom:15px;
 }
 
 .featured-info p{
-color:#aaa;
-line-height:1.7
+    color:#aaa;
+    line-height:1.7;
 }
 
 .youtube-button{
-display:inline-block;
-margin-top:22px;
-padding:13px 20px;
-background:#fff;
-color:#000;
-border-radius:7px;
-text-decoration:none;
-font-weight:bold;
-transition:.3s
-}
-
-.youtube-button:hover{
-background:var(--pink);
-color:#fff
+    display:inline-block;
+    margin-top:22px;
+    padding:13px 20px;
+    background:#fff;
+    color:#000;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 /* SLIDER */
+
 .slider-controls{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:20px
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:20px;
 }
 
 .slider-btn{
-width:44px;
-height:44px;
-border:1px solid #333;
-border-radius:50%;
-background:#151515;
-color:#fff;
-font-size:22px;
-cursor:pointer;
-transition:.3s
+    width:44px;
+    height:44px;
+    border:1px solid #333;
+    border-radius:50%;
+    background:#151515;
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
 }
 
 .slider-btn:hover{
-background:var(--pink);
-border-color:var(--pink)
+    background:var(--pink);
+    border-color:var(--pink);
 }
 
 .slider-dots{
-display:flex;
-gap:7px;
-flex-wrap:wrap;
-margin-left:5px;
-max-width:700px
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-left:5px;
 }
 
 .slider-dot{
-width:8px;
-height:8px;
-border:0;
-padding:0;
-background:#444;
-border-radius:10px;
-cursor:pointer;
-transition:.3s
+    width:8px;
+    height:8px;
+    border:0;
+    background:#444;
+    border-radius:10px;
+    cursor:pointer;
 }
 
 .slider-dot.active{
-width:24px;
-background:var(--pink)
+    width:24px;
+    background:var(--pink);
 }
 
-/* BUSCADOR */
-.search-box{margin-bottom:30px}
+/* SEARCH */
+
+.search-box{
+    margin-bottom:30px;
+}
 
 .search-box input{
-width:100%;
-padding:17px 20px;
-border:1px solid #292929;
-border-radius:10px;
-outline:none;
-background:#141414;
-color:#fff;
-font-size:15px;
-transition:.3s
+    width:100%;
+    padding:17px 20px;
+    border:1px solid #292929;
+    border-radius:10px;
+    outline:none;
+    background:#141414;
+    color:#fff;
+    font-size:15px;
 }
 
-.search-box input:focus{border-color:var(--pink)}
+.search-box input:focus{
+    border-color:var(--pink);
+}
 
 /* GRIDS */
+
 .video-grid,
 .cumbia-grid,
 .requinto-grid,
@@ -385,12 +355,13 @@ transition:.3s
 .florelisa-grid,
 .popular-grid,
 .new-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
-/* TARJETAS */
+/* CARDS */
+
 .video-card,
 .cumbia-card,
 .requinto-card,
@@ -398,11 +369,11 @@ gap:25px
 .florelisa-card,
 .popular-card,
 .new-card{
-background:var(--card);
-border:1px solid #202020;
-border-radius:13px;
-overflow:hidden;
-transition:.3s
+    background:var(--card);
+    border:1px solid #202020;
+    border-radius:13px;
+    overflow:hidden;
+    transition:.3s;
 }
 
 .video-card:hover,
@@ -412,12 +383,12 @@ transition:.3s
 .florelisa-card:hover,
 .popular-card:hover,
 .new-card:hover{
-transform:translateY(-6px);
-border-color:var(--pink);
-box-shadow:0 10px 30px rgba(156,39,176,.12)
+    transform:translateY(-6px);
+    border-color:var(--pink);
 }
 
-/* MINIATURAS */
+/* THUMBNAILS */
+
 .thumbnail,
 .cumbia-thumbnail,
 .requinto-thumbnail,
@@ -425,12 +396,12 @@ box-shadow:0 10px 30px rgba(156,39,176,.12)
 .florelisa-thumbnail,
 .popular-thumbnail,
 .new-thumbnail{
-position:relative;
-width:100%;
-aspect-ratio:16/9;
-overflow:hidden;
-cursor:pointer;
-background:#181818
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    cursor:pointer;
+    background:#181818;
 }
 
 .thumbnail img,
@@ -440,11 +411,11 @@ background:#181818
 .florelisa-thumbnail img,
 .popular-thumbnail img,
 .new-thumbnail img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.4s
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
 }
 
 .video-card:hover img,
@@ -454,10 +425,11 @@ transition:.4s
 .florelisa-card:hover img,
 .popular-card:hover img,
 .new-card:hover img{
-transform:scale(1.06)
+    transform:scale(1.06);
 }
 
 /* PLAY */
+
 .play-button,
 .cumbia-play,
 .requinto-play,
@@ -465,23 +437,23 @@ transform:scale(1.06)
 .florelisa-play,
 .popular-play,
 .new-play{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:62px;
-height:62px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--pink);
-color:#fff;
-border-radius:50%;
-font-size:22px;
-box-shadow:0 5px 20px rgba(0,0,0,.55)
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:62px;
+    height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink);
+    color:#fff;
+    border-radius:50%;
+    font-size:22px;
 }
 
 /* INFO */
+
 .video-info,
 .cumbia-info,
 .requinto-info,
@@ -489,7 +461,7 @@ box-shadow:0 5px 20px rgba(0,0,0,.55)
 .florelisa-info,
 .popular-info,
 .new-info{
-padding:18px
+    padding:18px;
 }
 
 .video-info h3,
@@ -499,527 +471,437 @@ padding:18px
 .florelisa-info h3,
 .popular-info h3,
 .new-info h3{
-font-size:18px;
-margin-bottom:7px
+    font-size:18px;
+    margin-bottom:7px;
 }
 
-/* REDES */
+/* SOCIAL */
+
 .social-icons{
-display:flex;
-align-items:center;
-gap:9px;
-margin-top:10px
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin-top:10px;
 }
 
 .social-icons a{
-width:34px;
-height:34px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-background:#1b1b1b;
-color:#fff;
-text-decoration:none;
-transition:.3s
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#1b1b1b;
+    color:#fff;
+    text-decoration:none;
 }
 
 .social-icons a svg{
-width:18px;
-height:18px;
-fill:currentColor
+    width:18px;
+    height:18px;
+    fill:currentColor;
 }
 
-.social-icons a:hover{
-background:var(--pink);
-transform:translateY(-3px)
-}
+/* BUTTONS */
 
-/* BOTONES */
 .watch-button,
 .exclusive-button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:16px;
-min-width:150px;
-padding:13px 20px;
-background:var(--pink);
-color:#fff;
-border:0;
-border-radius:7px;
-font-size:13px;
-font-weight:800;
-cursor:pointer;
-transition:.3s
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:16px;
+    min-width:150px;
+    padding:13px 20px;
+    background:var(--pink);
+    color:#fff;
+    border:0;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
 }
 
 .watch-button:hover,
 .exclusive-button:hover{
-background:var(--pink-light);
-transform:translateY(-2px);
-box-shadow:0 6px 18px rgba(156,39,176,.3)
+    background:var(--pink-light);
 }
 
-/* CATEGORÍAS */
+/* CATEGORY */
+
 .cumbia-section,
 .requinto-section,
 .salay-section,
 .florelisa-section{
-padding:20px 0 55px;
-border-top:1px solid #222
+    padding:20px 0 55px;
+    border-top:1px solid #222;
 }
 
 .cumbia-title,
 .requinto-title,
 .salay-title,
 .florelisa-title{
-font-size:30px;
-margin-bottom:28px
+    font-size:30px;
+    margin-bottom:28px;
 }
 
 /* BADGE */
+
 .badge{
-position:absolute;
-top:12px;
-left:12px;
-z-index:5;
-padding:7px 11px;
-background:var(--pink);
-color:#fff;
-border-radius:20px;
-font-size:10px;
-font-weight:900
+    position:absolute;
+    top:12px;
+    left:12px;
+    z-index:5;
+    padding:7px 11px;
+    background:var(--pink);
+    color:#fff;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:900;
 }
 
-/* ARTISTAS */
+/* ARTISTS */
+
 .artists-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:28px 22px
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:28px 22px;
 }
 
 .artist{
-text-align:center;
-cursor:pointer
+    text-align:center;
+    cursor:pointer;
 }
 
 .artist-image-box{
-position:relative;
-width:100%;
-aspect-ratio:1/1;
-overflow:hidden;
-border-radius:50%;
-border:3px solid #222;
-background:#151515;
-transition:.3s
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    border-radius:50%;
+    border:3px solid #222;
+    background:#151515;
 }
 
 .artist-image{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.4s
-}
-
-.artist:hover .artist-image-box{
-border-color:var(--pink);
-transform:scale(1.04)
-}
-
-.artist:hover .artist-image{
-transform:scale(1.08)
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 .artist-play{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:50px;
-height:50px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--pink);
-border-radius:50%;
-opacity:0;
-transition:.3s
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink);
+    border-radius:50%;
+    opacity:0;
 }
 
-.artist:hover .artist-play{opacity:1}
+.artist:hover .artist-play{
+    opacity:1;
+}
 
 .artist h3{
-margin-top:13px;
-font-size:15px;
-line-height:1.3
+    margin-top:13px;
+    font-size:15px;
+    line-height:1.3;
 }
 
 .artist p{
-color:#777;
-font-size:12px;
-margin-top:5px
+    color:#777;
+    font-size:12px;
+    margin-top:5px;
 }
 
-/* EXCLUSIVOS */
+/* SPECIAL */
+
+.special-section{
+    padding:50px 0;
+    border-top:1px solid #222;
+}
+
+.special-title{
+    font-size:30px;
+    margin-bottom:28px;
+}
+
+/* EXCLUSIVE */
+
 .exclusive-section{
-margin-top:30px;
-padding:45px 0;
-border-top:1px solid #222
+    margin-top:30px;
+    padding:45px 0;
+    border-top:1px solid #222;
 }
 
 .exclusive-title{
-display:flex;
-align-items:center;
-gap:10px;
-margin-bottom:28px;
-font-size:30px
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:28px;
+    font-size:30px;
 }
 
 .exclusive-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
 .exclusive-card{
-position:relative;
-background:linear-gradient(145deg,#191919,#0d0d0d);
-border:1px solid #292929;
-border-radius:15px;
-overflow:hidden;
-transition:.3s
-}
-
-.exclusive-card:hover{
-transform:translateY(-7px);
-border-color:var(--pink);
-box-shadow:0 12px 35px rgba(156,39,176,.15)
+    position:relative;
+    background:linear-gradient(145deg,#191919,#0d0d0d);
+    border:1px solid #292929;
+    border-radius:15px;
+    overflow:hidden;
 }
 
 .exclusive-image{
-position:relative;
-width:100%;
-aspect-ratio:16/9;
-overflow:hidden;
-cursor:pointer
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    cursor:pointer;
 }
 
 .exclusive-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.4s
-}
-
-.exclusive-card:hover .exclusive-image img{
-transform:scale(1.06)
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .exclusive-play{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:62px;
-height:62px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--pink);
-color:#fff;
-border-radius:50%;
-font-size:22px
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:62px;
+    height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink);
+    color:#fff;
+    border-radius:50%;
+    font-size:22px;
 }
 
-.exclusive-info{padding:18px}
+.exclusive-info{
+    padding:18px;
+}
 
 .exclusive-info h3{
-font-size:19px;
-margin-bottom:7px
+    font-size:19px;
+    margin-bottom:7px;
 }
 
 .exclusive-info p{
-color:#888;
-font-size:13px
-}
-
-/* POPULARES / ESTRENOS */
-.special-section{
-padding:50px 0;
-border-top:1px solid #222
-}
-
-.special-title{
-font-size:30px;
-margin-bottom:28px
+    color:#888;
+    font-size:13px;
 }
 
 /* WHATSAPP */
-.whatsapp-button{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:2500;
-width:58px;
-height:58px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#25D366;
-color:#fff;
-border-radius:50%;
-text-decoration:none;
-box-shadow:0 6px 25px rgba(0,0,0,.45);
-transition:.3s;
-animation:whatsappPulse 2s infinite
-}
 
-.whatsapp-button:hover{
-transform:scale(1.1);
-background:#20bd5a
+.whatsapp-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:2500;
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    text-decoration:none;
+    box-shadow:0 6px 25px rgba(0,0,0,.45);
 }
 
 .whatsapp-button svg{
-width:32px;
-height:32px;
-fill:currentColor
-}
-
-@keyframes whatsappPulse{
-0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
-70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+    width:32px;
+    height:32px;
+    fill:currentColor;
 }
 
 /* MODAL */
+
 .modal{
-position:fixed;
-inset:0;
-z-index:3000;
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-background:rgba(0,0,0,.96)
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.96);
 }
 
-.modal.active{display:flex}
+.modal.active{
+    display:flex;
+}
 
 .modal-content{
-position:relative;
-width:min(1000px,95vw);
-aspect-ratio:16/9;
-background:#000;
-border-radius:12px;
-overflow:hidden
+    position:relative;
+    width:min(1000px,95vw);
+    aspect-ratio:16/9;
+    background:#000;
+    border-radius:12px;
+    overflow:hidden;
 }
 
 .modal iframe{
-width:100%;
-height:100%;
-border:0
+    width:100%;
+    height:100%;
+    border:0;
 }
 
 .close-modal{
-position:absolute;
-top:10px;
-right:10px;
-z-index:10;
-width:42px;
-height:42px;
-border:0;
-border-radius:50%;
-background:var(--pink);
-color:#fff;
-font-size:25px;
-cursor:pointer
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:10;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:var(--pink);
+    color:#fff;
+    font-size:25px;
+    cursor:pointer;
 }
 
 /* FOOTER */
+
 footer{
-margin-top:50px;
-padding:40px 6%;
-text-align:center;
-border-top:1px solid #222;
-color:#777
+    margin-top:50px;
+    padding:40px 6%;
+    text-align:center;
+    border-top:1px solid #222;
+    color:#777;
 }
 
-footer strong{color:var(--pink)}
+footer strong{
+    color:var(--pink);
+}
 
-/* TABLET */
+/* RESPONSIVE */
+
 @media(max-width:1100px){
 
-.featured{grid-template-columns:1fr}
+    .featured{
+        grid-template-columns:1fr;
+    }
 
-.video-grid,
-.cumbia-grid,
-.requinto-grid,
-.salay-grid,
-.florelisa-grid,
-.popular-grid,
-.new-grid{
-grid-template-columns:repeat(2,1fr)
+    .video-grid,
+    .cumbia-grid,
+    .requinto-grid,
+    .salay-grid,
+    .florelisa-grid,
+    .popular-grid,
+    .new-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .artists-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .exclusive-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
-.artists-grid{
-grid-template-columns:repeat(4,1fr)
-}
-
-.exclusive-grid{
-grid-template-columns:repeat(2,1fr)
-}
-
-nav{gap:10px}
-}
-
-/* CELULAR */
 @media(max-width:650px){
 
-.modal{padding:12px}
+    header{
+        min-height:70px;
+        padding:12px 5%;
+    }
 
-.modal-content{
-width:100%;
-aspect-ratio:16/10;
-border-radius:9px
-}
+    .logo{
+        font-size:21px;
+    }
 
-.close-modal{
-top:7px;
-right:7px;
-width:38px;
-height:38px;
-font-size:22px
-}
+    .menu-toggle{
+        display:flex;
+    }
 
-header{
-min-height:70px;
-padding:12px 5%
-}
+    nav{
+        position:absolute;
+        top:70px;
+        left:0;
+        right:0;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:#070707;
+        border-top:1px solid #222;
+        border-bottom:1px solid #222;
+    }
 
-.logo{font-size:21px}
+    nav.active{
+        display:flex;
+    }
 
-.menu-toggle{display:flex}
+    nav a{
+        padding:16px 25px;
+        border-bottom:1px solid #1c1c1c;
+    }
 
-nav{
-position:absolute;
-top:70px;
-left:0;
-right:0;
-display:none;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-background:rgba(7,7,7,.99);
-border-top:1px solid #222;
-border-bottom:1px solid #222;
-box-shadow:0 15px 30px rgba(0,0,0,.6);
-padding:8px 0
-}
+    .hero{
+        min-height:470px;
+        padding:55px 5%;
+    }
 
-nav.active{display:flex}
+    .hero h1{
+        font-size:48px;
+    }
 
-nav a{
-display:block;
-width:100%;
-padding:16px 25px;
-font-size:13px;
-border-bottom:1px solid #1c1c1c
-}
+    .container{
+        width:92%;
+    }
 
-nav a:last-child{border-bottom:0}
+    .video-grid,
+    .cumbia-grid,
+    .requinto-grid,
+    .salay-grid,
+    .florelisa-grid,
+    .popular-grid,
+    .new-grid{
+        grid-template-columns:1fr;
+    }
 
-nav a:hover{
-background:#151515;
-color:var(--pink)
-}
+    .artists-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:24px 15px;
+    }
 
-.hero{
-min-height:470px;
-padding:55px 5%
-}
+    .exclusive-grid{
+        grid-template-columns:1fr;
+    }
 
-.hero h1{font-size:48px}
+    .featured-info h2{
+        font-size:28px;
+    }
 
-.hero p{font-size:15px}
-
-.container{width:92%}
-
-.video-grid,
-.cumbia-grid,
-.requinto-grid,
-.salay-grid,
-.florelisa-grid,
-.popular-grid,
-.new-grid{
-grid-template-columns:1fr
-}
-
-.artists-grid{
-grid-template-columns:repeat(2,1fr);
-gap:24px 15px
-}
-
-.exclusive-grid{
-grid-template-columns:1fr
-}
-
-.featured-info h2{font-size:28px}
-
-.featured-play{
-width:65px;
-height:65px
-}
-
-.cover-title{font-size:17px}
-
-.section{padding:40px 0}
-
-.section-title,
-.cumbia-title,
-.requinto-title,
-.salay-title,
-.florelisa-title,
-.exclusive-title,
-.special-title{
-font-size:26px
-}
-
-.social-icons a{
-width:32px;
-height:32px
-}
-
-.watch-button{
-min-width:150px;
-padding:14px 20px;
-font-size:14px
-}
-
-.whatsapp-button{
-width:54px;
-height:54px;
-right:16px;
-bottom:16px
-}
-
-.whatsapp-button svg{
-width:29px;
-height:29px
-}
-}
-
-@media(max-width:380px){
-
-.artists-grid{gap:20px 10px}
-
-.artist h3{font-size:13px}
-
-.hero h1{font-size:42px}
-
-.logo{font-size:19px}
+    .section-title,
+    .cumbia-title,
+    .requinto-title,
+    .salay-title,
+    .florelisa-title,
+    .exclusive-title,
+    .special-title{
+        font-size:26px;
+    }
 }
 </style>
 </head>
@@ -1036,8 +918,7 @@ ARTIST<span>VIDEOS</span>
 class="menu-toggle"
 id="menuToggle"
 type="button"
-aria-label="Abrir menú"
-aria-expanded="false">
+aria-label="Abrir menú">
 
 <span></span>
 <span></span>
@@ -1092,9 +973,11 @@ en un solo lugar.
 
 <main class="container">
 
-<section class="section" aria-labelledby="featured-heading">
+<!-- DESTACADO -->
 
-<h2 class="section-title" id="featured-heading">
+<section class="section">
+
+<h2 class="section-title">
 VIDEO <span>DESTACADO</span>
 </h2>
 
@@ -1104,17 +987,12 @@ VIDEO <span>DESTACADO</span>
 
 <div
 class="featured-cover"
-role="button"
-tabindex="0"
-aria-label="Reproducir video destacado"
-onclick="playFeatured()"
-onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playFeatured()}">
+onclick="playFeatured()">
 
 <img
 id="featuredImage"
 src=""
-alt="Video destacado"
-fetchpriority="high">
+alt="Video destacado">
 
 <div class="featured-overlay"></div>
 
@@ -1133,16 +1011,12 @@ id="coverTitle">
 
 <button
 class="slider-btn"
-type="button"
-aria-label="Video destacado anterior"
 onclick="previousFeatured()">
 ‹
 </button>
 
 <button
 class="slider-btn"
-type="button"
-aria-label="Siguiente video destacado"
 onclick="nextFeatured()">
 ›
 </button>
@@ -1162,7 +1036,8 @@ id="sliderDots">
 VIDEO DESTACADO
 </span>
 
-<h2 id="featuredTitle"></h2>
+<h2 id="featuredTitle">
+</h2>
 
 <p>
 Disfruta de videos musicales
@@ -1186,6 +1061,8 @@ class="youtube-button">
 
 </section>
 
+<!-- HUAYNO -->
+
 <section class="section" id="videos">
 
 <h2 class="section-title">
@@ -1197,7 +1074,6 @@ HUAYNO <span>SUREÑO</span>
 <input
 type="search"
 id="searchInput"
-aria-label="Buscar artistas de Huayno Sureño"
 placeholder="🔎 Buscar artista..."
 autocomplete="off">
 
@@ -1209,6 +1085,8 @@ id="videoGrid">
 </div>
 
 </section>
+
+<!-- CUMBIA -->
 
 <section class="cumbia-section" id="cumbia">
 
@@ -1223,6 +1101,8 @@ id="cumbiaGrid">
 
 </section>
 
+<!-- REQUINTO -->
+
 <section class="requinto-section" id="requinto">
 
 <h2 class="requinto-title">
@@ -1235,6 +1115,8 @@ id="requintoGrid">
 </div>
 
 </section>
+
+<!-- SALAY -->
 
 <section class="salay-section" id="salay">
 
@@ -1249,6 +1131,8 @@ id="salayGrid">
 
 </section>
 
+<!-- FLORELISA -->
+
 <section class="florelisa-section" id="florelisa">
 
 <h2 class="florelisa-title">
@@ -1261,6 +1145,8 @@ id="florelisaGrid">
 </div>
 
 </section>
+
+<!-- ARTISTAS -->
 
 <section class="section" id="artistas">
 
@@ -1275,6 +1161,8 @@ id="artistsGrid">
 
 </section>
 
+<!-- POPULARES -->
+
 <section class="special-section" id="populares">
 
 <h2 class="special-title">
@@ -1288,6 +1176,8 @@ id="popularGrid">
 
 </section>
 
+<!-- NUEVOS -->
+
 <section class="special-section" id="estrenos">
 
 <h2 class="special-title">
@@ -1300,6 +1190,8 @@ id="newGrid">
 </div>
 
 </section>
+
+<!-- EXCLUSIVOS -->
 
 <section class="exclusive-section" id="exclusivos">
 
@@ -1317,48 +1209,47 @@ id="exclusiveGrid">
 
 </main>
 
+<!-- WHATSAPP -->
+
 <a
 class="whatsapp-button"
 href="https://wa.me/51956461177"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="Contactar por WhatsApp"
-title="Contactar por WhatsApp">
+aria-label="WhatsApp">
 
 <svg viewBox="0 0 24 24">
-<path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2zm0 18.1h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.07.8.82-2.99-.2-.31a8.27 8.27 0 1 1 6.96 3.83zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+<path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2z"/>
 </svg>
 
 </a>
 
+<!-- MODAL -->
+
 <div
 class="modal"
 id="videoModal"
-role="dialog"
-aria-modal="true"
-aria-hidden="true"
-aria-label="Reproductor de video"
 onclick="closeOutside(event)">
 
 <div class="modal-content">
 
 <button
 class="close-modal"
-type="button"
-aria-label="Cerrar reproductor"
 onclick="closeVideo()">
+
 ×
+
 </button>
 
 <iframe
 id="modalVideo"
 src=""
-title="Reproductor de video"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allow="autoplay; encrypted-media; picture-in-picture"
 allowfullscreen>
 </iframe>
 
 </div>
+
 </div>
 
 <footer>
@@ -1371,17 +1262,12 @@ allowfullscreen>
 
 </footer>
 
-<!-- =====================================================
-     SUPABASE
-===================================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* =====================================================
-   SUPABASE
-===================================================== */
+/* =========================================================
+   CONFIGURACIÓN SUPABASE
+========================================================= */
 
 const SUPABASE_URL =
 "https://xyblgirhewopnpmkvkyk.supabase.co";
@@ -1389,24 +1275,12 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_V-4tpS85Ods1tXADgrHz9Q_CdJmoaOR";
 
-const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
 
-const prefersReducedMotion =
-window.matchMedia(
-"(prefers-reduced-motion: reduce)"
-).matches;
-
-let lastFocusedElement=null;
-
-/* =====================================================
+/* =========================================================
    ARTISTAS ORIGINALES
-===================================================== */
+========================================================= */
 
-const artists=[
+const artists = [
 
 {name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
 {name:"SOL LUCERO",id:"P77ADWWaHUQ"},
@@ -1449,24 +1323,20 @@ const artists=[
 
 ];
 
-/* =====================================================
-   CATEGORÍAS ORIGINALES
-===================================================== */
-
-const cumbiaArtists=[
+const cumbiaArtists = [
 {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
 {name:"EDSON MORALES",id:"MzjC097tc4E"},
 {name:"GRUPO CORALI",id:"cobAXEUP_NI"}
 ];
 
-const requintoArtists=[
+const requintoArtists = [
 {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
 {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
 {name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
 {name:"RUTH CURO",id:"MfFB4r7a9T4"}
 ];
 
-const salayArtists=[
+const salayArtists = [
 {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
 {name:"NICKOL RAMOS",id:"_8381AySMnk"},
 {name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
@@ -1474,7 +1344,7 @@ const salayArtists=[
 {name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
 ];
 
-const florelisaArtists=[
+const florelisaArtists = [
 {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
 {name:"DELY CORAZON",id:"eDC3Tswc_PE"},
 {name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
@@ -1482,94 +1352,105 @@ const florelisaArtists=[
 {name:"MARIELIZ",id:"LpLDIOdpS_4"}
 ];
 
-/* =====================================================
-   EXCLUSIVOS ORIGINALES
-   ESTOS NO ENTRAN EN VIDEO DESTACADO
-===================================================== */
-
-const exclusiveArtists=[
-
+const exclusiveArtists = [
 {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
 {name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
 {name:"DELIA HUANCA",id:"tefROgLlZIo"}
-
 ];
 
-/* =====================================================
-   POPULARES
-===================================================== */
-
-const popularArtists=[
+const popularArtists = [
 {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
 {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
 {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
 ];
 
-/* =====================================================
-   NUEVOS
-===================================================== */
-
-const newArtists=[
+const newArtists = [
 {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
 {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
 {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
 ];
 
-/* =====================================================
-   DATOS SUPABASE
-===================================================== */
 
-let adminArtists=[];
-let adminVideos=[];
+/* =========================================================
+   DATOS DEL ADMIN
+========================================================= */
 
-/* =====================================================
+let adminArtists = [];
+let adminVideos = [];
+
+
+/* =========================================================
    ELEMENTOS
-===================================================== */
+========================================================= */
 
-const videoGrid=document.getElementById("videoGrid");
-const cumbiaGrid=document.getElementById("cumbiaGrid");
-const requintoGrid=document.getElementById("requintoGrid");
-const salayGrid=document.getElementById("salayGrid");
-const florelisaGrid=document.getElementById("florelisaGrid");
-const artistsGrid=document.getElementById("artistsGrid");
-const exclusiveGrid=document.getElementById("exclusiveGrid");
-const popularGrid=document.getElementById("popularGrid");
-const newGrid=document.getElementById("newGrid");
+const videoGrid =
+document.getElementById("videoGrid");
 
-const searchInput=document.getElementById("searchInput");
+const cumbiaGrid =
+document.getElementById("cumbiaGrid");
 
-const featuredImage=document.getElementById("featuredImage");
-const featuredTitle=document.getElementById("featuredTitle");
-const coverTitle=document.getElementById("coverTitle");
-const youtubeLink=document.getElementById("youtubeLink");
-const sliderDots=document.getElementById("sliderDots");
+const requintoGrid =
+document.getElementById("requintoGrid");
 
-const modal=document.getElementById("videoModal");
-const modalVideo=document.getElementById("modalVideo");
+const salayGrid =
+document.getElementById("salayGrid");
 
-const menuToggle=document.getElementById("menuToggle");
-const mainNav=document.getElementById("mainNav");
+const florelisaGrid =
+document.getElementById("florelisaGrid");
 
-/* =====================================================
+const artistsGrid =
+document.getElementById("artistsGrid");
+
+const popularGrid =
+document.getElementById("popularGrid");
+
+const newGrid =
+document.getElementById("newGrid");
+
+const exclusiveGrid =
+document.getElementById("exclusiveGrid");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const featuredImage =
+document.getElementById("featuredImage");
+
+const featuredTitle =
+document.getElementById("featuredTitle");
+
+const coverTitle =
+document.getElementById("coverTitle");
+
+const youtubeLink =
+document.getElementById("youtubeLink");
+
+const sliderDots =
+document.getElementById("sliderDots");
+
+const modal =
+document.getElementById("videoModal");
+
+const modalVideo =
+document.getElementById("modalVideo");
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const mainNav =
+document.getElementById("mainNav");
+
+
+/* =========================================================
    MENÚ
-===================================================== */
+========================================================= */
 
 menuToggle.addEventListener("click",function(){
 
-const opened=
 mainNav.classList.toggle("active");
 
-menuToggle.classList.toggle(
-"active",
-opened
-);
-
-menuToggle.setAttribute(
-"aria-expanded",
-opened?"true":"false"
-);
-
 });
+
 
 mainNav.querySelectorAll("a")
 .forEach(function(link){
@@ -1577,51 +1458,38 @@ mainNav.querySelectorAll("a")
 link.addEventListener("click",function(){
 
 mainNav.classList.remove("active");
-menuToggle.classList.remove("active");
-
-menuToggle.setAttribute(
-"aria-expanded",
-"false"
-);
 
 });
 
 });
 
-/* =====================================================
-   SEGURIDAD
-===================================================== */
 
-function escapeHTML(value){
-
-return String(value??"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-/* =====================================================
-   YOUTUBE
-===================================================== */
+/* =========================================================
+   YOUTUBE ID
+========================================================= */
 
 function getYoutubeId(url){
 
-if(!url)return "";
+if(!url){
+return "";
+}
 
 url=String(url).trim();
 
 try{
 
-if(/^[A-Za-z0-9_-]{6,}$/.test(url)){
+if(
+/^[A-Za-z0-9_-]{6,}$/.test(url)
+){
 return url;
 }
 
-const parsed=new URL(url);
+const parsed =
+new URL(url);
 
-if(parsed.hostname.includes("youtu.be")){
+if(
+parsed.hostname.includes("youtu.be")
+){
 
 return parsed.pathname
 .replace("/","")
@@ -1629,25 +1497,29 @@ return parsed.pathname
 
 }
 
-if(parsed.hostname.includes("youtube.com")){
+if(
+parsed.hostname.includes("youtube.com")
+){
 
-const v=
+const videoId =
 parsed.searchParams.get("v");
 
-if(v)return v;
+if(videoId){
+return videoId;
+}
 
-const parts=
+const parts =
 parsed.pathname.split("/");
 
-const index=
+const embedIndex =
 parts.indexOf("embed");
 
 if(
-index!==-1 &&
-parts[index+1]
+embedIndex !== -1 &&
+parts[embedIndex + 1]
 ){
 
-return parts[index+1];
+return parts[embedIndex + 1];
 
 }
 
@@ -1655,9 +1527,9 @@ return parts[index+1];
 
 }catch(error){
 
-console.warn(
-"URL de YouTube inválida:",
-url
+console.error(
+"Error YouTube:",
+error
 );
 
 }
@@ -1666,128 +1538,38 @@ return "";
 
 }
 
-/* =====================================================
-   MINIATURAS
-===================================================== */
+
+/* =========================================================
+   MINIATURA
+========================================================= */
 
 function getThumbnail(id){
 
-return "https://i.ytimg.com/vi/"+
-encodeURIComponent(id)+
-"/hqdefault.jpg";
+return
+`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
 }
 
-function fallbackThumbnail(img,id){
 
-const sources=[
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
 
-"https://i.ytimg.com/vi/"+
-id+
-"/mqdefault.jpg",
+function escapeHTML(value){
 
-"https://i.ytimg.com/vi/"+
-id+
-"/default.jpg"
-
-];
-
-const current=
-img.dataset.fallbackIndex
-?Number(img.dataset.fallbackIndex)
-:0;
-
-if(current<sources.length){
-
-img.dataset.fallbackIndex=
-current+1;
-
-img.src=
-sources[current];
-
-}else{
-
-img.src=
-"https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
-}
 
-/* =====================================================
-   REDES
-===================================================== */
-
-function socialIcons(id){
-
-return `
-
-<div class="social-icons">
-
-<a
-href="#"
-aria-label="Facebook"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-</svg>
-
-</a>
-
-<a
-href="https://www.youtube.com/watch?v=${encodeURIComponent(id)}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="YouTube"
-onclick="event.stopPropagation();">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/>
-</svg>
-
-</a>
-
-<a
-href="#"
-aria-label="Instagram"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
-</svg>
-
-</a>
-
-<a
-href="#"
-aria-label="TikTok"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M15.5 2h3c.2 1.7 1.1 3.2 2.5 4.2v3.1c-1.4-.1-2.7-.6-3.8-1.4v7.2a6.2 6.2 0 1 1-6.2-6.2c.4 0 .8 0 1.2.1v3.2a3.2 3.2 0 1 0 2 3V2h1.3z"/>
-</svg>
-
-</a>
-
-</div>
-
-`;
-
-}
-
-/* =====================================================
-   TARJETAS
-===================================================== */
+/* =========================================================
+   TARJETA
+========================================================= */
 
 function createCard(
 artist,
@@ -1797,28 +1579,28 @@ playClass,
 infoClass
 ){
 
-const card=
+const card =
 document.createElement("article");
 
-card.className=cardClass;
+card.className =
+cardClass;
 
-const safeName=
-escapeHTML(artist.name);
-
-const safeId=
+const id =
 escapeHTML(artist.id);
 
-card.innerHTML=`
+const name =
+escapeHTML(artist.name);
+
+card.innerHTML = `
 
 <div
 class="${thumbClass}"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 <img
-src="${getThumbnail(artist.id)}"
-alt="${safeName}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${safeId}')">
+src="${getThumbnail(id)}"
+alt="${name}"
+loading="lazy">
 
 <div class="${playClass}">
 ▶
@@ -1828,14 +1610,34 @@ onerror="fallbackThumbnail(this,'${safeId}')">
 
 <div class="${infoClass}">
 
-<h3>${safeName}</h3>
+<h3>${name}</h3>
 
-${socialIcons(artist.id)}
+<div class="social-icons">
+
+<a href="#" onclick="event.preventDefault()">
+f
+</a>
+
+<a
+href="https://www.youtube.com/watch?v=${id}"
+target="_blank"
+rel="noopener noreferrer">
+▶
+</a>
+
+<a href="#" onclick="event.preventDefault()">
+◎
+</a>
+
+<a href="#" onclick="event.preventDefault()">
+♪
+</a>
+
+</div>
 
 <button
-type="button"
 class="watch-button"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 ▶ REPRODUCIR
 
@@ -1849,9 +1651,10 @@ return card;
 
 }
 
-/* =====================================================
-   RENDER HUAYNO
-===================================================== */
+
+/* =========================================================
+   HUAYNO
+========================================================= */
 
 function renderVideos(list){
 
@@ -1867,7 +1670,9 @@ text-align:center;
 color:#888;
 padding:30px;
 ">
-No se encontraron artistas.
+
+No se encontraron videos.
+
 </p>
 
 `;
@@ -1894,17 +1699,18 @@ artist,
 
 }
 
-/* =====================================================
+
+/* =========================================================
    CATEGORÍAS
-===================================================== */
+========================================================= */
 
 function renderCategory(
 grid,
 list,
-card,
-thumb,
-play,
-info
+cardClass,
+thumbClass,
+playClass,
+infoClass
 ){
 
 grid.innerHTML="";
@@ -1915,10 +1721,10 @@ grid.appendChild(
 
 createCard(
 artist,
-card,
-thumb,
-play,
-info
+cardClass,
+thumbClass,
+playClass,
+infoClass
 )
 
 );
@@ -1927,18 +1733,21 @@ info
 
 }
 
+
 function getCategoryList(
 originalList,
 category
 ){
 
-const result=
+const result =
 [...originalList];
 
 adminVideos
-.filter(
-video=>video.category===category
-)
+.filter(function(video){
+
+return video.category === category;
+
+})
 .forEach(function(video){
 
 result.push(video);
@@ -1948,6 +1757,7 @@ result.push(video);
 return result;
 
 }
+
 
 function renderCumbia(){
 
@@ -1965,6 +1775,7 @@ cumbiaArtists,
 
 }
 
+
 function renderRequinto(){
 
 renderCategory(
@@ -1980,6 +1791,7 @@ requintoArtists,
 );
 
 }
+
 
 function renderSalay(){
 
@@ -1997,6 +1809,7 @@ salayArtists,
 
 }
 
+
 function renderFlorelisa(){
 
 renderCategory(
@@ -2013,13 +1826,15 @@ florelisaArtists,
 
 }
 
-/* =====================================================
-   HUAYNO + VIDEOS DEL ADMIN
-===================================================== */
+
+/* =========================================================
+   VIDEOS DEL ADMIN PARA HUAYNO
+========================================================= */
 
 function getHuaynoVideos(){
 
-const result=[...artists];
+const result =
+[...artists];
 
 adminVideos
 .filter(function(video){
@@ -2042,29 +1857,32 @@ return result;
 
 }
 
-/* =====================================================
+
+/* =========================================================
    ARTISTAS
-===================================================== */
+========================================================= */
 
 function renderArtists(list){
 
 artistsGrid.innerHTML="";
 
-const used=
+const used =
 new Set();
 
 list.forEach(function(artist){
 
-const key=
+const key =
 String(artist.name)
 .toLowerCase()
 .trim();
 
-if(used.has(key))return;
+if(used.has(key)){
+return;
+}
 
 used.add(key);
 
-const item=
+const item =
 document.createElement("div");
 
 item.className="artist";
@@ -2083,8 +1901,7 @@ item.innerHTML=`
 class="artist-image"
 src="${getThumbnail(artist.id)}"
 alt="${escapeHTML(artist.name)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${escapeHTML(artist.id)}')">
+loading="lazy">
 
 <div class="artist-play">
 ▶
@@ -2096,7 +1913,9 @@ onerror="fallbackThumbnail(this,'${escapeHTML(artist.id)}')">
 ${escapeHTML(artist.name)}
 </h3>
 
-<p>Ver video</p>
+<p>
+Ver video
+</p>
 
 `;
 
@@ -2104,42 +1923,60 @@ artistsGrid.appendChild(item);
 
 });
 
-/* ARTISTAS DEL ADMIN */
+
+/* ARTISTAS CREADOS DESDE ADMIN */
 
 adminArtists.forEach(function(artist){
 
-const key=
+const key =
 String(artist.name)
 .toLowerCase()
 .trim();
 
-if(used.has(key))return;
+if(used.has(key)){
+return;
+}
 
 used.add(key);
 
-const item=
+const firstVideo =
+adminVideos.find(function(video){
+
+return video.artist_id === artist.id;
+
+});
+
+const item =
 document.createElement("div");
 
 item.className="artist";
 
-const video=
-adminVideos.find(
-v=>v.artist_id===artist.id
-);
-
 item.onclick=function(){
 
-if(video){
-openVideo(video.id);
+if(firstVideo){
+
+openVideo(firstVideo.id);
+
 }
 
 };
 
-const image=
-artist.image ||
-(video
-?getThumbnail(video.id)
-:"https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS");
+let image =
+artist.image;
+
+if(!image && firstVideo){
+
+image =
+getThumbnail(firstVideo.id);
+
+}
+
+if(!image){
+
+image =
+"https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS";
+
+}
 
 item.innerHTML=`
 
@@ -2149,8 +1986,7 @@ item.innerHTML=`
 class="artist-image"
 src="${escapeHTML(image)}"
 alt="${escapeHTML(artist.name)}"
-loading="lazy"
-onerror="this.src='https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS'">
+loading="lazy">
 
 <div class="artist-play">
 ▶
@@ -2162,7 +1998,9 @@ onerror="this.src='https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEO
 ${escapeHTML(artist.name)}
 </h3>
 
-<p>Ver artista</p>
+<p>
+Ver artista
+</p>
 
 `;
 
@@ -2172,71 +2010,24 @@ artistsGrid.appendChild(item);
 
 }
 
-/* =====================================================
+
+/* =========================================================
    POPULARES
-===================================================== */
+========================================================= */
 
 function renderPopular(){
 
 popularGrid.innerHTML="";
 
-const list=
+const list =
 [...popularArtists];
 
 adminVideos
-.filter(v=>v.popular)
-.forEach(function(video){
+.filter(function(video){
 
-list.push(video);
+return video.popular === true;
 
-});
-
-list.forEach(function(artist,index){
-
-const card=
-createCard(
-artist,
-"popular-card",
-"popular-thumbnail",
-"popular-play",
-"popular-info"
-);
-
-const badge=
-document.createElement("span");
-
-badge.className="badge";
-
-badge.textContent=
-index===0
-?"🔥 MÁS VISTO"
-:"POPULAR";
-
-card
-.querySelector(
-".popular-thumbnail"
-)
-.appendChild(badge);
-
-popularGrid.appendChild(card);
-
-});
-
-}
-
-/* =====================================================
-   NUEVOS ESTRENOS
-===================================================== */
-
-function renderNew(){
-
-newGrid.innerHTML="";
-
-const list=
-[...newArtists];
-
-adminVideos
-.filter(v=>v.new_release)
+})
 .forEach(function(video){
 
 list.push(video);
@@ -2245,7 +2036,58 @@ list.push(video);
 
 list.forEach(function(artist){
 
-const card=
+const card =
+createCard(
+artist,
+"popular-card",
+"popular-thumbnail",
+"popular-play",
+"popular-info"
+);
+
+const badge =
+document.createElement("span");
+
+badge.className="badge";
+badge.textContent="🔥 POPULAR";
+
+card
+.querySelector(".popular-thumbnail")
+.appendChild(badge);
+
+popularGrid.appendChild(card);
+
+});
+
+}
+
+
+/* =========================================================
+   NUEVOS
+========================================================= */
+
+function renderNew(){
+
+newGrid.innerHTML="";
+
+const list =
+[...newArtists];
+
+adminVideos
+.filter(function(video){
+
+return video.new_release === true;
+
+})
+.forEach(function(video){
+
+list.push(video);
+
+});
+
+list.forEach(function(artist){
+
+const card =
 createCard(
 artist,
 "new-card",
@@ -2254,16 +2096,14 @@ artist,
 "new-info"
 );
 
-const badge=
+const badge =
 document.createElement("span");
 
 badge.className="badge";
 badge.textContent="🆕 ESTRENO";
 
 card
-.querySelector(
-".new-thumbnail"
-)
+.querySelector(".new-thumbnail")
 .appendChild(badge);
 
 newGrid.appendChild(card);
@@ -2272,45 +2112,43 @@ newGrid.appendChild(card);
 
 }
 
-/* =====================================================
-   EXCLUSIVOS 2026
-   SEPARADOS DEL DESTACADO
-===================================================== */
+
+/* =========================================================
+   EXCLUSIVOS
+========================================================= */
 
 function renderExclusive(){
 
 exclusiveGrid.innerHTML="";
 
-/* EXCLUSIVOS ORIGINALES */
 
 exclusiveArtists.forEach(function(artist){
 
-const card=
+const id =
+escapeHTML(artist.id);
+
+const name =
+escapeHTML(artist.name);
+
+const card =
 document.createElement("article");
 
 card.className="exclusive-card";
-
-const safeName=
-escapeHTML(artist.name);
-
-const safeId=
-escapeHTML(artist.id);
 
 card.innerHTML=`
 
 <div
 class="exclusive-image"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 <span class="badge">
 EXCLUSIVO 2026
 </span>
 
 <img
-src="${getThumbnail(artist.id)}"
-alt="${safeName}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${safeId}')">
+src="${getThumbnail(id)}"
+alt="${name}"
+loading="lazy">
 
 <div class="exclusive-play">
 ▶
@@ -2320,16 +2158,15 @@ onerror="fallbackThumbnail(this,'${safeId}')">
 
 <div class="exclusive-info">
 
-<h3>${safeName}</h3>
+<h3>${name}</h3>
 
 <p>
 Artista Exclusivo 2026
 </p>
 
 <button
-type="button"
 class="exclusive-button"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 ▶ REPRODUCIR
 
@@ -2343,38 +2180,42 @@ exclusiveGrid.appendChild(card);
 
 });
 
+
 /* EXCLUSIVOS DEL ADMIN */
 
 adminVideos
-.filter(v=>v.exclusive)
+.filter(function(video){
+
+return video.exclusive === true;
+
+})
 .forEach(function(video){
 
-const card=
+const id =
+escapeHTML(video.id);
+
+const name =
+escapeHTML(video.name);
+
+const card =
 document.createElement("article");
 
 card.className="exclusive-card";
-
-const safeName=
-escapeHTML(video.name);
-
-const safeId=
-escapeHTML(video.id);
 
 card.innerHTML=`
 
 <div
 class="exclusive-image"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 <span class="badge">
 EXCLUSIVO 2026
 </span>
 
 <img
-src="${getThumbnail(video.id)}"
-alt="${safeName}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${safeId}')">
+src="${getThumbnail(id)}"
+alt="${name}"
+loading="lazy">
 
 <div class="exclusive-play">
 ▶
@@ -2384,16 +2225,15 @@ onerror="fallbackThumbnail(this,'${safeId}')">
 
 <div class="exclusive-info">
 
-<h3>${safeName}</h3>
+<h3>${name}</h3>
 
 <p>
 Artista Exclusivo 2026
 </p>
 
 <button
-type="button"
 class="exclusive-button"
-onclick="openVideo('${safeId}')">
+onclick="openVideo('${id}')">
 
 ▶ REPRODUCIR
 
@@ -2409,28 +2249,29 @@ exclusiveGrid.appendChild(card);
 
 }
 
-/* =====================================================
+
+/* =========================================================
    BUSCADOR
-===================================================== */
+========================================================= */
 
 searchInput.addEventListener(
 "input",
 function(){
 
-const search=
+const search =
 this.value
 .toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"")
 .trim();
 
-const all=
+const all =
 getHuaynoVideos();
 
-const filtered=
+const filtered =
 all.filter(function(artist){
 
-const name=
+const name =
 String(artist.name)
 .toLowerCase()
 .normalize("NFD")
@@ -2442,42 +2283,27 @@ return name.includes(search);
 
 renderVideos(filtered);
 
-if(search){
+});
 
-renderArtists(
-filtered.filter(
-artist=>!artist.admin
-)
-);
 
-}else{
-
-renderArtists(
-artists
-);
-
-}
-
-}
-);
-
-/* =====================================================
+/* =========================================================
    VIDEO DESTACADO
-   EXCLUSIVOS NO APARECEN AQUÍ
-===================================================== */
+========================================================= */
 
 let featuredArtists=[];
 let featuredIndex=0;
 
+
 function rebuildFeatured(){
 
-featuredArtists=
+featuredArtists =
 [...artists];
 
+
 /*
-   Los videos del administrador aparecen
-   en destacados excepto los marcados
-   como exclusivos.
+   TODOS LOS VIDEOS DEL ADMIN
+   PUEDEN APARECER EN DESTACADO,
+   EXCEPTO LOS EXCLUSIVOS.
 */
 
 adminVideos.forEach(function(video){
@@ -2489,9 +2315,7 @@ return;
 featuredArtists.push({
 
 id:video.id,
-
 name:video.name,
-
 admin:true
 
 });
@@ -2500,9 +2324,6 @@ admin:true
 
 }
 
-/* =====================================================
-   MOSTRAR DESTACADO
-===================================================== */
 
 function showFeatured(index){
 
@@ -2512,7 +2333,7 @@ return;
 
 if(index<0){
 
-index=
+index =
 featuredArtists.length-1;
 
 }
@@ -2525,34 +2346,24 @@ index=0;
 
 featuredIndex=index;
 
-const artist=
+const artist =
 featuredArtists[index];
 
-featuredImage.src=
+featuredImage.src =
 getThumbnail(artist.id);
 
-featuredImage.onerror=
-function(){
-
-fallbackThumbnail(
-this,
-artist.id
-);
-
-};
-
-featuredImage.alt=
+featuredImage.alt =
 artist.name;
 
-featuredTitle.textContent=
+featuredTitle.textContent =
 artist.name;
 
-coverTitle.textContent=
+coverTitle.textContent =
 artist.name;
 
-youtubeLink.href=
+youtubeLink.href =
 "https://www.youtube.com/watch?v="+
-encodeURIComponent(artist.id);
+artist.id;
 
 document
 .querySelectorAll(".slider-dot")
@@ -2567,9 +2378,6 @@ i===index
 
 }
 
-/* =====================================================
-   DOTS
-===================================================== */
 
 function renderFeaturedDots(){
 
@@ -2578,27 +2386,21 @@ sliderDots.innerHTML="";
 featuredArtists.forEach(
 function(artist,index){
 
-const dot=
+const dot =
 document.createElement("button");
 
 dot.type="button";
 
-dot.className=
-"slider-dot";
+dot.className="slider-dot";
 
-dot.setAttribute(
-"aria-label",
-"Ver "+artist.name
-);
+dot.title =
+artist.name;
 
-dot.addEventListener(
-"click",
-function(){
+dot.onclick=function(){
 
 showFeatured(index);
 
-}
-);
+};
 
 sliderDots.appendChild(dot);
 
@@ -2606,9 +2408,6 @@ sliderDots.appendChild(dot);
 
 }
 
-/* =====================================================
-   CONTROLES DESTACADO
-===================================================== */
 
 function nextFeatured(){
 
@@ -2618,6 +2417,7 @@ featuredIndex+1
 
 }
 
+
 function previousFeatured(){
 
 showFeatured(
@@ -2625,6 +2425,7 @@ featuredIndex-1
 );
 
 }
+
 
 function playFeatured(){
 
@@ -2640,50 +2441,28 @@ featuredIndex
 
 }
 
-/* =====================================================
-   ABRIR VIDEO
-===================================================== */
+
+/* =========================================================
+   MODAL
+========================================================= */
 
 function openVideo(videoId){
 
-if(!videoId)return;
+if(!videoId){
+return;
+}
 
-lastFocusedElement=
-document.activeElement;
-
-modalVideo.src=
+modalVideo.src =
 "https://www.youtube.com/embed/"+
 encodeURIComponent(videoId)+
-"?autoplay=1&rel=0&playsinline=1";
+"?autoplay=1&rel=0";
 
 modal.classList.add("active");
 
-modal.setAttribute(
-"aria-hidden",
-"false"
-);
-
-document.body.style.overflow=
-"hidden";
-
-requestAnimationFrame(function(){
-
-const closeButton=
-document.querySelector(
-".close-modal"
-);
-
-if(closeButton){
-closeButton.focus();
-}
-
-});
+document.body.style.overflow="hidden";
 
 }
 
-/* =====================================================
-   CERRAR VIDEO
-===================================================== */
 
 function closeVideo(){
 
@@ -2691,26 +2470,14 @@ modalVideo.src="";
 
 modal.classList.remove("active");
 
-modal.setAttribute(
-"aria-hidden",
-"true"
-);
-
 document.body.style.overflow="";
 
-if(lastFocusedElement){
-
-lastFocusedElement.focus();
-
-lastFocusedElement=null;
-
 }
 
-}
 
 function closeOutside(event){
 
-if(event.target===modal){
+if(event.target === modal){
 
 closeVideo();
 
@@ -2718,148 +2485,138 @@ closeVideo();
 
 }
 
-/* =====================================================
-   TECLADO
-===================================================== */
 
 document.addEventListener(
 "keydown",
 function(event){
 
-if(
-event.key==="Escape" &&
-modal.classList.contains("active")
-){
+if(event.key==="Escape"){
 
 closeVideo();
-return;
 
 }
 
-if(
-event.key==="ArrowRight" &&
-!modal.classList.contains("active")
+});
+
+
+/* =========================================================
+   SUPABASE REST
+========================================================= */
+
+async function supabaseRequest(
+table
 ){
 
-nextFeatured();
+const url =
+SUPABASE_URL+
+"/rest/v1/"+
+table+
+"?select=*"+
+"&order=created_at.asc";
 
+const response =
+await fetch(
+url,
+{
+method:"GET",
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":
+"Bearer "+SUPABASE_KEY,
+"Content-Type":
+"application/json"
 }
-
-if(
-event.key==="ArrowLeft" &&
-!modal.classList.contains("active")
-){
-
-previousFeatured();
-
-}
-
 }
 );
 
-/* =====================================================
-   ROTACIÓN
-===================================================== */
+if(!response.ok){
 
-let featuredTimer=null;
+const errorText =
+await response.text();
 
-function startFeaturedRotation(){
-
-clearInterval(featuredTimer);
-
-if(prefersReducedMotion){
-return;
-}
-
-featuredTimer=
-setInterval(
-function(){
-
-nextFeatured();
-
-},
-5000
+throw new Error(
+"Supabase "+table+
+" HTTP "+response.status+
+": "+errorText
 );
 
 }
 
-/* =====================================================
-   CARGAR SUPABASE
-===================================================== */
+return await response.json();
+
+}
+
+
+/* =========================================================
+   CARGAR DATOS DE SUPABASE
+========================================================= */
 
 async function loadSupabaseData(){
 
+console.log(
+"ARTISTVIDEOS: conectando con Supabase..."
+);
+
 try{
 
-/* ARTISTAS */
+/* ================================================
+   ARTISTAS
+================================================ */
 
-const artistsResult=
-await supabaseClient
-.from("artists")
-.select("*")
-.order(
-"created_at",
-{ascending:true}
+const artistsData =
+await supabaseRequest(
+"artists"
 );
 
-if(artistsResult.error){
+adminArtists =
+Array.isArray(artistsData)
+?artistsData
+:[];
 
-console.error(
-"Error cargando artistas:",
-artistsResult.error
+
+/* ================================================
+   VIDEOS
+================================================ */
+
+const videosData =
+await supabaseRequest(
+"videos"
 );
 
-}else{
+adminVideos=[];
 
-adminArtists=
-artistsResult.data||[];
+videosData.forEach(function(video){
 
-}
-
-/* VIDEOS */
-
-const videosResult=
-await supabaseClient
-.from("videos")
-.select("*")
-.order(
-"created_at",
-{ascending:true}
-);
-
-if(videosResult.error){
-
-console.error(
-"Error cargando videos:",
-videosResult.error
-);
-
-}else{
-
-adminVideos=
-(videosResult.data||[])
-.map(function(video){
-
-const id=
+const id =
 getYoutubeId(
 video.youtube_url
 );
 
 if(!id){
-return null;
-}
 
-const artist=
-adminArtists.find(
-a=>a.id===video.artist_id
+console.warn(
+"Video sin ID de YouTube:",
+video
 );
 
-return {
+return;
+
+}
+
+const artist =
+adminArtists.find(function(a){
+
+return a.id === video.artist_id;
+
+});
+
+
+adminVideos.push({
 
 id:id,
 
 name:
-video.title||
+video.title ||
 (artist
 ?artist.name
 :"ARTISTVIDEOS"),
@@ -2870,10 +2627,10 @@ artist
 :"ARTISTVIDEOS",
 
 description:
-video.description||"",
+video.description || "",
 
 category:
-video.category||
+video.category ||
 "Huayno Sureño",
 
 popular:
@@ -2891,18 +2648,16 @@ Boolean(video.featured),
 admin:true,
 
 artist_id:
-video.artist_id||null
+video.artist_id || null
 
-};
+});
 
-})
-.filter(Boolean);
+});
 
-}
 
-/* =====================================================
-   RENDERIZAR
-===================================================== */
+/* ================================================
+   ACTUALIZAR TODA LA PÁGINA
+================================================ */
 
 renderVideos(
 getHuaynoVideos()
@@ -2926,34 +2681,64 @@ renderNew();
 
 renderExclusive();
 
-/* DESTACADOS */
+
+/* ================================================
+   DESTACADO
+================================================ */
 
 rebuildFeatured();
 
 renderFeaturedDots();
 
-showFeatured(0);
+showFeatured(
+featuredIndex
+);
 
-startFeaturedRotation();
+
+/* ================================================
+   INFORMACIÓN EN CONSOLA
+================================================ */
 
 console.log(
-"ARTISTVIDEOS - Supabase cargado:",
-{
-artistas:adminArtists.length,
-videos:adminVideos.length
-}
+"ARTISTVIDEOS conectado correctamente."
 );
+
+console.log(
+"Artistas ADMIN:",
+adminArtists.length
+);
+
+console.log(
+"Videos ADMIN:",
+adminVideos.length
+);
+
+console.log(
+"Videos exclusivos:",
+adminVideos.filter(
+v=>v.exclusive
+).length
+);
+
+console.log(
+"Videos destacados:",
+adminVideos.filter(
+v=>v.featured
+).length
+);
+
 
 }catch(error){
 
 console.error(
-"Error general de Supabase:",
+"ERROR SUPABASE:",
 error
 );
 
 /*
-   Si Supabase falla,
-   nunca dejamos la página vacía.
+   MUY IMPORTANTE:
+   Si Supabase falla, no borramos
+   los contenidos originales.
 */
 
 renderVideos(artists);
@@ -2980,20 +2765,14 @@ renderFeaturedDots();
 
 showFeatured(0);
 
-startFeaturedRotation();
-
 }
 
 }
 
-/* =====================================================
-   INICIO
-===================================================== */
 
-/*
-   Primero se muestran los contenidos
-   originales inmediatamente.
-*/
+/* =========================================================
+   INICIALIZAR CONTENIDO ORIGINAL
+========================================================= */
 
 renderVideos(artists);
 
@@ -3013,24 +2792,39 @@ renderNew();
 
 renderExclusive();
 
-/*
-   Destacado original inicial.
-*/
-
 rebuildFeatured();
 
 renderFeaturedDots();
 
 showFeatured(0);
 
-startFeaturedRotation();
 
-/*
-   Después se cargan los datos
-   creados desde ADMIN.
-*/
+/* =========================================================
+   CARGAR DATOS ADMIN
+========================================================= */
 
 loadSupabaseData();
+
+
+/* =========================================================
+   ACTUALIZACIÓN AUTOMÁTICA
+========================================================= */
+
+/*
+   Cada 30 segundos vuelve a consultar Supabase.
+   Así, si agregas un video desde ADMIN,
+   la página pública puede actualizarse
+   sin tener que modificar el HTML.
+*/
+
+setInterval(
+function(){
+
+loadSupabaseData();
+
+},
+30000
+);
 
 </script>
 
