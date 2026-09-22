@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTISTVIDEOS | Administración</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070707;
+    color:#fff;
+}
+
+/* LOGIN */
+#loginScreen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at top,#241010 0%,#070707 45%);
+}
+
+.login-box{
+    width:100%;
+    max-width:400px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 60px #000;
+}
+
+.logo{
+    text-align:center;
+    font-size:30px;
+    font-weight:900;
+    color:#e50914;
+    margin-bottom:8px;
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:16px;
+}
+
+label{
+    display:block;
+    color:#bbb;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    background:#181818;
+    color:#fff;
+    border:1px solid #333;
+    border-radius:9px;
+    padding:13px;
+    outline:none;
+    font-size:14px;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#e50914;
+}
+
+button{
+    border:0;
+    border-radius:9px;
+    padding:12px 17px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-1px);
+}
+
+.btn-red{
+    background:#e50914;
+    color:#fff;
+}
+
+.btn-dark{
+    background:#292929;
+    color:#fff;
+}
+
+.btn-green{
+    background:#16803c;
+    color:#fff;
+}
+
+.btn-danger{
+    background:#b00020;
+    color:#fff;
+}
+
+.btn-small{
+    padding:8px 11px;
+    font-size:12px;
+}
+
+.error{
+    color:#ff4d5a;
+    text-align:center;
+    margin-top:12px;
+    display:none;
+}
+
+/* ADMIN */
+#adminPanel{
+    display:none;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#0d0d0d;
+    border-bottom:1px solid #252525;
+    padding:15px 20px;
+}
+
+.topbar-inner{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    font-size:22px;
+    font-weight:900;
+    color:#e50914;
+}
+
+.brand span{
+    color:#fff;
+}
+
+.main{
+    max-width:1400px;
+    margin:auto;
+    padding:25px 20px 50px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:#111;
+    border:1px solid #252525;
+    border-radius:14px;
+    padding:20px;
+}
+
+.stat small{
+    color:#888;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    margin-top:5px;
+}
+
+/* TABS */
+.tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.tab{
+    background:#181818;
+    color:#aaa;
+}
+
+.tab.active{
+    background:#e50914;
+    color:#fff;
+}
+
+/* SECTIONS */
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.card{
+    background:#111;
+    border:1px solid #252525;
+    border-radius:15px;
+    padding:22px;
+    margin-bottom:20px;
+}
+
+.card-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+/* SOCIAL */
+.social-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+/* CHECKBOX */
+.check-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:10px;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#181818;
+    border-radius:8px;
+    padding:12px;
+    color:#ddd;
+}
+
+.check input{
+    width:auto;
+}
+
+/* SEARCH */
+.search{
+    margin-bottom:15px;
+}
+
+/* LIST */
+.list{
+    display:grid;
+    gap:12px;
+}
+
+.item{
+    background:#181818;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:16px;
+}
+
+.item-header{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.item h3{
+    margin-bottom:6px;
+}
+
+.item p{
+    color:#999;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.item-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:13px;
+}
+
+.badges{
+    display:flex;
+    gap:5px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.badge{
+    background:#292929;
+    color:#ccc;
+    padding:5px 8px;
+    border-radius:5px;
+    font-size:11px;
+}
+
+.badge.red{
+    background:#e50914;
+    color:#fff;
+}
+
+.badge.green{
+    background:#16803c;
+    color:#fff;
+}
+
+.empty{
+    text-align:center;
+    padding:35px;
+    color:#777;
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:500;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:800px;
+    max-height:90vh;
+    overflow:auto;
+    background:#111;
+    border:1px solid #333;
+    border-radius:15px;
+    padding:22px;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    background:#292929;
+    color:#fff;
+    font-size:20px;
+    width:40px;
+    height:40px;
+    padding:0;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .social-grid{
+        grid-template-columns:1fr;
+    }
+
+    .check-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .main{
+        padding:15px 10px 40px;
+    }
+
+    .topbar{
+        padding:12px;
+    }
+
+    .brand{
+        font-size:18px;
+    }
+
+    .check-grid{
+        grid-template-columns:1fr;
+    }
+
+    .item-header{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="logo">
+            ARTISTVIDEOS
+        </div>
+
+        <h2>Panel de Administración</h2>
+
+        <div class="input-group">
+
+            <label>Contraseña</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Ingresa tu contraseña"
+                onkeydown="if(event.key==='Enter')login()"
+            >
+
+        </div>
+
+        <button
+            class="btn-red"
+            style="width:100%;"
+            onclick="login()"
+        >
+            🔐 Ingresar
+        </button>
+
+        <div
+            class="error"
+            id="loginError"
+        >
+            Contraseña incorrecta
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN PANEL
+===================================================== -->
+
+<div id="adminPanel">
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <div class="brand">
+                ARTIST<span>VIDEOS</span>
+            </div>
+
+            <button
+                class="btn-dark"
+                onclick="logout()"
+            >
+                Cerrar sesión
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="main">
+
+        <!-- ESTADÍSTICAS -->
+
+        <div class="dashboard">
+
+            <div class="stat">
+                <small>Artistas</small>
+                <strong id="artistCount">0</strong>
+            </div>
+
+            <div class="stat">
+                <small>Videos</small>
+                <strong id="videoCount">0</strong>
+            </div>
+
+            <div class="stat">
+                <small>Destacados</small>
+                <strong id="featuredCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- TABS -->
+
+        <div class="tabs">
+
+            <button
+                class="tab active"
+                onclick="showTab('artists',this)"
+            >
+                🎤 Artistas
+            </button>
+
+            <button
+                class="tab"
+                onclick="showTab('videos',this)"
+            >
+                🎬 Videos
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             ARTISTAS
+        ================================================== -->
+
+        <section
+            class="section active"
+            id="artists"
+        >
+
+            <div class="card">
+
+                <div class="card-title">
+                    Agregar artista
+                </div>
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>Nombre del artista *</label>
+
+                        <input
+                            id="artistName"
+                            placeholder="Ejemplo: Nickol Ramos"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Imagen del artista</label>
+
+                        <input
+                            id="artistImage"
+                            placeholder="URL de la imagen"
+                        >
+
+                    </div>
+
+
+                    <div class="full">
+
+                        <label>Descripción del artista</label>
+
+                        <textarea
+                            id="artistDescription"
+                            placeholder="Escribe una descripción..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-title" style="margin-top:25px;">
+                    Redes sociales
+                </div>
+
+
+                <div class="social-grid">
+
+                    <div>
+
+                        <label>Facebook</label>
+
+                        <input
+                            id="facebook"
+                            placeholder="https://facebook.com/..."
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Instagram</label>
+
+                        <input
+                            id="instagram"
+                            placeholder="https://instagram.com/..."
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>TikTok</label>
+
+                        <input
+                            id="tiktok"
+                            placeholder="https://tiktok.com/@..."
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>YouTube</label>
+
+                        <input
+                            id="artistYoutube"
+                            placeholder="https://youtube.com/..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn-red"
+                        onclick="saveArtist()"
+                    >
+                        💾 Guardar artista
+                    </button>
+
+                    <button
+                        class="btn-dark"
+                        onclick="clearArtistForm()"
+                    >
+                        Limpiar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Artistas registrados
+                </div>
+
+                <input
+                    class="search"
+                    id="artistSearch"
+                    placeholder="🔎 Buscar artista..."
+                    oninput="renderArtists()"
+                >
+
+                <div
+                    class="list"
+                    id="artistList"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             VIDEOS
+        ================================================== -->
+
+        <section
+            class="section"
+            id="videos"
+        >
+
+            <div class="card">
+
+                <div class="card-title">
+                    Agregar video
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>Artista *</label>
+
+                        <select id="videoArtist">
+                            <option value="">
+                                Seleccionar artista
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Título del video *</label>
+
+                        <input
+                            id="videoTitle"
+                            placeholder="Nombre del videoclip"
+                        >
+
+                    </div>
+
+
+                    <div class="full">
+
+                        <label>Link del video *</label>
+
+                        <input
+                            id="videoUrl"
+                            placeholder="https://youtu.be/..."
+                        >
+
+                    </div>
+
+
+                    <div class="full">
+
+                        <label>Descripción del video</label>
+
+                        <textarea
+                            id="videoDescription"
+                            placeholder="Descripción del video..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>Categoría *</label>
+
+                        <select id="videoCategory">
+
+                            <option value="">
+                                Seleccionar categoría
+                            </option>
+
+                            <option>
+                                Huayno Sureño
+                            </option>
+
+                            <option>
+                                Cumbia Sureña
+                            </option>
+
+                            <option>
+                                Requinto Peruano
+                            </option>
+
+                            <option>
+                                Salay Mundial
+                            </option>
+
+                            <option>
+                                Florelisa
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label style="margin-top:20px;">
+                    Opciones del video
+                </label>
+
+                <div class="check-grid">
+
+                    <label class="check">
+                        <input
+                            type="checkbox"
+                            id="videoPopular"
+                        >
+                        ⭐ Popular
+                    </label>
+
+                    <label class="check">
+                        <input
+                            type="checkbox"
+                            id="videoNew"
+                        >
+                        🆕 Nuevo
+                    </label>
+
+                    <label class="check">
+                        <input
+                            type="checkbox"
+                            id="videoExclusive"
+                        >
+                        🔥 Exclusivo
+                    </label>
+
+                    <label class="check">
+                        <input
+                            type="checkbox"
+                            id="videoFeatured"
+                        >
+                        🎯 Destacado
+                    </label>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn-red"
+                        onclick="saveVideo()"
+                    >
+                        💾 Guardar video
+                    </button>
+
+                    <button
+                        class="btn-dark"
+                        onclick="clearVideoForm()"
+                    >
+                        Limpiar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Videos registrados
+                </div>
+
+                <input
+                    class="search"
+                    id="videoSearch"
+                    placeholder="🔎 Buscar video o artista..."
+                    oninput="renderVideos()"
+                >
+
+                <div
+                    class="list"
+                    id="videoList"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL EDITAR ARTISTA
+===================================================== -->
+
+<div
+    class="modal"
+    id="editArtistModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>Editar artista</h2>
+
+            <button
+                class="close"
+                onclick="closeModal('editArtistModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <input
+            type="hidden"
+            id="editArtistId"
+        >
+
+
+        <div class="form-grid">
+
+            <div>
+
+                <label>Nombre</label>
+
+                <input id="editArtistName">
+
+            </div>
+
+
+            <div>
+
+                <label>Imagen</label>
+
+                <input id="editArtistImage">
+
+            </div>
+
+
+            <div class="full">
+
+                <label>Descripción</label>
+
+                <textarea id="editArtistDescription"></textarea>
+
+            </div>
+
+
+            <div>
+
+                <label>Facebook</label>
+
+                <input id="editFacebook">
+
+            </div>
+
+
+            <div>
+
+                <label>Instagram</label>
+
+                <input id="editInstagram">
+
+            </div>
+
+
+            <div>
+
+                <label>TikTok</label>
+
+                <input id="editTikTok">
+
+            </div>
+
+
+            <div>
+
+                <label>YouTube</label>
+
+                <input id="editArtistYoutube">
+
+            </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                class="btn-red"
+                onclick="updateArtist()"
+            >
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL EDITAR VIDEO
+===================================================== -->
+
+<div
+    class="modal"
+    id="editVideoModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>Editar video</h2>
+
+            <button
+                class="close"
+                onclick="closeModal('editVideoModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <input
+            type="hidden"
+            id="editVideoId"
+        >
+
+
+        <div class="form-grid">
+
+            <div>
+
+                <label>Artista</label>
+
+                <select id="editVideoArtist"></select>
+
+            </div>
+
+
+            <div>
+
+                <label>Título</label>
+
+                <input id="editVideoTitle">
+
+            </div>
+
+
+            <div class="full">
+
+                <label>Link del video</label>
+
+                <input id="editVideoUrl">
+
+            </div>
+
+
+            <div class="full">
+
+                <label>Descripción</label>
+
+                <textarea id="editVideoDescription"></textarea>
+
+            </div>
+
+
+            <div>
+
+                <label>Categoría</label>
+
+                <select id="editVideoCategory">
+
+                    <option>
+                        Huayno Sureño
+                    </option>
+
+                    <option>
+                        Cumbia Sureña
+                    </option>
+
+                    <option>
+                        Requinto Peruano
+                    </option>
+
+                    <option>
+                        Salay Mundial
+                    </option>
+
+                    <option>
+                        Florelisa
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <label style="margin-top:20px;">
+            Opciones
+        </label>
+
+        <div class="check-grid">
+
+            <label class="check">
+                <input
+                    type="checkbox"
+                    id="editPopular"
+                >
+                ⭐ Popular
+            </label>
+
+            <label class="check">
+                <input
+                    type="checkbox"
+                    id="editNew"
+                >
+                🆕 Nuevo
+            </label>
+
+            <label class="check">
+                <input
+                    type="checkbox"
+                    id="editExclusive"
+                >
+                🔥 Exclusivo
+            </label>
+
+            <label class="check">
+                <input
+                    type="checkbox"
+                    id="editFeatured"
+                >
+                🎯 Destacado
+            </label>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                class="btn-red"
+                onclick="updateVideo()"
+            >
+                Guardar cambios
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURACIÓN
+===================================================== */
+
+/*
+   CAMBIA ESTA CONTRASEÑA.
+   
+   IMPORTANTE:
+   Esta contraseña es solamente para esta primera versión.
+   Más adelante la reemplazaremos por Supabase Auth.
+*/
+
+const ADMIN_PASSWORD = "ARTISTVIDEOS2026";
+
+
+/* =====================================================
+   DATOS INICIALES
+===================================================== */
+
+const defaultArtists = [
+
+    {name:"DELIA HUANCA",youtube:"5lwsVDeK_Tc"},
+    {name:"SOL LUCERO",youtube:"P77ADWWaHUQ"},
+    {name:"PURA OSADÍA",youtube:"OQ0OskwzKYA"},
+    {name:"TU DULCE YARITA",youtube:"bs2XZ3JKb3k"},
+    {name:"CHAROSSY ROSSY",youtube:"JfHUiui8z9Y"},
+    {name:"ROXY ABRIL",youtube:"AbpPXeY7pZI"},
+    {name:"AGRUPACIÓN YARIMAR",youtube:"lLIDov2jKmk"},
+    {name:"MUÑEQUITA LEYDY",youtube:"3RXu2BHkvOI"},
+    {name:"MIRTHA RAMOS",youtube:"Zz2jmu33IAk"},
+    {name:"LOS DULCES YERITOS",youtube:"yVtAffjRjNM"},
+    {name:"ISABEL VELA",youtube:"u6vHqUwYh2g"},
+    {name:"PILAR YUCRA",youtube:"z3xTrQJ05Sc"},
+    {name:"LUZ MERY CRUZ",youtube:"kvN0fxr-FE0"},
+    {name:"SENAYDA BUSTINZA",youtube:"hoG2N6usbUU"},
+    {name:"ROSALI SILES",youtube:"tGmiQndb98Q"},
+    {name:"VIANITA GOMEZ",youtube:"YJTVhaaae68"},
+    {name:"YANDEL HERRERA",youtube:"drSB_Bfgrzo"},
+    {name:"ELY MONRROY",youtube:"arim2IkbFzU"},
+    {name:"MAYTE SANCHEZ",youtube:"aaX6K44ffhM"},
+    {name:"AYDE MELINA",youtube:"sRypE-tErIE"},
+    {name:"ANITA LIZBETH",youtube:"X_Ia4kMQSjI"},
+    {name:"ABRIL ISABEL",youtube:"jNVEQ8dmay4"},
+    {name:"LEILA SUCATICONA",youtube:"ij82q1rxX2c"},
+    {name:"ANYI SULLCA",youtube:"OSXjqIUhR40"},
+    {name:"FIORELA ARROYO",youtube:"Fi38qAEez_E"},
+    {name:"DULCE BEATRIZ",youtube:"z9b6nNiHZqY"},
+    {name:"RUTH CURO",youtube:"pl83mx0OaeI"},
+    {name:"NICKOL RAMOS",youtube:"Q7XJtz9RXcU"},
+    {name:"XIOMARA CALIZAYA",youtube:"m7pFEbhrV1o"},
+    {name:"MIRIAM MOLINA",youtube:"mpGGEEdO-V0"},
+    {name:"MILAYRA ROMERO",youtube:"Yv0v7QekLyA"},
+    {name:"DIANITA POMA",youtube:"uZNmfInVmB0"},
+    {name:"ALEX EUSEBIO",youtube:"f1Avnbh0P5k"},
+    {name:"DULCE MARY YSABEL",youtube:"1j9Je2WsaZU"},
+    {name:"DULCE RUBELI",youtube:"MMeemsf7PNc"},
+    {name:"MUÑEQUITA KELLY",youtube:"i6glhDpQaWk"},
+    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",youtube:"YlF3XmazEXU"},
+    {name:"YHEISON PUMITA",youtube:"DVX_989A8zY"},
+    {name:"EDSON MORALES",youtube:"MzjC097tc4E"},
+    {name:"GRUPO CORALI",youtube:"cobAXEUP_NI"},
+    {name:"EDY CESAR CHIQUI",youtube:"chedB98UDKI"},
+    {name:"EDWINCITO PAUCARA",youtube:"lEXSpQXlQnA"},
+    {name:"ALFREDO LARICO",youtube:"mwVNpx1EAWk"},
+    {name:"CINTYA ROJAS",youtube:"RZPmL7fVclQ"},
+    {name:"WILI ROJAS",youtube:"9514-4Sa3KU"},
+    {name:"IMPARABLES DEL SALAY",youtube:"W4XbdykINSY"},
+    {name:"ELISABET FLORES",youtube:"hszrM8d3WWE"},
+    {name:"DELY CORAZON",youtube:"eDC3Tswc_PE"},
+    {name:"MARISOL MULLISACA",youtube:"JB9wX14AC6o"},
+    {name:"MARIELIZ",youtube:"LpLDIOdpS_4"}
+
+];
+
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+let artists =
+    JSON.parse(localStorage.getItem("av_artists")) || [];
+
+let videos =
+    JSON.parse(localStorage.getItem("av_videos")) || [];
+
+
+/* =====================================================
+   CARGAR ARTISTAS EXISTENTES
+===================================================== */
+
+function initializeData(){
+
+    if(artists.length === 0){
+
+        artists = defaultArtists.map((artist,index)=>({
+
+            id:
+                "artist_" +
+                Date.now() +
+                "_" +
+                index,
+
+            name:artist.name,
+
+            description:"",
+
+            image:"",
+
+            facebook:"",
+            instagram:"",
+            tiktok:"",
+
+            youtube:
+                "https://youtube.com/watch?v=" +
+                artist.youtube,
+
+            createdAt:
+                new Date().toISOString()
+
+        }));
+
+        saveData();
+
+    }
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    if(password === ADMIN_PASSWORD){
+
+        sessionStorage.setItem(
+            "av_admin_login",
+            "true"
+        );
+
+        document.getElementById("loginScreen").style.display =
+            "none";
+
+        document.getElementById("adminPanel").style.display =
+            "block";
+
+        renderAll();
+
+    }else{
+
+        document.getElementById("loginError").style.display =
+            "block";
+
+    }
+
+}
+
+
+function logout(){
+
+    sessionStorage.removeItem(
+        "av_admin_login"
+    );
+
+    location.reload();
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+function showTab(id,button){
+
+    document.querySelectorAll(".section")
+        .forEach(section=>{
+            section.classList.remove("active");
+        });
+
+    document.querySelectorAll(".tab")
+        .forEach(tab=>{
+            tab.classList.remove("active");
+        });
+
+    document.getElementById(id)
+        .classList.add("active");
+
+    button.classList.add("active");
+
+}
+
+
+/* =====================================================
+   GUARDAR DATOS
+===================================================== */
+
+function saveData(){
+
+    localStorage.setItem(
+        "av_artists",
+        JSON.stringify(artists)
+    );
+
+    localStorage.setItem(
+        "av_videos",
+        JSON.stringify(videos)
+    );
+
+}
+
+
+/* =====================================================
+   ARTISTAS
+===================================================== */
+
+function saveArtist(){
+
+    const name =
+        document.getElementById("artistName")
+            .value.trim();
+
+    if(!name){
+
+        alert("Escribe el nombre del artista.");
+
+        return;
+
+    }
+
+
+    const artist = {
+
+        id:
+            "artist_" +
+            Date.now(),
+
+        name:name,
+
+        description:
+            document.getElementById("artistDescription")
+                .value.trim(),
+
+        image:
+            document.getElementById("artistImage")
+                .value.trim(),
+
+        facebook:
+            document.getElementById("facebook")
+                .value.trim(),
+
+        instagram:
+            document.getElementById("instagram")
+                .value.trim(),
+
+        tiktok:
+            document.getElementById("tiktok")
+                .value.trim(),
+
+        youtube:
+            document.getElementById("artistYoutube")
+                .value.trim(),
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    artists.push(artist);
+
+    saveData();
+
+    clearArtistForm();
+
+    renderAll();
+
+    alert("✅ Artista guardado.");
+
+}
+
+
+function renderArtists(){
+
+    const list =
+        document.getElementById("artistList");
+
+    const search =
+        document.getElementById("artistSearch")
+            .value
+            .toLowerCase();
+
+    const filtered =
+        artists.filter(a =>
+            a.name.toLowerCase().includes(search)
+        );
+
+
+    if(filtered.length === 0){
+
+        list.innerHTML =
+            '<div class="empty">No hay artistas.</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        filtered.map(artist=>`
+
+        <div class="item">
+
+            <div class="item-header">
+
+                <div>
+
+                    <h3>
+                        ${escapeHTML(artist.name)}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(
+                            artist.description || "Sin descripción"
+                        )}
+                    </p>
+
+                    <div class="badges">
+
+                        ${
+                            artist.facebook
+                            ? '<span class="badge">Facebook</span>'
+                            : ''
+                        }
+
+                        ${
+                            artist.instagram
+                            ? '<span class="badge">Instagram</span>'
+                            : ''
+                        }
+
+                        ${
+                            artist.tiktok
+                            ? '<span class="badge">TikTok</span>'
+                            : ''
+                        }
+
+                        ${
+                            artist.youtube
+                            ? '<span class="badge red">YouTube</span>'
+                            : ''
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-actions">
+
+                <button
+                    class="btn-small btn-dark"
+                    onclick="editArtist('${artist.id}')"
+                >
+                    ✏️ Editar
+                </button>
+
+                <button
+                    class="btn-small btn-danger"
+                    onclick="deleteArtist('${artist.id}')"
+                >
+                    🗑️ Eliminar
+                </button>
+
+            </div>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =====================================================
+   EDITAR ARTISTA
+===================================================== */
+
+function editArtist(id){
+
+    const artist =
+        artists.find(a=>a.id===id);
+
+    if(!artist) return;
+
+
+    document.getElementById("editArtistId").value =
+        artist.id;
+
+    document.getElementById("editArtistName").value =
+        artist.name;
+
+    document.getElementById("editArtistImage").value =
+        artist.image || "";
+
+    document.getElementById("editArtistDescription").value =
+        artist.description || "";
+
+    document.getElementById("editFacebook").value =
+        artist.facebook || "";
+
+    document.getElementById("editInstagram").value =
+        artist.instagram || "";
+
+    document.getElementById("editTikTok").value =
+        artist.tiktok || "";
+
+    document.getElementById("editArtistYoutube").value =
+        artist.youtube || "";
+
+
+    document.getElementById("editArtistModal")
+        .classList.add("show");
+
+}
+
+
+function updateArtist(){
+
+    const id =
+        document.getElementById("editArtistId").value;
+
+    const artist =
+        artists.find(a=>a.id===id);
+
+    if(!artist) return;
+
+
+    artist.name =
+        document.getElementById("editArtistName").value.trim();
+
+    artist.image =
+        document.getElementById("editArtistImage").value.trim();
+
+    artist.description =
+        document.getElementById("editArtistDescription").value.trim();
+
+    artist.facebook =
+        document.getElementById("editFacebook").value.trim();
+
+    artist.instagram =
+        document.getElementById("editInstagram").value.trim();
+
+    artist.tiktok =
+        document.getElementById("editTikTok").value.trim();
+
+    artist.youtube =
+        document.getElementById("editArtistYoutube").value.trim();
+
+
+    saveData();
+
+    closeModal("editArtistModal");
+
+    renderAll();
+
+    alert("✅ Artista actualizado.");
+
+}
+
+
+function deleteArtist(id){
+
+    const artist =
+        artists.find(a=>a.id===id);
+
+    if(!artist) return;
+
+
+    const confirmDelete =
+        confirm(
+            "¿Eliminar a " +
+            artist.name +
+            "?\n\nTambién se eliminarán sus videos."
+        );
+
+    if(!confirmDelete) return;
+
+
+    artists =
+        artists.filter(a=>a.id!==id);
+
+    videos =
+        videos.filter(v=>v.artistId!==id);
+
+    saveData();
+
+    renderAll();
+
+}
+
+
+/* =====================================================
+   FORMULARIO ARTISTA
+===================================================== */
+
+function clearArtistForm(){
+
+    document.getElementById("artistName").value="";
+    document.getElementById("artistDescription").value="";
+    document.getElementById("artistImage").value="";
+    document.getElementById("facebook").value="";
+    document.getElementById("instagram").value="";
+    document.getElementById("tiktok").value="";
+    document.getElementById("artistYoutube").value="";
+
+}
+
+
+/* =====================================================
+   SELECT ARTISTAS
+===================================================== */
+
+function populateArtistSelects(){
+
+    const selects = [
+
+        document.getElementById("videoArtist"),
+        document.getElementById("editVideoArtist")
+
+    ];
+
+
+    selects.forEach(select=>{
+
+        const current =
+            select.value;
+
+        select.innerHTML =
+            '<option value="">Seleccionar artista</option>';
+
+        artists
+            .slice()
+            .sort((a,b)=>
+                a.name.localeCompare(
+                    b.name,
+                    "es"
+                )
+            )
+            .forEach(artist=>{
+
+                const option =
+                    document.createElement("option");
+
+                option.value =
+                    artist.id;
+
+                option.textContent =
+                    artist.name;
+
+                select.appendChild(option);
+
+            });
+
+        if(current){
+
+            select.value=current;
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+function saveVideo(){
+
+    const artistId =
+        document.getElementById("videoArtist").value;
+
+    const title =
+        document.getElementById("videoTitle")
+            .value.trim();
+
+    const url =
+        document.getElementById("videoUrl")
+            .value.trim();
+
+    const category =
+        document.getElementById("videoCategory").value;
+
+
+    if(!artistId){
+
+        alert("Selecciona un artista.");
+
+        return;
+
+    }
+
+    if(!title){
+
+        alert("Escribe el título del video.");
+
+        return;
+
+    }
+
+    if(!url){
+
+        alert("Ingresa el link del video.");
+
+        return;
+
+    }
+
+    if(!category){
+
+        alert("Selecciona una categoría.");
+
+        return;
+
+    }
+
+
+    videos.push({
+
+        id:
+            "video_" +
+            Date.now(),
+
+        artistId:artistId,
+
+        title:title,
+
+        url:url,
+
+        description:
+            document.getElementById("videoDescription")
+                .value.trim(),
+
+        category:category,
+
+        popular:
+            document.getElementById("videoPopular").checked,
+
+        newRelease:
+            document.getElementById("videoNew").checked,
+
+        exclusive:
+            document.getElementById("videoExclusive").checked,
+
+        featured:
+            document.getElementById("videoFeatured").checked,
+
+        createdAt:
+            new Date().toISOString()
+
+    });
+
+
+    saveData();
+
+    clearVideoForm();
+
+    renderAll();
+
+    alert("✅ Video guardado.");
+
+}
+
+
+function renderVideos(){
+
+    const list =
+        document.getElementById("videoList");
+
+    const search =
+        document.getElementById("videoSearch")
+            .value
+            .toLowerCase();
+
+
+    const filtered =
+        videos.filter(video=>{
+
+            const artist =
+                artists.find(
+                    a=>a.id===video.artistId
+                );
+
+            const artistName =
+                artist ? artist.name : "";
+
+            return (
+                video.title.toLowerCase()
+                    .includes(search)
+                ||
+                artistName.toLowerCase()
+                    .includes(search)
+            );
+
+        });
+
+
+    if(filtered.length===0){
+
+        list.innerHTML =
+            '<div class="empty">No hay videos registrados.</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        filtered
+        .slice()
+        .reverse()
+        .map(video=>{
+
+            const artist =
+                artists.find(
+                    a=>a.id===video.artistId
+                );
+
+            const artistName =
+                artist
+                ? artist.name
+                : "Artista eliminado";
+
+
+            return `
+
+            <div class="item">
+
+                <div class="item-header">
+
+                    <div>
+
+                        <h3>
+                            ${escapeHTML(video.title)}
+                        </h3>
+
+                        <p>
+                            🎤 ${escapeHTML(artistName)}
+                        </p>
+
+                        <p>
+                            📂 ${escapeHTML(video.category)}
+                        </p>
+
+                        ${
+                            video.description
+                            ? `<p style="margin-top:7px;">
+                                ${escapeHTML(video.description)}
+                              </p>`
+                            : ""
+                        }
+
+                        <div class="badges">
+
+                            ${
+                                video.popular
+                                ? '<span class="badge red">⭐ Popular</span>'
+                                : ''
+                            }
+
+                            ${
+                                video.newRelease
+                                ? '<span class="badge green">🆕 Nuevo</span>'
+                                : ''
+                            }
+
+                            ${
+                                video.exclusive
+                                ? '<span class="badge red">🔥 Exclusivo</span>'
+                                : ''
+                            }
+
+                            ${
+                                video.featured
+                                ? '<span class="badge">🎯 Destacado</span>'
+                                : ''
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="item-actions">
+
+                    <a
+                        href="${escapeAttribute(video.url)}"
+                        target="_blank"
+                        class="btn-small btn-dark"
+                        style="text-decoration:none;"
+                    >
+                        ▶️ Ver video
+                    </a>
+
+                    <button
+                        class="btn-small btn-dark"
+                        onclick="editVideo('${video.id}')"
+                    >
+                        ✏️ Editar
+                    </button>
+
+                    <button
+                        class="btn-small btn-danger"
+                        onclick="deleteVideo('${video.id}')"
+                    >
+                        🗑️ Eliminar
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        })
+        .join("");
+
+}
+
+
+/* =====================================================
+   EDITAR VIDEO
+===================================================== */
+
+function editVideo(id){
+
+    const video =
+        videos.find(v=>v.id===id);
+
+    if(!video) return;
+
+
+    document.getElementById("editVideoId").value =
+        video.id;
+
+    populateArtistSelects();
+
+    document.getElementById("editVideoArtist").value =
+        video.artistId;
+
+    document.getElementById("editVideoTitle").value =
+        video.title;
+
+    document.getElementById("editVideoUrl").value =
+        video.url;
+
+    document.getElementById("editVideoDescription").value =
+        video.description || "";
+
+    document.getElementById("editVideoCategory").value =
+        video.category;
+
+    document.getElementById("editPopular").checked =
+        video.popular;
+
+    document.getElementById("editNew").checked =
+        video.newRelease;
+
+    document.getElementById("editExclusive").checked =
+        video.exclusive;
+
+    document.getElementById("editFeatured").checked =
+        video.featured;
+
+
+    document.getElementById("editVideoModal")
+        .classList.add("show");
+
+}
+
+
+function updateVideo(){
+
+    const id =
+        document.getElementById("editVideoId").value;
+
+    const video =
+        videos.find(v=>v.id===id);
+
+    if(!video) return;
+
+
+    video.artistId =
+        document.getElementById("editVideoArtist").value;
+
+    video.title =
+        document.getElementById("editVideoTitle").value.trim();
+
+    video.url =
+        document.getElementById("editVideoUrl").value.trim();
+
+    video.description =
+        document.getElementById("editVideoDescription").value.trim();
+
+    video.category =
+        document.getElementById("editVideoCategory").value;
+
+    video.popular =
+        document.getElementById("editPopular").checked;
+
+    video.newRelease =
+        document.getElementById("editNew").checked;
+
+    video.exclusive =
+        document.getElementById("editExclusive").checked;
+
+    video.featured =
+        document.getElementById("editFeatured").checked;
+
+
+    saveData();
+
+    closeModal("editVideoModal");
+
+    renderAll();
+
+    alert("✅ Video actualizado.");
+
+}
+
+
+/* =====================================================
+   ELIMINAR VIDEO
+===================================================== */
+
+function deleteVideo(id){
+
+    const video =
+        videos.find(v=>v.id===id);
+
+    if(!video) return;
+
+
+    if(
+        !confirm(
+            "¿Seguro que quieres eliminar este video?\n\n" +
+            video.title
+        )
+    ){
+
+        return;
+
+    }
+
+
+    videos =
+        videos.filter(v=>v.id!==id);
+
+    saveData();
+
+    renderAll();
+
+    alert("🗑️ Video eliminado.");
+
+}
+
+
+/* =====================================================
+   LIMPIAR VIDEO
+===================================================== */
+
+function clearVideoForm(){
+
+    document.getElementById("videoArtist").value="";
+    document.getElementById("videoTitle").value="";
+    document.getElementById("videoUrl").value="";
+    document.getElementById("videoDescription").value="";
+    document.getElementById("videoCategory").value="";
+
+    document.getElementById("videoPopular").checked=false;
+    document.getElementById("videoNew").checked=false;
+    document.getElementById("videoExclusive").checked=false;
+    document.getElementById("videoFeatured").checked=false;
+
+}
+
+
+/* =====================================================
+   MODALES
+===================================================== */
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   ESTADÍSTICAS
+===================================================== */
+
+function updateStats(){
+
+    document.getElementById("artistCount")
+        .textContent =
+        artists.length;
+
+    document.getElementById("videoCount")
+        .textContent =
+        videos.length;
+
+    document.getElementById("featuredCount")
+        .textContent =
+        videos.filter(v=>v.featured).length;
+
+}
+
+
+/* =====================================================
+   SEGURIDAD HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+    return String(value || "")
+        .replace(/"/g,"%22")
+        .replace(/'/g,"%27");
+
+}
+
+
+/* =====================================================
+   TODO
+===================================================== */
+
+function renderAll(){
+
+    populateArtistSelects();
+
+    renderArtists();
+
+    renderVideos();
+
+    updateStats();
+
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+initializeData();
+
+
+if(
+    sessionStorage.getItem("av_admin_login")
+    === "true"
+){
+
+    document.getElementById("loginScreen")
+        .style.display="none";
+
+    document.getElementById("adminPanel")
+        .style.display="block";
+
+    renderAll();
+
+}
+
+</script>
+
+</body>
+  </html>
