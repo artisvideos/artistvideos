@@ -4,31 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ARTISTVIDEOS - Plataforma de videos musicales">
-<meta name="theme-color" content="#9c27b0">
+<meta name="theme-color" content="#ff2d8d">
 <title>ARTISTVIDEOS</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
+
+section[id]{scroll-margin-top:90px}
 
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#070707;
     color:#fff;
-    overflow-x:hidden;
+    overflow-x:hidden
 }
 
-button,
-input{
-    font-family:inherit;
-}
+button,input{font-family:inherit}
 
 :root{
     --pink:#9c27b0;
@@ -36,10 +29,32 @@ input{
     --card:#121212;
     --surface:#151515;
     --text-muted:#aaa;
+    --focus-ring:0 0 0 3px rgba(255,45,141,.35)
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+    outline:2px solid var(--pink-light);
+    outline-offset:3px;
+    box-shadow:var(--focus-ring)
+}
+
+::selection{
+    background:var(--pink);
+    color:#fff
+}
+
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important
+    }
 }
 
 /* HEADER */
-
 header{
     position:sticky;
     top:0;
@@ -51,23 +66,21 @@ header{
     padding:15px 6%;
     background:rgba(7,7,7,.97);
     backdrop-filter:blur(15px);
-    border-bottom:1px solid #252525;
+    border-bottom:1px solid #252525
 }
 
 .logo{
     font-size:25px;
     font-weight:900;
-    letter-spacing:2px;
+    letter-spacing:2px
 }
 
-.logo span{
-    color:var(--pink);
-}
+.logo span{color:var(--pink)}
 
 nav{
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:20px
 }
 
 nav a{
@@ -75,12 +88,10 @@ nav a{
     text-decoration:none;
     font-size:12px;
     font-weight:bold;
-    transition:.3s;
+    transition:.3s
 }
 
-nav a:hover{
-    color:var(--pink);
-}
+nav a:hover{color:var(--pink)}
 
 .menu-toggle{
     display:none;
@@ -94,7 +105,7 @@ nav a:hover{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:5px;
+    gap:5px
 }
 
 .menu-toggle span{
@@ -102,52 +113,58 @@ nav a:hover{
     height:3px;
     background:#fff;
     border-radius:3px;
+    transition:.3s
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(8px) rotate(45deg)
+}
+
+.menu-toggle.active span:nth-child(2){opacity:0}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg)
 }
 
 /* HERO */
-
 .hero{
     min-height:560px;
     display:flex;
     align-items:center;
     padding:70px 6%;
     background:
-    linear-gradient(
-        90deg,
-        #070707 5%,
-        rgba(7,7,7,.90) 40%,
-        rgba(7,7,7,.20)
-    ),
-    url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-    center/cover no-repeat;
+        linear-gradient(
+            90deg,
+            #070707 5%,
+            rgba(7,7,7,.90) 40%,
+            rgba(7,7,7,.20)
+        ),
+        url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat
 }
 
-.hero-content{
-    max-width:700px;
-}
+.hero-content{max-width:700px}
 
 .hero-label{
     color:var(--pink);
     font-size:13px;
     font-weight:bold;
-    letter-spacing:4px;
+    letter-spacing:4px
 }
 
 .hero h1{
     font-size:clamp(48px,7vw,88px);
     line-height:.92;
-    margin:18px 0;
+    margin:18px 0
 }
 
-.hero h1 span{
-    color:var(--pink);
-}
+.hero h1 span{color:var(--pink)}
 
 .hero p{
     max-width:580px;
     color:#ccc;
     font-size:17px;
-    line-height:1.7;
+    line-height:1.7
 }
 
 .hero-button{
@@ -159,23 +176,27 @@ nav a:hover{
     text-decoration:none;
     font-weight:bold;
     border-radius:8px;
+    transition:.3s
+}
+
+.hero-button:hover{
+    background:var(--pink-light);
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(255,45,141,.3)
 }
 
 /* GENERAL */
-
 .container{
     width:88%;
     max-width:1400px;
-    margin:auto;
+    margin:auto
 }
 
-.section{
-    padding:55px 0;
-}
+.section{padding:55px 0}
 
 .section-title{
     font-size:30px;
-    margin-bottom:28px;
+    margin-bottom:28px
 }
 
 .section-title span,
@@ -185,16 +206,15 @@ nav a:hover{
 .florelisa-title span,
 .special-title span,
 .exclusive-title span{
-    color:var(--pink);
+    color:var(--pink)
 }
 
 /* FEATURED */
-
 .featured{
     display:grid;
     grid-template-columns:1.6fr 1fr;
     gap:30px;
-    align-items:center;
+    align-items:center
 }
 
 .featured-cover{
@@ -204,7 +224,8 @@ nav a:hover{
     overflow:hidden;
     border-radius:16px;
     background:#111;
-    cursor:pointer;
+    box-shadow:0 15px 50px rgba(0,0,0,.6);
+    cursor:pointer
 }
 
 .featured-cover img{
@@ -212,12 +233,15 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
+    transition:.5s
 }
+
+.featured-cover:hover img{transform:scale(1.05)}
 
 .featured-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%);
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
 }
 
 .featured-play{
@@ -233,6 +257,12 @@ nav a:hover{
     background:var(--pink);
     border-radius:50%;
     font-size:28px;
+    box-shadow:0 8px 30px rgba(0,0,0,.6);
+    transition:.3s
+}
+
+.featured-cover:hover .featured-play{
+    transform:translate(-50%,-50%) scale(1.1)
 }
 
 .cover-title{
@@ -241,12 +271,10 @@ nav a:hover{
     right:25px;
     bottom:20px;
     font-size:23px;
-    font-weight:bold;
+    font-weight:bold
 }
 
-.featured-info{
-    padding:10px;
-}
+.featured-info{padding:10px}
 
 .featured-tag{
     display:inline-block;
@@ -255,17 +283,17 @@ nav a:hover{
     border-radius:20px;
     font-size:11px;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
 
 .featured-info h2{
     font-size:35px;
-    margin-bottom:15px;
+    margin-bottom:15px
 }
 
 .featured-info p{
     color:#aaa;
-    line-height:1.7;
+    line-height:1.7
 }
 
 .youtube-button{
@@ -277,15 +305,20 @@ nav a:hover{
     border-radius:7px;
     text-decoration:none;
     font-weight:bold;
+    transition:.3s
+}
+
+.youtube-button:hover{
+    background:var(--pink);
+    color:#fff
 }
 
 /* SLIDER */
-
 .slider-controls{
     display:flex;
     align-items:center;
     gap:10px;
-    margin-top:20px;
+    margin-top:20px
 }
 
 .slider-btn{
@@ -297,11 +330,12 @@ nav a:hover{
     color:#fff;
     font-size:22px;
     cursor:pointer;
+    transition:.3s
 }
 
 .slider-btn:hover{
     background:var(--pink);
-    border-color:var(--pink);
+    border-color:var(--pink)
 }
 
 .slider-dots{
@@ -309,27 +343,27 @@ nav a:hover{
     gap:7px;
     flex-wrap:wrap;
     margin-left:5px;
+    max-width:700px
 }
 
 .slider-dot{
     width:8px;
     height:8px;
     border:0;
+    padding:0;
     background:#444;
     border-radius:10px;
     cursor:pointer;
+    transition:.3s
 }
 
 .slider-dot.active{
     width:24px;
-    background:var(--pink);
+    background:var(--pink)
 }
 
-/* SEARCH */
-
-.search-box{
-    margin-bottom:30px;
-}
+/* BUSCADOR */
+.search-box{margin-bottom:30px}
 
 .search-box input{
     width:100%;
@@ -340,14 +374,12 @@ nav a:hover{
     background:#141414;
     color:#fff;
     font-size:15px;
+    transition:.3s
 }
 
-.search-box input:focus{
-    border-color:var(--pink);
-}
+.search-box input:focus{border-color:var(--pink)}
 
 /* GRIDS */
-
 .video-grid,
 .cumbia-grid,
 .requinto-grid,
@@ -357,11 +389,10 @@ nav a:hover{
 .new-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:25px
 }
 
-/* CARDS */
-
+/* TARJETAS */
 .video-card,
 .cumbia-card,
 .requinto-card,
@@ -373,7 +404,7 @@ nav a:hover{
     border:1px solid #202020;
     border-radius:13px;
     overflow:hidden;
-    transition:.3s;
+    transition:.3s
 }
 
 .video-card:hover,
@@ -385,10 +416,10 @@ nav a:hover{
 .new-card:hover{
     transform:translateY(-6px);
     border-color:var(--pink);
+    box-shadow:0 10px 30px rgba(255,45,141,.12)
 }
 
-/* THUMBNAILS */
-
+/* MINIATURAS */
 .thumbnail,
 .cumbia-thumbnail,
 .requinto-thumbnail,
@@ -401,7 +432,7 @@ nav a:hover{
     aspect-ratio:16/9;
     overflow:hidden;
     cursor:pointer;
-    background:#181818;
+    background:#181818
 }
 
 .thumbnail img,
@@ -415,7 +446,7 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.4s;
+    transition:.4s
 }
 
 .video-card:hover img,
@@ -425,11 +456,10 @@ nav a:hover{
 .florelisa-card:hover img,
 .popular-card:hover img,
 .new-card:hover img{
-    transform:scale(1.06);
+    transform:scale(1.06)
 }
 
 /* PLAY */
-
 .play-button,
 .cumbia-play,
 .requinto-play,
@@ -450,10 +480,10 @@ nav a:hover{
     color:#fff;
     border-radius:50%;
     font-size:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.55)
 }
 
 /* INFO */
-
 .video-info,
 .cumbia-info,
 .requinto-info,
@@ -461,7 +491,7 @@ nav a:hover{
 .florelisa-info,
 .popular-info,
 .new-info{
-    padding:18px;
+    padding:18px
 }
 
 .video-info h3,
@@ -472,16 +502,15 @@ nav a:hover{
 .popular-info h3,
 .new-info h3{
     font-size:18px;
-    margin-bottom:7px;
+    margin-bottom:7px
 }
 
-/* SOCIAL */
-
+/* REDES */
 .social-icons{
     display:flex;
     align-items:center;
     gap:9px;
-    margin-top:10px;
+    margin-top:10px
 }
 
 .social-icons a{
@@ -494,16 +523,21 @@ nav a:hover{
     background:#1b1b1b;
     color:#fff;
     text-decoration:none;
+    transition:.3s
 }
 
 .social-icons a svg{
     width:18px;
     height:18px;
-    fill:currentColor;
+    fill:currentColor
 }
 
-/* BUTTONS */
+.social-icons a:hover{
+    background:var(--pink);
+    transform:translateY(-3px)
+}
 
+/* BOTONES */
 .watch-button,
 .exclusive-button{
     display:inline-flex;
@@ -519,21 +553,23 @@ nav a:hover{
     font-size:13px;
     font-weight:800;
     cursor:pointer;
+    transition:.3s
 }
 
 .watch-button:hover,
 .exclusive-button:hover{
     background:var(--pink-light);
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(255,45,141,.3)
 }
 
-/* CATEGORY */
-
+/* CATEGORÍAS */
 .cumbia-section,
 .requinto-section,
 .salay-section,
 .florelisa-section{
     padding:20px 0 55px;
-    border-top:1px solid #222;
+    border-top:1px solid #222
 }
 
 .cumbia-title,
@@ -541,11 +577,10 @@ nav a:hover{
 .salay-title,
 .florelisa-title{
     font-size:30px;
-    margin-bottom:28px;
+    margin-bottom:28px
 }
 
 /* BADGE */
-
 .badge{
     position:absolute;
     top:12px;
@@ -556,20 +591,19 @@ nav a:hover{
     color:#fff;
     border-radius:20px;
     font-size:10px;
-    font-weight:900;
+    font-weight:900
 }
 
-/* ARTISTS */
-
+/* ARTISTAS */
 .artists-grid{
     display:grid;
     grid-template-columns:repeat(6,1fr);
-    gap:28px 22px;
+    gap:28px 22px
 }
 
 .artist{
     text-align:center;
-    cursor:pointer;
+    cursor:pointer
 }
 
 .artist-image-box{
@@ -580,6 +614,7 @@ nav a:hover{
     border-radius:50%;
     border:3px solid #222;
     background:#151515;
+    transition:.3s
 }
 
 .artist-image{
@@ -587,6 +622,16 @@ nav a:hover{
     height:100%;
     object-fit:cover;
     display:block;
+    transition:.4s
+}
+
+.artist:hover .artist-image-box{
+    border-color:var(--pink);
+    transform:scale(1.04)
+}
+
+.artist:hover .artist-image{
+    transform:scale(1.08)
 }
 
 .artist-play{
@@ -602,42 +647,28 @@ nav a:hover{
     background:var(--pink);
     border-radius:50%;
     opacity:0;
+    transition:.3s
 }
 
-.artist:hover .artist-play{
-    opacity:1;
-}
+.artist:hover .artist-play{opacity:1}
 
 .artist h3{
     margin-top:13px;
     font-size:15px;
-    line-height:1.3;
+    line-height:1.3
 }
 
 .artist p{
     color:#777;
     font-size:12px;
-    margin-top:5px;
+    margin-top:5px
 }
 
-/* SPECIAL */
-
-.special-section{
-    padding:50px 0;
-    border-top:1px solid #222;
-}
-
-.special-title{
-    font-size:30px;
-    margin-bottom:28px;
-}
-
-/* EXCLUSIVE */
-
+/* EXCLUSIVOS */
 .exclusive-section{
     margin-top:30px;
     padding:45px 0;
-    border-top:1px solid #222;
+    border-top:1px solid #222
 }
 
 .exclusive-title{
@@ -645,13 +676,13 @@ nav a:hover{
     align-items:center;
     gap:10px;
     margin-bottom:28px;
-    font-size:30px;
+    font-size:30px
 }
 
 .exclusive-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:25px
 }
 
 .exclusive-card{
@@ -660,6 +691,13 @@ nav a:hover{
     border:1px solid #292929;
     border-radius:15px;
     overflow:hidden;
+    transition:.3s
+}
+
+.exclusive-card:hover{
+    transform:translateY(-7px);
+    border-color:var(--pink);
+    box-shadow:0 12px 35px rgba(255,45,141,.15)
 }
 
 .exclusive-image{
@@ -667,13 +705,19 @@ nav a:hover{
     width:100%;
     aspect-ratio:16/9;
     overflow:hidden;
-    cursor:pointer;
+    cursor:pointer
 }
 
 .exclusive-image img{
     width:100%;
     height:100%;
     object-fit:cover;
+    display:block;
+    transition:.4s
+}
+
+.exclusive-card:hover .exclusive-image img{
+    transform:scale(1.06)
 }
 
 .exclusive-play{
@@ -689,25 +733,33 @@ nav a:hover{
     background:var(--pink);
     color:#fff;
     border-radius:50%;
-    font-size:22px;
+    font-size:22px
 }
 
-.exclusive-info{
-    padding:18px;
-}
+.exclusive-info{padding:18px}
 
 .exclusive-info h3{
     font-size:19px;
-    margin-bottom:7px;
+    margin-bottom:7px
 }
 
 .exclusive-info p{
     color:#888;
-    font-size:13px;
+    font-size:13px
+}
+
+/* POPULARES / ESTRENOS */
+.special-section{
+    padding:50px 0;
+    border-top:1px solid #222
+}
+
+.special-title{
+    font-size:30px;
+    margin-bottom:28px
 }
 
 /* WHATSAPP */
-
 .whatsapp-button{
     position:fixed;
     right:20px;
@@ -723,16 +775,28 @@ nav a:hover{
     border-radius:50%;
     text-decoration:none;
     box-shadow:0 6px 25px rgba(0,0,0,.45);
+    transition:.3s;
+    animation:whatsappPulse 2s infinite
+}
+
+.whatsapp-button:hover{
+    transform:scale(1.1);
+    background:#20bd5a
 }
 
 .whatsapp-button svg{
     width:32px;
     height:32px;
-    fill:currentColor;
+    fill:currentColor
+}
+
+@keyframes whatsappPulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
 /* MODAL */
-
 .modal{
     position:fixed;
     inset:0;
@@ -741,12 +805,10 @@ nav a:hover{
     align-items:center;
     justify-content:center;
     padding:20px;
-    background:rgba(0,0,0,.96);
+    background:rgba(0,0,0,.96)
 }
 
-.modal.active{
-    display:flex;
-}
+.modal.active{display:flex}
 
 .modal-content{
     position:relative;
@@ -754,13 +816,13 @@ nav a:hover{
     aspect-ratio:16/9;
     background:#000;
     border-radius:12px;
-    overflow:hidden;
+    overflow:hidden
 }
 
 .modal iframe{
     width:100%;
     height:100%;
-    border:0;
+    border:0
 }
 
 .close-modal{
@@ -775,30 +837,24 @@ nav a:hover{
     background:var(--pink);
     color:#fff;
     font-size:25px;
-    cursor:pointer;
+    cursor:pointer
 }
 
 /* FOOTER */
-
 footer{
     margin-top:50px;
     padding:40px 6%;
     text-align:center;
     border-top:1px solid #222;
-    color:#777;
+    color:#777
 }
 
-footer strong{
-    color:var(--pink);
-}
+footer strong{color:var(--pink)}
 
-/* RESPONSIVE */
-
+/* TABLET */
 @media(max-width:1100px){
 
-    .featured{
-        grid-template-columns:1fr;
-    }
+    .featured{grid-template-columns:1fr}
 
     .video-grid,
     .cumbia-grid,
@@ -807,32 +863,47 @@ footer strong{
     .florelisa-grid,
     .popular-grid,
     .new-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr)
     }
 
     .artists-grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(4,1fr)
     }
 
     .exclusive-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr)
     }
+
+    nav{gap:10px}
 }
 
+/* CELULAR */
 @media(max-width:650px){
+
+    .modal{padding:12px}
+
+    .modal-content{
+        width:100%;
+        aspect-ratio:16/10;
+        border-radius:9px
+    }
+
+    .close-modal{
+        top:7px;
+        right:7px;
+        width:38px;
+        height:38px;
+        font-size:22px
+    }
 
     header{
         min-height:70px;
-        padding:12px 5%;
+        padding:12px 5%
     }
 
-    .logo{
-        font-size:21px;
-    }
+    .logo{font-size:21px}
 
-    .menu-toggle{
-        display:flex;
-    }
+    .menu-toggle{display:flex}
 
     nav{
         position:absolute;
@@ -843,32 +914,40 @@ footer strong{
         flex-direction:column;
         align-items:stretch;
         gap:0;
-        background:#070707;
+        background:rgba(7,7,7,.99);
         border-top:1px solid #222;
         border-bottom:1px solid #222;
+        box-shadow:0 15px 30px rgba(0,0,0,.6);
+        padding:8px 0
     }
 
-    nav.active{
-        display:flex;
-    }
+    nav.active{display:flex}
 
     nav a{
+        display:block;
+        width:100%;
         padding:16px 25px;
-        border-bottom:1px solid #1c1c1c;
+        font-size:13px;
+        border-bottom:1px solid #1c1c1c
+    }
+
+    nav a:last-child{border-bottom:0}
+
+    nav a:hover{
+        background:#151515;
+        color:var(--pink)
     }
 
     .hero{
         min-height:470px;
-        padding:55px 5%;
+        padding:55px 5%
     }
 
-    .hero h1{
-        font-size:48px;
-    }
+    .hero h1{font-size:48px}
 
-    .container{
-        width:92%;
-    }
+    .hero p{font-size:15px}
+
+    .container{width:92%}
 
     .video-grid,
     .cumbia-grid,
@@ -877,21 +956,28 @@ footer strong{
     .florelisa-grid,
     .popular-grid,
     .new-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .artists-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:24px 15px;
+        gap:24px 15px
     }
 
     .exclusive-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
-    .featured-info h2{
-        font-size:28px;
+    .featured-info h2{font-size:28px}
+
+    .featured-play{
+        width:65px;
+        height:65px
     }
+
+    .cover-title{font-size:17px}
+
+    .section{padding:40px 0}
 
     .section-title,
     .cumbia-title,
@@ -900,8 +986,42 @@ footer strong{
     .florelisa-title,
     .exclusive-title,
     .special-title{
-        font-size:26px;
+        font-size:26px
     }
+
+    .social-icons a{
+        width:32px;
+        height:32px
+    }
+
+    .watch-button{
+        min-width:150px;
+        padding:14px 20px;
+        font-size:14px
+    }
+
+    .whatsapp-button{
+        width:54px;
+        height:54px;
+        right:16px;
+        bottom:16px
+    }
+
+    .whatsapp-button svg{
+        width:29px;
+        height:29px
+    }
+}
+
+@media(max-width:380px){
+
+    .artists-grid{gap:20px 10px}
+
+    .artist h3{font-size:13px}
+
+    .hero h1{font-size:42px}
+
+    .logo{font-size:19px}
 }
 </style>
 </head>
@@ -911,33 +1031,34 @@ footer strong{
 <header>
 
 <div class="logo">
-ARTIST<span>VIDEOS</span>
+    ARTIST<span>VIDEOS</span>
 </div>
 
 <button
-class="menu-toggle"
-id="menuToggle"
-type="button"
-aria-label="Abrir menú">
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false">
 
-<span></span>
-<span></span>
-<span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 
 </button>
 
 <nav id="mainNav">
 
-<a href="#inicio">INICIO</a>
-<a href="#videos">HUAYNO SUREÑO</a>
-<a href="#cumbia">CUMBIA SUREÑA</a>
-<a href="#requinto">REQUINTO PERUANO</a>
-<a href="#salay">SALAY MUNDIAL</a>
-<a href="#florelisa">FLORELISA</a>
-<a href="#artistas">ARTISTAS</a>
-<a href="#populares">POPULARES</a>
-<a href="#estrenos">NUEVOS ESTRENOS</a>
-<a href="#exclusivos">EXCLUSIVOS 2026</a>
+    <a href="#inicio">INICIO</a>
+    <a href="#videos">HUAYNO SUREÑO</a>
+    <a href="#cumbia">CUMBIA SUREÑA</a>
+    <a href="#requinto">REQUINTO PERUANO</a>
+    <a href="#salay">SALAY MUNDIAL</a>
+    <a href="#florelisa">FLORELISA</a>
+    <a href="#artistas">ARTISTAS</a>
+    <a href="#populares">POPULARES</a>
+    <a href="#estrenos">NUEVOS ESTRENOS</a>
+    <a href="#exclusivos">EXCLUSIVOS 2026</a>
 
 </nav>
 
@@ -948,23 +1069,23 @@ aria-label="Abrir menú">
 <div class="hero-content">
 
 <div class="hero-label">
-PLATAFORMA MUSICAL
+    PLATAFORMA MUSICAL
 </div>
 
 <h1>
-VIDEOS DE<br>
-<span>ARTISTAS</span>
+    VIDEOS DE<br>
+    <span>ARTISTAS</span>
 </h1>
 
 <p>
-Disfruta de videos musicales,
-estrenos, presentaciones y
-contenido de tus artistas favoritos
-en un solo lugar.
+    Disfruta de videos musicales,
+    estrenos, presentaciones y
+    contenido de tus artistas favoritos
+    en un solo lugar.
 </p>
 
 <a href="#videos" class="hero-button">
-▶ VER VIDEOS
+    ▶ VER VIDEOS
 </a>
 
 </div>
@@ -973,12 +1094,10 @@ en un solo lugar.
 
 <main class="container">
 
-<!-- DESTACADO -->
+<section class="section" aria-labelledby="featured-heading">
 
-<section class="section">
-
-<h2 class="section-title">
-VIDEO <span>DESTACADO</span>
+<h2 class="section-title" id="featured-heading">
+    VIDEO <span>DESTACADO</span>
 </h2>
 
 <div class="featured">
@@ -987,17 +1106,22 @@ VIDEO <span>DESTACADO</span>
 
 <div
 class="featured-cover"
-onclick="playFeatured()">
+role="button"
+tabindex="0"
+aria-label="Reproducir video destacado"
+onclick="playFeatured()"
+onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playFeatured()}">
 
 <img
 id="featuredImage"
 src=""
-alt="Video destacado">
+alt="Video destacado"
+fetchpriority="high">
 
 <div class="featured-overlay"></div>
 
 <div class="featured-play">
-▶
+    ▶
 </div>
 
 <div
@@ -1011,14 +1135,18 @@ id="coverTitle">
 
 <button
 class="slider-btn"
+type="button"
+aria-label="Video destacado anterior"
 onclick="previousFeatured()">
-‹
+    ‹
 </button>
 
 <button
 class="slider-btn"
+type="button"
+aria-label="Siguiente video destacado"
 onclick="nextFeatured()">
-›
+    ›
 </button>
 
 <div
@@ -1033,15 +1161,14 @@ id="sliderDots">
 <div class="featured-info">
 
 <span class="featured-tag">
-VIDEO DESTACADO
+    VIDEO DESTACADO
 </span>
 
-<h2 id="featuredTitle">
-</h2>
+<h2 id="featuredTitle"></h2>
 
 <p>
-Disfruta de videos musicales
-directamente desde ARTISTVIDEOS.
+    Disfruta de videos musicales
+    directamente desde ARTISTVIDEOS.
 </p>
 
 <a
@@ -1051,7 +1178,7 @@ target="_blank"
 rel="noopener noreferrer"
 class="youtube-button">
 
-▶ ABRIR EN YOUTUBE
+    ▶ ABRIR EN YOUTUBE
 
 </a>
 
@@ -1061,12 +1188,10 @@ class="youtube-button">
 
 </section>
 
-<!-- HUAYNO -->
-
 <section class="section" id="videos">
 
-<h2 class="section-title">
-HUAYNO <span>SUREÑO</span>
+<h2 class="section-title" id="videos-heading">
+    HUAYNO <span>SUREÑO</span>
 </h2>
 
 <div class="search-box">
@@ -1074,6 +1199,7 @@ HUAYNO <span>SUREÑO</span>
 <input
 type="search"
 id="searchInput"
+aria-label="Buscar artistas de Huayno Sureño"
 placeholder="🔎 Buscar artista..."
 autocomplete="off">
 
@@ -1086,12 +1212,10 @@ id="videoGrid">
 
 </section>
 
-<!-- CUMBIA -->
-
 <section class="cumbia-section" id="cumbia">
 
 <h2 class="cumbia-title">
-CUMBIA <span>SUREÑA</span>
+    CUMBIA <span>SUREÑA</span>
 </h2>
 
 <div
@@ -1101,12 +1225,10 @@ id="cumbiaGrid">
 
 </section>
 
-<!-- REQUINTO -->
-
 <section class="requinto-section" id="requinto">
 
 <h2 class="requinto-title">
-REQUINTO <span>PERUANO</span>
+    REQUINTO <span>PERUANO</span>
 </h2>
 
 <div
@@ -1116,12 +1238,10 @@ id="requintoGrid">
 
 </section>
 
-<!-- SALAY -->
-
 <section class="salay-section" id="salay">
 
 <h2 class="salay-title">
-SALAY <span>MUNDIAL</span>
+    SALAY <span>MUNDIAL</span>
 </h2>
 
 <div
@@ -1131,12 +1251,10 @@ id="salayGrid">
 
 </section>
 
-<!-- FLORELISA -->
-
 <section class="florelisa-section" id="florelisa">
 
 <h2 class="florelisa-title">
-<span>FLORELISA</span>
+    <span>FLORELISA</span>
 </h2>
 
 <div
@@ -1146,12 +1264,10 @@ id="florelisaGrid">
 
 </section>
 
-<!-- ARTISTAS -->
-
 <section class="section" id="artistas">
 
 <h2 class="section-title">
-NUESTROS <span>ARTISTAS</span>
+    NUESTROS <span>ARTISTAS</span>
 </h2>
 
 <div
@@ -1161,12 +1277,10 @@ id="artistsGrid">
 
 </section>
 
-<!-- POPULARES -->
-
 <section class="special-section" id="populares">
 
 <h2 class="special-title">
-VIDEOS <span>POPULARES</span>
+    VIDEOS <span>POPULARES</span>
 </h2>
 
 <div
@@ -1176,12 +1290,10 @@ id="popularGrid">
 
 </section>
 
-<!-- NUEVOS -->
-
 <section class="special-section" id="estrenos">
 
 <h2 class="special-title">
-NUEVOS <span>ESTRENOS</span>
+    NUEVOS <span>ESTRENOS</span>
 </h2>
 
 <div
@@ -1191,13 +1303,11 @@ id="newGrid">
 
 </section>
 
-<!-- EXCLUSIVOS -->
-
 <section class="exclusive-section" id="exclusivos">
 
 <h2 class="exclusive-title">
-ARTISTAS
-<span>EXCLUSIVOS 2026</span>
+    ARTISTAS
+    <span>EXCLUSIVOS 2026</span>
 </h2>
 
 <div
@@ -1209,42 +1319,44 @@ id="exclusiveGrid">
 
 </main>
 
-<!-- WHATSAPP -->
-
 <a
 class="whatsapp-button"
 href="https://wa.me/51956461177"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="WhatsApp">
+aria-label="Contactar por WhatsApp"
+title="Contactar por WhatsApp">
 
 <svg viewBox="0 0 24 24">
-<path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2z"/>
+<path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2zm0 18.1h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.07.8.82-2.99-.2-.31a8.27 8.27 0 1 1 6.96 3.83zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
 </svg>
 
 </a>
 
-<!-- MODAL -->
-
 <div
 class="modal"
 id="videoModal"
+role="dialog"
+aria-modal="true"
+aria-hidden="true"
+aria-label="Reproductor de video"
 onclick="closeOutside(event)">
 
 <div class="modal-content">
 
 <button
 class="close-modal"
+type="button"
+aria-label="Cerrar reproductor"
 onclick="closeVideo()">
-
 ×
-
 </button>
 
 <iframe
 id="modalVideo"
 src=""
-allow="autoplay; encrypted-media; picture-in-picture"
+title="Reproductor de video"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 allowfullscreen>
 </iframe>
 
@@ -1262,12 +1374,11 @@ allowfullscreen>
 
 </footer>
 
-
 <script>
 
-/* =========================================================
-   CONFIGURACIÓN SUPABASE
-========================================================= */
+/* =====================================================
+   SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
 "https://xyblgirhewopnpmkvkyk.supabase.co";
@@ -1275,12 +1386,19 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_V-4tpS85Ods1tXADgrHz9Q_CdJmoaOR";
 
+const prefersReducedMotion =
+window.matchMedia(
+"(prefers-reduced-motion: reduce)"
+).matches;
 
-/* =========================================================
+let lastFocusedElement=null;
+
+
+/* =====================================================
    ARTISTAS ORIGINALES
-========================================================= */
+===================================================== */
 
-const artists = [
+const artists=[
 
 {name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
 {name:"SOL LUCERO",id:"P77ADWWaHUQ"},
@@ -1323,20 +1441,20 @@ const artists = [
 
 ];
 
-const cumbiaArtists = [
+const cumbiaArtists=[
 {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
 {name:"EDSON MORALES",id:"MzjC097tc4E"},
 {name:"GRUPO CORALI",id:"cobAXEUP_NI"}
 ];
 
-const requintoArtists = [
+const requintoArtists=[
 {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
 {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
 {name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
 {name:"RUTH CURO",id:"MfFB4r7a9T4"}
 ];
 
-const salayArtists = [
+const salayArtists=[
 {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
 {name:"NICKOL RAMOS",id:"_8381AySMnk"},
 {name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
@@ -1344,7 +1462,7 @@ const salayArtists = [
 {name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
 ];
 
-const florelisaArtists = [
+const florelisaArtists=[
 {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
 {name:"DELY CORAZON",id:"eDC3Tswc_PE"},
 {name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
@@ -1352,212 +1470,103 @@ const florelisaArtists = [
 {name:"MARIELIZ",id:"LpLDIOdpS_4"}
 ];
 
-const exclusiveArtists = [
+const exclusiveArtists=[
 {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
 {name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
 {name:"DELIA HUANCA",id:"tefROgLlZIo"}
 ];
 
-const popularArtists = [
+const popularArtists=[
 {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
 {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
 {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
 ];
 
-const newArtists = [
+const newArtists=[
 {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
 {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
 {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
 ];
 
 
-/* =========================================================
-   DATOS DEL ADMIN
-========================================================= */
+/* =====================================================
+   DATOS ADMIN
+===================================================== */
 
-let adminArtists = [];
-let adminVideos = [];
+let adminArtists=[];
+let adminVideos=[];
 
 
-/* =========================================================
+/* =====================================================
    ELEMENTOS
-========================================================= */
+===================================================== */
 
-const videoGrid =
-document.getElementById("videoGrid");
+const videoGrid=document.getElementById("videoGrid");
+const cumbiaGrid=document.getElementById("cumbiaGrid");
+const requintoGrid=document.getElementById("requintoGrid");
+const salayGrid=document.getElementById("salayGrid");
+const florelisaGrid=document.getElementById("florelisaGrid");
+const artistsGrid=document.getElementById("artistsGrid");
+const exclusiveGrid=document.getElementById("exclusiveGrid");
+const popularGrid=document.getElementById("popularGrid");
+const newGrid=document.getElementById("newGrid");
 
-const cumbiaGrid =
-document.getElementById("cumbiaGrid");
+const searchInput=document.getElementById("searchInput");
 
-const requintoGrid =
-document.getElementById("requintoGrid");
+const featuredImage=document.getElementById("featuredImage");
+const featuredTitle=document.getElementById("featuredTitle");
+const coverTitle=document.getElementById("coverTitle");
+const youtubeLink=document.getElementById("youtubeLink");
+const sliderDots=document.getElementById("sliderDots");
 
-const salayGrid =
-document.getElementById("salayGrid");
+const modal=document.getElementById("videoModal");
+const modalVideo=document.getElementById("modalVideo");
 
-const florelisaGrid =
-document.getElementById("florelisaGrid");
-
-const artistsGrid =
-document.getElementById("artistsGrid");
-
-const popularGrid =
-document.getElementById("popularGrid");
-
-const newGrid =
-document.getElementById("newGrid");
-
-const exclusiveGrid =
-document.getElementById("exclusiveGrid");
-
-const searchInput =
-document.getElementById("searchInput");
-
-const featuredImage =
-document.getElementById("featuredImage");
-
-const featuredTitle =
-document.getElementById("featuredTitle");
-
-const coverTitle =
-document.getElementById("coverTitle");
-
-const youtubeLink =
-document.getElementById("youtubeLink");
-
-const sliderDots =
-document.getElementById("sliderDots");
-
-const modal =
-document.getElementById("videoModal");
-
-const modalVideo =
-document.getElementById("modalVideo");
-
-const menuToggle =
-document.getElementById("menuToggle");
-
-const mainNav =
-document.getElementById("mainNav");
+const menuToggle=document.getElementById("menuToggle");
+const mainNav=document.getElementById("mainNav");
 
 
-/* =========================================================
+/* =====================================================
    MENÚ
-========================================================= */
+===================================================== */
 
 menuToggle.addEventListener("click",function(){
 
-mainNav.classList.toggle("active");
+const opened=mainNav.classList.toggle("active");
+
+menuToggle.classList.toggle("active",opened);
+
+menuToggle.setAttribute(
+"aria-expanded",
+opened?"true":"false"
+);
 
 });
 
-
-mainNav.querySelectorAll("a")
-.forEach(function(link){
+mainNav.querySelectorAll("a").forEach(function(link){
 
 link.addEventListener("click",function(){
 
 mainNav.classList.remove("active");
+menuToggle.classList.remove("active");
 
-});
-
-});
-
-
-/* =========================================================
-   YOUTUBE ID
-========================================================= */
-
-function getYoutubeId(url){
-
-if(!url){
-return "";
-}
-
-url=String(url).trim();
-
-try{
-
-if(
-/^[A-Za-z0-9_-]{6,}$/.test(url)
-){
-return url;
-}
-
-const parsed =
-new URL(url);
-
-if(
-parsed.hostname.includes("youtu.be")
-){
-
-return parsed.pathname
-.replace("/","")
-.trim();
-
-}
-
-if(
-parsed.hostname.includes("youtube.com")
-){
-
-const videoId =
-parsed.searchParams.get("v");
-
-if(videoId){
-return videoId;
-}
-
-const parts =
-parsed.pathname.split("/");
-
-const embedIndex =
-parts.indexOf("embed");
-
-if(
-embedIndex !== -1 &&
-parts[embedIndex + 1]
-){
-
-return parts[embedIndex + 1];
-
-}
-
-}
-
-}catch(error){
-
-console.error(
-"Error YouTube:",
-error
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
 );
 
-}
+});
 
-return "";
-
-}
+});
 
 
-/* =========================================================
-   MINIATURA
-========================================================= */
-
-function getThumbnail(id){
-
-return
-`https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-
-}
-
-
-/* =========================================================
-   ESCAPAR HTML
-========================================================= */
+/* =====================================================
+   UTILIDADES
+===================================================== */
 
 function escapeHTML(value){
 
-return String(value ?? "")
+return String(value??"")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
@@ -1567,9 +1576,170 @@ return String(value ?? "")
 }
 
 
-/* =========================================================
-   TARJETA
-========================================================= */
+function getYoutubeId(url){
+
+if(!url)return "";
+
+url=String(url).trim();
+
+try{
+
+if(/^[A-Za-z0-9_-]{6,}$/.test(url)){
+return url;
+}
+
+const parsed=new URL(url);
+
+if(parsed.hostname.includes("youtu.be")){
+
+return parsed.pathname
+.replace("/","")
+.trim();
+
+}
+
+if(parsed.hostname.includes("youtube.com")){
+
+if(parsed.searchParams.get("v")){
+return parsed.searchParams.get("v");
+}
+
+const parts=parsed.pathname.split("/");
+
+const embedIndex=parts.indexOf("embed");
+
+if(
+embedIndex!==-1 &&
+parts[embedIndex+1]
+){
+
+return parts[embedIndex+1];
+
+}
+
+}
+
+}catch(error){
+
+console.warn(
+"URL YouTube inválida:",
+url
+);
+
+}
+
+return "";
+
+}
+
+
+function getThumbnail(id){
+
+return "https://i.ytimg.com/vi/"+
+encodeURIComponent(id)+
+"/hqdefault.jpg";
+
+}
+
+
+function fallbackThumbnail(img,id){
+
+const sources=[
+"https://i.ytimg.com/vi/"+id+"/mqdefault.jpg",
+"https://i.ytimg.com/vi/"+id+"/default.jpg"
+];
+
+const current=img.dataset.fallbackIndex
+?Number(img.dataset.fallbackIndex)
+:0;
+
+if(current<sources.length){
+
+img.dataset.fallbackIndex=current+1;
+img.src=sources[current];
+
+}else{
+
+img.src=
+"https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
+
+}
+
+}
+
+
+/* =====================================================
+   REDES
+===================================================== */
+
+function socialIcons(id){
+
+return `
+
+<div class="social-icons">
+
+<a href="#"
+aria-label="Facebook"
+onclick="
+event.preventDefault();
+event.stopPropagation();
+">
+
+<svg viewBox="0 0 24 24">
+<path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+</svg>
+
+</a>
+
+<a
+href="https://www.youtube.com/watch?v=${encodeURIComponent(id)}"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="YouTube"
+onclick="event.stopPropagation();">
+
+<svg viewBox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/>
+</svg>
+
+</a>
+
+<a href="#"
+aria-label="Instagram"
+onclick="
+event.preventDefault();
+event.stopPropagation();
+">
+
+<svg viewBox="0 0 24 24">
+<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+</svg>
+
+</a>
+
+<a href="#"
+aria-label="TikTok"
+onclick="
+event.preventDefault();
+event.stopPropagation();
+">
+
+<svg viewBox="0 0 24 24">
+<path d="M15.5 2h3c.2 1.7 1.1 3.2 2.5 4.2v3.1c-1.4-.1-2.7-.6-3.8-1.4v7.2a6.2 6.2 0 1 1-6.2-6.2c.4 0 .8 0 1.2.1v3.2a3.2 3.2 0 1 0 2 3V2h1.3z"/>
+</svg>
+
+</a>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
 
 function createCard(
 artist,
@@ -1579,19 +1749,14 @@ playClass,
 infoClass
 ){
 
-const card =
-document.createElement("article");
+const card=document.createElement("article");
 
-card.className =
-cardClass;
+card.className=cardClass;
 
-const id =
-escapeHTML(artist.id);
+const id=escapeHTML(artist.id);
+const name=escapeHTML(artist.name);
 
-const name =
-escapeHTML(artist.name);
-
-card.innerHTML = `
+card.innerHTML=`
 
 <div
 class="${thumbClass}"
@@ -1600,7 +1765,8 @@ onclick="openVideo('${id}')">
 <img
 src="${getThumbnail(id)}"
 alt="${name}"
-loading="lazy">
+loading="lazy"
+onerror="fallbackThumbnail(this,'${id}')">
 
 <div class="${playClass}">
 ▶
@@ -1612,30 +1778,10 @@ loading="lazy">
 
 <h3>${name}</h3>
 
-<div class="social-icons">
-
-<a href="#" onclick="event.preventDefault()">
-f
-</a>
-
-<a
-href="https://www.youtube.com/watch?v=${id}"
-target="_blank"
-rel="noopener noreferrer">
-▶
-</a>
-
-<a href="#" onclick="event.preventDefault()">
-◎
-</a>
-
-<a href="#" onclick="event.preventDefault()">
-♪
-</a>
-
-</div>
+${socialIcons(id)}
 
 <button
+type="button"
 class="watch-button"
 onclick="openVideo('${id}')">
 
@@ -1652,9 +1798,35 @@ return card;
 }
 
 
-/* =========================================================
+/* =====================================================
    HUAYNO
-========================================================= */
+===================================================== */
+
+function getHuaynoVideos(){
+
+const result=[...artists];
+
+adminVideos
+.filter(function(video){
+
+return ![
+"Cumbia Sureña",
+"Requinto Peruano",
+"Salay Mundial",
+"Florelisa"
+].includes(video.category);
+
+})
+.forEach(function(video){
+
+result.push(video);
+
+});
+
+return result;
+
+}
+
 
 function renderVideos(list){
 
@@ -1670,9 +1842,7 @@ text-align:center;
 color:#888;
 padding:30px;
 ">
-
-No se encontraron videos.
-
+No se encontraron artistas.
 </p>
 
 `;
@@ -1684,7 +1854,6 @@ return;
 list.forEach(function(artist){
 
 videoGrid.appendChild(
-
 createCard(
 artist,
 "video-card",
@@ -1692,7 +1861,6 @@ artist,
 "play-button",
 "video-info"
 )
-
 );
 
 });
@@ -1700,52 +1868,18 @@ artist,
 }
 
 
-/* =========================================================
+/* =====================================================
    CATEGORÍAS
-========================================================= */
+===================================================== */
 
-function renderCategory(
-grid,
-list,
-cardClass,
-thumbClass,
-playClass,
-infoClass
-){
+function getCategoryList(originalList,category){
 
-grid.innerHTML="";
-
-list.forEach(function(artist){
-
-grid.appendChild(
-
-createCard(
-artist,
-cardClass,
-thumbClass,
-playClass,
-infoClass
-)
-
-);
-
-});
-
-}
-
-
-function getCategoryList(
-originalList,
-category
-){
-
-const result =
-[...originalList];
+const result=[...originalList];
 
 adminVideos
 .filter(function(video){
 
-return video.category === category;
+return video.category===category;
 
 })
 .forEach(function(video){
@@ -1755,6 +1889,34 @@ result.push(video);
 });
 
 return result;
+
+}
+
+
+function renderCategory(
+grid,
+list,
+card,
+thumb,
+play,
+info
+){
+
+grid.innerHTML="";
+
+list.forEach(function(artist){
+
+grid.appendChild(
+createCard(
+artist,
+card,
+thumb,
+play,
+info
+)
+);
+
+});
 
 }
 
@@ -1827,52 +1989,19 @@ florelisaArtists,
 }
 
 
-/* =========================================================
-   VIDEOS DEL ADMIN PARA HUAYNO
-========================================================= */
-
-function getHuaynoVideos(){
-
-const result =
-[...artists];
-
-adminVideos
-.filter(function(video){
-
-return ![
-"Cumbia Sureña",
-"Requinto Peruano",
-"Salay Mundial",
-"Florelisa"
-].includes(video.category);
-
-})
-.forEach(function(video){
-
-result.push(video);
-
-});
-
-return result;
-
-}
-
-
-/* =========================================================
+/* =====================================================
    ARTISTAS
-========================================================= */
+===================================================== */
 
 function renderArtists(list){
 
 artistsGrid.innerHTML="";
 
-const used =
-new Set();
+const used=new Set();
 
 list.forEach(function(artist){
 
-const key =
-String(artist.name)
+const key=String(artist.name)
 .toLowerCase()
 .trim();
 
@@ -1882,8 +2011,7 @@ return;
 
 used.add(key);
 
-const item =
-document.createElement("div");
+const item=document.createElement("div");
 
 item.className="artist";
 
@@ -1901,7 +2029,8 @@ item.innerHTML=`
 class="artist-image"
 src="${getThumbnail(artist.id)}"
 alt="${escapeHTML(artist.name)}"
-loading="lazy">
+loading="lazy"
+onerror="fallbackThumbnail(this,'${escapeHTML(artist.id)}')">
 
 <div class="artist-play">
 ▶
@@ -1909,13 +2038,9 @@ loading="lazy">
 
 </div>
 
-<h3>
-${escapeHTML(artist.name)}
-</h3>
+<h3>${escapeHTML(artist.name)}</h3>
 
-<p>
-Ver video
-</p>
+<p>Ver video</p>
 
 `;
 
@@ -1924,12 +2049,11 @@ artistsGrid.appendChild(item);
 });
 
 
-/* ARTISTAS CREADOS DESDE ADMIN */
+/* ARTISTAS DEL ADMIN */
 
 adminArtists.forEach(function(artist){
 
-const key =
-String(artist.name)
+const key=String(artist.name)
 .toLowerCase()
 .trim();
 
@@ -1939,41 +2063,34 @@ return;
 
 used.add(key);
 
-const firstVideo =
-adminVideos.find(function(video){
+const firstVideo=adminVideos.find(
+function(video){
 
-return video.artist_id === artist.id;
+return video.artist_id===artist.id;
 
 });
 
-const item =
-document.createElement("div");
+const item=document.createElement("div");
 
 item.className="artist";
 
 item.onclick=function(){
 
 if(firstVideo){
-
 openVideo(firstVideo.id);
-
 }
 
 };
 
-let image =
-artist.image;
+let image=artist.image||"";
 
 if(!image && firstVideo){
-
-image =
-getThumbnail(firstVideo.id);
-
+image=getThumbnail(firstVideo.id);
 }
 
 if(!image){
 
-image =
+image=
 "https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS";
 
 }
@@ -1986,7 +2103,10 @@ item.innerHTML=`
 class="artist-image"
 src="${escapeHTML(image)}"
 alt="${escapeHTML(artist.name)}"
-loading="lazy">
+loading="lazy"
+onerror="
+this.src='https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS'
+">
 
 <div class="artist-play">
 ▶
@@ -1994,13 +2114,9 @@ loading="lazy">
 
 </div>
 
-<h3>
-${escapeHTML(artist.name)}
-</h3>
+<h3>${escapeHTML(artist.name)}</h3>
 
-<p>
-Ver artista
-</p>
+<p>Ver artista</p>
 
 `;
 
@@ -2011,21 +2127,20 @@ artistsGrid.appendChild(item);
 }
 
 
-/* =========================================================
+/* =====================================================
    POPULARES
-========================================================= */
+===================================================== */
 
 function renderPopular(){
 
 popularGrid.innerHTML="";
 
-const list =
-[...popularArtists];
+const list=[...popularArtists];
 
 adminVideos
 .filter(function(video){
 
-return video.popular === true;
+return video.popular===true;
 
 })
 .forEach(function(video){
@@ -2034,10 +2149,9 @@ list.push(video);
 
 });
 
-list.forEach(function(artist){
+list.forEach(function(artist,index){
 
-const card =
-createCard(
+const card=createCard(
 artist,
 "popular-card",
 "popular-thumbnail",
@@ -2045,11 +2159,14 @@ artist,
 "popular-info"
 );
 
-const badge =
-document.createElement("span");
+const badge=document.createElement("span");
 
 badge.className="badge";
-badge.textContent="🔥 POPULAR";
+
+badge.textContent=
+index===0
+?"🔥 MÁS VISTO"
+:"POPULAR";
 
 card
 .querySelector(".popular-thumbnail")
@@ -2062,21 +2179,20 @@ popularGrid.appendChild(card);
 }
 
 
-/* =========================================================
-   NUEVOS
-========================================================= */
+/* =====================================================
+   ESTRENOS
+===================================================== */
 
 function renderNew(){
 
 newGrid.innerHTML="";
 
-const list =
-[...newArtists];
+const list=[...newArtists];
 
 adminVideos
 .filter(function(video){
 
-return video.new_release === true;
+return video.new_release===true;
 
 })
 .forEach(function(video){
@@ -2087,8 +2203,7 @@ list.push(video);
 
 list.forEach(function(artist){
 
-const card =
-createCard(
+const card=createCard(
 artist,
 "new-card",
 "new-thumbnail",
@@ -2096,8 +2211,7 @@ artist,
 "new-info"
 );
 
-const badge =
-document.createElement("span");
+const badge=document.createElement("span");
 
 badge.className="badge";
 badge.textContent="🆕 ESTRENO";
@@ -2113,9 +2227,10 @@ newGrid.appendChild(card);
 }
 
 
-/* =========================================================
-   EXCLUSIVOS
-========================================================= */
+/* =====================================================
+   EXCLUSIVOS 2026
+   NO VAN AL VIDEO DESTACADO
+===================================================== */
 
 function renderExclusive(){
 
@@ -2124,14 +2239,7 @@ exclusiveGrid.innerHTML="";
 
 exclusiveArtists.forEach(function(artist){
 
-const id =
-escapeHTML(artist.id);
-
-const name =
-escapeHTML(artist.name);
-
-const card =
-document.createElement("article");
+const card=document.createElement("article");
 
 card.className="exclusive-card";
 
@@ -2139,16 +2247,17 @@ card.innerHTML=`
 
 <div
 class="exclusive-image"
-onclick="openVideo('${id}')">
+onclick="openVideo('${artist.id}')">
 
 <span class="badge">
 EXCLUSIVO 2026
 </span>
 
 <img
-src="${getThumbnail(id)}"
-alt="${name}"
-loading="lazy">
+src="${getThumbnail(artist.id)}"
+alt="${escapeHTML(artist.name)}"
+loading="lazy"
+onerror="fallbackThumbnail(this,'${artist.id}')">
 
 <div class="exclusive-play">
 ▶
@@ -2158,15 +2267,16 @@ loading="lazy">
 
 <div class="exclusive-info">
 
-<h3>${name}</h3>
+<h3>${escapeHTML(artist.name)}</h3>
 
 <p>
 Artista Exclusivo 2026
 </p>
 
 <button
+type="button"
 class="exclusive-button"
-onclick="openVideo('${id}')">
+onclick="openVideo('${artist.id}')">
 
 ▶ REPRODUCIR
 
@@ -2181,24 +2291,15 @@ exclusiveGrid.appendChild(card);
 });
 
 
-/* EXCLUSIVOS DEL ADMIN */
-
 adminVideos
 .filter(function(video){
 
-return video.exclusive === true;
+return video.exclusive===true;
 
 })
 .forEach(function(video){
 
-const id =
-escapeHTML(video.id);
-
-const name =
-escapeHTML(video.name);
-
-const card =
-document.createElement("article");
+const card=document.createElement("article");
 
 card.className="exclusive-card";
 
@@ -2206,16 +2307,17 @@ card.innerHTML=`
 
 <div
 class="exclusive-image"
-onclick="openVideo('${id}')">
+onclick="openVideo('${escapeHTML(video.id)}')">
 
 <span class="badge">
 EXCLUSIVO 2026
 </span>
 
 <img
-src="${getThumbnail(id)}"
-alt="${name}"
-loading="lazy">
+src="${getThumbnail(video.id)}"
+alt="${escapeHTML(video.name)}"
+loading="lazy"
+onerror="fallbackThumbnail(this,'${escapeHTML(video.id)}')">
 
 <div class="exclusive-play">
 ▶
@@ -2225,15 +2327,16 @@ loading="lazy">
 
 <div class="exclusive-info">
 
-<h3>${name}</h3>
+<h3>${escapeHTML(video.name)}</h3>
 
 <p>
 Artista Exclusivo 2026
 </p>
 
 <button
+type="button"
 class="exclusive-button"
-onclick="openVideo('${id}')">
+onclick="openVideo('${escapeHTML(video.id)}')">
 
 ▶ REPRODUCIR
 
@@ -2250,29 +2353,25 @@ exclusiveGrid.appendChild(card);
 }
 
 
-/* =========================================================
+/* =====================================================
    BUSCADOR
-========================================================= */
+===================================================== */
 
 searchInput.addEventListener(
 "input",
 function(){
 
-const search =
-this.value
+const search=this.value
 .toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"")
 .trim();
 
-const all =
-getHuaynoVideos();
+const all=getHuaynoVideos();
 
-const filtered =
-all.filter(function(artist){
+const filtered=all.filter(function(artist){
 
-const name =
-String(artist.name)
+const name=String(artist.name)
 .toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"");
@@ -2283,12 +2382,21 @@ return name.includes(search);
 
 renderVideos(filtered);
 
+renderArtists(
+filtered.filter(function(artist){
+
+return !artist.admin;
+
+})
+);
+
 });
 
 
-/* =========================================================
+/* =====================================================
    VIDEO DESTACADO
-========================================================= */
+   EXCLUSIVOS NO APARECEN
+===================================================== */
 
 let featuredArtists=[];
 let featuredIndex=0;
@@ -2296,15 +2404,7 @@ let featuredIndex=0;
 
 function rebuildFeatured(){
 
-featuredArtists =
-[...artists];
-
-
-/*
-   TODOS LOS VIDEOS DEL ADMIN
-   PUEDEN APARECER EN DESTACADO,
-   EXCEPTO LOS EXCLUSIVOS.
-*/
+featuredArtists=[...artists];
 
 adminVideos.forEach(function(video){
 
@@ -2332,38 +2432,38 @@ return;
 }
 
 if(index<0){
-
-index =
-featuredArtists.length-1;
-
+index=featuredArtists.length-1;
 }
 
 if(index>=featuredArtists.length){
-
 index=0;
-
 }
 
 featuredIndex=index;
 
-const artist =
-featuredArtists[index];
+const artist=featuredArtists[index];
 
-featuredImage.src =
+featuredImage.src=
 getThumbnail(artist.id);
 
-featuredImage.alt =
-artist.name;
+featuredImage.onerror=function(){
 
-featuredTitle.textContent =
-artist.name;
+fallbackThumbnail(
+this,
+artist.id
+);
 
-coverTitle.textContent =
-artist.name;
+};
 
-youtubeLink.href =
+featuredImage.alt=artist.name;
+
+featuredTitle.textContent=artist.name;
+
+coverTitle.textContent=artist.name;
+
+youtubeLink.href=
 "https://www.youtube.com/watch?v="+
-artist.id;
+encodeURIComponent(artist.id);
 
 document
 .querySelectorAll(".slider-dot")
@@ -2383,24 +2483,29 @@ function renderFeaturedDots(){
 
 sliderDots.innerHTML="";
 
-featuredArtists.forEach(
-function(artist,index){
+featuredArtists.forEach(function(
+artist,
+index
+){
 
-const dot =
-document.createElement("button");
+const dot=document.createElement("button");
 
 dot.type="button";
 
 dot.className="slider-dot";
 
-dot.title =
-artist.name;
+dot.setAttribute(
+"aria-label",
+"Ver "+artist.name
+);
 
-dot.onclick=function(){
+dot.addEventListener(
+"click",
+function(){
 
 showFeatured(index);
 
-};
+});
 
 sliderDots.appendChild(dot);
 
@@ -2442,9 +2547,9 @@ featuredIndex
 }
 
 
-/* =========================================================
+/* =====================================================
    MODAL
-========================================================= */
+===================================================== */
 
 function openVideo(videoId){
 
@@ -2452,14 +2557,34 @@ if(!videoId){
 return;
 }
 
-modalVideo.src =
+lastFocusedElement=document.activeElement;
+
+modalVideo.src=
 "https://www.youtube.com/embed/"+
 encodeURIComponent(videoId)+
-"?autoplay=1&rel=0";
+"?autoplay=1&rel=0&playsinline=1";
 
 modal.classList.add("active");
 
+modal.setAttribute(
+"aria-hidden",
+"false"
+);
+
 document.body.style.overflow="hidden";
+
+requestAnimationFrame(function(){
+
+const closeButton=
+document.querySelector(
+".close-modal"
+);
+
+if(closeButton){
+closeButton.focus();
+}
+
+});
 
 }
 
@@ -2470,55 +2595,116 @@ modalVideo.src="";
 
 modal.classList.remove("active");
 
+modal.setAttribute(
+"aria-hidden",
+"true"
+);
+
 document.body.style.overflow="";
+
+if(lastFocusedElement){
+
+lastFocusedElement.focus();
+
+lastFocusedElement=null;
+
+}
 
 }
 
 
 function closeOutside(event){
 
-if(event.target === modal){
-
+if(event.target===modal){
 closeVideo();
-
 }
 
 }
 
+
+/* =====================================================
+   TECLADO
+===================================================== */
 
 document.addEventListener(
 "keydown",
 function(event){
 
-if(event.key==="Escape"){
+if(
+event.key==="Escape" &&
+modal.classList.contains("active")
+){
 
 closeVideo();
+return;
+
+}
+
+if(
+event.key==="ArrowRight" &&
+!modal.classList.contains("active")
+){
+
+nextFeatured();
+
+}
+
+if(
+event.key==="ArrowLeft" &&
+!modal.classList.contains("active")
+){
+
+previousFeatured();
 
 }
 
 });
 
 
-/* =========================================================
-   SUPABASE REST
-========================================================= */
+/* =====================================================
+   ROTACIÓN DESTACADOS
+===================================================== */
 
-async function supabaseRequest(
-table
-){
+let featuredTimer=null;
 
-const url =
+function startFeaturedRotation(){
+
+clearInterval(featuredTimer);
+
+if(prefersReducedMotion){
+return;
+}
+
+featuredTimer=setInterval(
+function(){
+
+nextFeatured();
+
+},
+5000
+);
+
+}
+
+
+/* =====================================================
+   SUPABASE
+===================================================== */
+
+async function supabaseGet(table){
+
+const url=
 SUPABASE_URL+
 "/rest/v1/"+
 table+
 "?select=*"+
 "&order=created_at.asc";
 
-const response =
-await fetch(
+const response=await fetch(
 url,
 {
 method:"GET",
+
 headers:{
 "apikey":SUPABASE_KEY,
 "Authorization":
@@ -2526,18 +2712,21 @@ headers:{
 "Content-Type":
 "application/json"
 }
+
 }
 );
 
 if(!response.ok){
 
-const errorText =
-await response.text();
+const error=await response.text();
 
 throw new Error(
-"Supabase "+table+
-" HTTP "+response.status+
-": "+errorText
+"Supabase "+
+table+
+" HTTP "+
+response.status+
+" - "+
+error
 );
 
 }
@@ -2547,9 +2736,9 @@ return await response.json();
 }
 
 
-/* =========================================================
-   CARGAR DATOS DE SUPABASE
-========================================================= */
+/* =====================================================
+   CARGAR ARTISTAS Y VIDEOS DEL ADMIN
+===================================================== */
 
 async function loadSupabaseData(){
 
@@ -2559,40 +2748,32 @@ console.log(
 
 try{
 
-/* ================================================
-   ARTISTAS
-================================================ */
+/* ARTISTAS */
 
-const artistsData =
-await supabaseRequest(
-"artists"
-);
+const artistsData=
+await supabaseGet("artists");
 
-adminArtists =
+adminArtists=
 Array.isArray(artistsData)
 ?artistsData
 :[];
 
 
-/* ================================================
-   VIDEOS
-================================================ */
+/* VIDEOS */
 
-const videosData =
-await supabaseRequest(
-"videos"
-);
+const videosData=
+await supabaseGet("videos");
 
 adminVideos=[];
 
 videosData.forEach(function(video){
 
-const id =
+const youtubeId=
 getYoutubeId(
 video.youtube_url
 );
 
-if(!id){
+if(!youtubeId){
 
 console.warn(
 "Video sin ID de YouTube:",
@@ -2603,23 +2784,26 @@ return;
 
 }
 
-const artist =
-adminArtists.find(function(a){
+const artist=
+adminArtists.find(
+function(a){
 
-return a.id === video.artist_id;
+return a.id===video.artist_id;
 
 });
 
 
 adminVideos.push({
 
-id:id,
+id:youtubeId,
 
 name:
-video.title ||
-(artist
+video.title||
+(
+artist
 ?artist.name
-:"ARTISTVIDEOS"),
+:"ARTISTVIDEOS"
+),
 
 artistName:
 artist
@@ -2627,10 +2811,10 @@ artist
 :"ARTISTVIDEOS",
 
 description:
-video.description || "",
+video.description||"",
 
 category:
-video.category ||
+video.category||
 "Huayno Sureño",
 
 popular:
@@ -2648,16 +2832,14 @@ Boolean(video.featured),
 admin:true,
 
 artist_id:
-video.artist_id || null
+video.artist_id||null
 
 });
 
 });
 
 
-/* ================================================
-   ACTUALIZAR TODA LA PÁGINA
-================================================ */
+/* ACTUALIZAR TODAS LAS SECCIONES */
 
 renderVideos(
 getHuaynoVideos()
@@ -2682,9 +2864,7 @@ renderNew();
 renderExclusive();
 
 
-/* ================================================
-   DESTACADO
-================================================ */
+/* ACTUALIZAR DESTACADOS */
 
 rebuildFeatured();
 
@@ -2695,50 +2875,50 @@ featuredIndex
 );
 
 
-/* ================================================
-   INFORMACIÓN EN CONSOLA
-================================================ */
-
 console.log(
-"ARTISTVIDEOS conectado correctamente."
+"ARTISTVIDEOS: Supabase conectado correctamente."
 );
 
 console.log(
-"Artistas ADMIN:",
+"Artistas del administrador:",
 adminArtists.length
 );
 
 console.log(
-"Videos ADMIN:",
+"Videos del administrador:",
 adminVideos.length
 );
-
-console.log(
-"Videos exclusivos:",
-adminVideos.filter(
-v=>v.exclusive
-).length
-);
-
-console.log(
-"Videos destacados:",
-adminVideos.filter(
-v=>v.featured
-).length
-);
-
 
 }catch(error){
 
 console.error(
-"ERROR SUPABASE:",
+"Error cargando Supabase:",
 error
 );
 
 /*
-   MUY IMPORTANTE:
-   Si Supabase falla, no borramos
-   los contenidos originales.
+   Si Supabase falla,
+   los contenidos originales
+   siguen funcionando.
+*/
+
+rebuildFeatured();
+
+renderFeaturedDots();
+
+showFeatured(0);
+
+}
+
+}
+
+
+/* =====================================================
+   CARGA INICIAL
+===================================================== */
+
+/*
+   Primero aparecen tus videos originales.
 */
 
 renderVideos(artists);
@@ -2765,56 +2945,25 @@ renderFeaturedDots();
 
 showFeatured(0);
 
-}
-
-}
+startFeaturedRotation();
 
 
-/* =========================================================
-   INICIALIZAR CONTENIDO ORIGINAL
-========================================================= */
-
-renderVideos(artists);
-
-renderCumbia();
-
-renderRequinto();
-
-renderSalay();
-
-renderFlorelisa();
-
-renderArtists(artists);
-
-renderPopular();
-
-renderNew();
-
-renderExclusive();
-
-rebuildFeatured();
-
-renderFeaturedDots();
-
-showFeatured(0);
-
-
-/* =========================================================
-   CARGAR DATOS ADMIN
-========================================================= */
+/*
+   Después cargamos lo creado
+   desde el administrador.
+*/
 
 loadSupabaseData();
 
 
-/* =========================================================
+/* =====================================================
    ACTUALIZACIÓN AUTOMÁTICA
-========================================================= */
+===================================================== */
 
 /*
-   Cada 30 segundos vuelve a consultar Supabase.
-   Así, si agregas un video desde ADMIN,
-   la página pública puede actualizarse
-   sin tener que modificar el HTML.
+   Cada 30 segundos revisa Supabase.
+   Así los nuevos videos aparecen
+   sin tener que modificar el código.
 */
 
 setInterval(
