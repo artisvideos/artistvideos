@@ -9,9 +9,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 section[id]{scroll-margin-top:90px}
 
 body{
@@ -1094,6 +1092,11 @@ footer strong{color:var(--pink)}
 
 <main class="container">
 
+<!-- =====================================================
+     VIDEO DESTACADO
+     NO USA exclusiveArtists
+===================================================== -->
+
 <section class="section" aria-labelledby="featured-heading">
 
 <h2 class="section-title" id="featured-heading">
@@ -1188,6 +1191,8 @@ class="youtube-button">
 
 </section>
 
+<!-- HUAYNO -->
+
 <section class="section" id="videos">
 
 <h2 class="section-title" id="videos-heading">
@@ -1197,9 +1202,9 @@ class="youtube-button">
 <div class="search-box">
 
 <input
- type="search"
- id="searchInput"
- aria-label="Buscar artistas de Huayno Sureño"
+type="search"
+id="searchInput"
+aria-label="Buscar artistas de Huayno Sureño"
 placeholder="🔎 Buscar artista..."
 autocomplete="off">
 
@@ -1211,6 +1216,8 @@ id="videoGrid">
 </div>
 
 </section>
+
+<!-- CUMBIA -->
 
 <section class="cumbia-section" id="cumbia">
 
@@ -1225,6 +1232,8 @@ id="cumbiaGrid">
 
 </section>
 
+<!-- REQUINTO -->
+
 <section class="requinto-section" id="requinto">
 
 <h2 class="requinto-title">
@@ -1237,6 +1246,8 @@ id="requintoGrid">
 </div>
 
 </section>
+
+<!-- SALAY -->
 
 <section class="salay-section" id="salay">
 
@@ -1251,6 +1262,8 @@ id="salayGrid">
 
 </section>
 
+<!-- FLORELISA -->
+
 <section class="florelisa-section" id="florelisa">
 
 <h2 class="florelisa-title">
@@ -1263,6 +1276,8 @@ id="florelisaGrid">
 </div>
 
 </section>
+
+<!-- ARTISTAS -->
 
 <section class="section" id="artistas">
 
@@ -1277,6 +1292,8 @@ id="artistsGrid">
 
 </section>
 
+<!-- POPULARES -->
+
 <section class="special-section" id="populares">
 
 <h2 class="special-title">
@@ -1290,6 +1307,8 @@ id="popularGrid">
 
 </section>
 
+<!-- ESTRENOS -->
+
 <section class="special-section" id="estrenos">
 
 <h2 class="special-title">
@@ -1302,6 +1321,11 @@ id="newGrid">
 </div>
 
 </section>
+
+<!-- =====================================================
+     ARTISTAS EXCLUSIVOS 2026
+     SECCIÓN COMPLETAMENTE INDEPENDIENTE
+===================================================== -->
 
 <section class="exclusive-section" id="exclusivos">
 
@@ -1319,6 +1343,8 @@ id="exclusiveGrid">
 
 </main>
 
+<!-- WHATSAPP -->
+
 <a
 class="whatsapp-button"
 href="https://wa.me/51956461177"
@@ -1328,10 +1354,14 @@ aria-label="Contactar por WhatsApp"
 title="Contactar por WhatsApp">
 
 <svg viewBox="0 0 24 24">
+
 <path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2zm0 18.1h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.07.8.82-2.99-.2-.31a8.27 8.27 0 1 1 6.96 3.83zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+
 </svg>
 
 </a>
+
+<!-- MODAL -->
 
 <div
 class="modal"
@@ -1376,11 +1406,17 @@ allowfullscreen>
 
 <script>
 
-const prefersReducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-let lastFocusedElement=null;
+/* =====================================================
+   CONFIGURACIÓN
+===================================================== */
+
+const prefersReducedMotion =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let lastFocusedElement = null;
 
 /* =====================================================
-   ARTISTAS
+   ARTISTAS PRINCIPALES
 ===================================================== */
 
 const artists = [
@@ -1392,10 +1428,7 @@ const artists = [
     {name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
     {name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
     {name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
-
-    /* VIDEO ACTUALIZADO */
     {name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
-
     {name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
     {name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
     {name:"ISABEL VELA",id:"u6vHqUwYh2g"},
@@ -1424,8 +1457,6 @@ const artists = [
     {name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
     {name:"DULCE RUBELI",id:"MMeemsf7PNc"},
     {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"},
-
-    /* VIDEOS DE WILFREDO */
     {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"YlF3XmazEXU"},
     {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"XfL4ryrZf54"}
 
@@ -1485,7 +1516,8 @@ const florelisaArtists = [
 ];
 
 /* =====================================================
-   EXCLUSIVOS
+   ARTISTAS EXCLUSIVOS
+   ESTOS NO PARTICIPAN EN VIDEO DESTACADO
 ===================================================== */
 
 const exclusiveArtists = [
@@ -1519,6 +1551,17 @@ const newArtists = [
     {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
 
 ];
+
+/* =====================================================
+   VIDEO DESTACADO
+   IMPORTANTE:
+   SOLO USA ARTISTS
+   NUNCA USA EXCLUSIVEARTISTS
+===================================================== */
+
+const featuredArtists = [...artists];
+
+let featuredIndex = 0;
 
 /* =====================================================
    ELEMENTOS
@@ -1570,6 +1613,7 @@ mainNav.querySelectorAll("a").forEach(function(link){
     link.addEventListener("click",function(){
 
         mainNav.classList.remove("active");
+
         menuToggle.classList.remove("active");
 
         menuToggle.setAttribute(
@@ -1605,6 +1649,7 @@ function fallbackThumbnail(img,id){
     if(current<sources.length){
 
         img.dataset.fallbackIndex=current+1;
+
         img.src=sources[current];
 
     }else{
@@ -1640,7 +1685,7 @@ event.stopPropagation();
 </a>
 
 <a
-href="https://www.youtube.com/watch?v=${id}"
+href="https://www.youtube.com/watch?v=${encodeURIComponent(id)}"
 target="_blank"
 rel="noopener noreferrer"
 aria-label="YouTube"
@@ -1786,7 +1831,14 @@ No se encontraron artistas.
    CATEGORÍAS
 ===================================================== */
 
-function renderCategory(grid,list,card,thumb,play,info){
+function renderCategory(
+    grid,
+    list,
+    card,
+    thumb,
+    play,
+    info
+){
 
     grid.innerHTML="";
 
@@ -1808,53 +1860,53 @@ function renderCategory(grid,list,card,thumb,play,info){
 
 function renderCumbia(){
 
-renderCategory(
-    cumbiaGrid,
-    cumbiaArtists,
-    "cumbia-card",
-    "cumbia-thumbnail",
-    "cumbia-play",
-    "cumbia-info"
-);
+    renderCategory(
+        cumbiaGrid,
+        cumbiaArtists,
+        "cumbia-card",
+        "cumbia-thumbnail",
+        "cumbia-play",
+        "cumbia-info"
+    );
 
 }
 
 function renderRequinto(){
 
-renderCategory(
-    requintoGrid,
-    requintoArtists,
-    "requinto-card",
-    "requinto-thumbnail",
-    "requinto-play",
-    "requinto-info"
-);
+    renderCategory(
+        requintoGrid,
+        requintoArtists,
+        "requinto-card",
+        "requinto-thumbnail",
+        "requinto-play",
+        "requinto-info"
+    );
 
 }
 
 function renderSalay(){
 
-renderCategory(
-    salayGrid,
-    salayArtists,
-    "salay-card",
-    "salay-thumbnail",
-    "salay-play",
-    "salay-info"
-);
+    renderCategory(
+        salayGrid,
+        salayArtists,
+        "salay-card",
+        "salay-thumbnail",
+        "salay-play",
+        "salay-info"
+    );
 
 }
 
 function renderFlorelisa(){
 
-renderCategory(
-    florelisaGrid,
-    florelisaArtists,
-    "florelisa-card",
-    "florelisa-thumbnail",
-    "florelisa-play",
-    "florelisa-info"
-);
+    renderCategory(
+        florelisaGrid,
+        florelisaArtists,
+        "florelisa-card",
+        "florelisa-thumbnail",
+        "florelisa-play",
+        "florelisa-info"
+    );
 
 }
 
@@ -1873,7 +1925,9 @@ function renderArtists(list){
         item.className="artist";
 
         item.onclick=function(){
+
             openVideo(artist.id);
+
         };
 
         item.innerHTML=`
@@ -1963,6 +2017,7 @@ function renderNew(){
         const badge=document.createElement("span");
 
         badge.className="badge";
+
         badge.textContent="🆕 ESTRENO";
 
         card
@@ -1976,7 +2031,8 @@ function renderNew(){
 }
 
 /* =====================================================
-   EXCLUSIVOS
+   EXCLUSIVOS 2026
+   ESTA FUNCIÓN ES INDEPENDIENTE
 ===================================================== */
 
 function renderExclusive(){
@@ -2062,75 +2118,111 @@ searchInput.addEventListener("input",function(){
     });
 
     renderVideos(filtered);
+
     renderArtists(filtered);
 
 });
 
 /* =====================================================
    VIDEO DESTACADO
+   SOLO featuredArtists
 ===================================================== */
-
-let featuredIndex=0;
 
 function showFeatured(index){
 
-    if(index<0){
-        index=artists.length-1;
+    if(!featuredArtists.length){
+        return;
     }
 
-    if(index>=artists.length){
+    if(index<0){
+
+        index=featuredArtists.length-1;
+
+    }
+
+    if(index>=featuredArtists.length){
+
         index=0;
+
     }
 
     featuredIndex=index;
 
-    const artist=artists[index];
+    const artist=featuredArtists[index];
 
-    featuredImage.src=getThumbnail(artist.id);
+    featuredImage.src=
+        getThumbnail(artist.id);
 
     featuredImage.onerror=function(){
-        fallbackThumbnail(this,artist.id);
+
+        fallbackThumbnail(
+            this,
+            artist.id
+        );
+
     };
 
     featuredImage.alt=artist.name;
 
-    featuredTitle.textContent=artist.name;
+    featuredTitle.textContent=
+        artist.name;
 
-    coverTitle.textContent=artist.name;
+    coverTitle.textContent=
+        artist.name;
 
     youtubeLink.href=
-        "https://www.youtube.com/watch?v="+artist.id;
+        "https://www.youtube.com/watch?v="+
+        encodeURIComponent(artist.id);
 
     document
-    .querySelectorAll(".slider-dot")
-    .forEach(function(dot,i){
+        .querySelectorAll(".slider-dot")
+        .forEach(function(dot,i){
 
-        dot.classList.toggle(
-            "active",
-            i===index
-        );
+            dot.classList.toggle(
+                "active",
+                i===index
+            );
 
-    });
+        });
 
 }
 
 function nextFeatured(){
-    showFeatured(featuredIndex+1);
+
+    showFeatured(
+        featuredIndex+1
+    );
+
 }
 
 function previousFeatured(){
-    showFeatured(featuredIndex-1);
+
+    showFeatured(
+        featuredIndex-1
+    );
+
 }
 
 function playFeatured(){
-    openVideo(artists[featuredIndex].id);
+
+    if(!featuredArtists.length){
+        return;
+    }
+
+    openVideo(
+        featuredArtists[
+            featuredIndex
+        ].id
+    );
+
 }
 
 /* =====================================================
    DOTS
+   SOLO PARA featuredArtists
 ===================================================== */
 
-artists.forEach(function(artist,index){
+featuredArtists.forEach(function(artist,index){
 
     const dot=document.createElement("button");
 
@@ -2146,7 +2238,9 @@ artists.forEach(function(artist,index){
     dot.addEventListener(
         "click",
         function(){
+
             showFeatured(index);
+
         }
     );
 
@@ -2160,9 +2254,12 @@ artists.forEach(function(artist,index){
 
 function openVideo(videoId){
 
-    if(!videoId)return;
+    if(!videoId){
+        return;
+    }
 
-    lastFocusedElement=document.activeElement;
+    lastFocusedElement=
+        document.activeElement;
 
     modalVideo.src=
         "https://www.youtube.com/embed/"+
@@ -2170,12 +2267,22 @@ function openVideo(videoId){
         "?autoplay=1&rel=0&playsinline=1";
 
     modal.classList.add("active");
-    modal.setAttribute("aria-hidden","false");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
     document.body.style.overflow="hidden";
 
     requestAnimationFrame(function(){
-        document.querySelector(".close-modal").focus();
+
+        document
+            .querySelector(".close-modal")
+            .focus();
+
     });
+
 }
 
 /* =====================================================
@@ -2187,75 +2294,96 @@ function closeVideo(){
     modalVideo.src="";
 
     modal.classList.remove("active");
-    modal.setAttribute("aria-hidden","true");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
     document.body.style.overflow="";
 
     if(lastFocusedElement){
+
         lastFocusedElement.focus();
+
         lastFocusedElement=null;
+
     }
+
 }
 
 function closeOutside(event){
 
     if(event.target===modal){
+
         closeVideo();
+
     }
 
 }
 
 /* =====================================================
-   ESCAPE
+   TECLA ESC
 ===================================================== */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key==="Escape" && modal.classList.contains("active")){
-        closeVideo();
-        return;
-    }
+        if(
+            event.key==="Escape" &&
+            modal.classList.contains("active")
+        ){
 
-    if(event.key==="Tab" && modal.classList.contains("active")){
-        const closeButton=document.querySelector(".close-modal");
-        if(document.activeElement===closeButton && event.shiftKey){
-            event.preventDefault();
-            modalVideo.focus();
+            closeVideo();
+
+            return;
+
         }
-    }
 
-    if(event.key==="Escape"){
-        closeVideo();
-    }
+        if(
+            event.key==="ArrowRight" &&
+            !modal.classList.contains("active")
+        ){
 
-    if(
-        event.key==="ArrowRight" &&
-        !modal.classList.contains("active")
-    ){
-        nextFeatured();
-    }
+            nextFeatured();
 
-    if(
-        event.key==="ArrowLeft" &&
-        !modal.classList.contains("active")
-    ){
-        previousFeatured();
-    }
+        }
 
-});
+        if(
+            event.key==="ArrowLeft" &&
+            !modal.classList.contains("active")
+        ){
+
+            previousFeatured();
+
+        }
+
+    }
+);
 
 /* =====================================================
    CAMBIO AUTOMÁTICO
 ===================================================== */
 
-let featuredTimer;
+let featuredTimer=null;
 
 function startFeaturedRotation(){
 
     clearInterval(featuredTimer);
 
-    featuredTimer=setInterval(function(){
-        nextFeatured();
-    },5000);
+    if(prefersReducedMotion){
+        return;
+    }
+
+    featuredTimer=setInterval(
+        function(){
+
+            nextFeatured();
+
+        },
+        5000
+    );
 
 }
 
@@ -2264,15 +2392,31 @@ function startFeaturedRotation(){
 ===================================================== */
 
 renderVideos(artists);
+
 renderCumbia();
+
 renderRequinto();
+
 renderSalay();
+
 renderFlorelisa();
+
 renderArtists(artists);
+
 renderPopular();
+
 renderNew();
+
 renderExclusive();
+
+/*
+   IMPORTANTE:
+   VIDEO DESTACADO SE INICIA CON featuredArtists,
+   NO con exclusiveArtists.
+*/
+
 showFeatured(0);
+
 startFeaturedRotation();
 
 </script>
