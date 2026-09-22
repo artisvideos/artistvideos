@@ -18,7 +18,6 @@ body{
     color:#fff;
 }
 
-/* LOGIN */
 #loginScreen{
     min-height:100vh;
     display:flex;
@@ -132,7 +131,26 @@ button:hover{
     display:none;
 }
 
-/* ADMIN */
+.status{
+    margin-bottom:20px;
+    padding:12px 15px;
+    border-radius:10px;
+    background:#181818;
+    border:1px solid #292929;
+    color:#aaa;
+    font-size:13px;
+}
+
+.status.ok{
+    border-color:#16803c;
+    color:#70e89b;
+}
+
+.status.error-status{
+    border-color:#b00020;
+    color:#ff6978;
+}
+
 #adminPanel{
     display:none;
 }
@@ -195,7 +213,6 @@ button:hover{
     margin-top:5px;
 }
 
-/* TABS */
 .tabs{
     display:flex;
     gap:8px;
@@ -213,7 +230,6 @@ button:hover{
     color:#fff;
 }
 
-/* SECTIONS */
 .section{
     display:none;
 }
@@ -253,14 +269,12 @@ button:hover{
     flex-wrap:wrap;
 }
 
-/* SOCIAL */
 .social-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:15px;
 }
 
-/* CHECKBOX */
 .check-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -282,12 +296,10 @@ button:hover{
     width:auto;
 }
 
-/* SEARCH */
 .search{
     margin-bottom:15px;
 }
 
-/* LIST */
 .list{
     display:grid;
     gap:12px;
@@ -355,7 +367,6 @@ button:hover{
     color:#777;
 }
 
-/* MODAL */
 .modal{
     position:fixed;
     inset:0;
@@ -398,7 +409,6 @@ button:hover{
     padding:0;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
 
     .dashboard{
@@ -445,9 +455,7 @@ button:hover{
 
 <body>
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<!-- LOGIN -->
 
 <div id="loginScreen">
 
@@ -492,695 +500,724 @@ button:hover{
 </div>
 
 
-<!-- =====================================================
-     ADMIN PANEL
-===================================================== -->
+<!-- ADMIN -->
 
 <div id="adminPanel">
 
-    <header class="topbar">
+<header class="topbar">
 
-        <div class="topbar-inner">
+    <div class="topbar-inner">
 
-            <div class="brand">
-                ARTIST<span>VIDEOS</span>
-            </div>
-
-            <button
-                class="btn-dark"
-                onclick="logout()"
-            >
-                Cerrar sesión
-            </button>
-
+        <div class="brand">
+            ARTIST<span>VIDEOS</span>
         </div>
 
-    </header>
-
-
-    <main class="main">
-
-        <!-- ESTADÍSTICAS -->
-
-        <div class="dashboard">
-
-            <div class="stat">
-                <small>Artistas</small>
-                <strong id="artistCount">0</strong>
-            </div>
-
-            <div class="stat">
-                <small>Videos</small>
-                <strong id="videoCount">0</strong>
-            </div>
-
-            <div class="stat">
-                <small>Destacados</small>
-                <strong id="featuredCount">0</strong>
-            </div>
-
-        </div>
-
-
-        <!-- TABS -->
-
-        <div class="tabs">
-
-            <button
-                class="tab active"
-                onclick="showTab('artists',this)"
-            >
-                🎤 Artistas
-            </button>
-
-            <button
-                class="tab"
-                onclick="showTab('videos',this)"
-            >
-                🎬 Videos
-            </button>
-
-        </div>
-
-
-        <!-- =================================================
-             ARTISTAS
-        ================================================== -->
-
-        <section
-            class="section active"
-            id="artists"
+        <button
+            class="btn-dark"
+            onclick="logout()"
         >
+            Cerrar sesión
+        </button>
 
-            <div class="card">
+    </div>
 
-                <div class="card-title">
-                    Agregar artista
-                </div>
-
-                <div class="form-grid">
-
-                    <div>
-
-                        <label>Nombre del artista *</label>
-
-                        <input
-                            id="artistName"
-                            placeholder="Ejemplo: Nickol Ramos"
-                        >
-
-                    </div>
+</header>
 
 
-                    <div>
+<main class="main">
 
-                        <label>Imagen del artista</label>
-
-                        <input
-                            id="artistImage"
-                            placeholder="URL de la imagen"
-                        >
-
-                    </div>
+    <div id="connectionStatus" class="status">
+        🔄 Conectando con Supabase...
+    </div>
 
 
-                    <div class="full">
+    <!-- ESTADÍSTICAS -->
 
-                        <label>Descripción del artista</label>
+    <div class="dashboard">
 
-                        <textarea
-                            id="artistDescription"
-                            placeholder="Escribe una descripción..."
-                        ></textarea>
+        <div class="stat">
+            <small>Artistas</small>
+            <strong id="artistCount">0</strong>
+        </div>
 
-                    </div>
+        <div class="stat">
+            <small>Videos</small>
+            <strong id="videoCount">0</strong>
+        </div>
 
-                </div>
+        <div class="stat">
+            <small>Destacados</small>
+            <strong id="featuredCount">0</strong>
+        </div>
 
-
-                <div class="card-title" style="margin-top:25px;">
-                    Redes sociales
-                </div>
-
-
-                <div class="social-grid">
-
-                    <div>
-
-                        <label>Facebook</label>
-
-                        <input
-                            id="facebook"
-                            placeholder="https://facebook.com/..."
-                        >
-
-                    </div>
+    </div>
 
 
-                    <div>
+    <!-- TABS -->
 
-                        <label>Instagram</label>
+    <div class="tabs">
 
-                        <input
-                            id="instagram"
-                            placeholder="https://instagram.com/..."
-                        >
+        <button
+            class="tab active"
+            onclick="showTab('artists',this)"
+        >
+            🎤 Artistas
+        </button>
 
-                    </div>
+        <button
+            class="tab"
+            onclick="showTab('videos',this)"
+        >
+            🎬 Videos
+        </button>
 
-
-                    <div>
-
-                        <label>TikTok</label>
-
-                        <input
-                            id="tiktok"
-                            placeholder="https://tiktok.com/@..."
-                        >
-
-                    </div>
+    </div>
 
 
-                    <div>
+    <!-- ARTISTAS -->
 
-                        <label>YouTube</label>
+    <section
+        class="section active"
+        id="artists"
+    >
 
-                        <input
-                            id="artistYoutube"
-                            placeholder="https://youtube.com/..."
-                        >
+        <div class="card">
 
-                    </div>
+            <div class="card-title">
+                Agregar artista
+            </div>
 
-                </div>
+            <div class="form-grid">
 
+                <div>
 
-                <div class="form-actions">
+                    <label>Nombre del artista *</label>
 
-                    <button
-                        class="btn-red"
-                        onclick="saveArtist()"
+                    <input
+                        id="artistName"
+                        placeholder="Ejemplo: Nickol Ramos"
                     >
-                        💾 Guardar artista
-                    </button>
 
-                    <button
-                        class="btn-dark"
-                        onclick="clearArtistForm()"
+                </div>
+
+
+                <div>
+
+                    <label>Imagen del artista</label>
+
+                    <input
+                        id="artistImage"
+                        placeholder="URL de la imagen"
                     >
-                        Limpiar
-                    </button>
+
+                </div>
+
+
+                <div class="full">
+
+                    <label>Descripción del artista</label>
+
+                    <textarea
+                        id="artistDescription"
+                        placeholder="Escribe una descripción..."
+                    ></textarea>
 
                 </div>
 
             </div>
 
 
-            <div class="card">
+            <div class="card-title" style="margin-top:25px;">
+                Redes sociales
+            </div>
 
-                <div class="card-title">
-                    Artistas registrados
+
+            <div class="social-grid">
+
+                <div>
+
+                    <label>Facebook</label>
+
+                    <input
+                        id="facebook"
+                        placeholder="https://facebook.com/..."
+                    >
+
                 </div>
 
-                <input
-                    class="search"
-                    id="artistSearch"
-                    placeholder="🔎 Buscar artista..."
-                    oninput="renderArtists()"
+
+                <div>
+
+                    <label>Instagram</label>
+
+                    <input
+                        id="instagram"
+                        placeholder="https://instagram.com/..."
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>TikTok</label>
+
+                    <input
+                        id="tiktok"
+                        placeholder="https://tiktok.com/@..."
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>YouTube</label>
+
+                    <input
+                        id="artistYoutube"
+                        placeholder="https://youtube.com/..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    class="btn-red"
+                    onclick="saveArtist()"
                 >
+                    💾 Guardar artista
+                </button>
 
-                <div
-                    class="list"
-                    id="artistList"
-                ></div>
+                <button
+                    class="btn-dark"
+                    onclick="clearArtistForm()"
+                >
+                    Limpiar
+                </button>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- =================================================
-             VIDEOS
-        ================================================== -->
+        <div class="card">
 
-        <section
-            class="section"
-            id="videos"
-        >
+            <div class="card-title">
+                Artistas registrados
+            </div>
 
-            <div class="card">
+            <input
+                class="search"
+                id="artistSearch"
+                placeholder="🔎 Buscar artista..."
+                oninput="renderArtists()"
+            >
 
-                <div class="card-title">
-                    Agregar video
-                </div>
+            <div
+                class="list"
+                id="artistList"
+            ></div>
 
+        </div>
 
-                <div class="form-grid">
-
-                    <div>
-
-                        <label>Artista *</label>
-
-                        <select id="videoArtist">
-                            <option value="">
-                                Seleccionar artista
-                            </option>
-                        </select>
-
-                    </div>
+    </section>
 
 
-                    <div>
+    <!-- VIDEOS -->
 
-                        <label>Título del video *</label>
+    <section
+        class="section"
+        id="videos"
+    >
 
-                        <input
-                            id="videoTitle"
-                            placeholder="Nombre del videoclip"
-                        >
+        <div class="card">
 
-                    </div>
-
-
-                    <div class="full">
-
-                        <label>Link del video *</label>
-
-                        <input
-                            id="videoUrl"
-                            placeholder="https://youtu.be/..."
-                        >
-
-                    </div>
+            <div class="card-title">
+                Agregar video
+            </div>
 
 
-                    <div class="full">
+            <div class="form-grid">
 
-                        <label>Descripción del video</label>
+                <div>
 
-                        <textarea
-                            id="videoDescription"
-                            placeholder="Descripción del video..."
-                        ></textarea>
+                    <label>Artista *</label>
 
-                    </div>
+                    <select id="videoArtist">
 
+                        <option value="">
+                            Seleccionar artista
+                        </option>
 
-                    <div>
-
-                        <label>Categoría *</label>
-
-                        <select id="videoCategory">
-
-                            <option value="">
-                                Seleccionar categoría
-                            </option>
-
-                            <option>
-                                Huayno Sureño
-                            </option>
-
-                            <option>
-                                Cumbia Sureña
-                            </option>
-
-                            <option>
-                                Requinto Peruano
-                            </option>
-
-                            <option>
-                                Salay Mundial
-                            </option>
-
-                            <option>
-                                Florelisa
-                            </option>
-
-                        </select>
-
-                    </div>
+                    </select>
 
                 </div>
 
 
-                <label style="margin-top:20px;">
-                    Opciones del video
+                <div>
+
+                    <label>Título del video *</label>
+
+                    <input
+                        id="videoTitle"
+                        placeholder="Nombre del videoclip"
+                    >
+
+                </div>
+
+
+                <div class="full">
+
+                    <label>Link del video *</label>
+
+                    <input
+                        id="videoUrl"
+                        placeholder="https://youtu.be/..."
+                    >
+
+                </div>
+
+
+                <div class="full">
+
+                    <label>Descripción del video</label>
+
+                    <textarea
+                        id="videoDescription"
+                        placeholder="Descripción del video..."
+                    ></textarea>
+
+                </div>
+
+
+                <div>
+
+                    <label>Categoría *</label>
+
+                    <select id="videoCategory">
+
+                        <option value="">
+                            Seleccionar categoría
+                        </option>
+
+                        <option value="Huayno Sureño">
+                            Huayno Sureño
+                        </option>
+
+                        <option value="Cumbia Sureña">
+                            Cumbia Sureña
+                        </option>
+
+                        <option value="Requinto Peruano">
+                            Requinto Peruano
+                        </option>
+
+                        <option value="Salay Mundial">
+                            Salay Mundial
+                        </option>
+
+                        <option value="Florelisa">
+                            Florelisa
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <label style="margin-top:20px;">
+                Opciones del video
+            </label>
+
+
+            <div class="check-grid">
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        id="videoPopular"
+                    >
+
+                    ⭐ Popular
+
                 </label>
 
-                <div class="check-grid">
 
-                    <label class="check">
-                        <input
-                            type="checkbox"
-                            id="videoPopular"
-                        >
-                        ⭐ Popular
-                    </label>
+                <label class="check">
 
-                    <label class="check">
-                        <input
-                            type="checkbox"
-                            id="videoNew"
-                        >
-                        🆕 Nuevo
-                    </label>
-
-                    <label class="check">
-                        <input
-                            type="checkbox"
-                            id="videoExclusive"
-                        >
-                        🔥 Exclusivo
-                    </label>
-
-                    <label class="check">
-                        <input
-                            type="checkbox"
-                            id="videoFeatured"
-                        >
-                        🎯 Destacado
-                    </label>
-
-                </div>
-
-
-                <div class="form-actions">
-
-                    <button
-                        class="btn-red"
-                        onclick="saveVideo()"
+                    <input
+                        type="checkbox"
+                        id="videoNew"
                     >
-                        💾 Guardar video
-                    </button>
 
-                    <button
-                        class="btn-dark"
-                        onclick="clearVideoForm()"
+                    🆕 Nuevo
+
+                </label>
+
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        id="videoExclusive"
                     >
-                        Limpiar
-                    </button>
 
-                </div>
+                    🔥 Exclusivo
+
+                </label>
+
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        id="videoFeatured"
+                    >
+
+                    🎯 Destacado
+
+                </label>
 
             </div>
 
 
-            <div class="card">
+            <div class="form-actions">
 
-                <div class="card-title">
-                    Videos registrados
-                </div>
-
-                <input
-                    class="search"
-                    id="videoSearch"
-                    placeholder="🔎 Buscar video o artista..."
-                    oninput="renderVideos()"
+                <button
+                    class="btn-red"
+                    onclick="saveVideo()"
                 >
+                    💾 Guardar video
+                </button>
 
-                <div
-                    class="list"
-                    id="videoList"
-                ></div>
+                <button
+                    class="btn-dark"
+                    onclick="clearVideoForm()"
+                >
+                    Limpiar
+                </button>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+
+        <div class="card">
+
+            <div class="card-title">
+                Videos registrados
+            </div>
+
+            <input
+                class="search"
+                id="videoSearch"
+                placeholder="🔎 Buscar video o artista..."
+                oninput="renderVideos()"
+            >
+
+            <div
+                class="list"
+                id="videoList"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
 
 </div>
 
 
-<!-- =====================================================
-     MODAL EDITAR ARTISTA
-===================================================== -->
+<!-- EDITAR ARTISTA -->
 
 <div
     class="modal"
     id="editArtistModal"
 >
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <div class="modal-head">
+    <div class="modal-head">
 
-            <h2>Editar artista</h2>
+        <h2>Editar artista</h2>
 
-            <button
-                class="close"
-                onclick="closeModal('editArtistModal')"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <input
-            type="hidden"
-            id="editArtistId"
+        <button
+            class="close"
+            onclick="closeModal('editArtistModal')"
         >
+            ×
+        </button>
+
+    </div>
 
 
-        <div class="form-grid">
-
-            <div>
-
-                <label>Nombre</label>
-
-                <input id="editArtistName">
-
-            </div>
+    <input
+        type="hidden"
+        id="editArtistId"
+    >
 
 
-            <div>
+    <div class="form-grid">
 
-                <label>Imagen</label>
+        <div>
 
-                <input id="editArtistImage">
+            <label>Nombre</label>
 
-            </div>
-
-
-            <div class="full">
-
-                <label>Descripción</label>
-
-                <textarea id="editArtistDescription"></textarea>
-
-            </div>
-
-
-            <div>
-
-                <label>Facebook</label>
-
-                <input id="editFacebook">
-
-            </div>
-
-
-            <div>
-
-                <label>Instagram</label>
-
-                <input id="editInstagram">
-
-            </div>
-
-
-            <div>
-
-                <label>TikTok</label>
-
-                <input id="editTikTok">
-
-            </div>
-
-
-            <div>
-
-                <label>YouTube</label>
-
-                <input id="editArtistYoutube">
-
-            </div>
+            <input id="editArtistName">
 
         </div>
 
 
-        <div class="form-actions">
+        <div>
 
-            <button
-                class="btn-red"
-                onclick="updateArtist()"
-            >
-                Guardar cambios
-            </button>
+            <label>Imagen</label>
+
+            <input id="editArtistImage">
+
+        </div>
+
+
+        <div class="full">
+
+            <label>Descripción</label>
+
+            <textarea id="editArtistDescription"></textarea>
+
+        </div>
+
+
+        <div>
+
+            <label>Facebook</label>
+
+            <input id="editFacebook">
+
+        </div>
+
+
+        <div>
+
+            <label>Instagram</label>
+
+            <input id="editInstagram">
+
+        </div>
+
+
+        <div>
+
+            <label>TikTok</label>
+
+            <input id="editTikTok">
+
+        </div>
+
+
+        <div>
+
+            <label>YouTube</label>
+
+            <input id="editArtistYoutube">
 
         </div>
 
     </div>
 
+
+    <div class="form-actions">
+
+        <button
+            class="btn-red"
+            onclick="updateArtist()"
+        >
+            Guardar cambios
+        </button>
+
+    </div>
+
+</div>
+
 </div>
 
 
-<!-- =====================================================
-     MODAL EDITAR VIDEO
-===================================================== -->
+<!-- EDITAR VIDEO -->
 
 <div
     class="modal"
     id="editVideoModal"
 >
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <div class="modal-head">
+    <div class="modal-head">
 
-            <h2>Editar video</h2>
+        <h2>Editar video</h2>
 
-            <button
-                class="close"
-                onclick="closeModal('editVideoModal')"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <input
-            type="hidden"
-            id="editVideoId"
+        <button
+            class="close"
+            onclick="closeModal('editVideoModal')"
         >
+            ×
+        </button>
+
+    </div>
 
 
-        <div class="form-grid">
-
-            <div>
-
-                <label>Artista</label>
-
-                <select id="editVideoArtist"></select>
-
-            </div>
+    <input
+        type="hidden"
+        id="editVideoId"
+    >
 
 
-            <div>
+    <div class="form-grid">
 
-                <label>Título</label>
+        <div>
 
-                <input id="editVideoTitle">
+            <label>Artista</label>
 
-            </div>
-
-
-            <div class="full">
-
-                <label>Link del video</label>
-
-                <input id="editVideoUrl">
-
-            </div>
-
-
-            <div class="full">
-
-                <label>Descripción</label>
-
-                <textarea id="editVideoDescription"></textarea>
-
-            </div>
-
-
-            <div>
-
-                <label>Categoría</label>
-
-                <select id="editVideoCategory">
-
-                    <option>
-                        Huayno Sureño
-                    </option>
-
-                    <option>
-                        Cumbia Sureña
-                    </option>
-
-                    <option>
-                        Requinto Peruano
-                    </option>
-
-                    <option>
-                        Salay Mundial
-                    </option>
-
-                    <option>
-                        Florelisa
-                    </option>
-
-                </select>
-
-            </div>
+            <select id="editVideoArtist"></select>
 
         </div>
 
 
-        <label style="margin-top:20px;">
-            Opciones
-        </label>
+        <div>
 
-        <div class="check-grid">
+            <label>Título</label>
 
-            <label class="check">
-                <input
-                    type="checkbox"
-                    id="editPopular"
-                >
-                ⭐ Popular
-            </label>
-
-            <label class="check">
-                <input
-                    type="checkbox"
-                    id="editNew"
-                >
-                🆕 Nuevo
-            </label>
-
-            <label class="check">
-                <input
-                    type="checkbox"
-                    id="editExclusive"
-                >
-                🔥 Exclusivo
-            </label>
-
-            <label class="check">
-                <input
-                    type="checkbox"
-                    id="editFeatured"
-                >
-                🎯 Destacado
-            </label>
+            <input id="editVideoTitle">
 
         </div>
 
 
-        <div class="form-actions">
+        <div class="full">
 
-            <button
-                class="btn-red"
-                onclick="updateVideo()"
-            >
-                Guardar cambios
-            </button>
+            <label>Link del video</label>
+
+            <input id="editVideoUrl">
+
+        </div>
+
+
+        <div class="full">
+
+            <label>Descripción</label>
+
+            <textarea id="editVideoDescription"></textarea>
+
+        </div>
+
+
+        <div>
+
+            <label>Categoría</label>
+
+            <select id="editVideoCategory">
+
+                <option value="Huayno Sureño">
+                    Huayno Sureño
+                </option>
+
+                <option value="Cumbia Sureña">
+                    Cumbia Sureña
+                </option>
+
+                <option value="Requinto Peruano">
+                    Requinto Peruano
+                </option>
+
+                <option value="Salay Mundial">
+                    Salay Mundial
+                </option>
+
+                <option value="Florelisa">
+                    Florelisa
+                </option>
+
+            </select>
 
         </div>
 
     </div>
+
+
+    <label style="margin-top:20px;">
+        Opciones
+    </label>
+
+
+    <div class="check-grid">
+
+        <label class="check">
+
+            <input
+                type="checkbox"
+                id="editPopular"
+            >
+
+            ⭐ Popular
+
+        </label>
+
+
+        <label class="check">
+
+            <input
+                type="checkbox"
+                id="editNew"
+            >
+
+            🆕 Nuevo
+
+        </label>
+
+
+        <label class="check">
+
+            <input
+                type="checkbox"
+                id="editExclusive"
+            >
+
+            🔥 Exclusivo
+
+        </label>
+
+
+        <label class="check">
+
+            <input
+                type="checkbox"
+                id="editFeatured"
+            >
+
+            🎯 Destacado
+
+        </label>
+
+    </div>
+
+
+    <div class="form-actions">
+
+        <button
+            class="btn-red"
+            onclick="updateVideo()"
+        >
+            Guardar cambios
+        </button>
+
+    </div>
+
+</div>
 
 </div>
 
@@ -1191,19 +1228,17 @@ button:hover{
    CONFIGURACIÓN
 ===================================================== */
 
-/*
-   CAMBIA ESTA CONTRASEÑA.
-   
-   IMPORTANTE:
-   Esta contraseña es solamente para esta primera versión.
-   Más adelante la reemplazaremos por Supabase Auth.
-*/
-
 const ADMIN_PASSWORD = "ARTISTVIDEOS2026";
+
+const SUPABASE_URL =
+"https://xyblgirhewopnpmkvkyk.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_V-4tpS85Ods1tXADgrHz9Q_CdJmoaOR";
 
 
 /* =====================================================
-   DATOS INICIALES
+   ARTISTAS ORIGINALES
 ===================================================== */
 
 const defaultArtists = [
@@ -1262,55 +1297,266 @@ const defaultArtists = [
 ];
 
 
-/* =====================================================
-   STORAGE
-===================================================== */
-
-let artists =
-    JSON.parse(localStorage.getItem("av_artists")) || [];
-
-let videos =
-    JSON.parse(localStorage.getItem("av_videos")) || [];
+let artists = [];
+let videos = [];
 
 
 /* =====================================================
-   CARGAR ARTISTAS EXISTENTES
+   ESTADO DE CONEXIÓN
 ===================================================== */
 
-function initializeData(){
+function setStatus(message,type=""){
 
-    if(artists.length === 0){
+    const box =
+        document.getElementById(
+            "connectionStatus"
+        );
 
-        artists = defaultArtists.map((artist,index)=>({
+    if(!box) return;
 
-            id:
-                "artist_" +
-                Date.now() +
-                "_" +
-                index,
+    box.textContent = message;
 
-            name:artist.name,
+    box.className =
+        "status " + type;
+
+}
+
+
+/* =====================================================
+   SUPABASE
+===================================================== */
+
+async function supabaseRequest(
+    table,
+    method="GET",
+    data=null,
+    query=""
+){
+
+    const response =
+        await fetch(
+            SUPABASE_URL +
+            "/rest/v1/" +
+            table +
+            query,
+            {
+                method:method,
+
+                headers:{
+                    "apikey":SUPABASE_KEY,
+
+                    "Authorization":
+                        "Bearer " +
+                        SUPABASE_KEY,
+
+                    "Content-Type":
+                        "application/json",
+
+                    "Prefer":
+                        "return=representation"
+                },
+
+                body:
+                    data !== null
+                    ? JSON.stringify(data)
+                    : undefined
+            }
+        );
+
+
+    if(!response.ok){
+
+        const error =
+            await response.text();
+
+        throw new Error(
+            "HTTP " +
+            response.status +
+            " - " +
+            error
+        );
+
+    }
+
+
+    const text =
+        await response.text();
+
+
+    if(!text){
+
+        return [];
+
+    }
+
+
+    return JSON.parse(text);
+
+}
+
+
+/* =====================================================
+   CARGAR SUPABASE
+===================================================== */
+
+async function loadSupabase(){
+
+    setStatus(
+        "🔄 Conectando con Supabase..."
+    );
+
+
+    try{
+
+        artists =
+            await supabaseRequest(
+                "artists",
+                "GET",
+                null,
+                "?select=*&order=created_at.asc"
+            );
+
+
+        videos =
+            await supabaseRequest(
+                "videos",
+                "GET",
+                null,
+                "?select=*&order=created_at.asc"
+            );
+
+
+        artists =
+            Array.isArray(artists)
+            ? artists
+            : [];
+
+
+        videos =
+            Array.isArray(videos)
+            ? videos
+            : [];
+
+
+        /*
+         Si todavía no hay artistas,
+         registramos los artistas originales.
+        */
+
+        if(artists.length === 0){
+
+            await importDefaultArtists();
+
+        }
+
+
+        setStatus(
+            "🟢 Supabase conectado correctamente",
+            "ok"
+        );
+
+
+        renderAll();
+
+
+    }catch(error){
+
+        console.error(
+            "ERROR SUPABASE:",
+            error
+        );
+
+
+        setStatus(
+            "🔴 Error de conexión con Supabase",
+            "error-status"
+        );
+
+
+        alert(
+            "❌ No se pudo conectar con Supabase.\n\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   IMPORTAR ARTISTAS ORIGINALES
+===================================================== */
+
+async function importDefaultArtists(){
+
+    setStatus(
+        "⏳ Registrando artistas originales..."
+    );
+
+
+    for(
+        const item of defaultArtists
+    ){
+
+        const data = {
+
+            name:item.name,
 
             description:"",
 
             image:"",
 
             facebook:"",
+
             instagram:"",
+
             tiktok:"",
 
             youtube:
                 "https://youtube.com/watch?v=" +
-                artist.youtube,
+                item.youtube
 
-            createdAt:
-                new Date().toISOString()
+        };
 
-        }));
 
-        saveData();
+        try{
+
+            const result =
+                await supabaseRequest(
+                    "artists",
+                    "POST",
+                    data
+                );
+
+
+            if(
+                Array.isArray(result) &&
+                result.length > 0
+            ){
+
+                artists.push(
+                    result[0]
+                );
+
+            }
+
+        }catch(error){
+
+            console.error(
+                "Error artista:",
+                item.name,
+                error
+            );
+
+        }
 
     }
+
+
+    setStatus(
+        "🟢 Artistas registrados correctamente",
+        "ok"
+    );
 
 }
 
@@ -1322,7 +1568,12 @@ function initializeData(){
 function login(){
 
     const password =
-        document.getElementById("loginPassword").value;
+        document
+        .getElementById(
+            "loginPassword"
+        )
+        .value;
+
 
     if(password === ADMIN_PASSWORD){
 
@@ -1331,18 +1582,30 @@ function login(){
             "true"
         );
 
-        document.getElementById("loginScreen").style.display =
-            "none";
 
-        document.getElementById("adminPanel").style.display =
-            "block";
+        document
+        .getElementById(
+            "loginScreen"
+        )
+        .style.display = "none";
 
-        renderAll();
+
+        document
+        .getElementById(
+            "adminPanel"
+        )
+        .style.display = "block";
+
+
+        loadSupabase();
 
     }else{
 
-        document.getElementById("loginError").style.display =
-            "block";
+        document
+        .getElementById(
+            "loginError"
+        )
+        .style.display = "block";
 
     }
 
@@ -1366,18 +1629,30 @@ function logout(){
 
 function showTab(id,button){
 
-    document.querySelectorAll(".section")
-        .forEach(section=>{
-            section.classList.remove("active");
-        });
+    document
+    .querySelectorAll(".section")
+    .forEach(
+        section =>
+        section.classList.remove(
+            "active"
+        )
+    );
 
-    document.querySelectorAll(".tab")
-        .forEach(tab=>{
-            tab.classList.remove("active");
-        });
 
-    document.getElementById(id)
-        .classList.add("active");
+    document
+    .querySelectorAll(".tab")
+    .forEach(
+        tab =>
+        tab.classList.remove(
+            "active"
+        )
+    );
+
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
 
     button.classList.add("active");
 
@@ -1385,20 +1660,125 @@ function showTab(id,button){
 
 
 /* =====================================================
-   GUARDAR DATOS
+   GUARDAR ARTISTA
 ===================================================== */
 
-function saveData(){
+async function saveArtist(){
 
-    localStorage.setItem(
-        "av_artists",
-        JSON.stringify(artists)
-    );
+    const name =
+        document
+        .getElementById(
+            "artistName"
+        )
+        .value
+        .trim();
 
-    localStorage.setItem(
-        "av_videos",
-        JSON.stringify(videos)
-    );
+
+    if(!name){
+
+        alert(
+            "Escribe el nombre del artista."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        name:name,
+
+        description:
+            document
+            .getElementById(
+                "artistDescription"
+            )
+            .value
+            .trim(),
+
+        image:
+            document
+            .getElementById(
+                "artistImage"
+            )
+            .value
+            .trim(),
+
+        facebook:
+            document
+            .getElementById(
+                "facebook"
+            )
+            .value
+            .trim(),
+
+        instagram:
+            document
+            .getElementById(
+                "instagram"
+            )
+            .value
+            .trim(),
+
+        tiktok:
+            document
+            .getElementById(
+                "tiktok"
+            )
+            .value
+            .trim(),
+
+        youtube:
+            document
+            .getElementById(
+                "artistYoutube"
+            )
+            .value
+            .trim()
+
+    };
+
+
+    try{
+
+        const result =
+            await supabaseRequest(
+                "artists",
+                "POST",
+                data
+            );
+
+
+        if(result.length){
+
+            artists.push(
+                result[0]
+            );
+
+        }
+
+
+        clearArtistForm();
+
+        renderAll();
+
+
+        alert(
+            "✅ Artista guardado correctamente."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error guardando artista:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
@@ -1407,89 +1787,33 @@ function saveData(){
    ARTISTAS
 ===================================================== */
 
-function saveArtist(){
-
-    const name =
-        document.getElementById("artistName")
-            .value.trim();
-
-    if(!name){
-
-        alert("Escribe el nombre del artista.");
-
-        return;
-
-    }
-
-
-    const artist = {
-
-        id:
-            "artist_" +
-            Date.now(),
-
-        name:name,
-
-        description:
-            document.getElementById("artistDescription")
-                .value.trim(),
-
-        image:
-            document.getElementById("artistImage")
-                .value.trim(),
-
-        facebook:
-            document.getElementById("facebook")
-                .value.trim(),
-
-        instagram:
-            document.getElementById("instagram")
-                .value.trim(),
-
-        tiktok:
-            document.getElementById("tiktok")
-                .value.trim(),
-
-        youtube:
-            document.getElementById("artistYoutube")
-                .value.trim(),
-
-        createdAt:
-            new Date().toISOString()
-
-    };
-
-
-    artists.push(artist);
-
-    saveData();
-
-    clearArtistForm();
-
-    renderAll();
-
-    alert("✅ Artista guardado.");
-
-}
-
-
 function renderArtists(){
 
     const list =
-        document.getElementById("artistList");
-
-    const search =
-        document.getElementById("artistSearch")
-            .value
-            .toLowerCase();
-
-    const filtered =
-        artists.filter(a =>
-            a.name.toLowerCase().includes(search)
+        document.getElementById(
+            "artistList"
         );
 
 
-    if(filtered.length === 0){
+    const search =
+        document
+        .getElementById(
+            "artistSearch"
+        )
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        artists.filter(
+            artist =>
+            (artist.name || "")
+            .toLowerCase()
+            .includes(search)
+        );
+
+
+    if(!filtered.length){
 
         list.innerHTML =
             '<div class="empty">No hay artistas.</div>';
@@ -1500,78 +1824,93 @@ function renderArtists(){
 
 
     list.innerHTML =
-        filtered.map(artist=>`
+        filtered
+        .map(
+            artist => `
 
-        <div class="item">
+            <div class="item">
 
-            <div class="item-header">
+                <div class="item-header">
 
-                <div>
+                    <div>
 
-                    <h3>
-                        ${escapeHTML(artist.name)}
-                    </h3>
+                        <h3>
+                            ${escapeHTML(
+                                artist.name
+                            )}
+                        </h3>
 
-                    <p>
-                        ${escapeHTML(
-                            artist.description || "Sin descripción"
-                        )}
-                    </p>
+                        <p>
+                            ${escapeHTML(
+                                artist.description ||
+                                "Sin descripción"
+                            )}
+                        </p>
 
-                    <div class="badges">
+                        <div class="badges">
 
-                        ${
-                            artist.facebook
-                            ? '<span class="badge">Facebook</span>'
-                            : ''
-                        }
+                            ${
+                                artist.facebook
+                                ?
+                                '<span class="badge">Facebook</span>'
+                                :
+                                ''
+                            }
 
-                        ${
-                            artist.instagram
-                            ? '<span class="badge">Instagram</span>'
-                            : ''
-                        }
+                            ${
+                                artist.instagram
+                                ?
+                                '<span class="badge">Instagram</span>'
+                                :
+                                ''
+                            }
 
-                        ${
-                            artist.tiktok
-                            ? '<span class="badge">TikTok</span>'
-                            : ''
-                        }
+                            ${
+                                artist.tiktok
+                                ?
+                                '<span class="badge">TikTok</span>'
+                                :
+                                ''
+                            }
 
-                        ${
-                            artist.youtube
-                            ? '<span class="badge red">YouTube</span>'
-                            : ''
-                        }
+                            ${
+                                artist.youtube
+                                ?
+                                '<span class="badge red">YouTube</span>'
+                                :
+                                ''
+                            }
+
+                        </div>
 
                     </div>
 
                 </div>
 
+
+                <div class="item-actions">
+
+                    <button
+                        class="btn-small btn-dark"
+                        onclick="editArtist('${artist.id}')"
+                    >
+                        ✏️ Editar
+                    </button>
+
+                    <button
+                        class="btn-small btn-danger"
+                        onclick="deleteArtist('${artist.id}')"
+                    >
+                        🗑️ Eliminar
+                    </button>
+
+                </div>
+
             </div>
 
-
-            <div class="item-actions">
-
-                <button
-                    class="btn-small btn-dark"
-                    onclick="editArtist('${artist.id}')"
-                >
-                    ✏️ Editar
-                </button>
-
-                <button
-                    class="btn-small btn-danger"
-                    onclick="deleteArtist('${artist.id}')"
-                >
-                    🗑️ Eliminar
-                </button>
-
-            </div>
-
-        </div>
-
-        `).join("");
+        `
+        )
+        .join("");
 
 }
 
@@ -1583,113 +1922,246 @@ function renderArtists(){
 function editArtist(id){
 
     const artist =
-        artists.find(a=>a.id===id);
+        artists.find(
+            a => a.id === id
+        );
+
 
     if(!artist) return;
 
 
-    document.getElementById("editArtistId").value =
-        artist.id;
+    document.getElementById(
+        "editArtistId"
+    ).value = artist.id;
 
-    document.getElementById("editArtistName").value =
-        artist.name;
 
-    document.getElementById("editArtistImage").value =
-        artist.image || "";
+    document.getElementById(
+        "editArtistName"
+    ).value = artist.name || "";
 
-    document.getElementById("editArtistDescription").value =
+
+    document.getElementById(
+        "editArtistImage"
+    ).value = artist.image || "";
+
+
+    document.getElementById(
+        "editArtistDescription"
+    ).value =
         artist.description || "";
 
-    document.getElementById("editFacebook").value =
+
+    document.getElementById(
+        "editFacebook"
+    ).value =
         artist.facebook || "";
 
-    document.getElementById("editInstagram").value =
+
+    document.getElementById(
+        "editInstagram"
+    ).value =
         artist.instagram || "";
 
-    document.getElementById("editTikTok").value =
+
+    document.getElementById(
+        "editTikTok"
+    ).value =
         artist.tiktok || "";
 
-    document.getElementById("editArtistYoutube").value =
+
+    document.getElementById(
+        "editArtistYoutube"
+    ).value =
         artist.youtube || "";
 
 
-    document.getElementById("editArtistModal")
-        .classList.add("show");
+    document.getElementById(
+        "editArtistModal"
+    )
+    .classList
+    .add("show");
 
 }
 
 
-function updateArtist(){
+/* =====================================================
+   ACTUALIZAR ARTISTA
+===================================================== */
+
+async function updateArtist(){
 
     const id =
-        document.getElementById("editArtistId").value;
-
-    const artist =
-        artists.find(a=>a.id===id);
-
-    if(!artist) return;
+        document.getElementById(
+            "editArtistId"
+        ).value;
 
 
-    artist.name =
-        document.getElementById("editArtistName").value.trim();
+    const data = {
 
-    artist.image =
-        document.getElementById("editArtistImage").value.trim();
+        name:
+            document.getElementById(
+                "editArtistName"
+            ).value.trim(),
 
-    artist.description =
-        document.getElementById("editArtistDescription").value.trim();
+        image:
+            document.getElementById(
+                "editArtistImage"
+            ).value.trim(),
 
-    artist.facebook =
-        document.getElementById("editFacebook").value.trim();
+        description:
+            document.getElementById(
+                "editArtistDescription"
+            ).value.trim(),
 
-    artist.instagram =
-        document.getElementById("editInstagram").value.trim();
+        facebook:
+            document.getElementById(
+                "editFacebook"
+            ).value.trim(),
 
-    artist.tiktok =
-        document.getElementById("editTikTok").value.trim();
+        instagram:
+            document.getElementById(
+                "editInstagram"
+            ).value.trim(),
 
-    artist.youtube =
-        document.getElementById("editArtistYoutube").value.trim();
+        tiktok:
+            document.getElementById(
+                "editTikTok"
+            ).value.trim(),
+
+        youtube:
+            document.getElementById(
+                "editArtistYoutube"
+            ).value.trim()
+
+    };
 
 
-    saveData();
+    try{
 
-    closeModal("editArtistModal");
+        const result =
+            await supabaseRequest(
+                "artists",
+                "PATCH",
+                data,
+                "?id=eq." +
+                encodeURIComponent(id)
+            );
 
-    renderAll();
 
-    alert("✅ Artista actualizado.");
+        const index =
+            artists.findIndex(
+                a => a.id === id
+            );
+
+
+        if(
+            index !== -1 &&
+            result.length
+        ){
+
+            artists[index] =
+                result[0];
+
+        }
+
+
+        closeModal(
+            "editArtistModal"
+        );
+
+
+        renderAll();
+
+
+        alert(
+            "✅ Artista actualizado."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error actualizando artista:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
 
-function deleteArtist(id){
+/* =====================================================
+   ELIMINAR ARTISTA
+===================================================== */
+
+async function deleteArtist(id){
 
     const artist =
-        artists.find(a=>a.id===id);
+        artists.find(
+            a => a.id === id
+        );
+
 
     if(!artist) return;
 
 
-    const confirmDelete =
-        confirm(
+    if(
+        !confirm(
             "¿Eliminar a " +
             artist.name +
-            "?\n\nTambién se eliminarán sus videos."
+            "?\n\n" +
+            "También se eliminarán sus videos."
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await supabaseRequest(
+            "artists",
+            "DELETE",
+            null,
+            "?id=eq." +
+            encodeURIComponent(id)
         );
 
-    if(!confirmDelete) return;
+
+        artists =
+            artists.filter(
+                a => a.id !== id
+            );
 
 
-    artists =
-        artists.filter(a=>a.id!==id);
+        videos =
+            videos.filter(
+                v => v.artist_id !== id
+            );
 
-    videos =
-        videos.filter(v=>v.artistId!==id);
 
-    saveData();
+        renderAll();
 
-    renderAll();
+
+        alert(
+            "🗑️ Artista eliminado."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error eliminando artista:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
@@ -1700,13 +2172,33 @@ function deleteArtist(id){
 
 function clearArtistForm(){
 
-    document.getElementById("artistName").value="";
-    document.getElementById("artistDescription").value="";
-    document.getElementById("artistImage").value="";
-    document.getElementById("facebook").value="";
-    document.getElementById("instagram").value="";
-    document.getElementById("tiktok").value="";
-    document.getElementById("artistYoutube").value="";
+    document.getElementById(
+        "artistName"
+    ).value = "";
+
+    document.getElementById(
+        "artistDescription"
+    ).value = "";
+
+    document.getElementById(
+        "artistImage"
+    ).value = "";
+
+    document.getElementById(
+        "facebook"
+    ).value = "";
+
+    document.getElementById(
+        "instagram"
+    ).value = "";
+
+    document.getElementById(
+        "tiktok"
+    ).value = "";
+
+    document.getElementById(
+        "artistYoutube"
+    ).value = "";
 
 }
 
@@ -1719,46 +2211,67 @@ function populateArtistSelects(){
 
     const selects = [
 
-        document.getElementById("videoArtist"),
-        document.getElementById("editVideoArtist")
+        document.getElementById(
+            "videoArtist"
+        ),
+
+        document.getElementById(
+            "editVideoArtist"
+        )
 
     ];
 
 
     selects.forEach(select=>{
 
+        if(!select) return;
+
+
         const current =
             select.value;
+
 
         select.innerHTML =
             '<option value="">Seleccionar artista</option>';
 
+
         artists
-            .slice()
-            .sort((a,b)=>
-                a.name.localeCompare(
-                    b.name,
-                    "es"
-                )
+        .slice()
+        .sort(
+            (a,b)=>
+            (a.name || "")
+            .localeCompare(
+                b.name || "",
+                "es"
             )
-            .forEach(artist=>{
+        )
+        .forEach(artist=>{
 
-                const option =
-                    document.createElement("option");
+            const option =
+                document.createElement(
+                    "option"
+                );
 
-                option.value =
-                    artist.id;
 
-                option.textContent =
-                    artist.name;
+            option.value =
+                artist.id;
 
-                select.appendChild(option);
 
-            });
+            option.textContent =
+                artist.name;
+
+
+            select.appendChild(
+                option
+            );
+
+        });
+
 
         if(current){
 
-            select.value=current;
+            select.value =
+                current;
 
         }
 
@@ -1768,115 +2281,182 @@ function populateArtistSelects(){
 
 
 /* =====================================================
-   VIDEOS
+   GUARDAR VIDEO
 ===================================================== */
 
-function saveVideo(){
+async function saveVideo(){
 
     const artistId =
-        document.getElementById("videoArtist").value;
+        document.getElementById(
+            "videoArtist"
+        ).value;
+
 
     const title =
-        document.getElementById("videoTitle")
-            .value.trim();
+        document.getElementById(
+            "videoTitle"
+        ).value.trim();
+
 
     const url =
-        document.getElementById("videoUrl")
-            .value.trim();
+        document.getElementById(
+            "videoUrl"
+        ).value.trim();
+
 
     const category =
-        document.getElementById("videoCategory").value;
+        document.getElementById(
+            "videoCategory"
+        ).value;
 
 
     if(!artistId){
 
-        alert("Selecciona un artista.");
+        alert(
+            "Selecciona un artista."
+        );
 
         return;
 
     }
+
 
     if(!title){
 
-        alert("Escribe el título del video.");
+        alert(
+            "Escribe el título del video."
+        );
 
         return;
 
     }
+
 
     if(!url){
 
-        alert("Ingresa el link del video.");
+        alert(
+            "Ingresa el link del video."
+        );
 
         return;
 
     }
+
 
     if(!category){
 
-        alert("Selecciona una categoría.");
+        alert(
+            "Selecciona una categoría."
+        );
 
         return;
 
     }
 
 
-    videos.push({
+    const data = {
 
-        id:
-            "video_" +
-            Date.now(),
+        artist_id:
+            artistId,
 
-        artistId:artistId,
-
-        title:title,
-
-        url:url,
+        title:
+            title,
 
         description:
-            document.getElementById("videoDescription")
-                .value.trim(),
+            document.getElementById(
+                "videoDescription"
+            ).value.trim(),
 
-        category:category,
+        youtube_url:
+            url,
+
+        category:
+            category,
 
         popular:
-            document.getElementById("videoPopular").checked,
+            document.getElementById(
+                "videoPopular"
+            ).checked,
 
-        newRelease:
-            document.getElementById("videoNew").checked,
+        new_release:
+            document.getElementById(
+                "videoNew"
+            ).checked,
 
         exclusive:
-            document.getElementById("videoExclusive").checked,
+            document.getElementById(
+                "videoExclusive"
+            ).checked,
 
         featured:
-            document.getElementById("videoFeatured").checked,
+            document.getElementById(
+                "videoFeatured"
+            ).checked
 
-        createdAt:
-            new Date().toISOString()
-
-    });
+    };
 
 
-    saveData();
+    try{
 
-    clearVideoForm();
+        const result =
+            await supabaseRequest(
+                "videos",
+                "POST",
+                data
+            );
 
-    renderAll();
 
-    alert("✅ Video guardado.");
+        if(result.length){
+
+            videos.push(
+                result[0]
+            );
+
+        }
+
+
+        clearVideoForm();
+
+        renderAll();
+
+
+        alert(
+            "✅ Video guardado correctamente en Supabase."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error guardando video:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
 
+/* =====================================================
+   VIDEOS
+===================================================== */
+
 function renderVideos(){
 
     const list =
-        document.getElementById("videoList");
+        document.getElementById(
+            "videoList"
+        );
+
 
     const search =
-        document.getElementById("videoSearch")
-            .value
-            .toLowerCase();
+        document.getElementById(
+            "videoSearch"
+        )
+        .value
+        .toLowerCase();
 
 
     const filtered =
@@ -1884,24 +2464,36 @@ function renderVideos(){
 
             const artist =
                 artists.find(
-                    a=>a.id===video.artistId
+                    a =>
+                    a.id ===
+                    video.artist_id
                 );
 
+
             const artistName =
-                artist ? artist.name : "";
+                artist
+                ? artist.name
+                : "";
+
 
             return (
-                video.title.toLowerCase()
-                    .includes(search)
+
+                (video.title || "")
+                .toLowerCase()
+                .includes(search)
+
                 ||
-                artistName.toLowerCase()
-                    .includes(search)
+
+                artistName
+                .toLowerCase()
+                .includes(search)
+
             );
 
         });
 
 
-    if(filtered.length===0){
+    if(!filtered.length){
 
         list.innerHTML =
             '<div class="empty">No hay videos registrados.</div>';
@@ -1919,8 +2511,11 @@ function renderVideos(){
 
             const artist =
                 artists.find(
-                    a=>a.id===video.artistId
+                    a =>
+                    a.id ===
+                    video.artist_id
                 );
+
 
             const artistName =
                 artist
@@ -1937,49 +2532,69 @@ function renderVideos(){
                     <div>
 
                         <h3>
-                            ${escapeHTML(video.title)}
+                            ${escapeHTML(
+                                video.title
+                            )}
                         </h3>
 
                         <p>
-                            🎤 ${escapeHTML(artistName)}
+                            🎤
+                            ${escapeHTML(
+                                artistName
+                            )}
                         </p>
 
                         <p>
-                            📂 ${escapeHTML(video.category)}
+                            📂
+                            ${escapeHTML(
+                                video.category
+                            )}
                         </p>
 
                         ${
                             video.description
-                            ? `<p style="margin-top:7px;">
-                                ${escapeHTML(video.description)}
-                              </p>`
-                            : ""
+                            ?
+                            `<p style="margin-top:7px;">
+                                ${escapeHTML(
+                                    video.description
+                                )}
+                            </p>`
+                            :
+                            ""
                         }
 
                         <div class="badges">
 
                             ${
                                 video.popular
-                                ? '<span class="badge red">⭐ Popular</span>'
-                                : ''
+                                ?
+                                '<span class="badge red">⭐ Popular</span>'
+                                :
+                                ''
                             }
 
                             ${
-                                video.newRelease
-                                ? '<span class="badge green">🆕 Nuevo</span>'
-                                : ''
+                                video.new_release
+                                ?
+                                '<span class="badge green">🆕 Nuevo</span>'
+                                :
+                                ''
                             }
 
                             ${
                                 video.exclusive
-                                ? '<span class="badge red">🔥 Exclusivo</span>'
-                                : ''
+                                ?
+                                '<span class="badge red">🔥 Exclusivo</span>'
+                                :
+                                ''
                             }
 
                             ${
                                 video.featured
-                                ? '<span class="badge">🎯 Destacado</span>'
-                                : ''
+                                ?
+                                '<span class="badge">🎯 Destacado</span>'
+                                :
+                                ''
                             }
 
                         </div>
@@ -1992,7 +2607,9 @@ function renderVideos(){
                 <div class="item-actions">
 
                     <a
-                        href="${escapeAttribute(video.url)}"
+                        href="${escapeAttribute(
+                            video.youtube_url
+                        )}"
                         target="_blank"
                         class="btn-small btn-dark"
                         style="text-decoration:none;"
@@ -2000,12 +2617,14 @@ function renderVideos(){
                         ▶️ Ver video
                     </a>
 
+
                     <button
                         class="btn-small btn-dark"
                         onclick="editVideo('${video.id}')"
                     >
                         ✏️ Editar
                     </button>
+
 
                     <button
                         class="btn-small btn-danger"
@@ -2033,96 +2652,200 @@ function renderVideos(){
 function editVideo(id){
 
     const video =
-        videos.find(v=>v.id===id);
+        videos.find(
+            v => v.id === id
+        );
+
 
     if(!video) return;
 
 
-    document.getElementById("editVideoId").value =
+    document.getElementById(
+        "editVideoId"
+    ).value =
         video.id;
+
 
     populateArtistSelects();
 
-    document.getElementById("editVideoArtist").value =
-        video.artistId;
 
-    document.getElementById("editVideoTitle").value =
-        video.title;
+    document.getElementById(
+        "editVideoArtist"
+    ).value =
+        video.artist_id;
 
-    document.getElementById("editVideoUrl").value =
-        video.url;
 
-    document.getElementById("editVideoDescription").value =
+    document.getElementById(
+        "editVideoTitle"
+    ).value =
+        video.title || "";
+
+
+    document.getElementById(
+        "editVideoUrl"
+    ).value =
+        video.youtube_url || "";
+
+
+    document.getElementById(
+        "editVideoDescription"
+    ).value =
         video.description || "";
 
-    document.getElementById("editVideoCategory").value =
-        video.category;
 
-    document.getElementById("editPopular").checked =
-        video.popular;
-
-    document.getElementById("editNew").checked =
-        video.newRelease;
-
-    document.getElementById("editExclusive").checked =
-        video.exclusive;
-
-    document.getElementById("editFeatured").checked =
-        video.featured;
+    document.getElementById(
+        "editVideoCategory"
+    ).value =
+        video.category || "";
 
 
-    document.getElementById("editVideoModal")
-        .classList.add("show");
+    document.getElementById(
+        "editPopular"
+    ).checked =
+        !!video.popular;
+
+
+    document.getElementById(
+        "editNew"
+    ).checked =
+        !!video.new_release;
+
+
+    document.getElementById(
+        "editExclusive"
+    ).checked =
+        !!video.exclusive;
+
+
+    document.getElementById(
+        "editFeatured"
+    ).checked =
+        !!video.featured;
+
+
+    document.getElementById(
+        "editVideoModal"
+    )
+    .classList
+    .add("show");
 
 }
 
 
-function updateVideo(){
+/* =====================================================
+   ACTUALIZAR VIDEO
+===================================================== */
+
+async function updateVideo(){
 
     const id =
-        document.getElementById("editVideoId").value;
-
-    const video =
-        videos.find(v=>v.id===id);
-
-    if(!video) return;
+        document.getElementById(
+            "editVideoId"
+        ).value;
 
 
-    video.artistId =
-        document.getElementById("editVideoArtist").value;
+    const data = {
 
-    video.title =
-        document.getElementById("editVideoTitle").value.trim();
+        artist_id:
+            document.getElementById(
+                "editVideoArtist"
+            ).value,
 
-    video.url =
-        document.getElementById("editVideoUrl").value.trim();
+        title:
+            document.getElementById(
+                "editVideoTitle"
+            ).value.trim(),
 
-    video.description =
-        document.getElementById("editVideoDescription").value.trim();
+        youtube_url:
+            document.getElementById(
+                "editVideoUrl"
+            ).value.trim(),
 
-    video.category =
-        document.getElementById("editVideoCategory").value;
+        description:
+            document.getElementById(
+                "editVideoDescription"
+            ).value.trim(),
 
-    video.popular =
-        document.getElementById("editPopular").checked;
+        category:
+            document.getElementById(
+                "editVideoCategory"
+            ).value,
 
-    video.newRelease =
-        document.getElementById("editNew").checked;
+        popular:
+            document.getElementById(
+                "editPopular"
+            ).checked,
 
-    video.exclusive =
-        document.getElementById("editExclusive").checked;
+        new_release:
+            document.getElementById(
+                "editNew"
+            ).checked,
 
-    video.featured =
-        document.getElementById("editFeatured").checked;
+        exclusive:
+            document.getElementById(
+                "editExclusive"
+            ).checked,
+
+        featured:
+            document.getElementById(
+                "editFeatured"
+            ).checked
+
+    };
 
 
-    saveData();
+    try{
 
-    closeModal("editVideoModal");
+        const result =
+            await supabaseRequest(
+                "videos",
+                "PATCH",
+                data,
+                "?id=eq." +
+                encodeURIComponent(id)
+            );
 
-    renderAll();
 
-    alert("✅ Video actualizado.");
+        const index =
+            videos.findIndex(
+                v => v.id === id
+            );
+
+
+        if(
+            index !== -1 &&
+            result.length
+        ){
+
+            videos[index] =
+                result[0];
+
+        }
+
+
+        closeModal(
+            "editVideoModal"
+        );
+
+
+        renderAll();
+
+
+        alert(
+            "✅ Video actualizado."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error actualizando video:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
@@ -2131,10 +2854,13 @@ function updateVideo(){
    ELIMINAR VIDEO
 ===================================================== */
 
-function deleteVideo(id){
+async function deleteVideo(id){
 
     const video =
-        videos.find(v=>v.id===id);
+        videos.find(
+            v => v.id === id
+        );
+
 
     if(!video) return;
 
@@ -2151,14 +2877,41 @@ function deleteVideo(id){
     }
 
 
-    videos =
-        videos.filter(v=>v.id!==id);
+    try{
 
-    saveData();
+        await supabaseRequest(
+            "videos",
+            "DELETE",
+            null,
+            "?id=eq." +
+            encodeURIComponent(id)
+        );
 
-    renderAll();
 
-    alert("🗑️ Video eliminado.");
+        videos =
+            videos.filter(
+                v => v.id !== id
+            );
+
+
+        renderAll();
+
+
+        alert(
+            "🗑️ Video eliminado."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "❌ Error eliminando video:\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
@@ -2169,16 +2922,41 @@ function deleteVideo(id){
 
 function clearVideoForm(){
 
-    document.getElementById("videoArtist").value="";
-    document.getElementById("videoTitle").value="";
-    document.getElementById("videoUrl").value="";
-    document.getElementById("videoDescription").value="";
-    document.getElementById("videoCategory").value="";
+    document.getElementById(
+        "videoArtist"
+    ).value = "";
 
-    document.getElementById("videoPopular").checked=false;
-    document.getElementById("videoNew").checked=false;
-    document.getElementById("videoExclusive").checked=false;
-    document.getElementById("videoFeatured").checked=false;
+    document.getElementById(
+        "videoTitle"
+    ).value = "";
+
+    document.getElementById(
+        "videoUrl"
+    ).value = "";
+
+    document.getElementById(
+        "videoDescription"
+    ).value = "";
+
+    document.getElementById(
+        "videoCategory"
+    ).value = "";
+
+    document.getElementById(
+        "videoPopular"
+    ).checked = false;
+
+    document.getElementById(
+        "videoNew"
+    ).checked = false;
+
+    document.getElementById(
+        "videoExclusive"
+    ).checked = false;
+
+    document.getElementById(
+        "videoFeatured"
+    ).checked = false;
 
 }
 
@@ -2190,8 +2968,9 @@ function clearVideoForm(){
 function closeModal(id){
 
     document
-        .getElementById(id)
-        .classList.remove("show");
+    .getElementById(id)
+    .classList
+    .remove("show");
 
 }
 
@@ -2202,17 +2981,24 @@ function closeModal(id){
 
 function updateStats(){
 
-    document.getElementById("artistCount")
-        .textContent =
+    document.getElementById(
+        "artistCount"
+    ).textContent =
         artists.length;
 
-    document.getElementById("videoCount")
-        .textContent =
+
+    document.getElementById(
+        "videoCount"
+    ).textContent =
         videos.length;
 
-    document.getElementById("featuredCount")
-        .textContent =
-        videos.filter(v=>v.featured).length;
+
+    document.getElementById(
+        "featuredCount"
+    ).textContent =
+        videos.filter(
+            video => video.featured
+        ).length;
 
 }
 
@@ -2243,7 +3029,7 @@ function escapeAttribute(value){
 
 
 /* =====================================================
-   TODO
+   RENDERIZAR TODO
 ===================================================== */
 
 function renderAll(){
@@ -2263,25 +3049,29 @@ function renderAll(){
    INICIO
 ===================================================== */
 
-initializeData();
-
-
 if(
-    sessionStorage.getItem("av_admin_login")
-    === "true"
+    sessionStorage.getItem(
+        "av_admin_login"
+    ) === "true"
 ){
 
-    document.getElementById("loginScreen")
-        .style.display="none";
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "none";
 
-    document.getElementById("adminPanel")
-        .style.display="block";
 
-    renderAll();
+    document.getElementById(
+        "adminPanel"
+    ).style.display =
+        "block";
+
+
+    loadSupabase();
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
