@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ARTISTVIDEOS - Plataforma de videos musicales">
-<meta name="theme-color" content="#ff2d8d">
+<meta name="theme-color" content="#9c27b0">
 <title>ARTISTVIDEOS</title>
 
 <style>
@@ -13,188 +13,188 @@ html{scroll-behavior:smooth}
 section[id]{scroll-margin-top:90px}
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#070707;
-    color:#fff;
-    overflow-x:hidden
+font-family:Arial,Helvetica,sans-serif;
+background:#070707;
+color:#fff;
+overflow-x:hidden
 }
 
 button,input{font-family:inherit}
 
 :root{
-    --pink:#9c27b0;
-    --pink-light:#c44bd3;
-    --card:#121212;
-    --surface:#151515;
-    --text-muted:#aaa;
-    --focus-ring:0 0 0 3px rgba(255,45,141,.35)
+--pink:#9c27b0;
+--pink-light:#c44bd3;
+--card:#121212;
+--surface:#151515;
+--text-muted:#aaa;
+--focus-ring:0 0 0 3px rgba(156,39,176,.35)
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible{
-    outline:2px solid var(--pink-light);
-    outline-offset:3px;
-    box-shadow:var(--focus-ring)
+outline:2px solid var(--pink-light);
+outline-offset:3px;
+box-shadow:var(--focus-ring)
 }
 
 ::selection{
-    background:var(--pink);
-    color:#fff
+background:var(--pink);
+color:#fff
 }
 
 @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        transition-duration:.01ms!important
-    }
+html{scroll-behavior:auto}
+*,*::before,*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+transition-duration:.01ms!important
+}
 }
 
 /* HEADER */
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    min-height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:15px 6%;
-    background:rgba(7,7,7,.97);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #252525
+position:sticky;
+top:0;
+z-index:1000;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 6%;
+background:rgba(7,7,7,.97);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #252525
 }
 
 .logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px
+font-size:25px;
+font-weight:900;
+letter-spacing:2px
 }
 
 .logo span{color:var(--pink)}
 
 nav{
-    display:flex;
-    align-items:center;
-    gap:20px
+display:flex;
+align-items:center;
+gap:20px
 }
 
 nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:12px;
-    font-weight:bold;
-    transition:.3s
+color:#fff;
+text-decoration:none;
+font-size:12px;
+font-weight:bold;
+transition:.3s
 }
 
 nav a:hover{color:var(--pink)}
 
 .menu-toggle{
-    display:none;
-    width:45px;
-    height:45px;
-    border:1px solid #333;
-    border-radius:8px;
-    background:#151515;
-    cursor:pointer;
-    padding:9px;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:5px
+display:none;
+width:45px;
+height:45px;
+border:1px solid #333;
+border-radius:8px;
+background:#151515;
+cursor:pointer;
+padding:9px;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:5px
 }
 
 .menu-toggle span{
-    width:25px;
-    height:3px;
-    background:#fff;
-    border-radius:3px;
-    transition:.3s
+width:25px;
+height:3px;
+background:#fff;
+border-radius:3px;
+transition:.3s
 }
 
 .menu-toggle.active span:nth-child(1){
-    transform:translateY(8px) rotate(45deg)
+transform:translateY(8px) rotate(45deg)
 }
 
 .menu-toggle.active span:nth-child(2){opacity:0}
 
 .menu-toggle.active span:nth-child(3){
-    transform:translateY(-8px) rotate(-45deg)
+transform:translateY(-8px) rotate(-45deg)
 }
 
 /* HERO */
 .hero{
-    min-height:560px;
-    display:flex;
-    align-items:center;
-    padding:70px 6%;
-    background:
-        linear-gradient(
-            90deg,
-            #070707 5%,
-            rgba(7,7,7,.90) 40%,
-            rgba(7,7,7,.20)
-        ),
-        url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-        center/cover no-repeat
+min-height:560px;
+display:flex;
+align-items:center;
+padding:70px 6%;
+background:
+linear-gradient(
+90deg,
+#070707 5%,
+rgba(7,7,7,.90) 40%,
+rgba(7,7,7,.20)
+),
+url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
+center/cover no-repeat
 }
 
 .hero-content{max-width:700px}
 
 .hero-label{
-    color:var(--pink);
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:4px
+color:var(--pink);
+font-size:13px;
+font-weight:bold;
+letter-spacing:4px
 }
 
 .hero h1{
-    font-size:clamp(48px,7vw,88px);
-    line-height:.92;
-    margin:18px 0
+font-size:clamp(48px,7vw,88px);
+line-height:.92;
+margin:18px 0
 }
 
 .hero h1 span{color:var(--pink)}
 
 .hero p{
-    max-width:580px;
-    color:#ccc;
-    font-size:17px;
-    line-height:1.7
+max-width:580px;
+color:#ccc;
+font-size:17px;
+line-height:1.7
 }
 
 .hero-button{
-    display:inline-block;
-    margin-top:28px;
-    padding:15px 25px;
-    background:var(--pink);
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:8px;
-    transition:.3s
+display:inline-block;
+margin-top:28px;
+padding:15px 25px;
+background:var(--pink);
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+border-radius:8px;
+transition:.3s
 }
 
 .hero-button:hover{
-    background:var(--pink-light);
-    transform:translateY(-2px);
-    box-shadow:0 8px 25px rgba(255,45,141,.3)
+background:var(--pink-light);
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(156,39,176,.3)
 }
 
 /* GENERAL */
 .container{
-    width:88%;
-    max-width:1400px;
-    margin:auto
+width:88%;
+max-width:1400px;
+margin:auto
 }
 
 .section{padding:55px 0}
 
 .section-title{
-    font-size:30px;
-    margin-bottom:28px
+font-size:30px;
+margin-bottom:28px
 }
 
 .section-title span,
@@ -204,175 +204,175 @@ nav a:hover{color:var(--pink)}
 .florelisa-title span,
 .special-title span,
 .exclusive-title span{
-    color:var(--pink)
+color:var(--pink)
 }
 
 /* FEATURED */
 .featured{
-    display:grid;
-    grid-template-columns:1.6fr 1fr;
-    gap:30px;
-    align-items:center
+display:grid;
+grid-template-columns:1.6fr 1fr;
+gap:30px;
+align-items:center
 }
 
 .featured-cover{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    border-radius:16px;
-    background:#111;
-    box-shadow:0 15px 50px rgba(0,0,0,.6);
-    cursor:pointer
+position:relative;
+width:100%;
+aspect-ratio:16/9;
+overflow:hidden;
+border-radius:16px;
+background:#111;
+box-shadow:0 15px 50px rgba(0,0,0,.6);
+cursor:pointer
 }
 
 .featured-cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.5s
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.5s
 }
 
 .featured-cover:hover img{transform:scale(1.05)}
 
 .featured-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
 }
 
 .featured-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:80px;
-    height:80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    border-radius:50%;
-    font-size:28px;
-    box-shadow:0 8px 30px rgba(0,0,0,.6);
-    transition:.3s
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:80px;
+height:80px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--pink);
+border-radius:50%;
+font-size:28px;
+box-shadow:0 8px 30px rgba(0,0,0,.6);
+transition:.3s
 }
 
 .featured-cover:hover .featured-play{
-    transform:translate(-50%,-50%) scale(1.1)
+transform:translate(-50%,-50%) scale(1.1)
 }
 
 .cover-title{
-    position:absolute;
-    left:25px;
-    right:25px;
-    bottom:20px;
-    font-size:23px;
-    font-weight:bold
+position:absolute;
+left:25px;
+right:25px;
+bottom:20px;
+font-size:23px;
+font-weight:bold
 }
 
 .featured-info{padding:10px}
 
 .featured-tag{
-    display:inline-block;
-    padding:7px 13px;
-    background:var(--pink);
-    border-radius:20px;
-    font-size:11px;
-    font-weight:bold;
-    margin-bottom:15px
+display:inline-block;
+padding:7px 13px;
+background:var(--pink);
+border-radius:20px;
+font-size:11px;
+font-weight:bold;
+margin-bottom:15px
 }
 
 .featured-info h2{
-    font-size:35px;
-    margin-bottom:15px
+font-size:35px;
+margin-bottom:15px
 }
 
 .featured-info p{
-    color:#aaa;
-    line-height:1.7
+color:#aaa;
+line-height:1.7
 }
 
 .youtube-button{
-    display:inline-block;
-    margin-top:22px;
-    padding:13px 20px;
-    background:#fff;
-    color:#000;
-    border-radius:7px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s
+display:inline-block;
+margin-top:22px;
+padding:13px 20px;
+background:#fff;
+color:#000;
+border-radius:7px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s
 }
 
 .youtube-button:hover{
-    background:var(--pink);
-    color:#fff
+background:var(--pink);
+color:#fff
 }
 
 /* SLIDER */
 .slider-controls{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:20px
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:20px
 }
 
 .slider-btn{
-    width:44px;
-    height:44px;
-    border:1px solid #333;
-    border-radius:50%;
-    background:#151515;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    transition:.3s
+width:44px;
+height:44px;
+border:1px solid #333;
+border-radius:50%;
+background:#151515;
+color:#fff;
+font-size:22px;
+cursor:pointer;
+transition:.3s
 }
 
 .slider-btn:hover{
-    background:var(--pink);
-    border-color:var(--pink)
+background:var(--pink);
+border-color:var(--pink)
 }
 
 .slider-dots{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-    margin-left:5px;
-    max-width:700px
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-left:5px;
+max-width:700px
 }
 
 .slider-dot{
-    width:8px;
-    height:8px;
-    border:0;
-    padding:0;
-    background:#444;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s
+width:8px;
+height:8px;
+border:0;
+padding:0;
+background:#444;
+border-radius:10px;
+cursor:pointer;
+transition:.3s
 }
 
 .slider-dot.active{
-    width:24px;
-    background:var(--pink)
+width:24px;
+background:var(--pink)
 }
 
 /* BUSCADOR */
 .search-box{margin-bottom:30px}
 
 .search-box input{
-    width:100%;
-    padding:17px 20px;
-    border:1px solid #292929;
-    border-radius:10px;
-    outline:none;
-    background:#141414;
-    color:#fff;
-    font-size:15px;
-    transition:.3s
+width:100%;
+padding:17px 20px;
+border:1px solid #292929;
+border-radius:10px;
+outline:none;
+background:#141414;
+color:#fff;
+font-size:15px;
+transition:.3s
 }
 
 .search-box input:focus{border-color:var(--pink)}
@@ -385,9 +385,9 @@ nav a:hover{color:var(--pink)}
 .florelisa-grid,
 .popular-grid,
 .new-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px
 }
 
 /* TARJETAS */
@@ -398,11 +398,11 @@ nav a:hover{color:var(--pink)}
 .florelisa-card,
 .popular-card,
 .new-card{
-    background:var(--card);
-    border:1px solid #202020;
-    border-radius:13px;
-    overflow:hidden;
-    transition:.3s
+background:var(--card);
+border:1px solid #202020;
+border-radius:13px;
+overflow:hidden;
+transition:.3s
 }
 
 .video-card:hover,
@@ -412,9 +412,9 @@ nav a:hover{color:var(--pink)}
 .florelisa-card:hover,
 .popular-card:hover,
 .new-card:hover{
-    transform:translateY(-6px);
-    border-color:var(--pink);
-    box-shadow:0 10px 30px rgba(255,45,141,.12)
+transform:translateY(-6px);
+border-color:var(--pink);
+box-shadow:0 10px 30px rgba(156,39,176,.12)
 }
 
 /* MINIATURAS */
@@ -425,12 +425,12 @@ nav a:hover{color:var(--pink)}
 .florelisa-thumbnail,
 .popular-thumbnail,
 .new-thumbnail{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    cursor:pointer;
-    background:#181818
+position:relative;
+width:100%;
+aspect-ratio:16/9;
+overflow:hidden;
+cursor:pointer;
+background:#181818
 }
 
 .thumbnail img,
@@ -440,11 +440,11 @@ nav a:hover{color:var(--pink)}
 .florelisa-thumbnail img,
 .popular-thumbnail img,
 .new-thumbnail img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.4s
 }
 
 .video-card:hover img,
@@ -454,7 +454,7 @@ nav a:hover{color:var(--pink)}
 .florelisa-card:hover img,
 .popular-card:hover img,
 .new-card:hover img{
-    transform:scale(1.06)
+transform:scale(1.06)
 }
 
 /* PLAY */
@@ -465,20 +465,20 @@ nav a:hover{color:var(--pink)}
 .florelisa-play,
 .popular-play,
 .new-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:62px;
-    height:62px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    color:#fff;
-    border-radius:50%;
-    font-size:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.55)
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:62px;
+height:62px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--pink);
+color:#fff;
+border-radius:50%;
+font-size:22px;
+box-shadow:0 5px 20px rgba(0,0,0,.55)
 }
 
 /* INFO */
@@ -489,7 +489,7 @@ nav a:hover{color:var(--pink)}
 .florelisa-info,
 .popular-info,
 .new-info{
-    padding:18px
+padding:18px
 }
 
 .video-info h3,
@@ -499,66 +499,66 @@ nav a:hover{color:var(--pink)}
 .florelisa-info h3,
 .popular-info h3,
 .new-info h3{
-    font-size:18px;
-    margin-bottom:7px
+font-size:18px;
+margin-bottom:7px
 }
 
 /* REDES */
 .social-icons{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    margin-top:10px
+display:flex;
+align-items:center;
+gap:9px;
+margin-top:10px
 }
 
 .social-icons a{
-    width:34px;
-    height:34px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#1b1b1b;
-    color:#fff;
-    text-decoration:none;
-    transition:.3s
+width:34px;
+height:34px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#1b1b1b;
+color:#fff;
+text-decoration:none;
+transition:.3s
 }
 
 .social-icons a svg{
-    width:18px;
-    height:18px;
-    fill:currentColor
+width:18px;
+height:18px;
+fill:currentColor
 }
 
 .social-icons a:hover{
-    background:var(--pink);
-    transform:translateY(-3px)
+background:var(--pink);
+transform:translateY(-3px)
 }
 
 /* BOTONES */
 .watch-button,
 .exclusive-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:16px;
-    min-width:150px;
-    padding:13px 20px;
-    background:var(--pink);
-    color:#fff;
-    border:0;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:800;
-    cursor:pointer;
-    transition:.3s
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-top:16px;
+min-width:150px;
+padding:13px 20px;
+background:var(--pink);
+color:#fff;
+border:0;
+border-radius:7px;
+font-size:13px;
+font-weight:800;
+cursor:pointer;
+transition:.3s
 }
 
 .watch-button:hover,
 .exclusive-button:hover{
-    background:var(--pink-light);
-    transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(255,45,141,.3)
+background:var(--pink-light);
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(156,39,176,.3)
 }
 
 /* CATEGORÍAS */
@@ -566,285 +566,285 @@ nav a:hover{color:var(--pink)}
 .requinto-section,
 .salay-section,
 .florelisa-section{
-    padding:20px 0 55px;
-    border-top:1px solid #222
+padding:20px 0 55px;
+border-top:1px solid #222
 }
 
 .cumbia-title,
 .requinto-title,
 .salay-title,
 .florelisa-title{
-    font-size:30px;
-    margin-bottom:28px
+font-size:30px;
+margin-bottom:28px
 }
 
 /* BADGE */
 .badge{
-    position:absolute;
-    top:12px;
-    left:12px;
-    z-index:5;
-    padding:7px 11px;
-    background:var(--pink);
-    color:#fff;
-    border-radius:20px;
-    font-size:10px;
-    font-weight:900
+position:absolute;
+top:12px;
+left:12px;
+z-index:5;
+padding:7px 11px;
+background:var(--pink);
+color:#fff;
+border-radius:20px;
+font-size:10px;
+font-weight:900
 }
 
 /* ARTISTAS */
 .artists-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:28px 22px
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:28px 22px
 }
 
 .artist{
-    text-align:center;
-    cursor:pointer
+text-align:center;
+cursor:pointer
 }
 
 .artist-image-box{
-    position:relative;
-    width:100%;
-    aspect-ratio:1/1;
-    overflow:hidden;
-    border-radius:50%;
-    border:3px solid #222;
-    background:#151515;
-    transition:.3s
+position:relative;
+width:100%;
+aspect-ratio:1/1;
+overflow:hidden;
+border-radius:50%;
+border:3px solid #222;
+background:#151515;
+transition:.3s
 }
 
 .artist-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.4s
 }
 
 .artist:hover .artist-image-box{
-    border-color:var(--pink);
-    transform:scale(1.04)
+border-color:var(--pink);
+transform:scale(1.04)
 }
 
 .artist:hover .artist-image{
-    transform:scale(1.08)
+transform:scale(1.08)
 }
 
 .artist-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    border-radius:50%;
-    opacity:0;
-    transition:.3s
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--pink);
+border-radius:50%;
+opacity:0;
+transition:.3s
 }
 
 .artist:hover .artist-play{opacity:1}
 
 .artist h3{
-    margin-top:13px;
-    font-size:15px;
-    line-height:1.3
+margin-top:13px;
+font-size:15px;
+line-height:1.3
 }
 
 .artist p{
-    color:#777;
-    font-size:12px;
-    margin-top:5px
+color:#777;
+font-size:12px;
+margin-top:5px
 }
 
 /* EXCLUSIVOS */
 .exclusive-section{
-    margin-top:30px;
-    padding:45px 0;
-    border-top:1px solid #222
+margin-top:30px;
+padding:45px 0;
+border-top:1px solid #222
 }
 
 .exclusive-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:28px;
-    font-size:30px
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:28px;
+font-size:30px
 }
 
 .exclusive-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px
 }
 
 .exclusive-card{
-    position:relative;
-    background:linear-gradient(145deg,#191919,#0d0d0d);
-    border:1px solid #292929;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s
+position:relative;
+background:linear-gradient(145deg,#191919,#0d0d0d);
+border:1px solid #292929;
+border-radius:15px;
+overflow:hidden;
+transition:.3s
 }
 
 .exclusive-card:hover{
-    transform:translateY(-7px);
-    border-color:var(--pink);
-    box-shadow:0 12px 35px rgba(255,45,141,.15)
+transform:translateY(-7px);
+border-color:var(--pink);
+box-shadow:0 12px 35px rgba(156,39,176,.15)
 }
 
 .exclusive-image{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    cursor:pointer
+position:relative;
+width:100%;
+aspect-ratio:16/9;
+overflow:hidden;
+cursor:pointer
 }
 
 .exclusive-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.4s
 }
 
 .exclusive-card:hover .exclusive-image img{
-    transform:scale(1.06)
+transform:scale(1.06)
 }
 
 .exclusive-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:62px;
-    height:62px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    color:#fff;
-    border-radius:50%;
-    font-size:22px
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:62px;
+height:62px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:var(--pink);
+color:#fff;
+border-radius:50%;
+font-size:22px
 }
 
 .exclusive-info{padding:18px}
 
 .exclusive-info h3{
-    font-size:19px;
-    margin-bottom:7px
+font-size:19px;
+margin-bottom:7px
 }
 
 .exclusive-info p{
-    color:#888;
-    font-size:13px
+color:#888;
+font-size:13px
 }
 
 /* POPULARES / ESTRENOS */
 .special-section{
-    padding:50px 0;
-    border-top:1px solid #222
+padding:50px 0;
+border-top:1px solid #222
 }
 
 .special-title{
-    font-size:30px;
-    margin-bottom:28px
+font-size:30px;
+margin-bottom:28px
 }
 
 /* WHATSAPP */
 .whatsapp-button{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:2500;
-    width:58px;
-    height:58px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#25D366;
-    color:#fff;
-    border-radius:50%;
-    text-decoration:none;
-    box-shadow:0 6px 25px rgba(0,0,0,.45);
-    transition:.3s;
-    animation:whatsappPulse 2s infinite
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:2500;
+width:58px;
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#25D366;
+color:#fff;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 6px 25px rgba(0,0,0,.45);
+transition:.3s;
+animation:whatsappPulse 2s infinite
 }
 
 .whatsapp-button:hover{
-    transform:scale(1.1);
-    background:#20bd5a
+transform:scale(1.1);
+background:#20bd5a
 }
 
 .whatsapp-button svg{
-    width:32px;
-    height:32px;
-    fill:currentColor
+width:32px;
+height:32px;
+fill:currentColor
 }
 
 @keyframes whatsappPulse{
-    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
-    70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-    100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
 /* MODAL */
 .modal{
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.96)
+position:fixed;
+inset:0;
+z-index:3000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(0,0,0,.96)
 }
 
 .modal.active{display:flex}
 
 .modal-content{
-    position:relative;
-    width:min(1000px,95vw);
-    aspect-ratio:16/9;
-    background:#000;
-    border-radius:12px;
-    overflow:hidden
+position:relative;
+width:min(1000px,95vw);
+aspect-ratio:16/9;
+background:#000;
+border-radius:12px;
+overflow:hidden
 }
 
 .modal iframe{
-    width:100%;
-    height:100%;
-    border:0
+width:100%;
+height:100%;
+border:0
 }
 
 .close-modal{
-    position:absolute;
-    top:10px;
-    right:10px;
-    z-index:10;
-    width:42px;
-    height:42px;
-    border:0;
-    border-radius:50%;
-    background:var(--pink);
-    color:#fff;
-    font-size:25px;
-    cursor:pointer
+position:absolute;
+top:10px;
+right:10px;
+z-index:10;
+width:42px;
+height:42px;
+border:0;
+border-radius:50%;
+background:var(--pink);
+color:#fff;
+font-size:25px;
+cursor:pointer
 }
 
 /* FOOTER */
 footer{
-    margin-top:50px;
-    padding:40px 6%;
-    text-align:center;
-    border-top:1px solid #222;
-    color:#777
+margin-top:50px;
+padding:40px 6%;
+text-align:center;
+border-top:1px solid #222;
+color:#777
 }
 
 footer strong{color:var(--pink)}
@@ -852,174 +852,174 @@ footer strong{color:var(--pink)}
 /* TABLET */
 @media(max-width:1100px){
 
-    .featured{grid-template-columns:1fr}
+.featured{grid-template-columns:1fr}
 
-    .video-grid,
-    .cumbia-grid,
-    .requinto-grid,
-    .salay-grid,
-    .florelisa-grid,
-    .popular-grid,
-    .new-grid{
-        grid-template-columns:repeat(2,1fr)
-    }
+.video-grid,
+.cumbia-grid,
+.requinto-grid,
+.salay-grid,
+.florelisa-grid,
+.popular-grid,
+.new-grid{
+grid-template-columns:repeat(2,1fr)
+}
 
-    .artists-grid{
-        grid-template-columns:repeat(4,1fr)
-    }
+.artists-grid{
+grid-template-columns:repeat(4,1fr)
+}
 
-    .exclusive-grid{
-        grid-template-columns:repeat(2,1fr)
-    }
+.exclusive-grid{
+grid-template-columns:repeat(2,1fr)
+}
 
-    nav{gap:10px}
+nav{gap:10px}
 }
 
 /* CELULAR */
 @media(max-width:650px){
 
-    .modal{padding:12px}
+.modal{padding:12px}
 
-    .modal-content{
-        width:100%;
-        aspect-ratio:16/10;
-        border-radius:9px
-    }
+.modal-content{
+width:100%;
+aspect-ratio:16/10;
+border-radius:9px
+}
 
-    .close-modal{
-        top:7px;
-        right:7px;
-        width:38px;
-        height:38px;
-        font-size:22px
-    }
+.close-modal{
+top:7px;
+right:7px;
+width:38px;
+height:38px;
+font-size:22px
+}
 
-    header{
-        min-height:70px;
-        padding:12px 5%
-    }
+header{
+min-height:70px;
+padding:12px 5%
+}
 
-    .logo{font-size:21px}
+.logo{font-size:21px}
 
-    .menu-toggle{display:flex}
+.menu-toggle{display:flex}
 
-    nav{
-        position:absolute;
-        top:70px;
-        left:0;
-        right:0;
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:rgba(7,7,7,.99);
-        border-top:1px solid #222;
-        border-bottom:1px solid #222;
-        box-shadow:0 15px 30px rgba(0,0,0,.6);
-        padding:8px 0
-    }
+nav{
+position:absolute;
+top:70px;
+left:0;
+right:0;
+display:none;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+background:rgba(7,7,7,.99);
+border-top:1px solid #222;
+border-bottom:1px solid #222;
+box-shadow:0 15px 30px rgba(0,0,0,.6);
+padding:8px 0
+}
 
-    nav.active{display:flex}
+nav.active{display:flex}
 
-    nav a{
-        display:block;
-        width:100%;
-        padding:16px 25px;
-        font-size:13px;
-        border-bottom:1px solid #1c1c1c
-    }
+nav a{
+display:block;
+width:100%;
+padding:16px 25px;
+font-size:13px;
+border-bottom:1px solid #1c1c1c
+}
 
-    nav a:last-child{border-bottom:0}
+nav a:last-child{border-bottom:0}
 
-    nav a:hover{
-        background:#151515;
-        color:var(--pink)
-    }
+nav a:hover{
+background:#151515;
+color:var(--pink)
+}
 
-    .hero{
-        min-height:470px;
-        padding:55px 5%
-    }
+.hero{
+min-height:470px;
+padding:55px 5%
+}
 
-    .hero h1{font-size:48px}
+.hero h1{font-size:48px}
 
-    .hero p{font-size:15px}
+.hero p{font-size:15px}
 
-    .container{width:92%}
+.container{width:92%}
 
-    .video-grid,
-    .cumbia-grid,
-    .requinto-grid,
-    .salay-grid,
-    .florelisa-grid,
-    .popular-grid,
-    .new-grid{
-        grid-template-columns:1fr
-    }
+.video-grid,
+.cumbia-grid,
+.requinto-grid,
+.salay-grid,
+.florelisa-grid,
+.popular-grid,
+.new-grid{
+grid-template-columns:1fr
+}
 
-    .artists-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:24px 15px
-    }
+.artists-grid{
+grid-template-columns:repeat(2,1fr);
+gap:24px 15px
+}
 
-    .exclusive-grid{
-        grid-template-columns:1fr
-    }
+.exclusive-grid{
+grid-template-columns:1fr
+}
 
-    .featured-info h2{font-size:28px}
+.featured-info h2{font-size:28px}
 
-    .featured-play{
-        width:65px;
-        height:65px
-    }
+.featured-play{
+width:65px;
+height:65px
+}
 
-    .cover-title{font-size:17px}
+.cover-title{font-size:17px}
 
-    .section{padding:40px 0}
+.section{padding:40px 0}
 
-    .section-title,
-    .cumbia-title,
-    .requinto-title,
-    .salay-title,
-    .florelisa-title,
-    .exclusive-title,
-    .special-title{
-        font-size:26px
-    }
+.section-title,
+.cumbia-title,
+.requinto-title,
+.salay-title,
+.florelisa-title,
+.exclusive-title,
+.special-title{
+font-size:26px
+}
 
-    .social-icons a{
-        width:32px;
-        height:32px
-    }
+.social-icons a{
+width:32px;
+height:32px
+}
 
-    .watch-button{
-        min-width:150px;
-        padding:14px 20px;
-        font-size:14px
-    }
+.watch-button{
+min-width:150px;
+padding:14px 20px;
+font-size:14px
+}
 
-    .whatsapp-button{
-        width:54px;
-        height:54px;
-        right:16px;
-        bottom:16px
-    }
+.whatsapp-button{
+width:54px;
+height:54px;
+right:16px;
+bottom:16px
+}
 
-    .whatsapp-button svg{
-        width:29px;
-        height:29px
-    }
+.whatsapp-button svg{
+width:29px;
+height:29px
+}
 }
 
 @media(max-width:380px){
 
-    .artists-grid{gap:20px 10px}
+.artists-grid{gap:20px 10px}
 
-    .artist h3{font-size:13px}
+.artist h3{font-size:13px}
 
-    .hero h1{font-size:42px}
+.hero h1{font-size:42px}
 
-    .logo{font-size:19px}
+.logo{font-size:19px}
 }
 </style>
 </head>
@@ -1029,34 +1029,34 @@ footer strong{color:var(--pink)}
 <header>
 
 <div class="logo">
-    ARTIST<span>VIDEOS</span>
+ARTIST<span>VIDEOS</span>
 </div>
 
 <button
-    class="menu-toggle"
-    id="menuToggle"
-    type="button"
-    aria-label="Abrir menú"
-    aria-expanded="false">
+class="menu-toggle"
+id="menuToggle"
+type="button"
+aria-label="Abrir menú"
+aria-expanded="false">
 
-    <span></span>
-    <span></span>
-    <span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </button>
 
 <nav id="mainNav">
 
-    <a href="#inicio">INICIO</a>
-    <a href="#videos">HUAYNO SUREÑO</a>
-    <a href="#cumbia">CUMBIA SUREÑA</a>
-    <a href="#requinto">REQUINTO PERUANO</a>
-    <a href="#salay">SALAY MUNDIAL</a>
-    <a href="#florelisa">FLORELISA</a>
-    <a href="#artistas">ARTISTAS</a>
-    <a href="#populares">POPULARES</a>
-    <a href="#estrenos">NUEVOS ESTRENOS</a>
-    <a href="#exclusivos">EXCLUSIVOS 2026</a>
+<a href="#inicio">INICIO</a>
+<a href="#videos">HUAYNO SUREÑO</a>
+<a href="#cumbia">CUMBIA SUREÑA</a>
+<a href="#requinto">REQUINTO PERUANO</a>
+<a href="#salay">SALAY MUNDIAL</a>
+<a href="#florelisa">FLORELISA</a>
+<a href="#artistas">ARTISTAS</a>
+<a href="#populares">POPULARES</a>
+<a href="#estrenos">NUEVOS ESTRENOS</a>
+<a href="#exclusivos">EXCLUSIVOS 2026</a>
 
 </nav>
 
@@ -1067,23 +1067,23 @@ footer strong{color:var(--pink)}
 <div class="hero-content">
 
 <div class="hero-label">
-    PLATAFORMA MUSICAL
+PLATAFORMA MUSICAL
 </div>
 
 <h1>
-    VIDEOS DE<br>
-    <span>ARTISTAS</span>
+VIDEOS DE<br>
+<span>ARTISTAS</span>
 </h1>
 
 <p>
-    Disfruta de videos musicales,
-    estrenos, presentaciones y
-    contenido de tus artistas favoritos
-    en un solo lugar.
+Disfruta de videos musicales,
+estrenos, presentaciones y
+contenido de tus artistas favoritos
+en un solo lugar.
 </p>
 
 <a href="#videos" class="hero-button">
-    ▶ VER VIDEOS
+▶ VER VIDEOS
 </a>
 
 </div>
@@ -1092,15 +1092,10 @@ footer strong{color:var(--pink)}
 
 <main class="container">
 
-<!-- =====================================================
-     VIDEO DESTACADO
-     NO USA exclusiveArtists
-===================================================== -->
-
 <section class="section" aria-labelledby="featured-heading">
 
 <h2 class="section-title" id="featured-heading">
-    VIDEO <span>DESTACADO</span>
+VIDEO <span>DESTACADO</span>
 </h2>
 
 <div class="featured">
@@ -1124,7 +1119,7 @@ fetchpriority="high">
 <div class="featured-overlay"></div>
 
 <div class="featured-play">
-    ▶
+▶
 </div>
 
 <div
@@ -1141,7 +1136,7 @@ class="slider-btn"
 type="button"
 aria-label="Video destacado anterior"
 onclick="previousFeatured()">
-    ‹
+‹
 </button>
 
 <button
@@ -1149,7 +1144,7 @@ class="slider-btn"
 type="button"
 aria-label="Siguiente video destacado"
 onclick="nextFeatured()">
-    ›
+›
 </button>
 
 <div
@@ -1164,14 +1159,14 @@ id="sliderDots">
 <div class="featured-info">
 
 <span class="featured-tag">
-    VIDEO DESTACADO
+VIDEO DESTACADO
 </span>
 
 <h2 id="featuredTitle"></h2>
 
 <p>
-    Disfruta de videos musicales
-    directamente desde ARTISTVIDEOS.
+Disfruta de videos musicales
+directamente desde ARTISTVIDEOS.
 </p>
 
 <a
@@ -1181,7 +1176,7 @@ target="_blank"
 rel="noopener noreferrer"
 class="youtube-button">
 
-    ▶ ABRIR EN YOUTUBE
+▶ ABRIR EN YOUTUBE
 
 </a>
 
@@ -1191,12 +1186,10 @@ class="youtube-button">
 
 </section>
 
-<!-- HUAYNO -->
-
 <section class="section" id="videos">
 
-<h2 class="section-title" id="videos-heading">
-    HUAYNO <span>SUREÑO</span>
+<h2 class="section-title">
+HUAYNO <span>SUREÑO</span>
 </h2>
 
 <div class="search-box">
@@ -1217,12 +1210,10 @@ id="videoGrid">
 
 </section>
 
-<!-- CUMBIA -->
-
 <section class="cumbia-section" id="cumbia">
 
 <h2 class="cumbia-title">
-    CUMBIA <span>SUREÑA</span>
+CUMBIA <span>SUREÑA</span>
 </h2>
 
 <div
@@ -1232,12 +1223,10 @@ id="cumbiaGrid">
 
 </section>
 
-<!-- REQUINTO -->
-
 <section class="requinto-section" id="requinto">
 
 <h2 class="requinto-title">
-    REQUINTO <span>PERUANO</span>
+REQUINTO <span>PERUANO</span>
 </h2>
 
 <div
@@ -1247,12 +1236,10 @@ id="requintoGrid">
 
 </section>
 
-<!-- SALAY -->
-
 <section class="salay-section" id="salay">
 
 <h2 class="salay-title">
-    SALAY <span>MUNDIAL</span>
+SALAY <span>MUNDIAL</span>
 </h2>
 
 <div
@@ -1262,12 +1249,10 @@ id="salayGrid">
 
 </section>
 
-<!-- FLORELISA -->
-
 <section class="florelisa-section" id="florelisa">
 
 <h2 class="florelisa-title">
-    <span>FLORELISA</span>
+<span>FLORELISA</span>
 </h2>
 
 <div
@@ -1277,12 +1262,10 @@ id="florelisaGrid">
 
 </section>
 
-<!-- ARTISTAS -->
-
 <section class="section" id="artistas">
 
 <h2 class="section-title">
-    NUESTROS <span>ARTISTAS</span>
+NUESTROS <span>ARTISTAS</span>
 </h2>
 
 <div
@@ -1292,12 +1275,10 @@ id="artistsGrid">
 
 </section>
 
-<!-- POPULARES -->
-
 <section class="special-section" id="populares">
 
 <h2 class="special-title">
-    VIDEOS <span>POPULARES</span>
+VIDEOS <span>POPULARES</span>
 </h2>
 
 <div
@@ -1307,12 +1288,10 @@ id="popularGrid">
 
 </section>
 
-<!-- ESTRENOS -->
-
 <section class="special-section" id="estrenos">
 
 <h2 class="special-title">
-    NUEVOS <span>ESTRENOS</span>
+NUEVOS <span>ESTRENOS</span>
 </h2>
 
 <div
@@ -1322,16 +1301,11 @@ id="newGrid">
 
 </section>
 
-<!-- =====================================================
-     ARTISTAS EXCLUSIVOS 2026
-     SECCIÓN COMPLETAMENTE INDEPENDIENTE
-===================================================== -->
-
 <section class="exclusive-section" id="exclusivos">
 
 <h2 class="exclusive-title">
-    ARTISTAS
-    <span>EXCLUSIVOS 2026</span>
+ARTISTAS
+<span>EXCLUSIVOS 2026</span>
 </h2>
 
 <div
@@ -1343,8 +1317,6 @@ id="exclusiveGrid">
 
 </main>
 
-<!-- WHATSAPP -->
-
 <a
 class="whatsapp-button"
 href="https://wa.me/51956461177"
@@ -1354,14 +1326,10 @@ aria-label="Contactar por WhatsApp"
 title="Contactar por WhatsApp">
 
 <svg viewBox="0 0 24 24">
-
 <path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2zm0 18.1h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.07.8.82-2.99-.2-.31a8.27 8.27 0 1 1 6.96 3.83zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
-
 </svg>
 
 </a>
-
-<!-- MODAL -->
 
 <div
 class="modal"
@@ -1391,7 +1359,6 @@ allowfullscreen>
 </iframe>
 
 </div>
-
 </div>
 
 <footer>
@@ -1404,127 +1371,127 @@ allowfullscreen>
 
 </footer>
 
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
 /* =====================================================
-   CONFIGURACIÓN
+   SUPABASE
 ===================================================== */
+
+const SUPABASE_URL =
+"https://xyblgirhewopnpmkvkyk.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_V-4tpS85Ods1tXADgrHz9Q_CdJmoaOR";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
 const prefersReducedMotion =
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+window.matchMedia(
+"(prefers-reduced-motion: reduce)"
+).matches;
 
-let lastFocusedElement = null;
+let lastFocusedElement=null;
 
 /* =====================================================
-   ARTISTAS PRINCIPALES
+   ARTISTAS ORIGINALES
 ===================================================== */
 
-const artists = [
+const artists=[
 
-    {name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
-    {name:"SOL LUCERO",id:"P77ADWWaHUQ"},
-    {name:"PURA OSADÍA",id:"OQ0OskwzKYA"},
-    {name:"TU DULCE YARITA",id:"bs2XZ3JKb3k"},
-    {name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
-    {name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
-    {name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
-    {name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
-    {name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
-    {name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
-    {name:"ISABEL VELA",id:"u6vHqUwYh2g"},
-    {name:"PILAR YUCRA",id:"z3xTrQJ05Sc"},
-    {name:"LUZ MERY CRUZ",id:"kvN0fxr-FE0"},
-    {name:"SENAYDA BUSTINZA",id:"hoG2N6usbUU"},
-    {name:"ROSALI SILES",id:"tGmiQndb98Q"},
-    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
-    {name:"YANDEL HERRERA",id:"drSB_Bfgrzo"},
-    {name:"ELY MONRROY",id:"arim2IkbFzU"},
-    {name:"MAYTE SANCHEZ",id:"aaX6K44ffhM"},
-    {name:"AYDE MELINA",id:"sRypE-tErIE"},
-    {name:"ANITA LIZBETH",id:"X_Ia4kMQSjI"},
-    {name:"ABRIL ISABEL",id:"jNVEQ8dmay4"},
-    {name:"LEILA SUCATICONA",id:"ij82q1rxX2c"},
-    {name:"ANYI SULLCA",id:"OSXjqIUhR40"},
-    {name:"FIORELA ARROYO",id:"Fi38qAEez_E"},
-    {name:"DULCE BEATRIZ",id:"z9b6nNiHZqY"},
-    {name:"RUTH CURO",id:"pl83mx0OaeI"},
-    {name:"NICKOL RAMOS",id:"Q7XJtz9RXcU"},
-    {name:"XIOMARA CALIZAYA",id:"m7pFEbhrV1o"},
-    {name:"MIRIAM MOLINA",id:"mpGGEEdO-V0"},
-    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"},
-    {name:"DIANITA POMA",id:"uZNmfInVmB0"},
-    {name:"ALEX EUSEBIO",id:"f1Avnbh0P5k"},
-    {name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
-    {name:"DULCE RUBELI",id:"MMeemsf7PNc"},
-    {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"},
-    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"YlF3XmazEXU"},
-    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"XfL4ryrZf54"}
+{name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
+{name:"SOL LUCERO",id:"P77ADWWaHUQ"},
+{name:"PURA OSADÍA",id:"OQ0OskwzKYA"},
+{name:"TU DULCE YARITA",id:"bs2XZ3JKb3k"},
+{name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
+{name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
+{name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
+{name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
+{name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
+{name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
+{name:"ISABEL VELA",id:"u6vHqUwYh2g"},
+{name:"PILAR YUCRA",id:"z3xTrQJ05Sc"},
+{name:"LUZ MERY CRUZ",id:"kvN0fxr-FE0"},
+{name:"SENAYDA BUSTINZA",id:"hoG2N6usbUU"},
+{name:"ROSALI SILES",id:"tGmiQndb98Q"},
+{name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
+{name:"YANDEL HERRERA",id:"drSB_Bfgrzo"},
+{name:"ELY MONRROY",id:"arim2IkbFzU"},
+{name:"MAYTE SANCHEZ",id:"aaX6K44ffhM"},
+{name:"AYDE MELINA",id:"sRypE-tErIE"},
+{name:"ANITA LIZBETH",id:"X_Ia4kMQSjI"},
+{name:"ABRIL ISABEL",id:"jNVEQ8dmay4"},
+{name:"LEILA SUCATICONA",id:"ij82q1rxX2c"},
+{name:"ANYI SULLCA",id:"OSXjqIUhR40"},
+{name:"FIORELA ARROYO",id:"Fi38qAEez_E"},
+{name:"DULCE BEATRIZ",id:"z9b6nNiHZqY"},
+{name:"RUTH CURO",id:"pl83mx0OaeI"},
+{name:"NICKOL RAMOS",id:"Q7XJtz9RXcU"},
+{name:"XIOMARA CALIZAYA",id:"m7pFEbhrV1o"},
+{name:"MIRIAM MOLINA",id:"mpGGEEdO-V0"},
+{name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"},
+{name:"DIANITA POMA",id:"uZNmfInVmB0"},
+{name:"ALEX EUSEBIO",id:"f1Avnbh0P5k"},
+{name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
+{name:"DULCE RUBELI",id:"MMeemsf7PNc"},
+{name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"},
+{name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"YlF3XmazEXU"},
+{name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"XfL4ryrZf54"}
 
 ];
 
 /* =====================================================
-   CUMBIA
+   CATEGORÍAS ORIGINALES
 ===================================================== */
 
-const cumbiaArtists = [
+const cumbiaArtists=[
+{name:"YHEISON PUMITA",id:"DVX_989A8zY"},
+{name:"EDSON MORALES",id:"MzjC097tc4E"},
+{name:"GRUPO CORALI",id:"cobAXEUP_NI"}
+];
 
-    {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
-    {name:"EDSON MORALES",id:"MzjC097tc4E"},
-    {name:"GRUPO CORALI",id:"cobAXEUP_NI"}
+const requintoArtists=[
+{name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
+{name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
+{name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
+{name:"RUTH CURO",id:"MfFB4r7a9T4"}
+];
 
+const salayArtists=[
+{name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
+{name:"NICKOL RAMOS",id:"_8381AySMnk"},
+{name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
+{name:"WILI ROJAS",id:"9514-4Sa3KU"},
+{name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
+];
+
+const florelisaArtists=[
+{name:"ELISABET FLORES",id:"hszrM8d3WWE"},
+{name:"DELY CORAZON",id:"eDC3Tswc_PE"},
+{name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
+{name:"SOL LUCERO",id:"yndd0Rx4UFI"},
+{name:"MARIELIZ",id:"LpLDIOdpS_4"}
 ];
 
 /* =====================================================
-   REQUINTO
+   EXCLUSIVOS ORIGINALES
+   ESTOS NO ENTRAN EN VIDEO DESTACADO
 ===================================================== */
 
-const requintoArtists = [
+const exclusiveArtists=[
 
-    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
-    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
-    {name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
-    {name:"RUTH CURO",id:"MfFB4r7a9T4"}
-
-];
-
-/* =====================================================
-   SALAY
-===================================================== */
-
-const salayArtists = [
-
-    {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
-    {name:"NICKOL RAMOS",id:"_8381AySMnk"},
-    {name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
-    {name:"WILI ROJAS",id:"9514-4Sa3KU"},
-    {name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
-
-];
-
-/* =====================================================
-   FLORELISA
-===================================================== */
-
-const florelisaArtists = [
-
-    {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
-    {name:"DELY CORAZON",id:"eDC3Tswc_PE"},
-    {name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
-    {name:"SOL LUCERO",id:"yndd0Rx4UFI"},
-    {name:"MARIELIZ",id:"LpLDIOdpS_4"}
-
-];
-
-/* =====================================================
-   ARTISTAS EXCLUSIVOS
-   ESTOS NO PARTICIPAN EN VIDEO DESTACADO
-===================================================== */
-
-const exclusiveArtists = [
-
-    {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
-    {name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
-    {name:"DELIA HUANCA",id:"tefROgLlZIo"}
+{name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
+{name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
+{name:"DELIA HUANCA",id:"tefROgLlZIo"}
 
 ];
 
@@ -1532,36 +1499,28 @@ const exclusiveArtists = [
    POPULARES
 ===================================================== */
 
-const popularArtists = [
-
-    {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
-    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
-    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
-
+const popularArtists=[
+{name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
+{name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
+{name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
 ];
 
 /* =====================================================
-   NUEVOS ESTRENOS
+   NUEVOS
 ===================================================== */
 
-const newArtists = [
-
-    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
-    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
-    {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
-
+const newArtists=[
+{name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
+{name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
+{name:"ELISABET FLORES",id:"hszrM8d3WWE"}
 ];
 
 /* =====================================================
-   VIDEO DESTACADO
-   IMPORTANTE:
-   SOLO USA ARTISTS
-   NUNCA USA EXCLUSIVEARTISTS
+   DATOS SUPABASE
 ===================================================== */
 
-const featuredArtists = [...artists];
-
-let featuredIndex = 0;
+let adminArtists=[];
+let adminVideos=[];
 
 /* =====================================================
    ELEMENTOS
@@ -1597,67 +1556,161 @@ const mainNav=document.getElementById("mainNav");
 
 menuToggle.addEventListener("click",function(){
 
-    const opened=mainNav.classList.toggle("active");
+const opened=
+mainNav.classList.toggle("active");
 
-    menuToggle.classList.toggle("active",opened);
+menuToggle.classList.toggle(
+"active",
+opened
+);
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        opened ? "true" : "false"
-    );
+menuToggle.setAttribute(
+"aria-expanded",
+opened?"true":"false"
+);
 
 });
 
-mainNav.querySelectorAll("a").forEach(function(link){
+mainNav.querySelectorAll("a")
+.forEach(function(link){
 
-    link.addEventListener("click",function(){
+link.addEventListener("click",function(){
 
-        mainNav.classList.remove("active");
+mainNav.classList.remove("active");
+menuToggle.classList.remove("active");
 
-        menuToggle.classList.remove("active");
+menuToggle.setAttribute(
+"aria-expanded",
+"false"
+);
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    });
+});
 
 });
 
 /* =====================================================
-   MINIATURA
+   SEGURIDAD
+===================================================== */
+
+function escapeHTML(value){
+
+return String(value??"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+function getYoutubeId(url){
+
+if(!url)return "";
+
+url=String(url).trim();
+
+try{
+
+if(/^[A-Za-z0-9_-]{6,}$/.test(url)){
+return url;
+}
+
+const parsed=new URL(url);
+
+if(parsed.hostname.includes("youtu.be")){
+
+return parsed.pathname
+.replace("/","")
+.trim();
+
+}
+
+if(parsed.hostname.includes("youtube.com")){
+
+const v=
+parsed.searchParams.get("v");
+
+if(v)return v;
+
+const parts=
+parsed.pathname.split("/");
+
+const index=
+parts.indexOf("embed");
+
+if(
+index!==-1 &&
+parts[index+1]
+){
+
+return parts[index+1];
+
+}
+
+}
+
+}catch(error){
+
+console.warn(
+"URL de YouTube inválida:",
+url
+);
+
+}
+
+return "";
+
+}
+
+/* =====================================================
+   MINIATURAS
 ===================================================== */
 
 function getThumbnail(id){
 
-    return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
+return "https://i.ytimg.com/vi/"+
+encodeURIComponent(id)+
+"/hqdefault.jpg";
 
 }
 
 function fallbackThumbnail(img,id){
 
-    const sources=[
-        "https://i.ytimg.com/vi/"+id+"/mqdefault.jpg",
-        "https://i.ytimg.com/vi/"+id+"/default.jpg"
-    ];
+const sources=[
 
-    const current=img.dataset.fallbackIndex
-        ? Number(img.dataset.fallbackIndex)
-        : 0;
+"https://i.ytimg.com/vi/"+
+id+
+"/mqdefault.jpg",
 
-    if(current<sources.length){
+"https://i.ytimg.com/vi/"+
+id+
+"/default.jpg"
 
-        img.dataset.fallbackIndex=current+1;
+];
 
-        img.src=sources[current];
+const current=
+img.dataset.fallbackIndex
+?Number(img.dataset.fallbackIndex)
+:0;
 
-    }else{
+if(current<sources.length){
 
-        img.src=
-        "https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
+img.dataset.fallbackIndex=
+current+1;
 
-    }
+img.src=
+sources[current];
+
+}else{
+
+img.src=
+"https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
+
+}
 
 }
 
@@ -1671,7 +1724,8 @@ return `
 
 <div class="social-icons">
 
-<a href="#"
+<a
+href="#"
 aria-label="Facebook"
 onclick="
 event.preventDefault();
@@ -1697,7 +1751,8 @@ onclick="event.stopPropagation();">
 
 </a>
 
-<a href="#"
+<a
+href="#"
 aria-label="Instagram"
 onclick="
 event.preventDefault();
@@ -1710,7 +1765,8 @@ event.stopPropagation();
 
 </a>
 
-<a href="#"
+<a
+href="#"
 aria-label="TikTok"
 onclick="
 event.preventDefault();
@@ -1734,28 +1790,35 @@ event.stopPropagation();
 ===================================================== */
 
 function createCard(
-    artist,
-    cardClass,
-    thumbClass,
-    playClass,
-    infoClass
+artist,
+cardClass,
+thumbClass,
+playClass,
+infoClass
 ){
 
-    const card=document.createElement("article");
+const card=
+document.createElement("article");
 
-    card.className=cardClass;
+card.className=cardClass;
 
-    card.innerHTML=`
+const safeName=
+escapeHTML(artist.name);
+
+const safeId=
+escapeHTML(artist.id);
+
+card.innerHTML=`
 
 <div
 class="${thumbClass}"
-onclick="openVideo('${artist.id}')">
+onclick="openVideo('${safeId}')">
 
 <img
 src="${getThumbnail(artist.id)}"
-alt="${artist.name}"
+alt="${safeName}"
 loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
+onerror="fallbackThumbnail(this,'${safeId}')">
 
 <div class="${playClass}">
 ▶
@@ -1765,14 +1828,14 @@ onerror="fallbackThumbnail(this,'${artist.id}')">
 
 <div class="${infoClass}">
 
-<h3>${artist.name}</h3>
+<h3>${safeName}</h3>
 
 ${socialIcons(artist.id)}
 
 <button
 type="button"
 class="watch-button"
-onclick="openVideo('${artist.id}')">
+onclick="openVideo('${safeId}')">
 
 ▶ REPRODUCIR
 
@@ -1782,7 +1845,8 @@ onclick="openVideo('${artist.id}')">
 
 `;
 
-    return card;
+return card;
+
 }
 
 /* =====================================================
@@ -1791,11 +1855,11 @@ onclick="openVideo('${artist.id}')">
 
 function renderVideos(list){
 
-    videoGrid.innerHTML="";
+videoGrid.innerHTML="";
 
-    if(!list.length){
+if(!list.length){
 
-        videoGrid.innerHTML=`
+videoGrid.innerHTML=`
 
 <p style="
 grid-column:1/-1;
@@ -1808,22 +1872,25 @@ No se encontraron artistas.
 
 `;
 
-        return;
-    }
+return;
 
-    list.forEach(function(artist){
+}
 
-        videoGrid.appendChild(
-            createCard(
-                artist,
-                "video-card",
-                "thumbnail",
-                "play-button",
-                "video-info"
-            )
-        );
+list.forEach(function(artist){
 
-    });
+videoGrid.appendChild(
+
+createCard(
+artist,
+"video-card",
+"thumbnail",
+"play-button",
+"video-info"
+)
+
+);
+
+});
 
 }
 
@@ -1832,81 +1899,146 @@ No se encontraron artistas.
 ===================================================== */
 
 function renderCategory(
-    grid,
-    list,
-    card,
-    thumb,
-    play,
-    info
+grid,
+list,
+card,
+thumb,
+play,
+info
 ){
 
-    grid.innerHTML="";
+grid.innerHTML="";
 
-    list.forEach(function(artist){
+list.forEach(function(artist){
 
-        grid.appendChild(
-            createCard(
-                artist,
-                card,
-                thumb,
-                play,
-                info
-            )
-        );
+grid.appendChild(
 
-    });
+createCard(
+artist,
+card,
+thumb,
+play,
+info
+)
+
+);
+
+});
+
+}
+
+function getCategoryList(
+originalList,
+category
+){
+
+const result=
+[...originalList];
+
+adminVideos
+.filter(
+video=>video.category===category
+)
+.forEach(function(video){
+
+result.push(video);
+
+});
+
+return result;
 
 }
 
 function renderCumbia(){
 
-    renderCategory(
-        cumbiaGrid,
-        cumbiaArtists,
-        "cumbia-card",
-        "cumbia-thumbnail",
-        "cumbia-play",
-        "cumbia-info"
-    );
+renderCategory(
+cumbiaGrid,
+getCategoryList(
+cumbiaArtists,
+"Cumbia Sureña"
+),
+"cumbia-card",
+"cumbia-thumbnail",
+"cumbia-play",
+"cumbia-info"
+);
 
 }
 
 function renderRequinto(){
 
-    renderCategory(
-        requintoGrid,
-        requintoArtists,
-        "requinto-card",
-        "requinto-thumbnail",
-        "requinto-play",
-        "requinto-info"
-    );
+renderCategory(
+requintoGrid,
+getCategoryList(
+requintoArtists,
+"Requinto Peruano"
+),
+"requinto-card",
+"requinto-thumbnail",
+"requinto-play",
+"requinto-info"
+);
 
 }
 
 function renderSalay(){
 
-    renderCategory(
-        salayGrid,
-        salayArtists,
-        "salay-card",
-        "salay-thumbnail",
-        "salay-play",
-        "salay-info"
-    );
+renderCategory(
+salayGrid,
+getCategoryList(
+salayArtists,
+"Salay Mundial"
+),
+"salay-card",
+"salay-thumbnail",
+"salay-play",
+"salay-info"
+);
 
 }
 
 function renderFlorelisa(){
 
-    renderCategory(
-        florelisaGrid,
-        florelisaArtists,
-        "florelisa-card",
-        "florelisa-thumbnail",
-        "florelisa-play",
-        "florelisa-info"
-    );
+renderCategory(
+florelisaGrid,
+getCategoryList(
+florelisaArtists,
+"Florelisa"
+),
+"florelisa-card",
+"florelisa-thumbnail",
+"florelisa-play",
+"florelisa-info"
+);
+
+}
+
+/* =====================================================
+   HUAYNO + VIDEOS DEL ADMIN
+===================================================== */
+
+function getHuaynoVideos(){
+
+const result=[...artists];
+
+adminVideos
+.filter(function(video){
+
+return ![
+"Cumbia Sureña",
+"Requinto Peruano",
+"Salay Mundial",
+"Florelisa"
+].includes(video.category);
+
+})
+.forEach(function(video){
+
+result.push(video);
+
+});
+
+return result;
 
 }
 
@@ -1916,30 +2048,43 @@ function renderFlorelisa(){
 
 function renderArtists(list){
 
-    artistsGrid.innerHTML="";
+artistsGrid.innerHTML="";
 
-    list.forEach(function(artist){
+const used=
+new Set();
 
-        const item=document.createElement("div");
+list.forEach(function(artist){
 
-        item.className="artist";
+const key=
+String(artist.name)
+.toLowerCase()
+.trim();
 
-        item.onclick=function(){
+if(used.has(key))return;
 
-            openVideo(artist.id);
+used.add(key);
 
-        };
+const item=
+document.createElement("div");
 
-        item.innerHTML=`
+item.className="artist";
+
+item.onclick=function(){
+
+openVideo(artist.id);
+
+};
+
+item.innerHTML=`
 
 <div class="artist-image-box">
 
 <img
 class="artist-image"
 src="${getThumbnail(artist.id)}"
-alt="${artist.name}"
+alt="${escapeHTML(artist.name)}"
 loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
+onerror="fallbackThumbnail(this,'${escapeHTML(artist.id)}')">
 
 <div class="artist-play">
 ▶
@@ -1947,15 +2092,83 @@ onerror="fallbackThumbnail(this,'${artist.id}')">
 
 </div>
 
-<h3>${artist.name}</h3>
+<h3>
+${escapeHTML(artist.name)}
+</h3>
 
 <p>Ver video</p>
 
 `;
 
-        artistsGrid.appendChild(item);
+artistsGrid.appendChild(item);
 
-    });
+});
+
+/* ARTISTAS DEL ADMIN */
+
+adminArtists.forEach(function(artist){
+
+const key=
+String(artist.name)
+.toLowerCase()
+.trim();
+
+if(used.has(key))return;
+
+used.add(key);
+
+const item=
+document.createElement("div");
+
+item.className="artist";
+
+const video=
+adminVideos.find(
+v=>v.artist_id===artist.id
+);
+
+item.onclick=function(){
+
+if(video){
+openVideo(video.id);
+}
+
+};
+
+const image=
+artist.image ||
+(video
+?getThumbnail(video.id)
+:"https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS");
+
+item.innerHTML=`
+
+<div class="artist-image-box">
+
+<img
+class="artist-image"
+src="${escapeHTML(image)}"
+alt="${escapeHTML(artist.name)}"
+loading="lazy"
+onerror="this.src='https://dummyimage.com/600x600/181818/ffffff&text=ARTISTVIDEOS'">
+
+<div class="artist-play">
+▶
+</div>
+
+</div>
+
+<h3>
+${escapeHTML(artist.name)}
+</h3>
+
+<p>Ver artista</p>
+
+`;
+
+artistsGrid.appendChild(item);
+
+});
 
 }
 
@@ -1965,91 +2178,129 @@ onerror="fallbackThumbnail(this,'${artist.id}')">
 
 function renderPopular(){
 
-    popularGrid.innerHTML="";
+popularGrid.innerHTML="";
 
-    popularArtists.forEach(function(artist,index){
+const list=
+[...popularArtists];
 
-        const card=createCard(
-            artist,
-            "popular-card",
-            "popular-thumbnail",
-            "popular-play",
-            "popular-info"
-        );
+adminVideos
+.filter(v=>v.popular)
+.forEach(function(video){
 
-        const badge=document.createElement("span");
+list.push(video);
 
-        badge.className="badge";
+});
 
-        badge.textContent=
-            index===0
-            ? "🔥 MÁS VISTO"
-            : "POPULAR";
+list.forEach(function(artist,index){
 
-        card
-        .querySelector(".popular-thumbnail")
-        .appendChild(badge);
+const card=
+createCard(
+artist,
+"popular-card",
+"popular-thumbnail",
+"popular-play",
+"popular-info"
+);
 
-        popularGrid.appendChild(card);
+const badge=
+document.createElement("span");
 
-    });
+badge.className="badge";
+
+badge.textContent=
+index===0
+?"🔥 MÁS VISTO"
+:"POPULAR";
+
+card
+.querySelector(
+".popular-thumbnail"
+)
+.appendChild(badge);
+
+popularGrid.appendChild(card);
+
+});
 
 }
 
 /* =====================================================
-   ESTRENOS
+   NUEVOS ESTRENOS
 ===================================================== */
 
 function renderNew(){
 
-    newGrid.innerHTML="";
+newGrid.innerHTML="";
 
-    newArtists.forEach(function(artist){
+const list=
+[...newArtists];
 
-        const card=createCard(
-            artist,
-            "new-card",
-            "new-thumbnail",
-            "new-play",
-            "new-info"
-        );
+adminVideos
+.filter(v=>v.new_release)
+.forEach(function(video){
 
-        const badge=document.createElement("span");
+list.push(video);
 
-        badge.className="badge";
+});
 
-        badge.textContent="🆕 ESTRENO";
+list.forEach(function(artist){
 
-        card
-        .querySelector(".new-thumbnail")
-        .appendChild(badge);
+const card=
+createCard(
+artist,
+"new-card",
+"new-thumbnail",
+"new-play",
+"new-info"
+);
 
-        newGrid.appendChild(card);
+const badge=
+document.createElement("span");
 
-    });
+badge.className="badge";
+badge.textContent="🆕 ESTRENO";
+
+card
+.querySelector(
+".new-thumbnail"
+)
+.appendChild(badge);
+
+newGrid.appendChild(card);
+
+});
 
 }
 
 /* =====================================================
    EXCLUSIVOS 2026
-   ESTA FUNCIÓN ES INDEPENDIENTE
+   SEPARADOS DEL DESTACADO
 ===================================================== */
 
 function renderExclusive(){
 
-    exclusiveGrid.innerHTML="";
+exclusiveGrid.innerHTML="";
 
-    exclusiveArtists.forEach(function(artist){
+/* EXCLUSIVOS ORIGINALES */
 
-        const card=document.createElement("article");
+exclusiveArtists.forEach(function(artist){
 
-        card.className="exclusive-card";
+const card=
+document.createElement("article");
 
-        card.innerHTML=`
+card.className="exclusive-card";
+
+const safeName=
+escapeHTML(artist.name);
+
+const safeId=
+escapeHTML(artist.id);
+
+card.innerHTML=`
 
 <div
 class="exclusive-image"
-onclick="openVideo('${artist.id}')">
+onclick="openVideo('${safeId}')">
 
 <span class="badge">
 EXCLUSIVO 2026
@@ -2057,9 +2308,9 @@ EXCLUSIVO 2026
 
 <img
 src="${getThumbnail(artist.id)}"
-alt="${artist.name}"
+alt="${safeName}"
 loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
+onerror="fallbackThumbnail(this,'${safeId}')">
 
 <div class="exclusive-play">
 ▶
@@ -2069,7 +2320,7 @@ onerror="fallbackThumbnail(this,'${artist.id}')">
 
 <div class="exclusive-info">
 
-<h3>${artist.name}</h3>
+<h3>${safeName}</h3>
 
 <p>
 Artista Exclusivo 2026
@@ -2078,7 +2329,7 @@ Artista Exclusivo 2026
 <button
 type="button"
 class="exclusive-button"
-onclick="openVideo('${artist.id}')">
+onclick="openVideo('${safeId}')">
 
 ▶ REPRODUCIR
 
@@ -2088,9 +2339,73 @@ onclick="openVideo('${artist.id}')">
 
 `;
 
-        exclusiveGrid.appendChild(card);
+exclusiveGrid.appendChild(card);
 
-    });
+});
+
+/* EXCLUSIVOS DEL ADMIN */
+
+adminVideos
+.filter(v=>v.exclusive)
+.forEach(function(video){
+
+const card=
+document.createElement("article");
+
+card.className="exclusive-card";
+
+const safeName=
+escapeHTML(video.name);
+
+const safeId=
+escapeHTML(video.id);
+
+card.innerHTML=`
+
+<div
+class="exclusive-image"
+onclick="openVideo('${safeId}')">
+
+<span class="badge">
+EXCLUSIVO 2026
+</span>
+
+<img
+src="${getThumbnail(video.id)}"
+alt="${safeName}"
+loading="lazy"
+onerror="fallbackThumbnail(this,'${safeId}')">
+
+<div class="exclusive-play">
+▶
+</div>
+
+</div>
+
+<div class="exclusive-info">
+
+<h3>${safeName}</h3>
+
+<p>
+Artista Exclusivo 2026
+</p>
+
+<button
+type="button"
+class="exclusive-button"
+onclick="openVideo('${safeId}')">
+
+▶ REPRODUCIR
+
+</button>
+
+</div>
+
+`;
+
+exclusiveGrid.appendChild(card);
+
+});
 
 }
 
@@ -2098,155 +2413,232 @@ onclick="openVideo('${artist.id}')">
    BUSCADOR
 ===================================================== */
 
-searchInput.addEventListener("input",function(){
+searchInput.addEventListener(
+"input",
+function(){
 
-    const search=this.value
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g,"")
-        .trim();
+const search=
+this.value
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.trim();
 
-    const filtered=artists.filter(function(artist){
+const all=
+getHuaynoVideos();
 
-        const name=artist.name
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g,"");
+const filtered=
+all.filter(function(artist){
 
-        return name.includes(search);
+const name=
+String(artist.name)
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
 
-    });
-
-    renderVideos(filtered);
-
-    renderArtists(filtered);
+return name.includes(search);
 
 });
 
+renderVideos(filtered);
+
+if(search){
+
+renderArtists(
+filtered.filter(
+artist=>!artist.admin
+)
+);
+
+}else{
+
+renderArtists(
+artists
+);
+
+}
+
+}
+);
+
 /* =====================================================
    VIDEO DESTACADO
-   SOLO featuredArtists
+   EXCLUSIVOS NO APARECEN AQUÍ
+===================================================== */
+
+let featuredArtists=[];
+let featuredIndex=0;
+
+function rebuildFeatured(){
+
+featuredArtists=
+[...artists];
+
+/*
+   Los videos del administrador aparecen
+   en destacados excepto los marcados
+   como exclusivos.
+*/
+
+adminVideos.forEach(function(video){
+
+if(video.exclusive){
+return;
+}
+
+featuredArtists.push({
+
+id:video.id,
+
+name:video.name,
+
+admin:true
+
+});
+
+});
+
+}
+
+/* =====================================================
+   MOSTRAR DESTACADO
 ===================================================== */
 
 function showFeatured(index){
 
-    if(!featuredArtists.length){
-        return;
-    }
+if(!featuredArtists.length){
+return;
+}
 
-    if(index<0){
+if(index<0){
 
-        index=featuredArtists.length-1;
-
-    }
-
-    if(index>=featuredArtists.length){
-
-        index=0;
-
-    }
-
-    featuredIndex=index;
-
-    const artist=featuredArtists[index];
-
-    featuredImage.src=
-        getThumbnail(artist.id);
-
-    featuredImage.onerror=function(){
-
-        fallbackThumbnail(
-            this,
-            artist.id
-        );
-
-    };
-
-    featuredImage.alt=artist.name;
-
-    featuredTitle.textContent=
-        artist.name;
-
-    coverTitle.textContent=
-        artist.name;
-
-    youtubeLink.href=
-        "https://www.youtube.com/watch?v="+
-        encodeURIComponent(artist.id);
-
-    document
-        .querySelectorAll(".slider-dot")
-        .forEach(function(dot,i){
-
-            dot.classList.toggle(
-                "active",
-                i===index
-            );
-
-        });
+index=
+featuredArtists.length-1;
 
 }
 
-function nextFeatured(){
+if(index>=featuredArtists.length){
 
-    showFeatured(
-        featuredIndex+1
-    );
+index=0;
 
 }
 
-function previousFeatured(){
+featuredIndex=index;
 
-    showFeatured(
-        featuredIndex-1
-    );
+const artist=
+featuredArtists[index];
 
-}
+featuredImage.src=
+getThumbnail(artist.id);
 
-function playFeatured(){
+featuredImage.onerror=
+function(){
 
-    if(!featuredArtists.length){
-        return;
-    }
+fallbackThumbnail(
+this,
+artist.id
+);
 
-    openVideo(
-        featuredArtists[
-            featuredIndex
-        ].id
-    );
+};
+
+featuredImage.alt=
+artist.name;
+
+featuredTitle.textContent=
+artist.name;
+
+coverTitle.textContent=
+artist.name;
+
+youtubeLink.href=
+"https://www.youtube.com/watch?v="+
+encodeURIComponent(artist.id);
+
+document
+.querySelectorAll(".slider-dot")
+.forEach(function(dot,i){
+
+dot.classList.toggle(
+"active",
+i===index
+);
+
+});
 
 }
 
 /* =====================================================
    DOTS
-   SOLO PARA featuredArtists
 ===================================================== */
 
-featuredArtists.forEach(function(artist,index){
+function renderFeaturedDots(){
 
-    const dot=document.createElement("button");
+sliderDots.innerHTML="";
 
-    dot.type="button";
+featuredArtists.forEach(
+function(artist,index){
 
-    dot.className="slider-dot";
+const dot=
+document.createElement("button");
 
-    dot.setAttribute(
-        "aria-label",
-        "Ver "+artist.name
-    );
+dot.type="button";
 
-    dot.addEventListener(
-        "click",
-        function(){
+dot.className=
+"slider-dot";
 
-            showFeatured(index);
+dot.setAttribute(
+"aria-label",
+"Ver "+artist.name
+);
 
-        }
-    );
+dot.addEventListener(
+"click",
+function(){
 
-    sliderDots.appendChild(dot);
+showFeatured(index);
+
+}
+);
+
+sliderDots.appendChild(dot);
 
 });
+
+}
+
+/* =====================================================
+   CONTROLES DESTACADO
+===================================================== */
+
+function nextFeatured(){
+
+showFeatured(
+featuredIndex+1
+);
+
+}
+
+function previousFeatured(){
+
+showFeatured(
+featuredIndex-1
+);
+
+}
+
+function playFeatured(){
+
+if(!featuredArtists.length){
+return;
+}
+
+openVideo(
+featuredArtists[
+featuredIndex
+].id
+);
+
+}
 
 /* =====================================================
    ABRIR VIDEO
@@ -2254,34 +2646,38 @@ featuredArtists.forEach(function(artist,index){
 
 function openVideo(videoId){
 
-    if(!videoId){
-        return;
-    }
+if(!videoId)return;
 
-    lastFocusedElement=
-        document.activeElement;
+lastFocusedElement=
+document.activeElement;
 
-    modalVideo.src=
-        "https://www.youtube.com/embed/"+
-        encodeURIComponent(videoId)+
-        "?autoplay=1&rel=0&playsinline=1";
+modalVideo.src=
+"https://www.youtube.com/embed/"+
+encodeURIComponent(videoId)+
+"?autoplay=1&rel=0&playsinline=1";
 
-    modal.classList.add("active");
+modal.classList.add("active");
 
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+modal.setAttribute(
+"aria-hidden",
+"false"
+);
 
-    document.body.style.overflow="hidden";
+document.body.style.overflow=
+"hidden";
 
-    requestAnimationFrame(function(){
+requestAnimationFrame(function(){
 
-        document
-            .querySelector(".close-modal")
-            .focus();
+const closeButton=
+document.querySelector(
+".close-modal"
+);
 
-    });
+if(closeButton){
+closeButton.focus();
+}
+
+});
 
 }
 
@@ -2291,105 +2687,313 @@ function openVideo(videoId){
 
 function closeVideo(){
 
-    modalVideo.src="";
+modalVideo.src="";
 
-    modal.classList.remove("active");
+modal.classList.remove("active");
 
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+modal.setAttribute(
+"aria-hidden",
+"true"
+);
 
-    document.body.style.overflow="";
+document.body.style.overflow="";
 
-    if(lastFocusedElement){
+if(lastFocusedElement){
 
-        lastFocusedElement.focus();
+lastFocusedElement.focus();
 
-        lastFocusedElement=null;
+lastFocusedElement=null;
 
-    }
+}
 
 }
 
 function closeOutside(event){
 
-    if(event.target===modal){
+if(event.target===modal){
 
-        closeVideo();
+closeVideo();
 
-    }
+}
 
 }
 
 /* =====================================================
-   TECLA ESC
+   TECLADO
 ===================================================== */
 
 document.addEventListener(
-    "keydown",
-    function(event){
+"keydown",
+function(event){
 
-        if(
-            event.key==="Escape" &&
-            modal.classList.contains("active")
-        ){
+if(
+event.key==="Escape" &&
+modal.classList.contains("active")
+){
 
-            closeVideo();
+closeVideo();
+return;
 
-            return;
+}
 
-        }
+if(
+event.key==="ArrowRight" &&
+!modal.classList.contains("active")
+){
 
-        if(
-            event.key==="ArrowRight" &&
-            !modal.classList.contains("active")
-        ){
+nextFeatured();
 
-            nextFeatured();
+}
 
-        }
+if(
+event.key==="ArrowLeft" &&
+!modal.classList.contains("active")
+){
 
-        if(
-            event.key==="ArrowLeft" &&
-            !modal.classList.contains("active")
-        ){
+previousFeatured();
 
-            previousFeatured();
+}
 
-        }
-
-    }
+}
 );
 
 /* =====================================================
-   CAMBIO AUTOMÁTICO
+   ROTACIÓN
 ===================================================== */
 
 let featuredTimer=null;
 
 function startFeaturedRotation(){
 
-    clearInterval(featuredTimer);
+clearInterval(featuredTimer);
 
-    if(prefersReducedMotion){
-        return;
-    }
+if(prefersReducedMotion){
+return;
+}
 
-    featuredTimer=setInterval(
-        function(){
+featuredTimer=
+setInterval(
+function(){
 
-            nextFeatured();
+nextFeatured();
 
-        },
-        5000
-    );
+},
+5000
+);
 
 }
 
 /* =====================================================
-   INICIAR
+   CARGAR SUPABASE
 ===================================================== */
+
+async function loadSupabaseData(){
+
+try{
+
+/* ARTISTAS */
+
+const artistsResult=
+await supabaseClient
+.from("artists")
+.select("*")
+.order(
+"created_at",
+{ascending:true}
+);
+
+if(artistsResult.error){
+
+console.error(
+"Error cargando artistas:",
+artistsResult.error
+);
+
+}else{
+
+adminArtists=
+artistsResult.data||[];
+
+}
+
+/* VIDEOS */
+
+const videosResult=
+await supabaseClient
+.from("videos")
+.select("*")
+.order(
+"created_at",
+{ascending:true}
+);
+
+if(videosResult.error){
+
+console.error(
+"Error cargando videos:",
+videosResult.error
+);
+
+}else{
+
+adminVideos=
+(videosResult.data||[])
+.map(function(video){
+
+const id=
+getYoutubeId(
+video.youtube_url
+);
+
+if(!id){
+return null;
+}
+
+const artist=
+adminArtists.find(
+a=>a.id===video.artist_id
+);
+
+return {
+
+id:id,
+
+name:
+video.title||
+(artist
+?artist.name
+:"ARTISTVIDEOS"),
+
+artistName:
+artist
+?artist.name
+:"ARTISTVIDEOS",
+
+description:
+video.description||"",
+
+category:
+video.category||
+"Huayno Sureño",
+
+popular:
+Boolean(video.popular),
+
+new_release:
+Boolean(video.new_release),
+
+exclusive:
+Boolean(video.exclusive),
+
+featured:
+Boolean(video.featured),
+
+admin:true,
+
+artist_id:
+video.artist_id||null
+
+};
+
+})
+.filter(Boolean);
+
+}
+
+/* =====================================================
+   RENDERIZAR
+===================================================== */
+
+renderVideos(
+getHuaynoVideos()
+);
+
+renderCumbia();
+
+renderRequinto();
+
+renderSalay();
+
+renderFlorelisa();
+
+renderArtists(
+artists
+);
+
+renderPopular();
+
+renderNew();
+
+renderExclusive();
+
+/* DESTACADOS */
+
+rebuildFeatured();
+
+renderFeaturedDots();
+
+showFeatured(0);
+
+startFeaturedRotation();
+
+console.log(
+"ARTISTVIDEOS - Supabase cargado:",
+{
+artistas:adminArtists.length,
+videos:adminVideos.length
+}
+);
+
+}catch(error){
+
+console.error(
+"Error general de Supabase:",
+error
+);
+
+/*
+   Si Supabase falla,
+   nunca dejamos la página vacía.
+*/
+
+renderVideos(artists);
+
+renderCumbia();
+
+renderRequinto();
+
+renderSalay();
+
+renderFlorelisa();
+
+renderArtists(artists);
+
+renderPopular();
+
+renderNew();
+
+renderExclusive();
+
+rebuildFeatured();
+
+renderFeaturedDots();
+
+showFeatured(0);
+
+startFeaturedRotation();
+
+}
+
+}
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+/*
+   Primero se muestran los contenidos
+   originales inmediatamente.
+*/
 
 renderVideos(artists);
 
@@ -2410,14 +3014,23 @@ renderNew();
 renderExclusive();
 
 /*
-   IMPORTANTE:
-   VIDEO DESTACADO SE INICIA CON featuredArtists,
-   NO con exclusiveArtists.
+   Destacado original inicial.
 */
+
+rebuildFeatured();
+
+renderFeaturedDots();
 
 showFeatured(0);
 
 startFeaturedRotation();
+
+/*
+   Después se cargan los datos
+   creados desde ADMIN.
+*/
+
+loadSupabaseData();
 
 </script>
 
