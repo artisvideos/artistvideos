@@ -3,4202 +3,1685 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ARTISTVIDEOS - Plataforma de videos musicales">
-<meta name="theme-color" content="#ff2d8d">
-<title>ARTISTVIDEOS</title>
+
+<title>ARTISTVIDEOS | Mantenimiento</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+/* =========================================
+   RESET
+========================================= */
 
-section[id]{scroll-margin-top:90px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    min-height:100%;
+}
 
 body{
+    min-height:100vh;
     font-family:Arial,Helvetica,sans-serif;
-    background:#070707;
     color:#fff;
-    overflow-x:hidden
+    background:#030305;
+    overflow-x:hidden;
 }
 
-button,input{font-family:inherit}
+
+/* =========================================
+   VARIABLES
+========================================= */
 
 :root{
-    --pink:#9c27b0;
-    --pink-light:#c44bd3;
-    --card:#121212;
-    --surface:#151515;
-    --text-muted:#aaa;
-    --focus-ring:0 0 0 3px rgba(255,45,141,.35)
+    --red:#ff1744;
+    --red-dark:#a5002d;
+    --yellow:#ffd400;
+    --yellow-light:#fff13b;
+    --dark:#030305;
+    --gray:#a7a7b0;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible{
-    outline:2px solid var(--pink-light);
-    outline-offset:3px;
-    box-shadow:var(--focus-ring)
+
+/* =========================================
+   FONDO
+========================================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,0,55,.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(255,0,45,.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #030305 0%,
+            #100207 50%,
+            #030305 100%
+        );
 }
 
-::selection{
-    background:var(--pink);
-    color:#fff
+
+/* luces rojas */
+
+.red-light{
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:#ff003c;
+
+    filter:blur(150px);
+
+    opacity:.13;
+
+    pointer-events:none;
 }
 
-@media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        transition-duration:.01ms!important
+.red-light.one{
+    top:-260px;
+    left:-220px;
+}
+
+.red-light.two{
+    right:-260px;
+    bottom:-280px;
+}
+
+
+/* brillo central */
+
+.background::after{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    left:50%;
+    top:35%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:#ff003c;
+
+    filter:blur(180px);
+
+    opacity:.035;
+}
+
+
+/* =========================================
+   PARTICULAS
+========================================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+}
+
+.particle{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ff1744;
+
+    box-shadow:
+        0 0 10px #ff1744;
+
+    animation:
+        particleMove linear infinite;
+}
+
+@keyframes particleMove{
+
+    0%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.7;
+    }
+
+    80%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:translateY(-10vh);
+        opacity:0;
     }
 }
 
-/* HEADER */
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    min-height:72px;
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container{
+    min-height:100vh;
+
     display:flex;
+
     align-items:center;
-    justify-content:space-between;
-    padding:15px 6%;
-    background:rgba(7,7,7,.97);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid #252525
-}
 
-.logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px
-}
-
-.logo span{color:var(--pink)}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:20px
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:12px;
-    font-weight:bold;
-    transition:.3s
-}
-
-nav a:hover{color:var(--pink)}
-
-.menu-toggle{
-    display:none;
-    width:45px;
-    height:45px;
-    border:1px solid #333;
-    border-radius:8px;
-    background:#151515;
-    cursor:pointer;
-    padding:9px;
-    flex-direction:column;
     justify-content:center;
-    align-items:center;
-    gap:5px
+
+    padding:20px;
 }
 
-.menu-toggle span{
-    width:25px;
-    height:3px;
-    background:#fff;
-    border-radius:3px;
-    transition:.3s
+
+/* =========================================
+   TARJETA
+========================================= */
+
+.card{
+    width:100%;
+    max-width:920px;
+
+    padding:42px 40px;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.8),
+        0 0 80px rgba(255,0,55,.09);
 }
 
-.menu-toggle.active span:nth-child(1){
-    transform:translateY(8px) rotate(45deg)
-}
 
-.menu-toggle.active span:nth-child(2){opacity:0}
+/* línea roja superior */
 
-.menu-toggle.active span:nth-child(3){
-    transform:translateY(-8px) rotate(-45deg)
-}
+.card::before{
+    content:"";
 
-/* HERO */
-.hero{
-    min-height:560px;
-    display:flex;
-    align-items:center;
-    padding:70px 6%;
+    position:absolute;
+
+    top:0;
+    left:10%;
+
+    width:80%;
+    height:2px;
+
     background:
         linear-gradient(
             90deg,
-            #070707 5%,
-            rgba(7,7,7,.90) 40%,
-            rgba(7,7,7,.20)
-        ),
-        url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=2000&q=90")
-        center/cover no-repeat
+            transparent,
+            #ff1744,
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px #ff1744;
 }
 
-.hero-content{max-width:700px}
 
-.hero-label{
-    color:var(--pink);
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:4px
-}
+/* =========================================
+   LOGO
+========================================= */
 
-.hero h1{
-    font-size:clamp(48px,7vw,88px);
-    line-height:.92;
-    margin:18px 0
-}
+.logo{
+    font-size:42px;
 
-.hero h1 span{color:var(--pink)}
+    font-weight:900;
 
-.hero p{
-    max-width:580px;
-    color:#ccc;
-    font-size:17px;
-    line-height:1.7
-}
+    letter-spacing:-2px;
 
-.hero-button{
-    display:inline-block;
-    margin-top:28px;
-    padding:15px 25px;
-    background:var(--pink);
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:8px;
-    transition:.3s
-}
+    margin-bottom:5px;
 
-.hero-button:hover{
-    background:var(--pink-light);
-    transform:translateY(-2px);
-    box-shadow:0 8px 25px rgba(255,45,141,.3)
-}
-
-/* GENERAL */
-.container{
-    width:88%;
-    max-width:1400px;
-    margin:auto
-}
-
-.section{padding:55px 0}
-
-.section-title{
-    font-size:30px;
-    margin-bottom:28px
-}
-
-.section-title span,
-.cumbia-title span,
-.requinto-title span,
-.salay-title span,
-.florelisa-title span,
-.special-title span,
-.exclusive-title span{
-    color:var(--pink)
-}
-
-/* FEATURED */
-.featured{
-    display:grid;
-    grid-template-columns:1.6fr 1fr;
-    gap:30px;
-    align-items:center
-}
-
-.featured-cover{
     position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    border-radius:16px;
-    background:#111;
-    box-shadow:0 15px 50px rgba(0,0,0,.6);
-    cursor:pointer
-}
 
-.featured-cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.5s
-}
-
-.featured-cover:hover img{transform:scale(1.05)}
-
-.featured-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent 65%)
-}
-
-.featured-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:80px;
-    height:80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    border-radius:50%;
-    font-size:28px;
-    box-shadow:0 8px 30px rgba(0,0,0,.6);
-    transition:.3s
-}
-
-.featured-cover:hover .featured-play{
-    transform:translate(-50%,-50%) scale(1.1)
-}
-
-.cover-title{
-    position:absolute;
-    left:25px;
-    right:25px;
-    bottom:20px;
-    font-size:23px;
-    font-weight:bold
-}
-
-.featured-info{padding:10px}
-
-.featured-tag{
-    display:inline-block;
-    padding:7px 13px;
-    background:var(--pink);
-    border-radius:20px;
-    font-size:11px;
-    font-weight:bold;
-    margin-bottom:15px
-}
-
-.featured-info h2{
-    font-size:35px;
-    margin-bottom:15px
-}
-
-.featured-info p{
-    color:#aaa;
-    line-height:1.7
-}
-
-.youtube-button{
-    display:inline-block;
-    margin-top:22px;
-    padding:13px 20px;
-    background:#fff;
-    color:#000;
-    border-radius:7px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s
-}
-
-.youtube-button:hover{
-    background:var(--pink);
-    color:#fff
-}
-
-/* SLIDER */
-.slider-controls{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:20px
-}
-
-.slider-btn{
-    width:44px;
-    height:44px;
-    border:1px solid #333;
-    border-radius:50%;
-    background:#151515;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    transition:.3s
-}
-
-.slider-btn:hover{
-    background:var(--pink);
-    border-color:var(--pink)
-}
-
-.slider-dots{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-    margin-left:5px;
-    max-width:700px
-}
-
-.slider-dot{
-    width:8px;
-    height:8px;
-    border:0;
-    padding:0;
-    background:#444;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s
-}
-
-.slider-dot.active{
-    width:24px;
-    background:var(--pink)
-}
-
-/* BUSCADOR */
-.search-box{margin-bottom:30px}
-
-.search-box input{
-    width:100%;
-    padding:17px 20px;
-    border:1px solid #292929;
-    border-radius:10px;
-    outline:none;
-    background:#141414;
-    color:#fff;
-    font-size:15px;
-    transition:.3s
-}
-
-.search-box input:focus{border-color:var(--pink)}
-
-/* GRIDS */
-.video-grid,
-.cumbia-grid,
-.requinto-grid,
-.salay-grid,
-.florelisa-grid,
-.popular-grid,
-.new-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px
-}
-
-/* TARJETAS */
-.video-card,
-.cumbia-card,
-.requinto-card,
-.salay-card,
-.florelisa-card,
-.popular-card,
-.new-card{
-    background:var(--card);
-    border:1px solid #202020;
-    border-radius:13px;
-    overflow:hidden;
-    transition:.3s
-}
-
-.video-card:hover,
-.cumbia-card:hover,
-.requinto-card:hover,
-.salay-card:hover,
-.florelisa-card:hover,
-.popular-card:hover,
-.new-card:hover{
-    transform:translateY(-6px);
-    border-color:var(--pink);
-    box-shadow:0 10px 30px rgba(255,45,141,.12)
-}
-
-/* MINIATURAS */
-.thumbnail,
-.cumbia-thumbnail,
-.requinto-thumbnail,
-.salay-thumbnail,
-.florelisa-thumbnail,
-.popular-thumbnail,
-.new-thumbnail{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    cursor:pointer;
-    background:#181818
-}
-
-.thumbnail img,
-.cumbia-thumbnail img,
-.requinto-thumbnail img,
-.salay-thumbnail img,
-.florelisa-thumbnail img,
-.popular-thumbnail img,
-.new-thumbnail img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
-}
-
-.video-card:hover img,
-.cumbia-card:hover img,
-.requinto-card:hover img,
-.salay-card:hover img,
-.florelisa-card:hover img,
-.popular-card:hover img,
-.new-card:hover img{
-    transform:scale(1.06)
-}
-
-/* PLAY */
-.play-button,
-.cumbia-play,
-.requinto-play,
-.salay-play,
-.florelisa-play,
-.popular-play,
-.new-play{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:62px;
-    height:62px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    color:#fff;
-    border-radius:50%;
-    font-size:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.55)
-}
-
-/* INFO */
-.video-info,
-.cumbia-info,
-.requinto-info,
-.salay-info,
-.florelisa-info,
-.popular-info,
-.new-info{
-    padding:18px
-}
-
-.video-info h3,
-.cumbia-info h3,
-.requinto-info h3,
-.salay-info h3,
-.florelisa-info h3,
-.popular-info h3,
-.new-info h3{
-    font-size:18px;
-    margin-bottom:7px
-}
-
-.video-info p,
-.cumbia-info p,
-.requinto-info p,
-.salay-info p,
-.florelisa-info p,
-.popular-info p,
-.new-info p{
-    color:#888;
-    font-size:13px;
-    line-height:1.5
-}
-
-/* REDES */
-.social-icons{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    margin-top:10px
-}
-
-.social-icons a{
-    width:34px;
-    height:34px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#1b1b1b;
-    color:#fff;
-    text-decoration:none;
-    transition:.3s
-}
-
-.social-icons a svg{
-    width:18px;
-    height:18px;
-    fill:currentColor
-}
-
-.social-icons a:hover{
-    background:var(--pink);
-    transform:translateY(-3px)
-}
-
-/* BOTONES */
-.watch-button,
-.exclusive-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:16px;
-    min-width:150px;
-    padding:13px 20px;
-    background:var(--pink);
-    color:#fff;
-    border:0;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:800;
-    cursor:pointer;
-    transition:.3s
-}
-
-.watch-button:hover,
-.exclusive-button:hover{
-    background:var(--pink-light);
-    transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(255,45,141,.3)
-}
-
-/* CATEGORÍAS */
-.cumbia-section,
-.requinto-section,
-.salay-section,
-.florelisa-section{
-    padding:20px 0 55px;
-    border-top:1px solid #222
-}
-
-.cumbia-title,
-.requinto-title,
-.salay-title,
-.florelisa-title{
-    font-size:30px;
-    margin-bottom:28px
-}
-
-/* BADGE */
-.badge{
-    position:absolute;
-    top:12px;
-    left:12px;
     z-index:5;
-    padding:7px 11px;
-    background:var(--pink);
-    color:#fff;
-    border-radius:20px;
-    font-size:10px;
-    font-weight:900
 }
 
-/* ARTISTAS */
-.artists-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:28px 22px
+.logo span{
+    color:var(--red);
+
+    text-shadow:
+        0 0 25px
+        rgba(255,23,68,.5);
 }
 
-.artist{
-    text-align:center;
-    cursor:pointer
-}
 
-.artist-image-box{
+/* =========================================
+   PERSONA SALTANDO
+========================================= */
+
+.worker{
     position:relative;
-    width:100%;
-    aspect-ratio:1/1;
-    overflow:hidden;
-    border-radius:50%;
-    border:3px solid #222;
-    background:#151515;
-    transition:.3s
+
+    width:230px;
+    height:205px;
+
+    margin:0 auto;
+
+    overflow:visible;
 }
 
-.artist-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
-}
 
-.artist:hover .artist-image-box{
-    border-color:var(--pink);
-    transform:scale(1.04)
-}
+/* sombra */
 
-.artist:hover .artist-image{
-    transform:scale(1.08)
-}
-
-.artist-play{
+.shadow-worker{
     position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
+
+    width:85px;
+    height:13px;
+
+    left:72px;
+    bottom:17px;
+
     border-radius:50%;
-    opacity:0;
-    transition:.3s
+
+    background:rgba(0,0,0,.5);
+
+    filter:blur(5px);
+
+    animation:
+        shadowJump 1s
+        infinite
+        ease-in-out;
 }
 
-.artist:hover .artist-play{opacity:1}
 
-.artist h3{
-    margin-top:13px;
-    font-size:15px;
-    line-height:1.3
+@keyframes shadowJump{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+
+    50%{
+        transform:scale(.50);
+        opacity:.25;
+    }
 }
 
-.artist p{
-    color:#777;
-    font-size:12px;
-    margin-top:5px
-}
 
-/* ARTISTA ADMIN */
-.admin-artist{
-    position:relative
-}
+/* cuerpo completo */
 
-.admin-artist .artist-image-box{
-    border-color:#292929
-}
-
-/* EXCLUSIVOS */
-.exclusive-section{
-    margin-top:30px;
-    padding:45px 0;
-    border-top:1px solid #222
-}
-
-.exclusive-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:28px;
-    font-size:30px
-}
-
-.exclusive-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px
-}
-
-.exclusive-card{
-    position:relative;
-    background:linear-gradient(145deg,#191919,#0d0d0d);
-    border:1px solid #292929;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s
-}
-
-.exclusive-card:hover{
-    transform:translateY(-7px);
-    border-color:var(--pink);
-    box-shadow:0 12px 35px rgba(255,45,141,.15)
-}
-
-.exclusive-image{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    cursor:pointer
-}
-
-.exclusive-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s
-}
-
-.exclusive-card:hover .exclusive-image img{
-    transform:scale(1.06)
-}
-
-.exclusive-play{
+.worker-body{
     position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    width:62px;
-    height:62px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--pink);
-    color:#fff;
-    border-radius:50%;
-    font-size:22px
-}
 
-.exclusive-info{padding:18px}
-
-.exclusive-info h3{
-    font-size:19px;
-    margin-bottom:7px
-}
-
-.exclusive-info p{
-    color:#888;
-    font-size:13px
-}
-
-/* POPULARES / ESTRENOS */
-.special-section{
-    padding:50px 0;
-    border-top:1px solid #222
-}
-
-.special-title{
-    font-size:30px;
-    margin-bottom:28px
-}
-
-/* WHATSAPP */
-.whatsapp-button{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:2500;
-    width:58px;
-    height:58px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#25D366;
-    color:#fff;
-    border-radius:50%;
-    text-decoration:none;
-    box-shadow:0 6px 25px rgba(0,0,0,.45);
-    transition:.3s;
-    animation:whatsappPulse 2s infinite
-}
-
-.whatsapp-button:hover{
-    transform:scale(1.1);
-    background:#20bd5a
-}
-
-.whatsapp-button svg{
-    width:32px;
-    height:32px;
-    fill:currentColor
-}
-
-@keyframes whatsappPulse{
-    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
-    70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
-    100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-}
-
-/* MODAL */
-.modal{
-    position:fixed;
     inset:0;
-    z-index:3000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.96)
+
+    animation:
+        jumpWorker 1s
+        infinite
+        ease-in-out;
 }
 
-.modal.active{display:flex}
 
-.modal-content{
-    position:relative;
-    width:min(1000px,95vw);
-    aspect-ratio:16/9;
-    background:#000;
-    border-radius:12px;
-    overflow:hidden
+@keyframes jumpWorker{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    45%{
+        transform:
+            translateY(-34px)
+            rotate(-2deg);
+    }
+
+    55%{
+        transform:
+            translateY(-34px)
+            rotate(2deg);
+    }
 }
 
-.modal iframe{
-    width:100%;
-    height:100%;
-    border:0
-}
 
-.close-modal{
+/* =========================================
+   CABEZA
+========================================= */
+
+.worker-head{
     position:absolute;
-    top:10px;
-    right:10px;
-    z-index:10;
-    width:42px;
-    height:42px;
-    border:0;
+
+    width:43px;
+    height:43px;
+
+    left:94px;
+    top:43px;
+
     border-radius:50%;
-    background:var(--pink);
-    color:#fff;
-    font-size:25px;
-    cursor:pointer
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffd4ad,
+            #c9794f
+        );
+
+    z-index:4;
 }
 
-/* LOADING */
-.admin-loading{
-    grid-column:1/-1;
-    text-align:center;
-    color:#777;
-    padding:30px
+
+/* pequeño detalle de cara */
+
+.worker-head::before{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#292929;
+
+    right:8px;
+    top:18px;
 }
 
-.admin-error{
-    grid-column:1/-1;
-    text-align:center;
-    color:#ff7777;
-    padding:30px
+
+/* =========================================
+   CASCO AMARILLO
+========================================= */
+
+.helmet-yellow{
+    position:absolute;
+
+    width:62px;
+    height:30px;
+
+    left:84px;
+    top:30px;
+
+    border-radius:
+        35px
+        35px
+        9px
+        9px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--yellow-light),
+            #f4b800
+        );
+
+    z-index:6;
+
+    box-shadow:
+        0 5px 18px
+        rgba(255,196,0,.35);
 }
 
-/* FOOTER */
-footer{
-    margin-top:50px;
-    padding:40px 6%;
-    text-align:center;
-    border-top:1px solid #222;
-    color:#777
+
+/* brillo casco */
+
+.helmet-yellow::before{
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+    height:6px;
+
+    left:12px;
+    top:6px;
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.55);
 }
 
-footer strong{color:var(--pink)}
 
-/* TABLET */
-@media(max-width:1100px){
+/* visera */
 
-    .featured{grid-template-columns:1fr}
+.helmet-brim{
+    position:absolute;
 
-    .video-grid,
-    .cumbia-grid,
-    .requinto-grid,
-    .salay-grid,
-    .florelisa-grid,
-    .popular-grid,
-    .new-grid{
-        grid-template-columns:repeat(2,1fr)
-    }
+    width:74px;
+    height:8px;
 
-    .artists-grid{
-        grid-template-columns:repeat(4,1fr)
-    }
+    left:-6px;
+    bottom:-3px;
 
-    .exclusive-grid{
-        grid-template-columns:repeat(2,1fr)
-    }
+    border-radius:10px;
 
-    nav{gap:10px}
+    background:#dca900;
 }
 
-/* CELULAR */
-@media(max-width:650px){
 
-    .modal{padding:12px}
+/* =========================================
+   CHALECO AMARILLO
+========================================= */
 
-    .modal-content{
-        width:100%;
-        aspect-ratio:16/10;
-        border-radius:9px
+.yellow-vest{
+    position:absolute;
+
+    width:66px;
+    height:79px;
+
+    left:82px;
+    top:80px;
+
+    border-radius:
+        15px
+        15px
+        9px
+        9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff23b,
+            #efb700
+        );
+
+    z-index:3;
+
+    box-shadow:
+        0 6px 18px
+        rgba(255,193,7,.18);
+}
+
+
+/* abertura central */
+
+.yellow-vest::after{
+    content:"";
+
+    position:absolute;
+
+    width:5px;
+    height:72px;
+
+    left:30px;
+    top:4px;
+
+    background:
+        rgba(130,90,0,.35);
+
+    border-radius:5px;
+}
+
+
+/* cuello */
+
+.yellow-vest::before{
+    content:"";
+
+    position:absolute;
+
+    width:23px;
+    height:20px;
+
+    left:21px;
+    top:-2px;
+
+    background:#e5ad00;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            70% 100%,
+            30% 100%
+        );
+}
+
+
+/* franja reflectante */
+
+.vest-line{
+    position:absolute;
+
+    width:66px;
+    height:8px;
+
+    left:0;
+    top:38px;
+
+    background:#fff;
+
+    opacity:.95;
+
+    z-index:5;
+}
+
+
+/* =========================================
+   BRAZOS
+========================================= */
+
+.worker-arm{
+    position:absolute;
+
+    width:17px;
+    height:60px;
+
+    top:86px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd4ad,
+            #b96847
+        );
+
+    z-index:2;
+
+    transform-origin:
+        top center;
+}
+
+
+/* brazo izquierdo */
+
+.arm-left{
+    left:67px;
+
+    transform:
+        rotate(55deg);
+
+    animation:
+        armLeft 1s
+        infinite
+        ease-in-out;
+}
+
+
+/* brazo derecho */
+
+.arm-right{
+    left:146px;
+
+    transform:
+        rotate(-55deg);
+
+    animation:
+        armRight 1s
+        infinite
+        ease-in-out;
+}
+
+
+@keyframes armLeft{
+
+    0%,100%{
+        transform:rotate(55deg);
     }
 
-    .close-modal{
-        top:7px;
-        right:7px;
-        width:38px;
-        height:38px;
-        font-size:22px
-    }
-
-    header{
-        min-height:70px;
-        padding:12px 5%
-    }
-
-    .logo{font-size:21px}
-
-    .menu-toggle{display:flex}
-
-    nav{
-        position:absolute;
-        top:70px;
-        left:0;
-        right:0;
-        display:none;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:rgba(7,7,7,.99);
-        border-top:1px solid #222;
-        border-bottom:1px solid #222;
-        box-shadow:0 15px 30px rgba(0,0,0,.6);
-        padding:8px 0
-    }
-
-    nav.active{display:flex}
-
-    nav a{
-        display:block;
-        width:100%;
-        padding:16px 25px;
-        font-size:13px;
-        border-bottom:1px solid #1c1c1c
-    }
-
-    nav a:last-child{border-bottom:0}
-
-    nav a:hover{
-        background:#151515;
-        color:var(--pink)
-    }
-
-    .hero{
-        min-height:470px;
-        padding:55px 5%
-    }
-
-    .hero h1{font-size:48px}
-
-    .hero p{font-size:15px}
-
-    .container{width:92%}
-
-    .video-grid,
-    .cumbia-grid,
-    .requinto-grid,
-    .salay-grid,
-    .florelisa-grid,
-    .popular-grid,
-    .new-grid{
-        grid-template-columns:1fr
-    }
-
-    .artists-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:24px 15px
-    }
-
-    .exclusive-grid{
-        grid-template-columns:1fr
-    }
-
-    .featured-info h2{font-size:28px}
-
-    .featured-play{
-        width:65px;
-        height:65px
-    }
-
-    .cover-title{font-size:17px}
-
-    .section{padding:40px 0}
-
-    .section-title,
-    .cumbia-title,
-    .requinto-title,
-    .salay-title,
-    .florelisa-title,
-    .exclusive-title,
-    .special-title{
-        font-size:26px
-    }
-
-    .social-icons a{
-        width:32px;
-        height:32px
-    }
-
-    .watch-button{
-        min-width:150px;
-        padding:14px 20px;
-        font-size:14px
-    }
-
-    .whatsapp-button{
-        width:54px;
-        height:54px;
-        right:16px;
-        bottom:16px
-    }
-
-    .whatsapp-button svg{
-        width:29px;
-        height:29px
+    50%{
+        transform:rotate(73deg);
     }
 }
 
-@media(max-width:380px){
 
-    .artists-grid{gap:20px 10px}
+@keyframes armRight{
 
-    .artist h3{font-size:13px}
+    0%,100%{
+        transform:rotate(-55deg);
+    }
 
-    .hero h1{font-size:42px}
-
-    .logo{font-size:19px}
+    50%{
+        transform:rotate(-73deg);
+    }
 }
+
+
+/* =========================================
+   PIERNAS
+========================================= */
+
+.worker-leg{
+    position:absolute;
+
+    width:21px;
+    height:62px;
+
+    top:151px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #292929,
+            #101010
+        );
+
+    z-index:1;
+
+    transform-origin:
+        top center;
+}
+
+
+/* pierna izquierda */
+
+.leg-left{
+    left:90px;
+
+    transform:
+        rotate(28deg);
+
+    animation:
+        legLeft 1s
+        infinite
+        ease-in-out;
+}
+
+
+/* pierna derecha */
+
+.leg-right{
+    left:119px;
+
+    transform:
+        rotate(-28deg);
+
+    animation:
+        legRight 1s
+        infinite
+        ease-in-out;
+}
+
+
+@keyframes legLeft{
+
+    0%,100%{
+        transform:rotate(28deg);
+    }
+
+    50%{
+        transform:rotate(47deg);
+    }
+}
+
+
+@keyframes legRight{
+
+    0%,100%{
+        transform:rotate(-28deg);
+    }
+
+    50%{
+        transform:rotate(-47deg);
+    }
+}
+
+
+/* =========================================
+   ETIQUETA
+========================================= */
+
+.tag{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 15px;
+
+    margin-bottom:16px;
+
+    border-radius:50px;
+
+    background:
+        rgba(255,23,68,.08);
+
+    border:
+        1px solid
+        rgba(255,23,68,.22);
+
+    color:#ff718c;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+
+.dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#ff1744;
+
+    box-shadow:
+        0 0 12px #ff1744;
+
+    animation:
+        blink 1s infinite;
+}
+
+
+@keyframes blink{
+
+    50%{
+        opacity:.2;
+    }
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+h1{
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            52px
+        );
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    margin-bottom:18px;
+}
+
+h1 span{
+    color:#ff1744;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,23,68,.4);
+}
+
+
+/* =========================================
+   DESCRIPCIÓN
+========================================= */
+
+.description{
+    max-width:650px;
+
+    margin:auto;
+
+    color:#a7a7b0;
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================
+   AVISO
+========================================= */
+
+.alert{
+    max-width:700px;
+
+    margin:24px auto;
+
+    padding:17px 20px;
+
+    text-align:left;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,23,68,.11),
+            rgba(255,23,68,.025)
+        );
+
+    border-left:
+        3px solid #ff1744;
+
+    border-radius:12px;
+
+    color:#d5d5dc;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.alert strong{
+    color:#ff4265;
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.counter-title{
+    color:#777783;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+
+.countdown{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    max-width:650px;
+
+    margin:auto;
+}
+
+
+.time{
+    padding:15px 5px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:15px;
+
+    position:relative;
+}
+
+
+.time::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:25%;
+
+    width:50%;
+    height:1px;
+
+    background:#ff1744;
+
+    box-shadow:
+        0 0 12px #ff1744;
+}
+
+
+.number{
+    display:block;
+
+    font-size:30px;
+
+    font-weight:900;
+}
+
+
+.label{
+    display:block;
+
+    margin-top:4px;
+
+    color:#666670;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================
+   PROGRESO
+========================================= */
+
+.progress-info{
+    display:flex;
+
+    justify-content:space-between;
+
+    max-width:650px;
+
+    margin:23px auto 8px;
+
+    color:#6e6e78;
+
+    font-size:10px;
+}
+
+
+.progress-box{
+    max-width:650px;
+
+    height:7px;
+
+    margin:auto;
+
+    background:#18181d;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+
+.progress{
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #870021,
+            #ff1744,
+            #ff6a83
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(255,23,68,.7);
+
+    transition:
+        width 1s linear;
+}
+
+
+/* =========================================
+   ESTADO
+========================================= */
+
+.status{
+    margin-top:15px;
+
+    color:#777783;
+
+    font-size:11px;
+}
+
+
+.status span{
+    color:#ff4165;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    margin-top:28px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color:#55555e;
+
+    font-size:10px;
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media(max-width:600px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container{
+        padding:15px;
+    }
+
+    .card{
+        padding:32px 17px;
+
+        border-radius:24px;
+    }
+
+    .logo{
+        font-size:34px;
+    }
+
+    .worker{
+        transform:scale(.88);
+
+        margin-top:-5px;
+        margin-bottom:-5px;
+    }
+
+    .description{
+        font-size:14px;
+    }
+
+    .alert{
+        font-size:12px;
+
+        padding:15px;
+    }
+
+    .countdown{
+        gap:6px;
+    }
+
+    .time{
+        padding:13px 3px;
+    }
+
+    .number{
+        font-size:23px;
+    }
+
+    .label{
+        font-size:8px;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
 
-<header>
 
-<div class="logo">
-    ARTIST<span>VIDEOS</span>
-</div>
+<!-- =========================================
+     FONDO
+========================================= -->
 
-<button
-    class="menu-toggle"
-    id="menuToggle"
-    type="button"
-    aria-label="Abrir menú"
-    aria-expanded="false">
+<div class="background">
 
-    <span></span>
-    <span></span>
-    <span></span>
+    <div class="red-light one"></div>
 
-</button>
+    <div class="red-light two"></div>
 
-<nav id="mainNav">
-
-    <a href="#inicio">INICIO</a>
-    <a href="#videos">HUAYNO SUREÑO</a>
-    <a href="#cumbia">CUMBIA SUREÑA</a>
-    <a href="#requinto">REQUINTO PERUANO</a>
-    <a href="#salay">SALAY MUNDIAL</a>
-    <a href="#florelisa">FLORELISA</a>
-    <a href="#artistas">ARTISTAS</a>
-    <a href="#populares">POPULARES</a>
-    <a href="#estrenos">NUEVOS ESTRENOS</a>
-    <a href="#exclusivos">EXCLUSIVOS 2026</a>
-
-</nav>
-
-</header>
-
-<section class="hero" id="inicio">
-
-<div class="hero-content">
-
-<div class="hero-label">
-    PLATAFORMA MUSICAL
-</div>
-
-<h1>
-    VIDEOS DE<br>
-    <span>ARTISTAS</span>
-</h1>
-
-<p>
-    Disfruta de videos musicales,
-    estrenos, presentaciones y
-    contenido de tus artistas favoritos
-    en un solo lugar.
-</p>
-
-<a href="#videos" class="hero-button">
-    ▶ VER VIDEOS
-</a>
+    <div
+        class="particles"
+        id="particles">
+    </div>
 
 </div>
 
-</section>
 
-<main class="container">
 
-<section class="section" aria-labelledby="featured-heading">
+<!-- =========================================
+     CONTENIDO
+========================================= -->
 
-<h2 class="section-title" id="featured-heading">
-    VIDEO <span>DESTACADO</span>
-</h2>
+<div class="container">
 
-<div class="featured">
+<div class="card">
 
-<div>
 
-<div
-class="featured-cover"
-role="button"
-tabindex="0"
-aria-label="Reproducir video destacado"
-onclick="playFeatured()"
-onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playFeatured()}">
+    <!-- LOGO -->
 
-<img
-id="featuredImage"
-src=""
-alt="Video destacado"
-fetchpriority="high">
+    <div class="logo">
 
-<div class="featured-overlay"></div>
+        ARTIST<span>VIDEOS</span>
 
-<div class="featured-play">
-    ▶
-</div>
+    </div>
 
-<div
-class="cover-title"
-id="coverTitle">
-</div>
 
-</div>
 
-<div class="slider-controls">
+    <!-- =====================================
+         PERSONA SALTANDO
+    ====================================== -->
 
-<button
-class="slider-btn"
-type="button"
-aria-label="Video destacado anterior"
-onclick="previousFeatured()">
-    ‹
-</button>
+    <div class="worker">
 
-<button
-class="slider-btn"
-type="button"
-aria-label="Siguiente video destacado"
-onclick="nextFeatured()">
-    ›
-</button>
+        <div class="shadow-worker"></div>
 
-<div
-class="slider-dots"
-id="sliderDots">
-</div>
 
-</div>
+        <div class="worker-body">
 
-</div>
 
-<div class="featured-info">
+            <!-- CABEZA -->
 
-<span class="featured-tag">
-    VIDEO DESTACADO
-</span>
+            <div class="worker-head"></div>
 
-<h2 id="featuredTitle"></h2>
 
-<p>
-    Disfruta de videos musicales
-    directamente desde ARTISTVIDEOS.
-</p>
+            <!-- CASCO -->
 
-<a
-id="youtubeLink"
-href="#"
-target="_blank"
-rel="noopener noreferrer"
-class="youtube-button">
+            <div class="helmet-yellow">
 
-    ▶ ABRIR EN YOUTUBE
+                <div class="helmet-brim"></div>
 
-</a>
+            </div>
 
-</div>
 
-</div>
+            <!-- CHALECO -->
 
-</section>
+            <div class="yellow-vest">
 
-<section class="section" id="videos">
+                <div class="vest-line"></div>
 
-<h2 class="section-title" id="videos-heading">
-    HUAYNO <span>SUREÑO</span>
-</h2>
+            </div>
 
-<div class="search-box">
 
-<input
-type="search"
-id="searchInput"
-aria-label="Buscar artistas de Huayno Sureño"
-placeholder="🔎 Buscar artista..."
-autocomplete="off">
+            <!-- BRAZOS -->
 
-</div>
+            <div
+                class="worker-arm arm-left">
+            </div>
 
-<div
-class="video-grid"
-id="videoGrid">
-</div>
+            <div
+                class="worker-arm arm-right">
+            </div>
 
-</section>
 
-<section class="cumbia-section" id="cumbia">
+            <!-- PIERNAS -->
 
-<h2 class="cumbia-title">
-    CUMBIA <span>SUREÑA</span>
-</h2>
+            <div
+                class="worker-leg leg-left">
+            </div>
 
-<div
-class="cumbia-grid"
-id="cumbiaGrid">
-</div>
+            <div
+                class="worker-leg leg-right">
+            </div>
 
-</section>
 
-<section class="requinto-section" id="requinto">
+        </div>
 
-<h2 class="requinto-title">
-    REQUINTO <span>PERUANO</span>
-</h2>
+    </div>
 
-<div
-class="requinto-grid"
-id="requintoGrid">
-</div>
 
-</section>
 
-<section class="salay-section" id="salay">
+    <!-- ETIQUETA -->
 
-<h2 class="salay-title">
-    SALAY <span>MUNDIAL</span>
-</h2>
+    <div class="tag">
 
-<div
-class="salay-grid"
-id="salayGrid">
-</div>
+        <span class="dot"></span>
 
-</section>
+        Mantenimiento técnico
 
-<section class="florelisa-section" id="florelisa">
+    </div>
 
-<h2 class="florelisa-title">
-    <span>FLORELISA</span>
-</h2>
 
-<div
-class="florelisa-grid"
-id="florelisaGrid">
-</div>
 
-</section>
+    <!-- TITULO -->
 
-<section class="section" id="artistas">
+    <h1>
 
-<h2 class="section-title">
-    NUESTROS <span>ARTISTAS</span>
-</h2>
+        Estamos trabajando<br>
 
-<div
-class="artists-grid"
-id="artistsGrid">
-</div>
+        para <span>ti.</span>
 
-</section>
+    </h1>
 
-<section class="special-section" id="populares">
 
-<h2 class="special-title">
-    VIDEOS <span>POPULARES</span>
-</h2>
 
-<div
-class="popular-grid"
-id="popularGrid">
-</div>
+    <!-- DESCRIPCIÓN -->
 
-</section>
+    <p class="description">
 
-<section class="special-section" id="estrenos">
+        ARTISTVIDEOS está realizando trabajos de
+        restauración y optimización después de
+        un problema técnico importante.
 
-<h2 class="special-title">
-    NUEVOS <span>ESTRENOS</span>
-</h2>
+    </p>
 
-<div
-class="new-grid"
-id="newGrid">
-</div>
 
-</section>
 
-<section class="exclusive-section" id="exclusivos">
+    <!-- AVISO -->
 
-<h2 class="exclusive-title">
-    ARTISTAS
-    <span>EXCLUSIVOS 2026</span>
-</h2>
+    <div class="alert">
 
-<div
-class="exclusive-grid"
-id="exclusiveGrid">
-</div>
+        <strong>
+            ⚠ INFORMACIÓN IMPORTANTE
+        </strong>
 
-</section>
+        <br>
 
-</main>
+        Hemos detectado un problema técnico grave
+        que afecta temporalmente el funcionamiento
+        de algunos servicios de ARTISTVIDEOS.
+        Nuestro equipo ya está trabajando para
+        restablecer la plataforma.
 
-<a
-class="whatsapp-button"
-href="https://wa.me/51956461177"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Contactar por WhatsApp"
-title="Contactar por WhatsApp">
+    </div>
 
-<svg viewBox="0 0 24 24">
-<path d="M12.04 2C6.54 2 2.07 6.48 2.07 11.98c0 1.76.46 3.48 1.33 5L2 22l5.17-1.35a9.95 9.95 0 0 0 4.87 1.27h.01c5.49 0 9.96-4.47 9.96-9.97C22.01 6.47 17.54 2 12.04 2zm0 18.1h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.07.8.82-2.99-.2-.31a8.27 8.27 0 1 1 6.96 3.83zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.13-1.03-.38-1.96-1.21-.72-.64-1.21-1.43-1.35-1.67-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
-</svg>
 
-</a>
 
-<div
-class="modal"
-id="videoModal"
-role="dialog"
-aria-modal="true"
-aria-hidden="true"
-aria-label="Reproductor de video"
-onclick="closeOutside(event)">
+    <!-- CONTADOR -->
 
-<div class="modal-content">
+    <div class="counter-title">
 
-<button
-class="close-modal"
-type="button"
-aria-label="Cerrar reproductor"
-onclick="closeVideo()">
-×
-</button>
+        Restauración estimada
 
-<iframe
-id="modalVideo"
-src=""
-title="Reproductor de video"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
+    </div>
+
+
+    <div class="countdown">
+
+
+        <div class="time">
+
+            <span
+                class="number"
+                id="days">
+                00
+            </span>
+
+            <span class="label">
+                Días
+            </span>
+
+        </div>
+
+
+        <div class="time">
+
+            <span
+                class="number"
+                id="hours">
+                00
+            </span>
+
+            <span class="label">
+                Horas
+            </span>
+
+        </div>
+
+
+        <div class="time">
+
+            <span
+                class="number"
+                id="minutes">
+                00
+            </span>
+
+            <span class="label">
+                Minutos
+            </span>
+
+        </div>
+
+
+        <div class="time">
+
+            <span
+                class="number"
+                id="seconds">
+                00
+            </span>
+
+            <span class="label">
+                Segundos
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- PROGRESO -->
+
+    <div class="progress-info">
+
+        <span>
+            Restauración del sistema
+        </span>
+
+        <span id="percentage">
+            0%
+        </span>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <div
+            class="progress"
+            id="progress">
+        </div>
+
+    </div>
+
+
+
+    <!-- ESTADO -->
+
+    <div class="status">
+
+        ●
+
+        <span>
+            Técnicos trabajando en la plataforma...
+        </span>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 ARTISTVIDEOS ·
+        Plataforma audiovisual para artistas.
+
+    </div>
+
 
 </div>
 
 </div>
 
-<footer>
 
-<p>
-© 2026
-<strong>ARTISTVIDEOS</strong>
-· Todos los derechos reservados.
-</p>
-
-</footer>
-
-<!-- =====================================================
-     SUPABASE
-===================================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* =====================================================
-   CONFIGURACIÓN SUPABASE
-===================================================== */
+/* =========================================
+   CREAR PARTICULAS
+========================================= */
 
-const SUPABASE_URL =
-"https://xyblgirhewonpnmkvkyk.supabase.co";
+const particles =
+document.getElementById("particles");
 
-const SUPABASE_KEY =
-"sb_publishable_V-4tpS85Ods1tXADgrHz9Q_CdJmoaOR";
 
-const supabaseClient =
-window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+for(let i = 0; i < 45; i++){
 
-
-/* =====================================================
-   VARIABLES GENERALES
-===================================================== */
-
-const prefersReducedMotion =
-window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
-
-let lastFocusedElement=null;
-
-let supabaseArtists=[];
-
-let supabaseVideos=[];
-
-let featuredList=[];
-
-let featuredIndex=0;
-
-let featuredTimer=null;
-
-
-/* =====================================================
-   ARTISTAS ORIGINALES
-===================================================== */
-
-const artists = [
-
-    {name:"DELIA HUANCA",id:"5lwsVDeK_Tc"},
-    {name:"SOL LUCERO",id:"P77ADWWaHUQ"},
-    {name:"PURA OSADÍA",id:"OQ0OskwzKYA"},
-    {name:"TU DULCE YARITA",id:"bs2XZ3JKb3k"},
-    {name:"CHAROSSY ROSSY",id:"JfHUiui8z9Y"},
-    {name:"ROXY ABRIL",id:"AbpPXeY7pZI"},
-    {name:"AGRUPACIÓN YARIMAR",id:"lLIDov2jKmk"},
-    {name:"MUÑEQUITA LEYDY",id:"3RXu2BHkvOI"},
-    {name:"MIRTHA RAMOS",id:"Zz2jmu33IAk"},
-    {name:"LOS DULCES YERITOS",id:"yVtAffjRjNM"},
-    {name:"ISABEL VELA",id:"u6vHqUwYh2g"},
-    {name:"PILAR YUCRA",id:"z3xTrQJ05Sc"},
-    {name:"LUZ MERY CRUZ",id:"kvN0fxr-FE0"},
-    {name:"SENAYDA BUSTINZA",id:"hoG2N6usbUU"},
-    {name:"ROSALI SILES",id:"tGmiQndb98Q"},
-    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
-    {name:"YANDEL HERRERA",id:"drSB_Bfgrzo"},
-    {name:"ELY MONRROY",id:"arim2IkbFzU"},
-    {name:"MAYTE SANCHEZ",id:"aaX6K44ffhM"},
-    {name:"AYDE MELINA",id:"sRypE-tErIE"},
-    {name:"ANITA LIZBETH",id:"X_Ia4kMQSjI"},
-    {name:"ABRIL ISABEL",id:"jNVEQ8dmay4"},
-    {name:"LEILA SUCATICONA",id:"ij82q1rxX2c"},
-    {name:"ANYI SULLCA",id:"OSXjqIUhR40"},
-    {name:"FIORELA ARROYO",id:"Fi38qAEez_E"},
-    {name:"DULCE BEATRIZ",id:"z9b6nNiHZqY"},
-    {name:"RUTH CURO",id:"pl83mx0OaeI"},
-    {name:"NICKOL RAMOS",id:"Q7XJtz9RXcU"},
-    {name:"XIOMARA CALIZAYA",id:"m7pFEbhrV1o"},
-    {name:"MIRIAM MOLINA",id:"mpGGEEdO-V0"},
-    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"},
-    {name:"DIANITA POMA",id:"uZNmfInVmB0"},
-    {name:"ALEX EUSEBIO",id:"f1Avnbh0P5k"},
-    {name:"DULCE MARY YSABEL",id:"1j9Je2WsaZU"},
-    {name:"DULCE RUBELI",id:"MMeemsf7PNc"},
-    {name:"MUÑEQUITA KELLY",id:"i6glhDpQaWk"},
-    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"YlF3XmazEXU"},
-    {name:"WILFREDO Y EL LEGADO DE FLOR SHEIZA",id:"XfL4ryrZf54"}
-
-];
-
-
-/* =====================================================
-   CUMBIA
-===================================================== */
-
-const cumbiaArtists = [
-
-    {name:"YHEISON PUMITA",id:"DVX_989A8zY"},
-    {name:"EDSON MORALES",id:"MzjC097tc4E"},
-    {name:"GRUPO CORALI",id:"cobAXEUP_NI"}
-
-];
-
-
-/* =====================================================
-   REQUINTO
-===================================================== */
-
-const requintoArtists = [
-
-    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
-    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
-    {name:"MILAYRA ROMERO",id:"sSNWNcyFFOQ"},
-    {name:"RUTH CURO",id:"MfFB4r7a9T4"}
-
-];
-
-
-/* =====================================================
-   SALAY
-===================================================== */
-
-const salayArtists = [
-
-    {name:"ALFREDO LARICO",id:"mwVNpx1EAWk"},
-    {name:"NICKOL RAMOS",id:"_8381AySMnk"},
-    {name:"CINTYA ROJAS",id:"RZPmL7fVclQ"},
-    {name:"WILI ROJAS",id:"9514-4Sa3KU"},
-    {name:"IMPARABLES DEL SALAY",id:"W4XbdykINSY"}
-
-];
-
-
-/* =====================================================
-   FLORELISA
-===================================================== */
-
-const florelisaArtists = [
-
-    {name:"ELISABET FLORES",id:"hszrM8d3WWE"},
-    {name:"DELY CORAZON",id:"eDC3Tswc_PE"},
-    {name:"MARISOL MULLISACA",id:"JB9wX14AC6o"},
-    {name:"SOL LUCERO",id:"yndd0Rx4UFI"},
-    {name:"MARIELIZ",id:"LpLDIOdpS_4"}
-
-];
-
-
-/* =====================================================
-   EXCLUSIVOS ORIGINALES
-===================================================== */
-
-const exclusiveArtists = [
-
-    {name:"VIANITA GOMEZ",id:"Q9qSl5LPM1Q"},
-    {name:"MUÑEQUITA LEYDY",id:"uNQ6OqR97OE"},
-    {name:"DELIA HUANCA",id:"tefROgLlZIo"}
-
-];
-
-
-/* =====================================================
-   POPULARES ORIGINALES
-===================================================== */
-
-const popularArtists = [
-
-    {name:"NICKOL RAMOS",id:"RZPmL7fVclQ"},
-    {name:"VIANITA GOMEZ",id:"YJTVhaaae68"},
-    {name:"MILAYRA ROMERO",id:"Yv0v7QekLyA"}
-
-];
-
-
-/* =====================================================
-   ESTRENOS ORIGINALES
-===================================================== */
-
-const newArtists = [
-
-    {name:"EDY CESAR CHIQUI",id:"chedB98UDKI"},
-    {name:"EDWINCITO PAUCARA",id:"lEXSpQXlQnA"},
-    {name:"ELISABET FLORES",id:"hszrM8d3WWE"}
-
-];
-
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const videoGrid=
-document.getElementById("videoGrid");
-
-const cumbiaGrid=
-document.getElementById("cumbiaGrid");
-
-const requintoGrid=
-document.getElementById("requintoGrid");
-
-const salayGrid=
-document.getElementById("salayGrid");
-
-const florelisaGrid=
-document.getElementById("florelisaGrid");
-
-const artistsGrid=
-document.getElementById("artistsGrid");
-
-const exclusiveGrid=
-document.getElementById("exclusiveGrid");
-
-const popularGrid=
-document.getElementById("popularGrid");
-
-const newGrid=
-document.getElementById("newGrid");
-
-const searchInput=
-document.getElementById("searchInput");
-
-const featuredImage=
-document.getElementById("featuredImage");
-
-const featuredTitle=
-document.getElementById("featuredTitle");
-
-const coverTitle=
-document.getElementById("coverTitle");
-
-const youtubeLink=
-document.getElementById("youtubeLink");
-
-const sliderDots=
-document.getElementById("sliderDots");
-
-const modal=
-document.getElementById("videoModal");
-
-const modalVideo=
-document.getElementById("modalVideo");
-
-const menuToggle=
-document.getElementById("menuToggle");
-
-const mainNav=
-document.getElementById("mainNav");
-
-
-/* =====================================================
-   MENÚ
-===================================================== */
-
-menuToggle.addEventListener(
-"click",
-function(){
-
-    const opened=
-    mainNav.classList.toggle("active");
-
-    menuToggle.classList.toggle(
-        "active",
-        opened
-    );
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        opened
-        ? "true"
-        : "false"
-    );
-
-});
-
-
-mainNav
-.querySelectorAll("a")
-.forEach(function(link){
-
-    link.addEventListener(
-        "click",
-        function(){
-
-            mainNav.classList.remove(
-                "active"
-            );
-
-            menuToggle.classList.remove(
-                "active"
-            );
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   YOUTUBE ID
-===================================================== */
-
-function getYouTubeId(url){
-
-    if(!url)return "";
-
-    url=String(url).trim();
-
-    if(
-        /^[a-zA-Z0-9_-]{11}$/.test(url)
-    ){
-        return url;
-    }
-
-    try{
-
-        const parsed=
-        new URL(url);
-
-        if(
-            parsed.hostname
-            .includes("youtu.be")
-        ){
-
-            return parsed.pathname
-                .replace("/","")
-                .substring(0,11);
-
-        }
-
-        if(
-            parsed.hostname
-            .includes("youtube.com") ||
-            parsed.hostname
-            .includes("youtube-nocookie.com")
-        ){
-
-            const v=
-            parsed.searchParams.get("v");
-
-            if(v){
-                return v.substring(0,11);
-            }
-
-            const parts=
-            parsed.pathname.split("/");
-
-            const embed=
-            parts.indexOf("embed");
-
-            if(
-                embed!==-1 &&
-                parts[embed+1]
-            ){
-
-                return parts[embed+1]
-                    .substring(0,11);
-
-            }
-
-            const shorts=
-            parts.indexOf("shorts");
-
-            if(
-                shorts!==-1 &&
-                parts[shorts+1]
-            ){
-
-                return parts[shorts+1]
-                    .substring(0,11);
-
-            }
-
-        }
-
-    }catch(error){}
-
-    const match=
-    url.match(
-        /(?:v=|youtu\.be\/|embed\/|shorts\/)([a-zA-Z0-9_-]{11})/
-    );
-
-    return match
-        ? match[1]
-        : "";
-
-}
-
-
-/* =====================================================
-   MINIATURA
-===================================================== */
-
-function getThumbnail(id){
-
-    if(!id){
-
-        return "https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
-
-    }
-
-    return "https://i.ytimg.com/vi/"
-        +id+
-        "/hqdefault.jpg";
-
-}
-
-
-function fallbackThumbnail(img,id){
-
-    const sources=[
-
-        "https://i.ytimg.com/vi/"
-        +id+
-        "/mqdefault.jpg",
-
-        "https://i.ytimg.com/vi/"
-        +id+
-        "/default.jpg"
-
-    ];
-
-    const current=
-    img.dataset.fallbackIndex
-    ? Number(
-        img.dataset.fallbackIndex
-    )
-    : 0;
-
-    if(
-        current<sources.length
-    ){
-
-        img.dataset.fallbackIndex=
-        current+1;
-
-        img.src=
-        sources[current];
-
-    }else{
-
-        img.src=
-        "https://dummyimage.com/1280x720/181818/ffffff&text=ARTISTVIDEOS";
-
-    }
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-    if(
-        value===null ||
-        value===undefined
-    ){
-
-        return "";
-
-    }
-
-    return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =====================================================
-   REDES ORIGINALES
-===================================================== */
-
-function socialIcons(id){
-
-return `
-
-<div class="social-icons">
-
-<a href="#"
-aria-label="Facebook"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-</svg>
-
-</a>
-
-<a
-href="https://www.youtube.com/watch?v=${id}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="YouTube"
-onclick="event.stopPropagation();">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/>
-</svg>
-
-</a>
-
-<a href="#"
-aria-label="Instagram"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
-</svg>
-
-</a>
-
-<a href="#"
-aria-label="TikTok"
-onclick="
-event.preventDefault();
-event.stopPropagation();
-">
-
-<svg viewBox="0 0 24 24">
-<path d="M15.5 2h3c.2 1.7 1.1 3.2 2.5 4.2v3.1c-1.4-.1-2.7-.6-3.8-1.4v7.2a6.2 6.2 0 1 1-6.2-6.2c.4 0 .8 0 1.2.1v3.2a3.2 3.2 0 1 0 2 3V2h1.3z"/>
-</svg>
-
-</a>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-   REDES DE ARTISTA DESDE SUPABASE
-===================================================== */
-
-function adminSocialIcons(artist){
-
-    if(!artist){
-        return "";
-    }
-
-    let html=
-    `<div class="social-icons">`;
-
-    if(artist.facebook){
-
-        html+=`
-
-<a
-href="${escapeHTML(artist.facebook)}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Facebook"
-onclick="event.stopPropagation()">
-
-<svg viewBox="0 0 24 24">
-<path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-</svg>
-</a>
-
-`;
-
-    }
-
-    if(artist.instagram){
-
-        html+=`
-
-<a
-href="${escapeHTML(artist.instagram)}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Instagram"
-onclick="event.stopPropagation()">
-
-<svg viewBox="0 0 24 24">
-<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6.5a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
-</svg>
-</a>
-
-`;
-
-    }
-
-    if(artist.tiktok){
-
-        html+=`
-
-<a
-href="${escapeHTML(artist.tiktok)}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="TikTok"
-onclick="event.stopPropagation()">
-
-<svg viewBox="0 0 24 24">
-<path d="M15.5 2h3c.2 1.7 1.1 3.2 2.5 4.2v3.1c-1.4-.1-2.7-.6-3.8-1.4v7.2a6.2 6.2 0 1 1-6.2-6.2c.4 0 .8 0 1.2.1v3.2a3.2 3.2 0 1 0 2 3V2h1.3z"/>
-</svg>
-</a>
-
-`;
-
-    }
-
-    if(artist.youtube){
-
-        html+=`
-
-<a
-href="${escapeHTML(artist.youtube)}"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="YouTube"
-onclick="event.stopPropagation()">
-
-<svg viewBox="0 0 24 24">
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.1 3.5-6.1 3.5z"/>
-</svg>
-</a>
-
-`;
-
-    }
-
-    html+=
-    `</div>`;
-
-    if(
-        !artist.facebook &&
-        !artist.instagram &&
-        !artist.tiktok &&
-        !artist.youtube
-    ){
-
-        return "";
-
-    }
-
-    return html;
-
-}
-
-
-/* =====================================================
-   TARJETA ORIGINAL
-===================================================== */
-
-function createCard(
-    artist,
-    cardClass,
-    thumbClass,
-    playClass,
-    infoClass
-){
-
-    const card=
-    document.createElement("article");
-
-    card.className=cardClass;
-
-    card.innerHTML=`
-
-<div
-class="${thumbClass}"
-onclick="openVideo('${artist.id}')">
-
-<img
-src="${getThumbnail(artist.id)}"
-alt="${escapeHTML(artist.name)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
-
-<div class="${playClass}">
-▶
-</div>
-
-</div>
-
-<div class="${infoClass}">
-
-<h3>${escapeHTML(artist.name)}</h3>
-
-${socialIcons(artist.id)}
-
-<button
-type="button"
-class="watch-button"
-onclick="openVideo('${artist.id}')">
-
-▶ REPRODUCIR
-
-</button>
-
-</div>
-
-`;
-
-    return card;
-
-}
-
-
-/* =====================================================
-   RENDER HUAYNO ORIGINAL
-===================================================== */
-
-function renderVideos(list){
-
-    videoGrid.innerHTML="";
-
-    if(!list.length){
-
-        videoGrid.innerHTML=`
-
-<p style="
-grid-column:1/-1;
-text-align:center;
-color:#888;
-padding:30px;
-">
-No se encontraron artistas.
-</p>
-
-`;
-
-        return;
-
-    }
-
-    list.forEach(function(artist){
-
-        videoGrid.appendChild(
-            createCard(
-                artist,
-                "video-card",
-                "thumbnail",
-                "play-button",
-                "video-info"
-            )
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   CATEGORÍAS ORIGINALES
-===================================================== */
-
-function renderCategory(
-    grid,
-    list,
-    card,
-    thumb,
-    play,
-    info
-){
-
-    grid.innerHTML="";
-
-    list.forEach(function(artist){
-
-        grid.appendChild(
-            createCard(
-                artist,
-                card,
-                thumb,
-                play,
-                info
-            )
-        );
-
-    });
-
-}
-
-
-function renderCumbia(){
-
-renderCategory(
-    cumbiaGrid,
-    cumbiaArtists,
-    "cumbia-card",
-    "cumbia-thumbnail",
-    "cumbia-play",
-    "cumbia-info"
-);
-
-}
-
-
-function renderRequinto(){
-
-renderCategory(
-    requintoGrid,
-    requintoArtists,
-    "requinto-card",
-    "requinto-thumbnail",
-    "requinto-play",
-    "requinto-info"
-);
-
-}
-
-
-function renderSalay(){
-
-renderCategory(
-    salayGrid,
-    salayArtists,
-    "salay-card",
-    "salay-thumbnail",
-    "salay-play",
-    "salay-info"
-);
-
-}
-
-
-function renderFlorelisa(){
-
-renderCategory(
-    florelisaGrid,
-    florelisaArtists,
-    "florelisa-card",
-    "florelisa-thumbnail",
-    "florelisa-play",
-    "florelisa-info"
-);
-
-}
-
-
-/* =====================================================
-   ARTISTAS ORIGINALES
-===================================================== */
-
-function renderArtists(list){
-
-    artistsGrid.innerHTML="";
-
-    list.forEach(function(artist){
-
-        const item=
+    const particle =
         document.createElement("div");
 
-        item.className="artist";
+    particle.className =
+        "particle";
 
-        item.onclick=function(){
+    particle.style.left =
+        Math.random() * 100 + "%";
 
-            openVideo(artist.id);
+    particle.style.animationDuration =
+        (8 + Math.random() * 14) + "s";
 
-        };
+    particle.style.animationDelay =
+        (Math.random() * 10) + "s";
 
-        item.innerHTML=`
+    particle.style.opacity =
+        0.2 + Math.random() * 0.7;
 
-<div class="artist-image-box">
-
-<img
-class="artist-image"
-src="${getThumbnail(artist.id)}"
-alt="${escapeHTML(artist.name)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
-
-<div class="artist-play">
-▶
-</div>
-
-</div>
-
-<h3>${escapeHTML(artist.name)}</h3>
-
-<p>Ver video</p>
-
-`;
-
-        artistsGrid.appendChild(item);
-
-    });
-
-}
-
-
-/* =====================================================
-   POPULARES ORIGINALES
-===================================================== */
-
-function renderPopular(){
-
-    popularGrid.innerHTML="";
-
-    popularArtists.forEach(
-    function(artist,index){
-
-        const card=createCard(
-            artist,
-            "popular-card",
-            "popular-thumbnail",
-            "popular-play",
-            "popular-info"
-        );
-
-        const badge=
-        document.createElement("span");
-
-        badge.className="badge";
-
-        badge.textContent=
-            index===0
-            ? "🔥 MÁS VISTO"
-            : "POPULAR";
-
-        card
-        .querySelector(
-            ".popular-thumbnail"
-        )
-        .appendChild(badge);
-
-        popularGrid.appendChild(card);
-
-    });
-
-}
-
-
-/* =====================================================
-   ESTRENOS ORIGINALES
-===================================================== */
-
-function renderNew(){
-
-    newGrid.innerHTML="";
-
-    newArtists.forEach(function(artist){
-
-        const card=createCard(
-            artist,
-            "new-card",
-            "new-thumbnail",
-            "new-play",
-            "new-info"
-        );
-
-        const badge=
-        document.createElement("span");
-
-        badge.className="badge";
-
-        badge.textContent="🆕 ESTRENO";
-
-        card
-        .querySelector(
-            ".new-thumbnail"
-        )
-        .appendChild(badge);
-
-        newGrid.appendChild(card);
-
-    });
-
-}
-
-
-/* =====================================================
-   EXCLUSIVOS ORIGINALES
-===================================================== */
-
-function renderExclusive(){
-
-    exclusiveGrid.innerHTML="";
-
-    exclusiveArtists.forEach(
-    function(artist){
-
-        const card=
-        document.createElement("article");
-
-        card.className=
-        "exclusive-card";
-
-        card.innerHTML=`
-
-<div
-class="exclusive-image"
-onclick="openVideo('${artist.id}')">
-
-<span class="badge">
-EXCLUSIVO 2026
-</span>
-
-<img
-src="${getThumbnail(artist.id)}"
-alt="${escapeHTML(artist.name)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${artist.id}')">
-
-<div class="exclusive-play">
-▶
-</div>
-
-</div>
-
-<div class="exclusive-info">
-
-<h3>${escapeHTML(artist.name)}</h3>
-
-<p>
-Artista Exclusivo 2026
-</p>
-
-<button
-type="button"
-class="exclusive-button"
-onclick="openVideo('${artist.id}')">
-
-▶ REPRODUCIR
-
-</button>
-
-</div>
-
-`;
-
-        exclusiveGrid.appendChild(card);
-
-    });
-
-}
-
-
-/* =====================================================
-   CONVERTIR VIDEO DE SUPABASE
-===================================================== */
-
-function prepareSupabaseVideo(video){
-
-    const artist=
-    supabaseArtists.find(
-        function(item){
-
-            return String(item.id)
-            === String(video.artist_id);
-
-        }
-    ) || null;
-
-    const youtubeId=
-    getYouTubeId(
-        video.youtube_url
+    particles.appendChild(
+        particle
     );
-
-    return {
-
-        dbId:video.id,
-
-        id:youtubeId,
-
-        title:
-        video.title ||
-        "Video sin título",
-
-        description:
-        video.description ||
-        "",
-
-        category:
-        video.category ||
-        "Huayno",
-
-        popular:
-        Boolean(video.popular),
-
-        new_release:
-        Boolean(video.new_release),
-
-        exclusive:
-        Boolean(video.exclusive),
-
-        featured:
-        Boolean(video.featured),
-
-        artist:
-        artist
-        ? artist.name
-        : "ARTISTVIDEOS",
-
-        artistData:
-        artist,
-
-        image:
-        getThumbnail(youtubeId)
-
-    };
-
 }
 
 
-/* =====================================================
-   CARGAR ARTISTAS SUPABASE
-===================================================== */
+/* =========================================
+   FECHAS FIJAS
+========================================= */
 
-async function loadSupabaseArtists(){
+/*
 
-    const result=
-    await supabaseClient
-    .from("artists")
-    .select("*")
-    .order(
-        "created_at",
-        {
-            ascending:true
-        }
-    );
+   INICIO:
+   26 SEPTIEMBRE 2026
+   00:00:00
 
-    if(result.error){
+   FINAL:
+   28 SEPTIEMBRE 2026
+   23:59:59
 
-        console.error(
-            "Error cargando artistas:",
-            result.error
-        );
+   HORA DE PERÚ:
+   UTC-5
 
-        return [];
+   IMPORTANTE:
+   El contador NO utiliza la hora de carga
+   de la página.
 
-    }
+   Por eso NO se reinicia al actualizar.
 
-    return result.data || [];
+*/
 
-}
+const fechaInicio =
+    new Date(
+        "2026-09-26T00:00:00-05:00"
+    ).getTime();
 
 
-/* =====================================================
-   CARGAR VIDEOS SUPABASE
-===================================================== */
+const fechaFinal =
+    new Date(
+        "2026-09-28T23:59:59-05:00"
+    ).getTime();
 
-async function loadSupabaseVideos(){
 
-    const result=
-    await supabaseClient
-    .from("videos")
-    .select("*")
-    .order(
-        "created_at",
-        {
-            ascending:false
-        }
-    );
+const duracionTotal =
+    fechaFinal - fechaInicio;
 
-    if(result.error){
 
-        console.error(
-            "Error cargando videos:",
-            result.error
-        );
+/* =========================================
+   ACTUALIZAR CONTADOR
+========================================= */
 
-        return [];
+function actualizarContador(){
 
-    }
+    const ahora =
+        Date.now();
 
-    return result.data || [];
 
-}
+    let restante =
+        fechaFinal - ahora;
 
 
-/* =====================================================
-   CARGAR TODO SUPABASE
-===================================================== */
+    /* =====================================
+       CUANDO TERMINE
+    ====================================== */
 
-async function loadSupabase(){
+    if(restante <= 0){
 
-    try{
+        document.getElementById("days")
+            .textContent = "00";
 
-        const [
-            artistsData,
-            videosData
-        ]=
-        await Promise.all([
+        document.getElementById("hours")
+            .textContent = "00";
 
-            loadSupabaseArtists(),
+        document.getElementById("minutes")
+            .textContent = "00";
 
-            loadSupabaseVideos()
+        document.getElementById("seconds")
+            .textContent = "00";
 
-        ]);
 
-        supabaseArtists=
-        artistsData;
+        document.getElementById("progress")
+            .style.width = "100%";
 
-        supabaseVideos=
-        videosData
-        .map(
-            prepareSupabaseVideo
-        )
-        .filter(
-            function(video){
 
-                return Boolean(video.id);
+        document.getElementById("percentage")
+            .textContent = "100%";
 
-            }
-        );
 
-        renderDynamicContent();
+        document.querySelector(".status")
+            .innerHTML =
+            "● <span>Restauración completada. Verificando servicios...</span>";
 
-        renderFeatured();
-
-    }catch(error){
-
-        console.error(
-            "Error Supabase:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   NORMALIZAR CATEGORÍA
-===================================================== */
-
-function normalizeCategory(value){
-
-    return String(value || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(
-        /[\u0300-\u036f]/g,
-        ""
-    )
-    .trim();
-
-}
-
-
-/* =====================================================
-   OBTENER CLASE DE VIDEO
-===================================================== */
-
-function categoryClasses(category){
-
-    const cat=
-    normalizeCategory(category);
-
-    if(
-        cat==="cumbia" ||
-        cat==="cumbia surena"
-    ){
-
-        return {
-
-            card:"cumbia-card",
-
-            thumb:"cumbia-thumbnail",
-
-            play:"cumbia-play",
-
-            info:"cumbia-info"
-
-        };
-
-    }
-
-    if(cat==="requinto"){
-
-        return {
-
-            card:"requinto-card",
-
-            thumb:"requinto-thumbnail",
-
-            play:"requinto-play",
-
-            info:"requinto-info"
-
-        };
-
-    }
-
-    if(cat==="salay"){
-
-        return {
-
-            card:"salay-card",
-
-            thumb:"salay-thumbnail",
-
-            play:"salay-play",
-
-            info:"salay-info"
-
-        };
-
-    }
-
-    if(
-        cat==="florelisa" ||
-        cat==="flor elisa"
-    ){
-
-        return {
-
-            card:"florelisa-card",
-
-            thumb:"florelisa-thumbnail",
-
-            play:"florelisa-play",
-
-            info:"florelisa-info"
-
-        };
-
-    }
-
-    return {
-
-        card:"video-card",
-
-        thumb:"thumbnail",
-
-        play:"play-button",
-
-        info:"video-info"
-
-    };
-
-}
-
-
-/* =====================================================
-   TARJETA DINÁMICA SUPABASE
-===================================================== */
-
-function createDynamicCard(
-    video,
-    forcedType=""
-){
-
-    const classes=
-    forcedType
-    ? categoryClasses(
-        forcedType
-    )
-    : categoryClasses(
-        video.category
-    );
-
-    const card=
-    document.createElement("article");
-
-    card.className=
-    classes.card;
-
-    const artistName=
-    video.artist ||
-    "ARTISTVIDEOS";
-
-    const description=
-    video.description ||
-    "";
-
-    const social=
-    adminSocialIcons(
-        video.artistData
-    );
-
-    card.innerHTML=`
-
-<div
-class="${classes.thumb}"
-onclick="openVideo('${escapeHTML(video.id)}')">
-
-<img
-src="${escapeHTML(video.image)}"
-alt="${escapeHTML(video.title)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${escapeHTML(video.id)}')">
-
-<div class="${classes.play}">
-▶
-</div>
-
-</div>
-
-<div class="${classes.info}">
-
-<h3>
-${escapeHTML(video.title)}
-</h3>
-
-<p>
-${escapeHTML(artistName)}
-</p>
-
-${
-    description
-    ?
-    `<p>${escapeHTML(description)}</p>`
-    :
-    ""
-}
-
-${social}
-
-<button
-type="button"
-class="watch-button"
-onclick="openVideo('${escapeHTML(video.id)}')">
-
-▶ REPRODUCIR
-
-</button>
-
-</div>
-
-`;
-
-    return card;
-
-}
-
-
-/* =====================================================
-   AGREGAR VIDEO A GRID
-===================================================== */
-
-function appendDynamicVideo(
-    grid,
-    video,
-    type=""
-){
-
-    if(!grid || !video) return;
-
-    grid.appendChild(
-        createDynamicCard(
-            video,
-            type
-        )
-    );
-
-}
-
-
-/* =====================================================
-   RENDER CATEGORÍAS DINÁMICAS
-===================================================== */
-
-function renderDynamicCategories(){
-
-    const videos=
-    supabaseVideos;
-
-    videos.forEach(
-    function(video){
-
-        const category=
-        normalizeCategory(
-            video.category
-        );
-
-        if(
-            category==="cumbia" ||
-            category==="cumbia surena"
-        ){
-
-            appendDynamicVideo(
-                cumbiaGrid,
-                video,
-                "cumbia"
-            );
-
-        }
-
-        else if(
-            category==="requinto"
-        ){
-
-            appendDynamicVideo(
-                requintoGrid,
-                video,
-                "requinto"
-            );
-
-        }
-
-        else if(
-            category==="salay"
-        ){
-
-            appendDynamicVideo(
-                salayGrid,
-                video,
-                "salay"
-            );
-
-        }
-
-        else if(
-            category==="florelisa" ||
-            category==="flor elisa"
-        ){
-
-            appendDynamicVideo(
-                florelisaGrid,
-                video,
-                "florelisa"
-            );
-
-        }
-
-        else{
-
-            appendDynamicVideo(
-                videoGrid,
-                video,
-                "huayno"
-            );
-
-        }
-
-    });
-
-}
-
-
-/* =====================================================
-   POPULARES DINÁMICOS
-===================================================== */
-
-function renderDynamicPopular(){
-
-    supabaseVideos
-    .filter(
-        function(video){
-
-            return video.popular;
-
-        }
-    )
-    .forEach(
-        function(video){
-
-            const card=
-            createDynamicCard(
-                video,
-                "popular"
-            );
-
-            const thumbnail=
-            card.querySelector(
-                ".popular-thumbnail"
-            );
-
-            if(thumbnail){
-
-                const badge=
-                document.createElement(
-                    "span"
-                );
-
-                badge.className="badge";
-
-                badge.textContent=
-                "🔥 POPULAR";
-
-                thumbnail.appendChild(
-                    badge
-                );
-
-            }
-
-            popularGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   ESTRENOS DINÁMICOS
-===================================================== */
-
-function renderDynamicNew(){
-
-    supabaseVideos
-    .filter(
-        function(video){
-
-            return video.new_release;
-
-        }
-    )
-    .forEach(
-        function(video){
-
-            const card=
-            createDynamicCard(
-                video,
-                "huayno"
-            );
-
-            /*
-               Cambiamos solamente las
-               clases visuales necesarias
-               para que mantenga el diseño.
-            */
-
-            card.classList.remove(
-                "video-card"
-            );
-
-            card.classList.add(
-                "new-card"
-            );
-
-            const thumb=
-            card.querySelector(
-                ".thumbnail"
-            );
-
-            if(thumb){
-
-                thumb.classList.remove(
-                    "thumbnail"
-                );
-
-                thumb.classList.add(
-                    "new-thumbnail"
-                );
-
-                const play=
-                thumb.querySelector(
-                    ".play-button"
-                );
-
-                if(play){
-
-                    play.classList.remove(
-                        "play-button"
-                    );
-
-                    play.classList.add(
-                        "new-play"
-                    );
-
-                }
-
-                const badge=
-                document.createElement(
-                    "span"
-                );
-
-                badge.className="badge";
-
-                badge.textContent=
-                "🆕 ESTRENO";
-
-                thumb.appendChild(
-                    badge
-                );
-
-            }
-
-            const info=
-            card.querySelector(
-                ".video-info"
-            );
-
-            if(info){
-
-                info.classList.remove(
-                    "video-info"
-                );
-
-                info.classList.add(
-                    "new-info"
-                );
-
-            }
-
-            newGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   EXCLUSIVOS DINÁMICOS
-===================================================== */
-
-function renderDynamicExclusive(){
-
-    supabaseVideos
-    .filter(
-        function(video){
-
-            return video.exclusive;
-
-        }
-    )
-    .forEach(
-        function(video){
-
-            const card=
-            document.createElement(
-                "article"
-            );
-
-            card.className=
-            "exclusive-card";
-
-            card.innerHTML=`
-
-<div
-class="exclusive-image"
-onclick="openVideo('${escapeHTML(video.id)}')">
-
-<span class="badge">
-EXCLUSIVO 2026
-</span>
-
-<img
-src="${escapeHTML(video.image)}"
-alt="${escapeHTML(video.title)}"
-loading="lazy"
-onerror="fallbackThumbnail(this,'${escapeHTML(video.id)}')">
-
-<div class="exclusive-play">
-▶
-</div>
-
-</div>
-
-<div class="exclusive-info">
-
-<h3>
-${escapeHTML(video.title)}
-</h3>
-
-<p>
-${escapeHTML(
-    video.artist ||
-    "ARTISTVIDEOS"
-)}
-</p>
-
-${adminSocialIcons(
-    video.artistData
-)}
-
-<button
-type="button"
-class="exclusive-button"
-onclick="openVideo('${escapeHTML(video.id)}')">
-
-▶ REPRODUCIR
-
-</button>
-
-</div>
-
-`;
-
-            exclusiveGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   ARTISTAS DINÁMICOS
-===================================================== */
-
-function renderDynamicArtists(){
-
-    supabaseArtists.forEach(
-    function(artist){
-
-        const name=
-        String(
-            artist.name || ""
-        )
-        .trim();
-
-        if(!name) return;
-
-
-        const originalExists=
-        artists.some(
-            function(item){
-
-                return normalizeCategory(
-                    item.name
-                )===
-                normalizeCategory(
-                    name
-                );
-
-            }
-        );
-
-        if(originalExists) return;
-
-
-        const alreadyExists=
-        artistsGrid.querySelector(
-            `[data-admin-artist-id="${CSS.escape(String(artist.id))}"]`
-        );
-
-        if(alreadyExists) return;
-
-
-        const artistVideo=
-        supabaseVideos.find(
-            function(video){
-
-                return String(
-                    video.artistData?.id
-                )===
-                String(
-                    artist.id
-                );
-
-            }
-        );
-
-
-        let image=
-        artist.image || "";
-
-
-        if(!image && artistVideo){
-
-            image=
-            artistVideo.image;
-
-        }
-
-
-        if(!image){
-
-            image=
-            "https://dummyimage.com/600x600/181818/ffffff&text=ARTIST";
-
-        }
-
-
-        const item=
-        document.createElement("div");
-
-        item.className=
-        "artist admin-artist";
-
-        item.dataset.adminArtistId=
-        String(artist.id);
-
-
-        if(artistVideo){
-
-            item.onclick=
-            function(){
-
-                openVideo(
-                    artistVideo.id
-                );
-
-            };
-
-        }
-
-
-        item.innerHTML=`
-
-<div class="artist-image-box">
-
-<img
-class="artist-image"
-src="${escapeHTML(image)}"
-alt="${escapeHTML(name)}"
-loading="lazy"
-onerror="this.src='https://dummyimage.com/600x600/181818/ffffff&text=ARTIST'">
-
-${
-    artistVideo
-    ?
-    `<div class="artist-play">▶</div>`
-    :
-    ""
-}
-
-</div>
-
-<h3>
-${escapeHTML(name)}
-</h3>
-
-<p>
-${escapeHTML(
-    artist.description ||
-    "Artista"
-)}
-</p>
-
-`;
-
-
-        artistsGrid.appendChild(
-            item
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   RENDER DINÁMICO
-===================================================== */
-
-function renderDynamicContent(){
-
-    /*
-       Primero eliminamos únicamente
-       elementos que fueron creados por
-       Supabase en la actualización anterior.
-    */
-
-    document
-    .querySelectorAll(
-        ".admin-dynamic"
-    )
-    .forEach(
-        function(element){
-
-            element.remove();
-
-        }
-    );
-
-
-    /*
-       HUAYNO / CATEGORÍAS
-    */
-
-    renderDynamicCategories();
-
-
-    /*
-       POPULARES
-    */
-
-    renderDynamicPopular();
-
-
-    /*
-       ESTRENOS
-    */
-
-    renderDynamicNew();
-
-
-    /*
-       EXCLUSIVOS
-    */
-
-    renderDynamicExclusive();
-
-
-    /*
-       ARTISTAS
-    */
-
-    renderDynamicArtists();
-
-
-    /*
-       Marcamos los nuevos elementos
-       para futuras actualizaciones.
-    */
-
-    /*
-       Se vuelven a marcar buscando
-       contenido relacionado con Supabase.
-       No afecta el diseño.
-    */
-
-    document
-    .querySelectorAll(
-        ".video-grid article:not(.video-card),"+
-        ".cumbia-grid article:not(.cumbia-card),"+
-        ".requinto-grid article:not(.requinto-card),"+
-        ".salay-grid article:not(.salay-card),"+
-        ".florelisa-grid article:not(.florelisa-card)"
-    )
-    .forEach(
-        function(element){
-
-            element.classList.add(
-                "admin-dynamic"
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   BÚSQUEDA
-===================================================== */
-
-searchInput.addEventListener(
-"input",
-function(){
-
-    const search=
-    this.value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(
-        /[\u0300-\u036f]/g,
-        ""
-    )
-    .trim();
-
-
-    /*
-       Si no hay búsqueda,
-       restauramos todo.
-    */
-
-    if(!search){
-
-        renderVideos(artists);
-
-        /*
-           Volvemos a agregar los
-           videos dinámicos de Huayno.
-        */
-
-        supabaseVideos
-        .filter(
-            function(video){
-
-                const category=
-                normalizeCategory(
-                    video.category
-                );
-
-                return ![
-                    "cumbia",
-                    "cumbia surena",
-                    "requinto",
-                    "salay",
-                    "florelisa",
-                    "flor elisa"
-                ].includes(category);
-
-            }
-        )
-        .forEach(
-            function(video){
-
-                appendDynamicVideo(
-                    videoGrid,
-                    video,
-                    "huayno"
-                );
-
-            }
-        );
 
         return;
-
     }
 
 
-    /*
-       Buscar en artistas originales
-    */
+    /* =====================================
+       CALCULAR DÍAS
+    ====================================== */
 
-    const filteredOriginal=
-    artists.filter(
-        function(artist){
-
-            const name=
-            artist.name
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(
-                /[\u0300-\u036f]/g,
-                ""
-            );
-
-            return name.includes(
-                search
-            );
-
-        }
-    );
-
-
-    renderVideos(
-        filteredOriginal
-    );
-
-
-    /*
-       Buscar videos agregados
-       desde el administrador.
-    */
-
-    supabaseVideos
-    .filter(
-        function(video){
-
-            const title=
-            String(
-                video.title || ""
-            )
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(
-                /[\u0300-\u036f]/g,
-                ""
-            );
-
-            const artist=
-            String(
-                video.artist || ""
-            )
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(
-                /[\u0300-\u036f]/g,
-                ""
-            );
-
-            return (
-                title.includes(search) ||
-                artist.includes(search)
-            );
-
-        }
-    )
-    .forEach(
-        function(video){
-
-            appendDynamicVideo(
-                videoGrid,
-                video,
-                "huayno"
-            );
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   VIDEO DESTACADO
-   LOS EXCLUSIVOS NO ENTRAN AUTOMÁTICAMENTE
-===================================================== */
-
-function getFeaturedVideos(){
-
-    /*
-       Primero busca videos marcados
-       como DESTACADOS desde el admin.
-
-       EXCLUSIVOS quedan fuera.
-    */
-
-    const adminFeatured=
-    supabaseVideos.filter(
-        function(video){
-
-            return (
-                video.featured===true &&
-                video.exclusive!==true
-            );
-
-        }
-    );
-
-
-    if(adminFeatured.length){
-
-        return adminFeatured;
-
-    }
-
-
-    /*
-       Si no hay video destacado creado
-       desde admin, conserva el sistema
-       original.
-    */
-
-    return artists.map(
-        function(artist){
-
-            return {
-
-                id:artist.id,
-
-                title:artist.name,
-
-                artist:artist.name,
-
-                image:
-                getThumbnail(
-                    artist.id
-                ),
-
-                exclusive:false,
-
-                featured:true
-
-            };
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CREAR DOTS
-===================================================== */
-
-function renderFeaturedDots(){
-
-    sliderDots.innerHTML="";
-
-    featuredList.forEach(
-    function(video,index){
-
-        const dot=
-        document.createElement(
-            "button"
+    const dias =
+        Math.floor(
+            restante /
+            (1000 * 60 * 60 * 24)
         );
 
-        dot.type="button";
 
-        dot.className=
-        "slider-dot";
+    /* =====================================
+       CALCULAR HORAS
+    ====================================== */
 
-        dot.setAttribute(
-            "aria-label",
-            "Ver "+
-            (
-                video.title ||
-                video.artist ||
-                "video"
+    const horas =
+        Math.floor(
+            (restante /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    /* =====================================
+       CALCULAR MINUTOS
+    ====================================== */
+
+    const minutos =
+        Math.floor(
+            (restante /
+            (1000 * 60)) % 60
+        );
+
+
+    /* =====================================
+       CALCULAR SEGUNDOS
+    ====================================== */
+
+    const segundos =
+        Math.floor(
+            (restante / 1000) % 60
+        );
+
+
+    /* =====================================
+       MOSTRAR CONTADOR
+    ====================================== */
+
+    document.getElementById("days")
+        .textContent =
+        String(dias)
+            .padStart(2,"0");
+
+
+    document.getElementById("hours")
+        .textContent =
+        String(horas)
+            .padStart(2,"0");
+
+
+    document.getElementById("minutes")
+        .textContent =
+        String(minutos)
+            .padStart(2,"0");
+
+
+    document.getElementById("seconds")
+        .textContent =
+        String(segundos)
+            .padStart(2,"0");
+
+
+    /* =====================================
+       BARRA DE PROGRESO
+    ====================================== */
+
+    let porcentaje =
+        (
+            (ahora - fechaInicio)
+            /
+            duracionTotal
+        ) * 100;
+
+
+    porcentaje =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                porcentaje
             )
         );
 
-        dot.addEventListener(
-            "click",
-            function(){
 
-                showFeatured(index);
+    document.getElementById("progress")
+        .style.width =
+        porcentaje + "%";
 
-            }
-        );
 
-        sliderDots.appendChild(
-            dot
-        );
-
-    });
-
+    document.getElementById("percentage")
+        .textContent =
+        Math.floor(
+            porcentaje
+        ) + "%";
 }
 
 
-/* =====================================================
-   MOSTRAR DESTACADO
-===================================================== */
+/* =========================================
+   INICIAR
+========================================= */
 
-function showFeatured(index){
+actualizarContador();
 
-    if(!featuredList.length){
-        return;
-    }
 
+/* actualizar cada segundo */
 
-    if(index<0){
-
-        index=
-        featuredList.length-1;
-
-    }
-
-
-    if(
-        index>=
-        featuredList.length
-    ){
-
-        index=0;
-
-    }
-
-
-    featuredIndex=index;
-
-
-    const video=
-    featuredList[index];
-
-
-    featuredImage.src=
-    video.image ||
-    getThumbnail(video.id);
-
-
-    featuredImage.onerror=
-    function(){
-
-        fallbackThumbnail(
-            this,
-            video.id
-        );
-
-    };
-
-
-    featuredImage.alt=
-    video.title ||
-    video.artist ||
-    "Video destacado";
-
-
-    featuredTitle.textContent=
-    video.title ||
-    video.artist ||
-    "ARTISTVIDEOS";
-
-
-    coverTitle.textContent=
-    video.title ||
-    video.artist ||
-    "ARTISTVIDEOS";
-
-
-    youtubeLink.href=
-    "https://www.youtube.com/watch?v="+
-    video.id;
-
-
-    document
-    .querySelectorAll(
-        ".slider-dot"
-    )
-    .forEach(
-        function(dot,i){
-
-            dot.classList.toggle(
-                "active",
-                i===index
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   RENDER FEATURED
-===================================================== */
-
-function renderFeatured(){
-
-    featuredList=
-    getFeaturedVideos();
-
-    featuredIndex=0;
-
-    renderFeaturedDots();
-
-    showFeatured(0);
-
-    startFeaturedRotation();
-
-}
-
-
-/* =====================================================
-   SIGUIENTE
-===================================================== */
-
-function nextFeatured(){
-
-    showFeatured(
-        featuredIndex+1
-    );
-
-}
-
-
-/* =====================================================
-   ANTERIOR
-===================================================== */
-
-function previousFeatured(){
-
-    showFeatured(
-        featuredIndex-1
-    );
-
-}
-
-
-/* =====================================================
-   REPRODUCIR DESTACADO
-===================================================== */
-
-function playFeatured(){
-
-    if(!featuredList.length){
-        return;
-    }
-
-    const video=
-    featuredList[
-        featuredIndex
-    ];
-
-    if(video && video.id){
-
-        openVideo(
-            video.id
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   ROTACIÓN AUTOMÁTICA
-===================================================== */
-
-function startFeaturedRotation(){
-
-    clearInterval(
-        featuredTimer
-    );
-
-    if(
-        prefersReducedMotion
-    ){
-
-        return;
-
-    }
-
-
-    featuredTimer=
-    setInterval(
-        function(){
-
-            if(
-                featuredList.length>1
-            ){
-
-                nextFeatured();
-
-            }
-
-        },
-        5000
-    );
-
-}
-
-
-/* =====================================================
-   ABRIR VIDEO DENTRO DE ARTISTVIDEOS
-===================================================== */
-
-function openVideo(videoId){
-
-    if(!videoId){
-        return;
-    }
-
-
-    lastFocusedElement=
-    document.activeElement;
-
-
-    modalVideo.src=
-    "https://www.youtube.com/embed/"+
-    encodeURIComponent(videoId)+
-    "?autoplay=1&rel=0&playsinline=1";
-
-
-    modal.classList.add(
-        "active"
-    );
-
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.style.overflow=
-    "hidden";
-
-
-    requestAnimationFrame(
-        function(){
-
-            const closeButton=
-            document.querySelector(
-                ".close-modal"
-            );
-
-            if(closeButton){
-
-                closeButton.focus();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CERRAR VIDEO
-===================================================== */
-
-function closeVideo(){
-
-    modalVideo.src="";
-
-    modal.classList.remove(
-        "active"
-    );
-
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow="";
-
-
-    if(lastFocusedElement){
-
-        try{
-
-            lastFocusedElement.focus();
-
-        }catch(error){}
-
-        lastFocusedElement=null;
-
-    }
-
-}
-
-
-/* =====================================================
-   CERRAR AL HACER CLICK AFUERA
-===================================================== */
-
-function closeOutside(event){
-
-    if(
-        event.target===modal
-    ){
-
-        closeVideo();
-
-    }
-
-}
-
-
-/* =====================================================
-   TECLADO
-===================================================== */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-    if(
-        event.key==="Escape" &&
-        modal.classList.contains(
-            "active"
-        )
-    ){
-
-        closeVideo();
-
-        return;
-
-    }
-
-
-    if(
-        event.key==="ArrowRight" &&
-        !modal.classList.contains(
-            "active"
-        )
-    ){
-
-        nextFeatured();
-
-    }
-
-
-    if(
-        event.key==="ArrowLeft" &&
-        !modal.classList.contains(
-            "active"
-        )
-    ){
-
-        previousFeatured();
-
-    }
-
-});
-
-
-/* =====================================================
-   CARGAR TODO EL CONTENIDO ORIGINAL
-===================================================== */
-
-function renderOriginalContent(){
-
-    renderVideos(
-        artists
-    );
-
-    renderCumbia();
-
-    renderRequinto();
-
-    renderSalay();
-
-    renderFlorelisa();
-
-    renderArtists(
-        artists
-    );
-
-    renderPopular();
-
-    renderNew();
-
-    renderExclusive();
-
-}
-
-
-/* =====================================================
-   INICIALIZAR
-===================================================== */
-
-async function initialize(){
-
-    /*
-       Primero aparece inmediatamente
-       todo el contenido original.
-    */
-
-    renderOriginalContent();
-
-
-    /*
-       Destacado original mientras
-       Supabase carga.
-    */
-
-    featuredList=
-    getFeaturedVideos();
-
-    renderFeaturedDots();
-
-    showFeatured(0);
-
-    startFeaturedRotation();
-
-
-    /*
-       Después cargamos Supabase.
-    */
-
-    await loadSupabase();
-
-
-    /*
-       Actualización automática cada
-       30 segundos.
-    */
-
-    setInterval(
-        async function(){
-
-            await loadSupabase();
-
-        },
-        30000
-    );
-
-}
-
-
-/* =====================================================
-   INICIO
-===================================================== */
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-    initialize();
-
-});
-
-
-/* =====================================================
-   FUNCIONES GLOBALES
-===================================================== */
-
-window.openVideo=
-openVideo;
-
-window.closeVideo=
-closeVideo;
-
-window.closeOutside=
-closeOutside;
-
-window.playFeatured=
-playFeatured;
-
-window.nextFeatured=
-nextFeatured;
-
-window.previousFeatured=
-previousFeatured;
-
-window.fallbackThumbnail=
-fallbackThumbnail;
+setInterval(
+    actualizarContador,
+    1000
+);
 
 </script>
 
 </body>
-</html>
+</html> 
